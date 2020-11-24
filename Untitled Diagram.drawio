@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-11-24T13:49:04.374Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.112 Safari/537.36" etag="GuRoGldGuvvA7nX4ZImx" version="13.10.1" type="github">
+<mxfile host="app.diagrams.net" modified="2020-11-24T13:52:28.816Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.112 Safari/537.36" etag="WVi2yp1aRg4DnhupPNlD" version="13.10.1" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="2084" dy="1993" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -112,7 +112,7 @@
         <mxCell id="o15ucOB5DxPAaiV-ojEc-11" value="&lt;font style=&quot;font-size: 22px&quot;&gt;Model&lt;br&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="-300" y="630" width="40" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="o15ucOB5DxPAaiV-ojEc-13" value="&lt;font style=&quot;font-size: 28px&quot;&gt;&lt;b&gt;Initialization:&lt;br&gt;1.&amp;nbsp; Load Json object into HashSet&amp;lt;PokemonType&amp;gt;&lt;br&gt;2. Create player object&lt;br&gt;&lt;/b&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="o15ucOB5DxPAaiV-ojEc-13" value="&lt;font style=&quot;font-size: 28px&quot;&gt;&lt;b&gt;Initialization:&lt;br&gt;1.&amp;nbsp; Load Json object into HashSet&amp;lt;PokemonType&amp;gt; (used when need to spawn pokemon)&lt;br&gt;2. Create player object&lt;br&gt;&lt;/b&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="100" y="-340" width="640" height="20" as="geometry" />
         </mxCell>
         <mxCell id="o15ucOB5DxPAaiV-ojEc-17" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="o15ucOB5DxPAaiV-ojEc-7" target="o15ucOB5DxPAaiV-ojEc-4">
