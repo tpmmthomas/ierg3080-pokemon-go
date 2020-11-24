@@ -1,11 +1,11 @@
-<mxfile host="app.diagrams.net" modified="2020-11-24T07:06:26.010Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.112 Safari/537.36" etag="CQHgLpC4NmYDvmj9_cQy" version="13.10.1" type="github">
+<mxfile host="app.diagrams.net" modified="2020-11-24T11:31:58.759Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.112 Safari/537.36" etag="mKvNAuhApr7hQRsfgjy6" version="13.10.1" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="1700" dy="1737" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2084" dy="1993" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="zkfFHV4jXpPFQw0GAbJ--0" value="Player Class" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="-70" y="450" width="190" height="220" as="geometry">
+          <mxGeometry x="-70" y="585" width="190" height="220" as="geometry">
             <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
@@ -30,66 +30,74 @@
         <mxCell id="o15ucOB5DxPAaiV-ojEc-52" value="RemovePokemon&#xa;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--0">
           <mxGeometry y="164" width="190" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="o15ucOB5DxPAaiV-ojEc-0" value="Pokemon Database&amp;nbsp;&lt;br&gt;for Pokemon Class&lt;br&gt;(stored as json file)&lt;br&gt;&lt;br&gt;**Load into program during init,&lt;br&gt;gen objects of pokemon class&lt;br&gt;using info in this db." style="shape=dataStorage;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="-230" y="800" width="220" height="130" as="geometry" />
+        <mxCell id="o15ucOB5DxPAaiV-ojEc-0" value="Pokemon Database&amp;nbsp;&lt;br&gt;for Pokemon Class&lt;br&gt;(stored as json/XML file)&lt;br&gt;&lt;br&gt;**Load into program during init,&lt;br&gt;gen objects of pokemon class&lt;br&gt;using info in this db." style="shape=dataStorage;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-230" y="880" width="220" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="o15ucOB5DxPAaiV-ojEc-62" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="o15ucOB5DxPAaiV-ojEc-3" target="o15ucOB5DxPAaiV-ojEc-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o15ucOB5DxPAaiV-ojEc-65" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.625;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="o15ucOB5DxPAaiV-ojEc-3" target="o15ucOB5DxPAaiV-ojEc-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o15ucOB5DxPAaiV-ojEc-69" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="o15ucOB5DxPAaiV-ojEc-3" target="o15ucOB5DxPAaiV-ojEc-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o15ucOB5DxPAaiV-ojEc-75" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="o15ucOB5DxPAaiV-ojEc-3" target="o15ucOB5DxPAaiV-ojEc-8">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="o15ucOB5DxPAaiV-ojEc-3" value="Navigation" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="-80" y="-20" width="180" height="100" as="geometry" />
+          <mxGeometry x="-80" y="-10" width="180" height="100" as="geometry" />
         </mxCell>
         <mxCell id="o15ucOB5DxPAaiV-ojEc-4" value="Capture" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="160" y="-20" width="180" height="100" as="geometry" />
+          <mxGeometry x="234" y="-10" width="180" height="100" as="geometry" />
         </mxCell>
         <mxCell id="o15ucOB5DxPAaiV-ojEc-5" value="Gym-battle" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="410" y="-20" width="180" height="100" as="geometry" />
+          <mxGeometry x="600" width="180" height="100" as="geometry" />
         </mxCell>
         <mxCell id="o15ucOB5DxPAaiV-ojEc-53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="o15ucOB5DxPAaiV-ojEc-6" target="o15ucOB5DxPAaiV-ojEc-48">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="o15ucOB5DxPAaiV-ojEc-6" value="Manage Pokemon" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="760" y="-20" width="180" height="100" as="geometry" />
+          <mxGeometry x="935" y="-40" width="180" height="100" as="geometry" />
         </mxCell>
         <mxCell id="o15ucOB5DxPAaiV-ojEc-7" value="Simple Mini Game&lt;br&gt;(Haven&#39;t decided)&lt;br&gt;&lt;br&gt;If game is simple enough, should not need to use other class" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="170" y="160" width="160" height="150" as="geometry" />
+          <mxGeometry x="244" y="170" width="160" height="150" as="geometry" />
         </mxCell>
-        <mxCell id="o15ucOB5DxPAaiV-ojEc-8" value="1. Allow walk around using arrow key (OnKeyPress -- Change Pos)&lt;br&gt;&lt;br&gt;2. Spawn Pokemon randomly (May use timer function, but must set max pokemon seen on screen)&amp;nbsp;&lt;br&gt;&lt;br&gt;3. Fixed Gym Locations&lt;br&gt;&lt;br&gt;4. Fixed map in background&lt;br&gt;&lt;br&gt;5. Spawn pokeballs and let users collect ? (I don&#39;t think the real game works that way, but seems suitable if we don&#39;t have a store)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="-90" y="160" width="200" height="230" as="geometry" />
+        <mxCell id="o15ucOB5DxPAaiV-ojEc-74" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.625;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="o15ucOB5DxPAaiV-ojEc-8" target="o15ucOB5DxPAaiV-ojEc-3">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="o15ucOB5DxPAaiV-ojEc-9" value="&lt;font style=&quot;font-size: 22px&quot;&gt;Logics&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="o15ucOB5DxPAaiV-ojEc-8" value="1. Allow walk around using arrow key (OnKeyPress -- Change Pos)&lt;br&gt;&lt;br&gt;2. Spawn Pokemon randomly (May use timer function, but must set max pokemon seen on screen)&amp;nbsp;&lt;br&gt;&lt;br&gt;3. Fixed Gym Locations&lt;br&gt;&lt;br&gt;4. Fixed map in background&lt;br&gt;&lt;br&gt;5. Spawn pokeballs and let users collect ? (I don&#39;t think the real game works that way, but seems suitable if we don&#39;t have a store)&lt;br&gt;&lt;br&gt;6. May be add current time into the game for implementing our extra feature?" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-90" y="160" width="200" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="o15ucOB5DxPAaiV-ojEc-9" value="&lt;font style=&quot;font-size: 22px&quot;&gt;Presenter&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="-290" y="230" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="o15ucOB5DxPAaiV-ojEc-10" value="&lt;font style=&quot;font-size: 28px&quot;&gt;&lt;b&gt;Views&lt;/b&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="-300" y="30" width="40" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="o15ucOB5DxPAaiV-ojEc-11" value="&lt;font style=&quot;font-size: 22px&quot;&gt;Underlying&lt;br&gt;Classes&lt;br&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="-280" y="500" width="40" height="20" as="geometry" />
+        <mxCell id="o15ucOB5DxPAaiV-ojEc-11" value="&lt;font style=&quot;font-size: 22px&quot;&gt;Model&lt;br&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-300" y="500" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="o15ucOB5DxPAaiV-ojEc-13" value="&lt;font style=&quot;font-size: 28px&quot;&gt;&lt;b&gt;Initialization:&lt;br&gt;1.&amp;nbsp;&lt;br&gt;&lt;/b&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="100" y="-240" width="640" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="o15ucOB5DxPAaiV-ojEc-14" value="" style="endArrow=classic;startArrow=classic;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="o15ucOB5DxPAaiV-ojEc-8" target="o15ucOB5DxPAaiV-ojEc-3">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="280" y="180" as="sourcePoint" />
-            <mxPoint x="330" y="130" as="targetPoint" />
-            <Array as="points" />
-          </mxGeometry>
-        </mxCell>
         <mxCell id="o15ucOB5DxPAaiV-ojEc-17" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="o15ucOB5DxPAaiV-ojEc-7" target="o15ucOB5DxPAaiV-ojEc-4">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="280" y="180" as="sourcePoint" />
-            <mxPoint x="330" y="130" as="targetPoint" />
+            <mxPoint x="354" y="190" as="sourcePoint" />
+            <mxPoint x="404" y="140" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="o15ucOB5DxPAaiV-ojEc-18" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="499.5" y="160" as="sourcePoint" />
-            <mxPoint x="499.5" y="80" as="targetPoint" />
+            <mxPoint x="689.5" y="180" as="sourcePoint" />
+            <mxPoint x="689.5" y="100" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="o15ucOB5DxPAaiV-ojEc-19" value="1. Randomly select pokemon for player to fight (Check if condition is satisfied for generating ultra rare pokemon)&lt;br&gt;&lt;br&gt;2.&amp;nbsp; Allow player choose 1 pokemon to be deployed&lt;br&gt;&lt;br&gt;3. Create instance of battle pokemon for both sides&lt;br&gt;&lt;br&gt;4. Turn-based battle, use buttons to let player choose move? (for simplicity.) Computer move chosen at random.&lt;br&gt;&lt;br&gt;5. Battle ends when HP drain out&lt;br&gt;&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="380" y="160" width="270" height="230" as="geometry" />
+          <mxGeometry x="570" y="180" width="270" height="230" as="geometry" />
         </mxCell>
         <mxCell id="o15ucOB5DxPAaiV-ojEc-20" value="AttackMoves Class" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="660" y="590" width="200" height="190" as="geometry">
+          <mxGeometry x="380" y="860" width="200" height="190" as="geometry">
             <mxRectangle x="550" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
@@ -106,7 +114,7 @@
           <mxGeometry y="104" width="200" height="8" as="geometry" />
         </mxCell>
         <mxCell id="o15ucOB5DxPAaiV-ojEc-31" value="Pokemon Class" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="370" y="460" width="200" height="320" as="geometry">
+          <mxGeometry x="440" y="500" width="200" height="320" as="geometry">
             <mxRectangle x="550" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
@@ -146,20 +154,41 @@
         <mxCell id="o15ucOB5DxPAaiV-ojEc-40" value="Output As Label" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="o15ucOB5DxPAaiV-ojEc-31">
           <mxGeometry y="294" width="200" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="o15ucOB5DxPAaiV-ojEc-44" value="Attack Moves Database&amp;nbsp;&lt;br&gt;for AttackMoves Class&lt;br&gt;(stored as json file)&lt;br&gt;&lt;br&gt;" style="shape=dataStorage;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="50" y="800" width="220" height="130" as="geometry" />
+        <mxCell id="o15ucOB5DxPAaiV-ojEc-44" value="Attack Moves Database&amp;nbsp;&lt;br&gt;for AttackMoves Class&lt;br&gt;(stored as json/XML file)&lt;br&gt;" style="shape=dataStorage;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="60" y="920" width="220" height="130" as="geometry" />
         </mxCell>
-        <mxCell id="o15ucOB5DxPAaiV-ojEc-48" value="1. Create interface for displaying pokemons owned (Retrieve via function ...) Make a scrolling menu (?) when choosing pokemons&lt;br&gt;&lt;br&gt;2. Display info of each pokemon when clicked on it. Power up, evolve, rename and sell options (by button again, both power up and evolve uses stardust, and selling gets stardust for simplicity? Basically make it the only currency)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="715" y="160" width="270" height="210" as="geometry" />
+        <mxCell id="o15ucOB5DxPAaiV-ojEc-48" value="1. Create interface for displaying pokemons owned (Retrieve via function ...) Make a scrolling menu (?) when choosing pokemons&lt;br&gt;&lt;br&gt;2. Display info of each pokemon when clicked on it. Power up, evolve, rename and sell options (by button again, both power up and evolve uses stardust, and selling gets stardust for simplicity? Basically make stardust the only currency)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="890" y="170" width="270" height="230" as="geometry" />
         </mxCell>
         <mxCell id="o15ucOB5DxPAaiV-ojEc-54" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="849.5" y="160" as="sourcePoint" />
-            <mxPoint x="849.5" y="80" as="targetPoint" />
+            <mxPoint x="1024.5" y="170" as="sourcePoint" />
+            <mxPoint x="1024.5" y="90" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="o15ucOB5DxPAaiV-ojEc-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="o15ucOB5DxPAaiV-ojEc-11" target="o15ucOB5DxPAaiV-ojEc-11">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o15ucOB5DxPAaiV-ojEc-63" value="Text" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="400" y="150" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="o15ucOB5DxPAaiV-ojEc-64" value="Run into pokemon" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="140" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="o15ucOB5DxPAaiV-ojEc-66" value="Text" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="400" y="240" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="o15ucOB5DxPAaiV-ojEc-67" value="Run into a gym" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="280" y="-50" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="o15ucOB5DxPAaiV-ojEc-70" value="Clicked the pokeball icon" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="520" y="-80" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="o15ucOB5DxPAaiV-ojEc-71" value="Arrow Key press" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-100" y="110" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="o15ucOB5DxPAaiV-ojEc-72" value="update location&lt;br&gt;spawn pokemon&lt;br&gt;spawn pokeball" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="70" y="95" width="100" height="50" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
