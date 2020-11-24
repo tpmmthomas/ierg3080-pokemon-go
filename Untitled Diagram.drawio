@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-11-24T13:52:28.816Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.112 Safari/537.36" etag="WVi2yp1aRg4DnhupPNlD" version="13.10.1" type="github">
+<mxfile host="app.diagrams.net" modified="2020-11-24T14:02:11.336Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.112 Safari/537.36" etag="IWu0bxVb9yjOiUGE9hNR" version="13.10.1" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="2084" dy="1993" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -18,7 +18,7 @@
         <mxCell id="zkfFHV4jXpPFQw0GAbJ--2" value="&lt;HashSet&gt; OwnedPokemons" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="zkfFHV4jXpPFQw0GAbJ--0" vertex="1">
           <mxGeometry y="78" width="190" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="o15ucOB5DxPAaiV-ojEc-30" value="Stardust (Property get only)" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--0">
+        <mxCell id="o15ucOB5DxPAaiV-ojEc-30" value="Stardust (Property)" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--0">
           <mxGeometry y="104" width="190" height="26" as="geometry" />
         </mxCell>
         <mxCell id="zkfFHV4jXpPFQw0GAbJ--4" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="zkfFHV4jXpPFQw0GAbJ--0" vertex="1">
@@ -112,7 +112,7 @@
         <mxCell id="o15ucOB5DxPAaiV-ojEc-11" value="&lt;font style=&quot;font-size: 22px&quot;&gt;Model&lt;br&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="-300" y="630" width="40" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="o15ucOB5DxPAaiV-ojEc-13" value="&lt;font style=&quot;font-size: 28px&quot;&gt;&lt;b&gt;Initialization:&lt;br&gt;1.&amp;nbsp; Load Json object into HashSet&amp;lt;PokemonType&amp;gt; (used when need to spawn pokemon)&lt;br&gt;2. Create player object&lt;br&gt;&lt;/b&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="o15ucOB5DxPAaiV-ojEc-13" value="&lt;font style=&quot;font-size: 28px&quot;&gt;&lt;b&gt;Initialization:&lt;br&gt;1.&amp;nbsp; Load Json object into HashSet&amp;lt;PokemonType&amp;gt; (used when need to spawn pokemon)&lt;br&gt;2. Create player object&lt;br&gt;3. Move to Navigation Screen&lt;br&gt;&lt;/b&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="100" y="-340" width="640" height="20" as="geometry" />
         </mxCell>
         <mxCell id="o15ucOB5DxPAaiV-ojEc-17" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="o15ucOB5DxPAaiV-ojEc-7" target="o15ucOB5DxPAaiV-ojEc-4">
@@ -134,7 +134,7 @@
           <mxGeometry x="570" y="180" width="270" height="230" as="geometry" />
         </mxCell>
         <mxCell id="o15ucOB5DxPAaiV-ojEc-31" value="Pokemon Class" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="214" y="530" width="200" height="320" as="geometry">
+          <mxGeometry x="214" y="530" width="200" height="372" as="geometry">
             <mxRectangle x="550" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
@@ -156,7 +156,7 @@
         <mxCell id="o15ucOB5DxPAaiV-ojEc-36" value="Value (for selling) (Property)" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="o15ucOB5DxPAaiV-ojEc-31">
           <mxGeometry y="156" width="200" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="o15ucOB5DxPAaiV-ojEc-46" value="Evolve state (1,2,3)" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="o15ucOB5DxPAaiV-ojEc-31">
+        <mxCell id="o15ucOB5DxPAaiV-ojEc-46" value="Evolve state (1,2,3) (Property)" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="o15ucOB5DxPAaiV-ojEc-31">
           <mxGeometry y="182" width="200" height="26" as="geometry" />
         </mxCell>
         <mxCell id="o15ucOB5DxPAaiV-ojEc-37" value="HP (Property)" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="o15ucOB5DxPAaiV-ojEc-31">
@@ -171,8 +171,14 @@
         <mxCell id="o15ucOB5DxPAaiV-ojEc-40" value="Heal (?)" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="o15ucOB5DxPAaiV-ojEc-31">
           <mxGeometry y="268" width="200" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="o15ucOB5DxPAaiV-ojEc-128" value="GetAttackMoves" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="o15ucOB5DxPAaiV-ojEc-31">
+        <mxCell id="o15ucOB5DxPAaiV-ojEc-169" value="GetAttackMoves" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="o15ucOB5DxPAaiV-ojEc-31">
           <mxGeometry y="294" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="o15ucOB5DxPAaiV-ojEc-170" value="Evolve" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="o15ucOB5DxPAaiV-ojEc-31">
+          <mxGeometry y="320" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="o15ucOB5DxPAaiV-ojEc-128" value="PowerUp" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="o15ucOB5DxPAaiV-ojEc-31">
+          <mxGeometry y="346" width="200" height="26" as="geometry" />
         </mxCell>
         <mxCell id="o15ucOB5DxPAaiV-ojEc-99" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="o15ucOB5DxPAaiV-ojEc-44">
           <mxGeometry relative="1" as="geometry">
@@ -185,7 +191,13 @@
         <mxCell id="o15ucOB5DxPAaiV-ojEc-132" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.625;entryY=1;entryDx=0;entryDy=0;fontColor=#0000FF;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="o15ucOB5DxPAaiV-ojEc-48" target="o15ucOB5DxPAaiV-ojEc-6">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="o15ucOB5DxPAaiV-ojEc-48" value="1. Create interface for displaying pokemons owned (Retrieve via function ...) Make a scrolling menu (?) when choosing pokemons&lt;br&gt;&lt;br&gt;2. Display info of each pokemon when clicked on it. Power up, evolve, rename and sell options (by button again, both power up and evolve uses stardust, and selling gets stardust for simplicity? Basically make stardust the only currency)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="o15ucOB5DxPAaiV-ojEc-171" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=-0.115;entryDx=0;entryDy=0;entryPerimeter=0;fontColor=#000000;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="o15ucOB5DxPAaiV-ojEc-48" target="o15ucOB5DxPAaiV-ojEc-79">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o15ucOB5DxPAaiV-ojEc-173" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=1.01;entryY=-0.308;entryDx=0;entryDy=0;entryPerimeter=0;fontColor=#000000;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="o15ucOB5DxPAaiV-ojEc-48" target="o15ucOB5DxPAaiV-ojEc-128">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o15ucOB5DxPAaiV-ojEc-48" value="1. Create interface for displaying pokemons owned. Make a scrolling menu (?) when choosing pokemons&lt;br&gt;&lt;br&gt;2. Display info of each pokemon when clicked on it. Power up, evolve, rename and sell options (by button again, both power up and evolve uses stardust, and selling gets stardust for simplicity? Basically make stardust the only currency)&lt;br&gt;&lt;br&gt;3. Set required stardust according to current CP and evolve state? (I guess no need to do in in the class, same for every pokemon)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="890" y="170" width="270" height="230" as="geometry" />
         </mxCell>
         <mxCell id="o15ucOB5DxPAaiV-ojEc-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="o15ucOB5DxPAaiV-ojEc-11" target="o15ucOB5DxPAaiV-ojEc-11">
@@ -213,13 +225,13 @@
           <mxGeometry x="-60" y="500" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="o15ucOB5DxPAaiV-ojEc-83" value="For Generating&lt;br&gt;(Pass to constructor)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="240" y="880" width="65" height="20" as="geometry" />
+          <mxGeometry x="244" y="930" width="65" height="20" as="geometry" />
         </mxCell>
         <mxCell id="o15ucOB5DxPAaiV-ojEc-100" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="o15ucOB5DxPAaiV-ojEc-85" target="o15ucOB5DxPAaiV-ojEc-31">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="o15ucOB5DxPAaiV-ojEc-85" value="PokemonType Class " style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="214" y="930" width="200" height="320" as="geometry">
+          <mxGeometry x="214" y="990" width="200" height="320" as="geometry">
             <mxRectangle x="550" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
@@ -298,7 +310,7 @@
           <mxGeometry x="700" y="980" width="190" height="20" as="geometry" />
         </mxCell>
         <mxCell id="o15ucOB5DxPAaiV-ojEc-134" value="Show List of available Pokemons" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="1100" y="105" width="40" height="20" as="geometry" />
+          <mxGeometry x="1115" y="105" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="o15ucOB5DxPAaiV-ojEc-135" value="Select Pokemon, button Controls" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="910" y="95" width="40" height="20" as="geometry" />
@@ -310,7 +322,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="o15ucOB5DxPAaiV-ojEc-150" value="AttackMoves Class" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="480" y="940" width="200" height="100" as="geometry">
+          <mxGeometry x="480" y="980" width="200" height="100" as="geometry">
             <mxRectangle x="550" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
@@ -327,7 +339,16 @@
           <mxGeometry x="420" y="420" width="190" height="20" as="geometry" />
         </mxCell>
         <mxCell id="o15ucOB5DxPAaiV-ojEc-166" value="Used By" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000000;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="450" y="870" width="70" height="20" as="geometry" />
+          <mxGeometry x="450" y="920" width="70" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="o15ucOB5DxPAaiV-ojEc-167" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;fontColor=#000000;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="o15ucOB5DxPAaiV-ojEc-117" target="o15ucOB5DxPAaiV-ojEc-48">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o15ucOB5DxPAaiV-ojEc-168" value="GetPokemons()" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="795" y="720" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="o15ucOB5DxPAaiV-ojEc-172" value="RemovePokemon() if sold" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000000;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="760" y="810" width="280" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
