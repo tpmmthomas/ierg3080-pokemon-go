@@ -74,7 +74,10 @@ public class PokemonType{
     public string Name{
         get{return name;}
     }
-    HashSet<AttackMoves> AtkMovesList;
+    private HashSet<AttackMoves> atkMovesList;
+    public HashSet<AttackMoves> AtkMovesList{
+        get{return atkMovesList;}
+    }
     private int upperWeight;
     public int UpperWeight{
         get{return upperWeight};
@@ -115,10 +118,58 @@ public class AttackMoves{
     public string Name{
         return name;
     }
+    private int attackPoints;
+    public int AttackPoints{
+        return attackPoints;
+    }
+    public AttackMoves(string n,int ap){
+        name = n;
+        attackPoints = ap;
+    }
+
 }
 
 
 public class Pokemon{
     private string name;
-    public 
+    public string Name{
+        get{return name;}
+    }
+    private HashSet<AttackMoves> moveslist;
+    public HashSet<AttackMoves> Moveslist{
+        get{return moveslist;}
+    }
+    private int weight;
+    public int Weight{
+        get{return weight;}
+    }
+    private int height;
+    public int Height{
+        get{return height;}
+    }
+    private int CP;
+    public int GetCP{
+        get{return CP;}
+    }
+    private int value;
+    public int Value{
+        get{return value;}
+    }
+    private int maxHP;
+    public int MaxHP{
+        get{return maxHP;}
+    }
+    private int evolvestate; //1,2,3, 1 lowest, 3 highest
+    private int HP;
+    public int GetHP{
+        get{return HP;}
+    }
+    public Pokemon(PokemonType x){
+        Random rand = new Random();
+        name = x.Name;
+        moveslist = x.AtkMovesList;
+        weight = rand.Next(x.LowerWeight,x.UpperWeight+1);
+        height = rand.Next(x.LowerHeight,x.UpperHeight+1);
+        
+    }
 }
