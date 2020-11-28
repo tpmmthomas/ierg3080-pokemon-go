@@ -1,5 +1,5 @@
 using System;
-
+using System.Collections.Generic;
 
 public class Player{
     private string name;
@@ -59,6 +59,66 @@ public class Player{
 
 }
 
-public class Pokemon{
+public enum Rarity{
+    Common,
+    Rare,
+    UltraRare
+}
 
+public class PokemonType{
+    private Rarity raretype;
+    public Rarity Raretype{
+        get{return raretype;}
+    }
+    private string name;
+    public string Name{
+        get{return name;}
+    }
+    HashSet<AttackMoves> AtkMovesList;
+    private int upperWeight;
+    public int UpperWeight{
+        get{return upperWeight};
+    }
+    private int lowerWeight;
+    public int LowerWeight{
+        get{return lowerWeight};
+    }
+    private int upperHeight;
+    public int UpperHeight{
+        get{return upperHeight};
+    }
+    private int lowerHeight;
+    public int LowerHeight{
+        get{return lowerHeight};
+    }
+    private int initialCP;
+    public int InitialCP{
+        get{return initialCP};
+    }
+    private int value; //in CP
+    public int Value{
+        get{return value};
+    }
+    private int initialHP;
+    public int InitialHP{
+        get{return initialHP};
+    }
+
+    public PokemonType(){
+        //To be implemented, get a list
+    }
+
+}
+
+public class AttackMoves{
+    private string name;
+    public string Name{
+        return name;
+    }
+}
+
+
+public class Pokemon{
+    private string name;
+    public 
 }
