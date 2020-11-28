@@ -170,6 +170,6 @@ public class Pokemon{
         moveslist = x.AtkMovesList;
         weight = rand.Next(x.LowerWeight,x.UpperWeight+1);
         height = rand.Next(x.LowerHeight,x.UpperHeight+1);
-        
+
     }
 }
