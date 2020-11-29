@@ -59,16 +59,10 @@ public class Player{
 
 }
 
-public enum Rarity{
-    Common,
-    Rare,
-    UltraRare
-}
-
 public class PokemonType{
-    private Rarity raretype;
-    public Rarity Raretype{
-        get{return raretype;}
+    private int rarity; //1: common, 2: rare, 3: ultra-rare
+    public int Rarity{
+        get{return rarity;}
     }
     private string name;
     public string Name{
@@ -107,21 +101,27 @@ public class PokemonType{
         get{return initialHP};
     }
 
-    public PokemonType(){
-        //To be implemented, get a list
+    public PokemonType(int rar, string nam, int uw, int lw, int lh, int uh, int icp, int val, int ihp,string mv1, int dmg1, string mv2,int dmg2, string mv3, int dmg3){
+        rarity = rar;
+        name = nam;
+        lowerWeight = lw;
+        upperWeight = uw;
+        lowerHeight = lh;
+        upperHeight = uh;
+        initialCP = icp;
+        value = val;
+        initialHP = ihp;
+        atkMovesList = new HashSet<AttackMoves>();
+        atkMovesList.Add(new AttackMoves(mv1,dmg1));
+        atkMovesList.Add(new AttackMoves(mv2,dmg2));
+        atkMovesList.Add(new AttackMoves(mv3,dmg3));
     }
 
 }
 
 public class AttackMoves{
-    private string name;
-    public string Name{
-        return name;
-    }
-    private int attackPoints;
-    public int AttackPoints{
-        return attackPoints;
-    }
+    public string name;
+    public int attackPoints;
     public AttackMoves(string n,int ap){
         name = n;
         attackPoints = ap;
@@ -170,6 +170,49 @@ public class Pokemon{
         moveslist = x.AtkMovesList;
         weight = rand.Next(x.LowerWeight,x.UpperWeight+1);
         height = rand.Next(x.LowerHeight,x.UpperHeight+1);
-
+        CP = x.InitialCP;
+        value = x.Value;
+        maxHP = x.InitialHP;
+        evolvestate = 1;
+        HP = maxHP;
     }
+
+    public int Hit(int atkhp){
+        if(HP-atkhp>0){
+            HP -= atkhp;
+            return 0;
+        }
+        else{
+            HP=0;
+            return 1;
+        }
+    }
+
+    public void Heal(){
+        HP = maxHP;
+    }
+
+    public int evolve(){
+        if(evolvestate == 3)
+            return 1;
+        evolvestate++;
+        name = name+"+";
+        weight += rand.Next(1,3);
+        height += rand.Next(5,20);
+        foreach(AttackMoves x in moveslist){
+            x.attackPoints += rand.Next(2,5);
+        }
+        CP += rand.Next(60,200);
+        if(CP>2000) CP = 2000;
+        maxHP += rand.Next(1,6);
+        if(maxHP>100) maxHP =100;
+        HP = maxHP;
+        return 0;
+    }
+
+    public int PowerUP(){
+        CP += rand.Next(30,100);
+        if(CP>2000) CP = 2000;
+    }
+
 }
