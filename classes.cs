@@ -197,22 +197,25 @@ public class Pokemon{
             return 1;
         evolvestate++;
         name = name+"+";
-        weight += rand.Next(1,3);
-        height += rand.Next(5,20);
+        weight += rand.Next(1,10);
+        height += rand.Next(1,10)/10;
         foreach(AttackMoves x in moveslist){
-            x.attackPoints += rand.Next(2,5);
+            x.attackPoints += rand.Next(5,20);
         }
         CP += rand.Next(60,200);
-        if(CP>2000) CP = 2000;
-        maxHP += rand.Next(1,6);
-        if(maxHP>100) maxHP =100;
+        if(CP>2500) CP = 2500;
+        maxHP += rand.Next(40,100);
+        if(maxHP>300) maxHP = 300;
         HP = maxHP;
         return 0;
     }
 
     public int PowerUP(){
         CP += rand.Next(30,100);
-        if(CP>2000) CP = 2000;
+        if(CP>2500) CP = 2500;
+        foreach(AttackMoves x in moveslist){
+            x.attackPoints += rand.Next(0,2);
+        }
     }
 
 }
