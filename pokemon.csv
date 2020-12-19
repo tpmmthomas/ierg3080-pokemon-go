@@ -1,0 +1,8 @@
+﻿Name,Rarity,Weight Upper,Weight Lower,Height Upper,Height Lower,CP,HP,mv1,dmg1,mv2,dmg2,mv3,dmg3
+Bulbasaur,1,7.5,6.5,0.8,0.6,600,90,Seed Bomb,12,Sludge Bomb,20,Power Whip,30
+Squirtle,1,11,9,0.6,0.4,500,90,Aqua Jet,8,Aqua Tail,15,Water Pulse,20
+Charmander,1,9.5,7.5,0.7,0.5,550,90,Flamethrower,11,Flame Charge,11,Flame Burst,11
+Pikachu,1,8,4,0.5,0.3,550,90,Discharge,10,Thunderbolt,20,Wild Charge,32
+Snorlax,2,480,450,2.3,1.9,1800,150,Yawn,0,Earthquake,40,Hyper Beam,50
+Lapras,2,240,200,2.8,2.2,1400,150,Frost Breath,30,Blizzazrd,50,Hydro Pump,50
+Mewtwo,3,110,130,2.2,1.8,2200,200,Confusion,30,Flamethrower,50,Ice Beam,50
