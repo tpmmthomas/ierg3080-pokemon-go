@@ -40,7 +40,7 @@ public class Player{
     public void RemovePokemon(Pokemon a){
         int index = OwnedPokemons.IndexOf(a);
         if(index!= -1){
-            OwnedPokemon.RemoveAt(index);
+            OwnedPokemons.RemoveAt(index);
         }
     }
 
@@ -74,31 +74,31 @@ public class PokemonType{
     }
     private int upperWeight;
     public int UpperWeight{
-        get{return upperWeight};
+        get{return upperWeight;}
     }
     private int lowerWeight;
     public int LowerWeight{
-        get{return lowerWeight};
+        get{return lowerWeight;}
     }
     private int upperHeight;
     public int UpperHeight{
-        get{return upperHeight};
+        get{return upperHeight;}
     }
     private int lowerHeight;
     public int LowerHeight{
-        get{return lowerHeight};
+        get{return lowerHeight;}
     }
     private int initialCP;
     public int InitialCP{
-        get{return initialCP};
+        get{return initialCP;}
     }
     private int value; //in CP
     public int Value{
-        get{return value};
+        get{return value;}
     }
     private int initialHP;
     public int InitialHP{
-        get{return initialHP};
+        get{return initialHP;}
     }
 
     public PokemonType(int rar, string nam, int uw, int lw, int lh, int uh, int icp, int val, int ihp,string mv1, int dmg1, string mv2,int dmg2, string mv3, int dmg3){
@@ -131,6 +131,7 @@ public class AttackMoves{
 
 
 public class Pokemon{
+	private Random rand;
     private string name;
     public string Name{
         get{return name;}
@@ -165,7 +166,7 @@ public class Pokemon{
         get{return HP;}
     }
     public Pokemon(PokemonType x){
-        Random rand = new Random();
+        rand = new Random();
         name = x.Name;
         moveslist = x.AtkMovesList;
         weight = rand.Next(x.LowerWeight,x.UpperWeight+1);
@@ -216,6 +217,7 @@ public class Pokemon{
         foreach(AttackMoves x in moveslist){
             x.attackPoints += rand.Next(0,2);
         }
+		return 0;
     }
 
 }
