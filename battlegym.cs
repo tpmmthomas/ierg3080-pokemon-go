@@ -5,5 +5,6 @@ public class BattleGym{
     private Pokemon PlayerPokemon;  
     private Pokemon OpponentPokemon; //computer
     private int CurrentTurn; //1: human 2: copmuter
-    private 
+    private float PlayerCriticalRate;
+    private float OpponentCriticalRate;
 }
