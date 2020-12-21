@@ -72,20 +72,20 @@ public class PokemonType{
     public HashSet<AttackMoves> AtkMovesList{
         get{return atkMovesList;}
     }
-    private int upperWeight;
-    public int UpperWeight{
+    private float upperWeight;
+    public float UpperWeight{
         get{return upperWeight;}
     }
-    private int lowerWeight;
-    public int LowerWeight{
+    private float lowerWeight;
+    public float LowerWeight{
         get{return lowerWeight;}
     }
-    private int upperHeight;
-    public int UpperHeight{
+    private float upperHeight;
+    public float UpperHeight{
         get{return upperHeight;}
     }
-    private int lowerHeight;
-    public int LowerHeight{
+    private float lowerHeight;
+    public float LowerHeight{
         get{return lowerHeight;}
     }
     private int initialCP;
@@ -97,7 +97,7 @@ public class PokemonType{
         get{return initialHP;}
     }
 
-    public PokemonType(int rar, string nam, int uw, int lw, int uh, int lh, int icp, int ihp,string mv1, int dmg1, string mv2,int dmg2, string mv3, int dmg3){
+    public PokemonType(int rar, string nam, float uw, float lw, float uh, float lh, int icp, int ihp,string mv1, int dmg1, string mv2,int dmg2, string mv3, int dmg3){
         rarity = rar;
         name = nam;
         lowerWeight = lw;
@@ -135,21 +135,17 @@ public class Pokemon{
     public HashSet<AttackMoves> Moveslist{
         get{return moveslist;}
     }
-    private int weight;
-    public int Weight{
+    private float weight;
+    public float Weight{
         get{return weight;}
     }
-    private int height;
-    public int Height{
+    private float height;
+    public float Height{
         get{return height;}
     }
     private int CP;
     public int GetCP{
         get{return CP;}
-    }
-    private int value;
-    public int Value{
-        get{return value;}
     }
     private int maxHP;
     public int MaxHP{
@@ -164,10 +160,9 @@ public class Pokemon{
         rand = new Random();
         name = x.Name;
         moveslist = x.AtkMovesList;
-        weight = rand.Next(x.LowerWeight,x.UpperWeight+1);
-        height = rand.Next(x.LowerHeight,x.UpperHeight+1);
+        weight = rand.Next((int)(x.LowerWeight*10),(int)(x.UpperWeight*10+1))/(float)10;
+        height = rand.Next((int)(x.LowerHeight*10),(int)(x.UpperHeight*10+1))/(float)10;
         CP = x.InitialCP;
-        value = x.Value;
         maxHP = x.InitialHP;
         evolvestate = 1;
         HP = maxHP;
