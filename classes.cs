@@ -92,16 +92,12 @@ public class PokemonType{
     public int InitialCP{
         get{return initialCP;}
     }
-    private int value; //in CP
-    public int Value{
-        get{return value;}
-    }
     private int initialHP;
     public int InitialHP{
         get{return initialHP;}
     }
 
-    public PokemonType(int rar, string nam, int uw, int lw, int lh, int uh, int icp, int val, int ihp,string mv1, int dmg1, string mv2,int dmg2, string mv3, int dmg3){
+    public PokemonType(int rar, string nam, int uw, int lw, int uh, int lh, int icp, int ihp,string mv1, int dmg1, string mv2,int dmg2, string mv3, int dmg3){
         rarity = rar;
         name = nam;
         lowerWeight = lw;
@@ -109,7 +105,6 @@ public class PokemonType{
         lowerHeight = lh;
         upperHeight = uh;
         initialCP = icp;
-        value = val;
         initialHP = ihp;
         atkMovesList = new HashSet<AttackMoves>();
         atkMovesList.Add(new AttackMoves(mv1,dmg1));
