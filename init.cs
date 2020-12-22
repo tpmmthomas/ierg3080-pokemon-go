@@ -20,7 +20,7 @@ public class program{
         }
     }
 
-    public static void Main(){
+    public static void Main(){ // for testing
         HashSet<PokemonType> c1 = new HashSet<PokemonType>();
         HashSet<PokemonType> c2 = new HashSet<PokemonType>();
         HashSet<PokemonType> c3 = new HashSet<PokemonType>();
