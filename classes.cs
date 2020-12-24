@@ -68,8 +68,8 @@ public class PokemonType{
     public string Name{
         get{return name;}
     }
-    private HashSet<AttackMoves> atkMovesList;
-    public HashSet<AttackMoves> AtkMovesList{
+    private AttackMoves[] atkMovesList;
+    public AttackMoves[] AtkMovesList{
         get{return atkMovesList;}
     }
     private float upperWeight;
@@ -106,10 +106,10 @@ public class PokemonType{
         upperHeight = uh;
         initialCP = icp;
         initialHP = ihp;
-        atkMovesList = new HashSet<AttackMoves>();
-        atkMovesList.Add(new AttackMoves(mv1,dmg1));
-        atkMovesList.Add(new AttackMoves(mv2,dmg2));
-        atkMovesList.Add(new AttackMoves(mv3,dmg3));
+        atkMovesList = new AttackMoves[3];
+        atkMovesList[0] = new AttackMoves(mv1,dmg1);
+        atkMovesList[1] = new AttackMoves(mv2,dmg2);
+        atkMovesList[2] = new AttackMoves(mv3,dmg3);
     }
 
 }
@@ -131,8 +131,8 @@ public class Pokemon{
     public string Name{
         get{return name;}
     }
-    private HashSet<AttackMoves> moveslist;
-    public HashSet<AttackMoves> Moveslist{
+    private AttackMoves[] moveslist;
+    public AttackMoves[] Moveslist{
         get{return moveslist;}
     }
     private float weight;

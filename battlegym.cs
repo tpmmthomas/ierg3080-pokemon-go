@@ -19,10 +19,12 @@ public class BattleGym{
     }
     private float PlayerCriticalRate;
     private float OpponentCriticalRate;
+    private Random rand;
     private WinMethod win;
     private LoseMethod lose;
 
     public BattleGym(Pokemon x, WinMethod a, LoseMethod b){
+        rand = new Random();
         PlayerPokemon = x;
         win = a;
         lose = b;
@@ -46,7 +48,13 @@ public class BattleGym{
             OpponentCriticalRate = 0.1;
         }
     }
-    public void PlayerMove(string mv){ //pass in the move name. It is unique.
+    public void PlayerMove(int move){ //pass in index of next attack move
         //to be implemented. 
+
+        if(OpponentPokemon.Hit(PlayerPokemon.)
+    }
+
+    public int OpponentMove(){ //return the attack move chosen.
+
     }
 }
