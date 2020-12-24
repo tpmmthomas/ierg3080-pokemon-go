@@ -219,4 +219,12 @@ public class Pokemon{
 		return 0;
     }
 
+    public void rename(string x){
+        if(evolvestate >= 2)
+            x = x + '+';
+        if(evolvestate == 2)
+            x = x + '+';
+        name = x;
+    }
+
 }
