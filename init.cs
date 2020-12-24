@@ -34,5 +34,6 @@ public class program{
         foreach(PokemonType x in c3){
             Console.WriteLine("{0},{1},{2}",x.Name,x.InitialCP,x.UpperHeight);
         }
+        Console.ReadLine(); // To pause the screen
     }
 }

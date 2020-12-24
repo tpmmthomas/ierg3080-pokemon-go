@@ -1,1 +1,7 @@
 *.xlsx
+bin
+obj
+.git
+.vs
+pokemon.csproj
+pokemon.csproj.user
