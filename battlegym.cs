@@ -53,18 +53,29 @@ public class BattleGym{
         int critical = rand.Next(0,100)/(float)100 < PlayerCriticalRate ? 1:0;
         if(critical){
             if(OpponentPokemon.Hit(PlayerPokemon.moveslist[move].attackPoints*2)){
-                win();
+                win(PlayerPokemon,OpponentPokemon);
             }
         }
         else{
             if(OpponentPokemon.Hit(PlayerPokemon.moveslist[move].attackPoints){
-                win();
+                win(PlayerPokemon,OpponentPokemon);
             }
         }
         return critical;
     }
 
-    public int OpponentMove(){ //return the attack move chosen.
-
+    public int OpponentMove(int move){ //return the attack move chosen.
+        int critical = rand.Next(0,100)/(float)100 < OpponentCriticalRate ? 1:0;
+        if(critical){
+            if(PlayerPokemon.Hit(OpponentPokemon.moveslist[move].attackPoints*2)){
+                lose(PlayerPokemon,OpponentPokemon);
+            }
+        }
+        else{
+            if(PlayerPokemon.Hit(OpponentPokemon.moveslist[move].attackPoints){
+                lose(PlayerPokemon,OpponentPokemon);
+            }
+        }
+        return critical; 
     }
 }
