@@ -20,7 +20,7 @@ public class program{
         }
     }
 
-    public static void SpawnPokemon(){ //for ultra rare pokemon
+    public static void SpawnPokemon(){ 
         //to be implemented with presenter since mostly about using timer and a simple random to gen commpn/rare pokemon
         //ultra rare pokemons only in battle gym
     }
