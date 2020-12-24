@@ -222,7 +222,7 @@ public class Pokemon{
     public void rename(string x){
         if(evolvestate >= 2)
             x = x + '+';
-        if(evolvestate == 2)
+        if(evolvestate == 3)
             x = x + '+';
         name = x;
     }
