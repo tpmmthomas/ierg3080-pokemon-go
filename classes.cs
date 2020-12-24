@@ -12,7 +12,10 @@ public class Player{
     }
 
     private List<Pokemon> OwnedPokemons;
-
+    private int currentSerial;
+    public int CurrentSerial{
+        get{currentSerial++; return currentSerial-1;}
+    }
     private int stardust;
     public int Stardust{
         get{return stardust;}
@@ -20,6 +23,7 @@ public class Player{
 
     public Player(string pname){
         name = pname;
+        currentSerial = 1;
         OwnedPokemons = new List<Pokemon>();
         stardust = 0;
         pokeball_count = 10;
@@ -127,6 +131,10 @@ public class AttackMoves{
 
 public class Pokemon{
 	private Random rand;
+    private int id; //sort of a "primary key", cos one player may have more than one pokemon of the same name.
+    public int Id{
+        get{return id;}
+    }
     private string name;
     public string Name{
         get{return name;}
@@ -156,7 +164,8 @@ public class Pokemon{
     public int GetHP{
         get{return HP;}
     }
-    public Pokemon(PokemonType x){
+    public Pokemon(int pId, PokemonType x){
+        id = pId;
         rand = new Random();
         name = x.Name;
         moveslist = x.AtkMovesList;
