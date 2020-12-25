@@ -35,8 +35,8 @@ namespace pokemon
             //ultra rare pokemons only in battle gym
         }
 
-        [STAThread]
-        static void Main()
+        //[STAThread]
+        public static void Main()
         {
             HashSet<PokemonType> c1 = new HashSet<PokemonType>();
             HashSet<PokemonType> c2 = new HashSet<PokemonType>();
@@ -54,11 +54,12 @@ namespace pokemon
             {
                 Console.WriteLine("{0},{1},{2}", x.Name, x.InitialCP, x.UpperHeight);
             }
-            
+            /*
             // WPF
             wpf _window = new wpf();  //Create an instance of your window.
             System.Windows.Application _wpfApplication = new System.Windows.Application();  //Create an instance of a new Application
             _wpfApplication.Run(_window);   //Run this Application by passing the window object as the argument
+			*/
         }
     }
 }
