@@ -9,7 +9,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace pokemon
+namespace PokemonGo
 {
     //This will be your custom window class which is derieved    
     //from the base class Window.

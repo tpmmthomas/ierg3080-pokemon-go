@@ -1,8 +1,9 @@
-﻿<Window x:Class="pokemon.wpf"
+﻿<Window x:Class="PokemonGo.wpf"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com" 
         mc:Ignorable="d" Height="600" Width="1080" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <StackPanel Background="WhiteSmoke">
         <Grid Height="40">
@@ -11,7 +12,7 @@
                     <ComboBoxItem Content="EN"/>
                 </ComboBox>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="20 0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,0" Width="513">
                 <Button Content="FAQ" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFA2A2A2" FontSize="15" FontWeight="Bold" VerticalAlignment="Center"/>
                 <Button Content="CONTACT" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFA2A2A2" FontSize="15" FontWeight="Bold" VerticalAlignment="Center"/>
                 <Button Content="ORDER STATUS" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFA2A2A2" FontSize="15" FontWeight="Bold" VerticalAlignment="Center"/>
@@ -20,9 +21,6 @@
 
                 </Button>
             </StackPanel>
-        </Grid>
-        <Grid x:Name="GridMain" Height="460" Background="Aquamarine">
-
         </Grid>
         <Grid Height="100">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10 0">
@@ -35,6 +33,10 @@
                 <Button Uid="6" Width="150" Content="GIFT CARDS" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="Button_Click"/>
             </StackPanel>
             <Grid x:Name="GridCursor" Width="150" Height="5" Background="#FF2196F3" HorizontalAlignment="Left" Margin="10 0"/>
+        </Grid>
+        <Grid x:Name="GridMain" Height="460" Background="Aquamarine">
+            <Image gif:ImageBehavior.AnimatedSource="3a-b__003__xy.gif" Margin="111,285,755,84" />
+            <Image gif:ImageBehavior.AnimatedSource="3ani__025_f_xy.gif" Margin="729,73,197,322" />
         </Grid>
     </StackPanel>
 </Window>
