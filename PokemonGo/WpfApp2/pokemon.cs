@@ -66,7 +66,7 @@ namespace PokemonGo
 
         public void AddPokeball()
         {
-            pokeball_count++;
+            pokeball_count += 5;
         }
 
         public void RemovePokeball(int x)

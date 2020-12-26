@@ -10,6 +10,8 @@
         <Canvas.Background>
             <ImageBrush ImageSource="fake_map.png" Stretch="UniformToFill"/>
         </Canvas.Background>
-        <Image x:Name="player1" Source="playericon.png" HorizontalAlignment="Left" Canvas.Left="0" Canvas.Top="0" Height="61" VerticalAlignment="Top" Width="72" Margin="233,337,0,0"/>
+        <Image x:Name="player1" Source="playericon.png" HorizontalAlignment="Left" Canvas.Left="229" Canvas.Top="335" Height="61" VerticalAlignment="Top" Width="72"/>
+        <TextBlock x:Name="debug1" TextWrapping="Wrap" Text="TextBlock" Canvas.Left="313" Canvas.Top="169"/>
+        <TextBlock x:Name="debug2" TextWrapping="Wrap" Text="TextBlock" Canvas.Left="316" Canvas.Top="190"/>
     </Canvas>
 </Window>
