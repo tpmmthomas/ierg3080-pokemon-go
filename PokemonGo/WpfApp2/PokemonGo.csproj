@@ -116,5 +116,10 @@
   <ItemGroup>
     <Resource Include="3ani__025_f_xy.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="playericon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

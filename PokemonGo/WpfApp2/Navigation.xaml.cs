@@ -25,5 +25,36 @@ namespace PokemonGo
             InitializeComponent();
             p1 = new Player(name);
         }
+        private void Canvas_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Down)
+            {
+                if (Canvas.GetTop(player1) >= 20)
+                    return;
+                Canvas.SetTop(player1, Canvas.GetTop(player1) + 10);
+            }
+            else if (e.Key == Key.Up)
+            {
+                if (Canvas.GetTop(player1) <= -340)
+                    return;
+                Canvas.SetTop(player1, Canvas.GetTop(player1) - 10);
+            }
+            else if (e.Key == Key.Left)
+            {
+                if (Canvas.GetLeft(player1) <= -240)
+                    return;
+                Canvas.SetLeft(player1, Canvas.GetLeft(player1) - 10);
+            }
+            else if (e.Key == Key.Right)
+            {
+                if (Canvas.GetLeft(player1) >= 500)
+                    return;
+                Canvas.SetLeft(player1, Canvas.GetLeft(player1) + 10);
+            }
+        }
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }

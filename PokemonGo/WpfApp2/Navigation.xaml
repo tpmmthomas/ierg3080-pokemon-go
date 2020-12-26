@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
-        Title="Navigation" Height="450" Width="800">
-    <Grid>
-        <Grid.Background>
+        Title="Navigation" Height="450" Width="800" Closed="Window_Closed" FocusManager.FocusedElement="{Binding ElementName=MyCanvas}">
+    <Canvas Name="MyCanvas" KeyDown="Canvas_KeyDown" Focusable="True" >
+        <Canvas.Background>
             <ImageBrush ImageSource="fake_map.png" Stretch="UniformToFill"/>
-        </Grid.Background>
-    </Grid>
+        </Canvas.Background>
+        <Image x:Name="player1" Source="playericon.png" HorizontalAlignment="Left" Canvas.Left="0" Canvas.Top="0" Height="61" VerticalAlignment="Top" Width="72" Margin="233,337,0,0"/>
+    </Canvas>
 </Window>
