@@ -218,17 +218,17 @@ namespace PokemonGo
             HP = maxHP;
         }
 
-        public int Hit(int atkhp)
+        public bool Hit(int atkhp)
         {
             if (HP - atkhp > 0)
             {
                 HP -= atkhp;
-                return 0;
+                return false;
             }
             else
             {
                 HP = 0;
-                return 1;
+                return true;
             }
         }
 

@@ -18,3 +18,4 @@ C:\Users\good6\Documents\GitHub\project-part-ii-wong-wan-ki-wong-keng-lam\Pokemo
 C:\Users\good6\Documents\GitHub\project-part-ii-wong-wan-ki-wong-keng-lam\PokemonGo\WpfApp2\obj\Debug\PokemonGo.csproj.CopyComplete
 C:\Users\good6\Documents\GitHub\project-part-ii-wong-wan-ki-wong-keng-lam\PokemonGo\WpfApp2\obj\Debug\PokemonGo.exe
 C:\Users\good6\Documents\GitHub\project-part-ii-wong-wan-ki-wong-keng-lam\PokemonGo\WpfApp2\obj\Debug\PokemonGo.pdb
+C:\Users\good6\Documents\GitHub\project-part-ii-wong-wan-ki-wong-keng-lam\PokemonGo\WpfApp2\obj\Debug\PokemonGo.csprojAssemblyReference.cache

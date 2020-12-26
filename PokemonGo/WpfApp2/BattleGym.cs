@@ -1,10 +1,15 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public delegate void WinMethod(Pokemon a, Pokemon b);
-public delegate void LoseMethod(Pokemon a, Pokemon b);
+namespace PokemonGo
+{
+    public delegate void WinMethod(Pokemon a, Pokemon b);
+    public delegate void LoseMethod(Pokemon a, Pokemon b);
 
-class BattleGym
+    class BattleGym
     {
         private Pokemon PlayerPokemon;
         public Pokemon GetPlayerPokemon
@@ -98,3 +103,4 @@ class BattleGym
             return critical;
         }
     }
+}
