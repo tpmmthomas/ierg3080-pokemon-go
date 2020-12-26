@@ -3,24 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-//Add these namespaces
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace PokemonGo
 {
-    //This will be your custom window class which is derieved    
-    //from the base class Window.
     public partial class wpf : Window
     {
+        HashSet<PokemonType> common;
+        HashSet<PokemonType> rare;
+        HashSet<PokemonType> ultrarare;
+
         public wpf()
         {
-            //This is created just to show a reference , the 
-            //below code can aswell be witten wihin this     
-            //constructor.
             InitializeComponent();
+            common = new HashSet<PokemonType>();
+            rare = new HashSet<PokemonType>();
+            ultrarare = new HashSet<PokemonType>();
+            Program.Init("pokemon.csv",common,rare,ultrarare);
         }
 
 
