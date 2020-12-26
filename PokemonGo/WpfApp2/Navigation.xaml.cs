@@ -24,6 +24,8 @@ namespace PokemonGo
         {
             InitializeComponent();
             p1 = new Player(name);
+            //SpawnPokemon
+            //SpawnPokeball
         }
         private void Canvas_KeyDown(object sender, KeyEventArgs e)
         {
