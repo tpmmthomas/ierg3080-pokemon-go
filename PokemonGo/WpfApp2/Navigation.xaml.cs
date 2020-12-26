@@ -19,9 +19,11 @@ namespace PokemonGo
     /// </summary>
     public partial class Navigation : Window
     {
-        public Navigation()
+        private Player p1;
+        public Navigation(string name)
         {
             InitializeComponent();
+            p1 = new Player(name);
         }
     }
 }

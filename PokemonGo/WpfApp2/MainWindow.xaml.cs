@@ -62,11 +62,15 @@ namespace PokemonGo
             Application.Current.Shutdown();
         }
 
-        private void TextBlock_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+
+        private void TextBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            Navigation p = new Navigation();
-            p.Show();
-            Hide();
+            if(e.Key == System.Windows.Input.Key.Return)
+            {
+                Navigation p = new Navigation(yourname.Text);
+                p.Show();
+                Hide();
+            }
         }
     }
 }
