@@ -37,6 +37,8 @@
         <Grid x:Name="GridMain" Height="460" Background="Aquamarine">
             <Image gif:ImageBehavior.AnimatedSource="3a-b__003__xy.gif" Margin="111,285,755,84" />
             <Image gif:ImageBehavior.AnimatedSource="3ani__025_f_xy.gif" Margin="729,73,197,322" />
+            <TextBlock HorizontalAlignment="Left" FontSize ="30" Margin="176,89,0,0" TextWrapping="Wrap" Text="Click here to go to navigation view" VerticalAlignment="Top"/>
         </Grid>
+        <TextBlock TextWrapping="Wrap" Text="TextBlock"/>
     </StackPanel>
 </Window>
