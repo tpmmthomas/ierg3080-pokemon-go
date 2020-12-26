@@ -36,6 +36,7 @@ namespace PokemonGo
         { //Winmethod and Losemethod passed in from presenter module (Define the change in view?)
             rand = new Random();
             PlayerPokemon = x;
+            OpponentPokemon = x; //change it later
             win = a;
             lose = b;
             CurrentTurn = 1;
