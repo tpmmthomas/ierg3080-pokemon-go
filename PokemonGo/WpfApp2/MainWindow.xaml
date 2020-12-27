@@ -35,8 +35,6 @@
             <Grid x:Name="GridCursor" Width="150" Height="5" Background="#FF2196F3" HorizontalAlignment="Left" Margin="10 0"/>
         </Grid>
         <Grid x:Name="GridMain" Height="460" Background="Aquamarine">
-            <Image gif:ImageBehavior.AnimatedSource="3a-b__003__xy.gif" Margin="111,285,755,84" />
-            <Image gif:ImageBehavior.AnimatedSource="3ani__025_f_xy.gif" Margin="746,187,180,208" />
             <TextBlock HorizontalAlignment="Left" FontSize ="30" Margin="176,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Welcome! To start the game, "/><LineBreak/><Run Text="enter your name below and press enter"/><LineBreak/><Run Text="//will go to navigation view"/></TextBlock>
             <TextBlock x:Name="exitbutton" HorizontalAlignment="Left" FontSize ="30" Margin="1053,-131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MouseLeftButtonDown="exitbutton_MouseLeftButtonDown"><Run Text="X"/><LineBreak/><Run/></TextBlock>
             <TextBox x:Name="yourname" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="376,222,0,0" KeyDown="TextBox_KeyDown"/>

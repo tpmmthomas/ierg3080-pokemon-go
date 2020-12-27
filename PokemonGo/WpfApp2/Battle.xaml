@@ -1,0 +1,61 @@
+﻿<Window x:Class="PokemonGo.Battle"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com" 
+        mc:Ignorable="d"
+        Title="Battle" Height="450" Width="800">
+    <Grid>
+        <Image Margin="0,0,0,0" Source="battle_background.png" Stretch="UniformToFill"/>
+        <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="31,17,0,0" TextWrapping="Wrap" Text="Vaporeon" VerticalAlignment="Top" Height="33" Width="288" FontSize="20" FontWeight="Bold"/>
+        <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="31,68,0,0" TextWrapping="Wrap" Text="CP" VerticalAlignment="Top" Height="19" Width="21" FontSize="12" FontWeight="Light"/>
+        <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="49,64,0,0" TextWrapping="Wrap" Text="5842" VerticalAlignment="Top" Height="23" Width="99" FontSize="16" FontWeight="Medium"/>
+        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="9" Margin="31,50,0,0" VerticalAlignment="Top" Width="279" RadiusX="5" RadiusY="5" Opacity="0.5"/>
+        <Rectangle Fill="Orange" HorizontalAlignment="Left" Height="9" Margin="75,50,0,0" VerticalAlignment="Top" Width="235" RadiusX="5" RadiusY="5"/>
+        <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="341,43,0,0" TextWrapping="Wrap" Text="120" VerticalAlignment="Top" Height="44" Width="99" FontSize="30" FontWeight="Medium" TextAlignment="Center" RenderTransformOrigin="0.487,0.75"/>
+        <Rectangle Fill="LightGreen" HorizontalAlignment="Left" Height="9" Margin="162,50,0,0" VerticalAlignment="Top" Width="149" RadiusX="5" RadiusY="5"/>
+
+        <Image Margin="124,255,511.6,35" gif:ImageBehavior.AnimatedSource="battle_back.gif"/>
+        <Image Margin="561,195,172.6,165" gif:ImageBehavior.AnimatedSource="battle_front.gif"/>
+
+        <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="479,17,0,0" TextWrapping="Wrap" Text="Vaporeon" VerticalAlignment="Top" Height="33" Width="288" FontSize="20" FontWeight="Bold" TextAlignment="Right"/>
+        <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="668,64,0,0" TextWrapping="Wrap" Text="5842" VerticalAlignment="Top" Height="23" Width="99" FontSize="16" FontWeight="Medium" TextAlignment="Right"/>
+        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="9" Margin="488,50,0,0" VerticalAlignment="Top" Width="279" RadiusX="5" RadiusY="5" Opacity="0.5"/>
+        <Rectangle Fill="Orange" HorizontalAlignment="Left" Height="9" Margin="488,50,0,0" VerticalAlignment="Top" Width="63" RadiusX="5" RadiusY="5"/>
+        <Rectangle Fill="Red" HorizontalAlignment="Left" Height="9" Margin="488,50,0,0" VerticalAlignment="Top" Width="24" RadiusX="5" RadiusY="5"/>
+        <Image Margin="0,0,30,20" Source="button_run.png" Stretch="Fill" Height="48" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="48"/>
+        <Image Margin="0,0,90,20" Source="button_change.png" Stretch="Fill" HorizontalAlignment="Right" Width="48" Height="48" VerticalAlignment="Bottom"/>
+
+
+        <Grid Margin="49,0,232.6,0">
+            <!--Add Visibility="Hidden" above to hide-->
+            <Rectangle Fill="#7F000000" HorizontalAlignment="Left" Height="252" Margin="260,168,0,0" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="254"/>
+            <Rectangle Fill="#7F000000" Stroke="#FF16E7DA" HorizontalAlignment="Left" Height="50" Margin="287,233,0,0" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="50"/>
+            <Rectangle Fill="#7F000000" Stroke="#FF16E7DA" HorizontalAlignment="Left" Height="50" Margin="362,233,0,0" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="50"/>
+            <Rectangle Fill="#7F000000" Stroke="#FF16E7DA" HorizontalAlignment="Left" Height="50" Margin="437,233,0,0" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="50"/>
+            <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="288,214,0,0" TextWrapping="Wrap" Text="CP" VerticalAlignment="Top" Height="19" Width="21" FontSize="10
+                   " FontWeight="Light"/>
+            <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="302,211,0,0" TextWrapping="Wrap" Text="1485" VerticalAlignment="Top" Height="19" Width="38" FontSize="14" FontWeight="Medium"/>
+            <Image Margin="300,248,186,146" Source="battle_poke_1.gif" Stretch="Fill" Width="26" Height="26"/>
+            <Rectangle Fill="#7F000000" Stroke="#FF16E7DA" HorizontalAlignment="Left" Height="50" Margin="287,321,0,0" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="50"/>
+            <Rectangle Fill="#7F000000" Stroke="#FF16E7DA" HorizontalAlignment="Left" Height="50" Margin="362,321,0,0" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="50"/>
+            <Rectangle Fill="#7F000000" Stroke="#FF16E7DA" HorizontalAlignment="Left" Height="50" Margin="437,320,0,0" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="50"/>
+            <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="362,214,0,0" TextWrapping="Wrap" Text="CP" VerticalAlignment="Top" Height="19" Width="21" FontSize="10                    " FontWeight="Light"/>
+            <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="437,214,0,0" TextWrapping="Wrap" Text="CP" VerticalAlignment="Top" Height="19" Width="21" FontSize="10                    " FontWeight="Light"/>
+            <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="375,211,0,0" TextWrapping="Wrap" Text="1485" VerticalAlignment="Top" Height="19" Width="38" FontSize="14" FontWeight="Medium"/>
+            <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="451,211,0,0" TextWrapping="Wrap" Text="1485" VerticalAlignment="Top" Height="19" Width="38" FontSize="14" FontWeight="Medium"/>
+            <Image Margin="372,380,110,10" Source="button_close.png" Stretch="Fill" Width="30" Height="30"/>
+            <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="302,301,0,0" TextWrapping="Wrap" Text="1485" VerticalAlignment="Top" Height="19" Width="38" FontSize="14" FontWeight="Medium"/>
+            <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="375,300,0,0" TextWrapping="Wrap" Text="1485" VerticalAlignment="Top" Height="19" Width="38" FontSize="14" FontWeight="Medium"/>
+            <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="451,300,0,0" TextWrapping="Wrap" Text="1485" VerticalAlignment="Top" Height="19" Width="38" FontSize="14" FontWeight="Medium"/>
+            <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="288,305,0,0" TextWrapping="Wrap" Text="CP" VerticalAlignment="Top" Height="19" Width="21" FontSize="10                    " FontWeight="Light"/>
+            <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="362,304,0,0" TextWrapping="Wrap" Text="CP" VerticalAlignment="Top" Height="19" Width="21" FontSize="10                    " FontWeight="Light"/>
+            <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="437,304,0,0" TextWrapping="Wrap" Text="CP" VerticalAlignment="Top" Height="19" Width="21" FontSize="10                    " FontWeight="Light"/>
+            <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="328,185,0,0" TextWrapping="Wrap" Text="Switch in a new Pokemon?" VerticalAlignment="Top" Height="13" Width="139" FontSize="10                    " FontWeight="Light"/>
+        </Grid>
+        <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="326,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="26" Width="133" FontSize="20" FontWeight="Medium" TextAlignment="Center" RenderTransformOrigin="0.487,0.75"><Run Text="Level 1/"/><Run Text="3"/></TextBlock>
+
+
+    </Grid>
+</Window>
