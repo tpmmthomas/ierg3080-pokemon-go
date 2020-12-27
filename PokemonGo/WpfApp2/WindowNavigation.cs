@@ -8,7 +8,7 @@ using System.Windows;
 
 namespace PokemonGo
 {
-    public static class WindowNavigation
+    public static class WindowNavigation //code copied from https://stackoverflow.com/questions/30860276/return-to-previous-window-on-wpf
     {
         private static readonly Stack<Window> NavigationStack = new Stack<Window>();
         static WindowNavigation()

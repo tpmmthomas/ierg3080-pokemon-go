@@ -6,7 +6,7 @@
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
         xmlns:local="clr-namespace:PokemonGo"
         mc:Ignorable="d"
-        Title="Capture" Height="450" Width="800" FocusManager.FocusedElement="{Binding ElementName=MyCanvas}">
+        Title="Capture" Height="450" Width="800" FocusManager.FocusedElement="{Binding ElementName=MyCanvas}" Closed="Window_Closed">
     <Canvas Name="MyCanvas" KeyDown="Canvas_KeyDown" Focusable="True" >
         <Canvas.Background>
             <ImageBrush ImageSource="capture_background.png" Stretch="UniformToFill"/>
@@ -17,13 +17,14 @@
         <Image x:Name="Pikachu" gif:ImageBehavior.AnimatedSource="Pokemon(ToBeUsed)/Pikachu.gif" Visibility="Hidden" Height="91" Canvas.Left="341" Canvas.Top="181" Width="113"  />
         <Image x:Name="Snorlax" gif:ImageBehavior.AnimatedSource="Pokemon(ToBeUsed)/Snorlax.gif" Visibility="Hidden" Canvas.Left="329" Canvas.Top="169" Height="101" Width="112"  />
         <Image x:Name="Lapras" gif:ImageBehavior.AnimatedSource="Pokemon(ToBeUsed)/Lapras.gif" Visibility="Hidden" Canvas.Left="324" Canvas.Top="162" Height="111" Width="127"  />
+        <Image x:Name="WinAnim" gif:ImageBehavior.AnimatedSource="Mfjw.gif" Visibility="Hidden" Canvas.Left="232" Canvas.Top="83" Height="268" Width="306"  />
         <Image Source="pokeball.png" HorizontalAlignment="Left" Height="49" VerticalAlignment="Top" Width="38" Margin="678,2,0,0" RenderTransformOrigin="-0.009,0.394"/>
         <TextBlock x:Name="ballcount" FontSize="32" HorizontalAlignment="Left" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Margin="727,-2,0,0" Width="54"/>
         <Ellipse x:Name="objective"
-            Width="179"
-            Height="179"
+            Width="180"
+            Height="180"
             Stroke="ForestGreen"
-            StrokeThickness="5" Canvas.Left="299" Canvas.Top="136" MouseEnter="objective_MouseEnter"
+            StrokeThickness="6" Canvas.Left="368" Canvas.Top="181"
             />
         <TextBlock x:Name="instruction" FontSize="28" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="720" Canvas.Left="39" Canvas.Top="316"><Run Text="Press enter when the gray circle matches the green circle!"/><LineBreak/><Run Text="(The closer you are, the higher chance of capturing)"/></TextBlock>
         <Ellipse x:Name="moving"
@@ -37,5 +38,13 @@
         <Image x:Name="two" Source="2.png"  Visibility="Hidden" HorizontalAlignment="Left" Height="161" VerticalAlignment="Top" Width="100" RenderTransformOrigin="-0.009,0.394" Canvas.Left="341" Canvas.Top="156">
         </Image>
         <Image x:Name="three" Source="3.png" Visibility="Hidden" HorizontalAlignment="Left" Height="139" VerticalAlignment="Top" Width="134" RenderTransformOrigin="-0.009,0.394" Canvas.Left="325" Canvas.Top="155"/>
+        <Image x:Name="excellent" Visibility="Hidden" Source="excellent.png" HorizontalAlignment="Left" Height="106" VerticalAlignment="Top" Width="443" RenderTransformOrigin="-0.009,0.394" Canvas.Left="217" Canvas.Top="8"/>
+        <Image x:Name="good" Visibility="Hidden" Source="good.png" HorizontalAlignment="Left" Height="139" VerticalAlignment="Top" Width="265" RenderTransformOrigin="-0.009,0.394" Canvas.Left="256" Canvas.Top="-1"/>
+        <Image x:Name="poor" Visibility="Hidden" Source="poor.png" HorizontalAlignment="Left" Height="106" VerticalAlignment="Top" Width="443" RenderTransformOrigin="-0.009,0.394" Canvas.Left="232" Canvas.Top="18"/>
+        <TextBlock x:Name="wintext" Visibility="Hidden" FontSize="26" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="742" Canvas.Left="36" Canvas.Top="312" Text="Gotcha! The captured pokemon has been added to your home and 500 stardust has been added to your backpack. "/>
+        <TextBlock x:Name="losetext"  Visibility="Hidden" FontSize="26" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="742" Canvas.Left="46" Canvas.Top="337" Text="Unsuccessful! Press B to go back, A to try again."/>
+        <TextBlock x:Name="notenough"  Visibility="Hidden" FontSize="26" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="742" Canvas.Left="46" Canvas.Top="337" Text="Not enough Pokeballs! Collect some and hunt again."/>
+        <TextBlock x:Name="escapetext"  Visibility="Hidden" FontSize="26" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="742" Canvas.Left="46" Canvas.Top="337" Text="Not enough Pokeballs! Collect some and hunt again."/>
+        <Image x:Name="Moveball" Visibility="Hidden" Source="pokeball.png"  HorizontalAlignment="Left" Height="49" VerticalAlignment="Top" Width="38" RenderTransformOrigin="-0.009,0.394" Canvas.Left="354" Canvas.Top="6"/>
     </Canvas>
 </Window>

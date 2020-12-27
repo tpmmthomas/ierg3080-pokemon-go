@@ -87,17 +87,18 @@ namespace PokemonGo
                     PokemonLoc.Remove(pkmLoc.Key);
                     WindowNavigation.NavigateTo(new Capture(p1, pkmLoc.Value.pokemonStat));
                     isCapture = true;
-                    CaptureCountdown = 30;
+                    CaptureCountdown = 2;
                     break;
                 }
             }
-            debug1.Text = Canvas.GetLeft(player1).ToString() + "," + Canvas.GetTop(player1).ToString();
-            debug2.Text = p1.Pokeball_count.ToString();
+            debug1.Text = p1.PokemonCount().ToString();
+            debug2.Text = p1.Stardust
+                .ToString();
         }
         private void SpawnPokemon()
         {
             pokemontimer.Tick += pokemontimer_Tick;
-            pokemontimer.Interval = TimeSpan.FromSeconds(1);//for testing, change later
+            pokemontimer.Interval = TimeSpan.FromSeconds(2);//testing
             pokemontimer.Start();
         }
         private void pokemontimer_Tick(object sender, EventArgs e)

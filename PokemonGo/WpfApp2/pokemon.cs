@@ -30,7 +30,6 @@ namespace PokemonGo
         {
             get { return stardust; }
         }
-
         public Player(string pname)
         {
             name = pname;
@@ -80,7 +79,16 @@ namespace PokemonGo
                 pokeball_count = 0;
             }
         }
-
+        public void AddStardust(int x)
+        {
+            stardust += x;
+        }
+        public void ConsumeStardust(int x)
+        {
+            stardust -= x;
+            if (stardust < 0)
+                stardust = 0;
+        }
     }
 
     public class PokemonType

@@ -61,6 +61,7 @@
     <Compile Include="Capture.xaml.cs">
       <DependentUpon>Capture.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CaptureGame.cs" />
     <Compile Include="WindowNavigation.cs" />
     <Page Include="Capture.xaml">
       <SubType>Designer</SubType>
@@ -174,6 +175,14 @@
     <Resource Include="1.png" />
     <Resource Include="2.png" />
     <Resource Include="3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="excellent.png" />
+    <Resource Include="good.png" />
+    <Resource Include="poor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="MfJw.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Shapes;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
 
 
 namespace PokemonGo
@@ -31,6 +33,17 @@ namespace PokemonGo
                 }
             }
         }
+        public static void MoveTo(Image target, double newX, double newY, double time)
+        {
+            var top = Canvas.GetTop(target);
+            var left = Canvas.GetLeft(target);
+            TranslateTransform trans = new TranslateTransform();
+            target.RenderTransform = trans;
+            DoubleAnimation anim1 = new DoubleAnimation(top, newY - top, TimeSpan.FromSeconds(time));
+            DoubleAnimation anim2 = new DoubleAnimation(left, newX - left, TimeSpan.FromSeconds(time));
+            trans.BeginAnimation(TranslateTransform.YProperty, anim1);
+            trans.BeginAnimation(TranslateTransform.XProperty, anim2);
+        }
     }
     public static class EllipseX
     {
@@ -40,4 +53,5 @@ namespace PokemonGo
             Canvas.SetLeft(ellipse, X - ellipse.Width / 2);
         }
     }
+    
 }
