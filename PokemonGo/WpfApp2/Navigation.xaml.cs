@@ -91,11 +91,6 @@ namespace PokemonGo
                     break;
                 }
             }
-            if(Canvas.GetLeft(player1) >= 129 && Canvas.GetLeft(player1) <= 129 && Canvas.GetTop(player1) >= 35 && Canvas.GetTop(player1) <= 45)
-            {
-                WindowNavigation.NavigateTo(new Battle(p1, null));
-                Canvas.SetTop(player1, 55);
-            }
             debug1.Text = p1.PokemonCount().ToString();
             debug2.Text = p1.Stardust
                 .ToString();

@@ -24,25 +24,13 @@
         <Rectangle Fill="Black" HorizontalAlignment="Left" Height="9" Margin="488,50,0,0" VerticalAlignment="Top" Width="279" RadiusX="5" RadiusY="5" Opacity="0.5"/>
         <Rectangle Fill="Orange" HorizontalAlignment="Left" Height="9" Margin="488,50,0,0" VerticalAlignment="Top" Width="63" RadiusX="5" RadiusY="5"/>
         <Rectangle Fill="Red" HorizontalAlignment="Left" Height="9" Margin="488,50,0,0" VerticalAlignment="Top" Width="24" RadiusX="5" RadiusY="5"/>
-        
-        
-        
-        <!--Image button to change battle pokemon-->
-        <Button BorderThickness="0" Background="{x:Null}" Width="55" Height="55" Margin="0,0,90,20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="Button_Click_1">
-            <StackPanel>
-                <Image Source="button_change.png" Width="48" Height="48" />
-            </StackPanel>
-        </Button>
-        <!--Image button to run away-->
-        <Button BorderThickness="0" Background="{x:Null}" Width="55" Height="55" Margin="0,0,30,20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="Button_Click">
-            <StackPanel>
-                <Image Source="button_run.png" Width="48" Height="48" />
-            </StackPanel>
-        </Button>
+        <Image Margin="0,0,30,20" Source="button_run.png" Stretch="Fill" Height="48" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="48"/>
+        <Image Margin="0,0,90,20" Source="button_change.png" Stretch="Fill" HorizontalAlignment="Right" Width="48" Height="48" VerticalAlignment="Bottom"/>
 
-        <Grid x:Name="GridChangePokemon" Margin="49,0,232.6,0">
+
+        <Grid Margin="49,0,232.6,0">
             <!--Add Visibility="Hidden" above to hide-->
-            <Rectangle Fill="#7F000000" HorizontalAlignment="Left" Height="278" Margin="260,168,-2,-26" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="254"/>
+            <Rectangle Fill="#7F000000" HorizontalAlignment="Left" Height="252" Margin="260,168,0,0" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="254"/>
             <Rectangle Fill="#7F000000" Stroke="#FF16E7DA" HorizontalAlignment="Left" Height="50" Margin="287,233,0,0" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="50"/>
             <Rectangle Fill="#7F000000" Stroke="#FF16E7DA" HorizontalAlignment="Left" Height="50" Margin="362,233,0,0" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="50"/>
             <Rectangle Fill="#7F000000" Stroke="#FF16E7DA" HorizontalAlignment="Left" Height="50" Margin="437,233,0,0" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="50"/>
@@ -57,13 +45,7 @@
             <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="437,214,0,0" TextWrapping="Wrap" Text="CP" VerticalAlignment="Top" Height="19" Width="21" FontSize="10                    " FontWeight="Light"/>
             <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="375,211,0,0" TextWrapping="Wrap" Text="1485" VerticalAlignment="Top" Height="19" Width="38" FontSize="14" FontWeight="Medium"/>
             <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="451,211,0,0" TextWrapping="Wrap" Text="1485" VerticalAlignment="Top" Height="19" Width="38" FontSize="14" FontWeight="Medium"/>
-
-            <Button BorderThickness="0" Background="{x:Null}" Width="40" Height="40" Margin="0,0,106,3" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="ButtonCloseSwitchPokemon">
-                <StackPanel>
-                    <Image Source="button_close.png" Width="30" Height="30" />
-                </StackPanel>
-            </Button>
-            
+            <Image Margin="372,380,110,10" Source="button_close.png" Stretch="Fill" Width="30" Height="30"/>
             <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="302,301,0,0" TextWrapping="Wrap" Text="1485" VerticalAlignment="Top" Height="19" Width="38" FontSize="14" FontWeight="Medium"/>
             <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="375,300,0,0" TextWrapping="Wrap" Text="1485" VerticalAlignment="Top" Height="19" Width="38" FontSize="14" FontWeight="Medium"/>
             <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="451,300,0,0" TextWrapping="Wrap" Text="1485" VerticalAlignment="Top" Height="19" Width="38" FontSize="14" FontWeight="Medium"/>
