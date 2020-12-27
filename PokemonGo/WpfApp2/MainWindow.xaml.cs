@@ -11,17 +11,11 @@ namespace PokemonGo
 {
     public partial class wpf : Window
     {
-        HashSet<PokemonType> common;
-        HashSet<PokemonType> rare;
-        HashSet<PokemonType> ultrarare;
+        
 
         public wpf()
         {
             InitializeComponent();
-            common = new HashSet<PokemonType>();
-            rare = new HashSet<PokemonType>();
-            ultrarare = new HashSet<PokemonType>();
-            Program.Init("pokemon.csv",common,rare,ultrarare);
         }
 
 

@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pokeball.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("hometext.png")]
 
 

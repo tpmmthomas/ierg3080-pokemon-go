@@ -126,5 +126,39 @@
   <ItemGroup>
     <Resource Include="pokeball.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pokemon%28ToBeUsed%29\Bulbasaur.gif" />
+    <Resource Include="Pokemon%28ToBeUsed%29\Bulbasaure.gif" />
+    <Resource Include="Pokemon%28ToBeUsed%29\Bulbasauree.gif" />
+    <Resource Include="Pokemon%28ToBeUsed%29\Charmander.gif" />
+    <Resource Include="Pokemon%28ToBeUsed%29\Charmandere.gif" />
+    <Resource Include="Pokemon%28ToBeUsed%29\Charmanderee.gif" />
+    <Resource Include="Pokemon%28ToBeUsed%29\Lapras.gif" />
+    <Resource Include="Pokemon%28ToBeUsed%29\Laprase.gif" />
+    <Resource Include="Pokemon%28ToBeUsed%29\Laprasee.gif" />
+    <Resource Include="Pokemon%28ToBeUsed%29\Pikachu.gif" />
+    <Resource Include="Pokemon%28ToBeUsed%29\Pikachue.gif" />
+    <Resource Include="Pokemon%28ToBeUsed%29\Pikachuee.gif" />
+    <Resource Include="Pokemon%28ToBeUsed%29\Snorlax.gif" />
+    <Resource Include="Pokemon%28ToBeUsed%29\Snorlaxe.gif" />
+    <Resource Include="Pokemon%28ToBeUsed%29\Snorlaxee.gif" />
+    <Resource Include="Pokemon%28ToBeUsed%29\Squirtle.gif" />
+    <Resource Include="Pokemon%28ToBeUsed%29\Squirtlee.gif" />
+    <Resource Include="Pokemon%28ToBeUsed%29\Squirtleee.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pokemon%28ToBeUsed%29\Mewtwo.gif" />
+    <Resource Include="Pokemon%28ToBeUsed%29\Mewtwoe.gif" />
+    <Resource Include="Pokemon%28ToBeUsed%29\Mewtwoee.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="gymtext.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="shoptext.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="hometext.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

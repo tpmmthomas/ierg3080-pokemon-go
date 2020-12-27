@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfAnimatedGif;
 
 
 namespace PokemonGo
@@ -23,17 +24,26 @@ namespace PokemonGo
         private Player p1;
         private Random rand;
         private Dictionary<location, Image> PokeballLoc;
-
+        private Dictionary<location, WildPokemon> PokemonLoc;
+        HashSet<PokemonType> common;
+        HashSet<PokemonType> rare;
+        HashSet<PokemonType> ultrarare;
         System.Windows.Threading.DispatcherTimer balltimer = new System.Windows.Threading.DispatcherTimer();
         System.Windows.Threading.DispatcherTimer regulartimer = new System.Windows.Threading.DispatcherTimer();
+        System.Windows.Threading.DispatcherTimer pokemontimer = new System.Windows.Threading.DispatcherTimer();
         public Navigation(string name)
         {
             InitializeComponent();
             p1 = new Player(name);
             rand = new Random();
             PokeballLoc = new Dictionary<location, Image>();
+            PokemonLoc = new Dictionary<location, WildPokemon>();
+            common = new HashSet<PokemonType>();
+            rare = new HashSet<PokemonType>();
+            ultrarare = new HashSet<PokemonType>();
+            Program.Init("pokemon.csv", common, rare, ultrarare);
             SpawnPokeball();
-            //SpawnPokeball
+            SpawnPokemon();
             RegularTimer();
         }
         private void RegularTimer()
@@ -54,9 +64,112 @@ namespace PokemonGo
                     break;
                 }
             }
+            foreach (var pkmLoc in PokemonLoc)
+            {
+                if (Math.Abs(Canvas.GetLeft(player1) - pkmLoc.Key.left) < 75 && Math.Abs(Canvas.GetTop(player1) - pkmLoc.Key.top) < 75
+                    ) //pokemon only appear when near player
+                {
+                    pkmLoc.Value.pokemonImage.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    pkmLoc.Value.pokemonImage.Visibility = Visibility.Hidden;
+                }
+            }
+            foreach (var pkmLoc in PokemonLoc)
+            {
+                if (Math.Abs(Canvas.GetLeft(player1) - pkmLoc.Key.left) < 30 && Math.Abs(Canvas.GetTop(player1) - pkmLoc.Key.top) < 30)
+                {
+                    //go to catch view
+                }
+            }
             debug1.Text = Canvas.GetLeft(player1).ToString() + "," + Canvas.GetTop(player1).ToString();
             debug2.Text = p1.Pokeball_count.ToString();
         }
+        private void SpawnPokemon()
+        {
+            pokemontimer.Tick += pokemontimer_Tick;
+            pokemontimer.Interval = TimeSpan.FromSeconds(25);//for testing, change later
+            pokemontimer.Start();
+        }
+        private void pokemontimer_Tick(object sender, EventArgs e)
+        {
+            int decideRarity = rand.Next(0, 100);
+            if (decideRarity<97 && PokemonLoc.Count <= 5)
+            {
+                int chosen = rand.Next(0, common.Count);
+                int i = 0;
+                PokemonType chosenPokemon = null;
+                foreach(PokemonType x in common)
+                {
+                    if (i == chosen)
+                    {
+                        chosenPokemon = x;
+                        break;
+                    }
+                    i++;
+                }
+                Image pkm1 = new Image();
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri("Pokemon(ToBeUsed)/"+chosenPokemon.Name+".gif", UriKind.Relative);
+                bitmap.EndInit();
+                pkm1.Source = bitmap;
+                ImageBehavior.SetAnimatedSource(pkm1, bitmap);
+                ImageBehavior.SetRepeatBehavior(pkm1,System.Windows.Media.Animation.RepeatBehavior.Forever);
+                MyCanvas.Children.Add(pkm1);
+                pkm1.Width = 28;
+                int top = rand.Next(0, 360);
+                int left = rand.Next(0, 740);
+                while((top>=0&&top<=45&&left>=80&&left<=190)||(top >= 185 && top <= 235 && left >= 290 && left <= 350))//exclude battle gym and home
+                {
+                    top = rand.Next(0, 360);
+                    left = rand.Next(0, 740);
+                }
+                Canvas.SetTop(pkm1, top);
+                Canvas.SetLeft(pkm1, left);
+                pkm1.Visibility = Visibility.Hidden;
+                PokemonLoc.Add(new location(left, top), new WildPokemon(pkm1,chosenPokemon));
+            }
+            else if(PokemonLoc.Count <= 5)
+            {
+                int chosen = rand.Next(0, rare.Count);
+                int i = 0;
+                PokemonType chosenPokemon = null;
+                foreach (PokemonType x in rare)
+                {
+                    if (i == chosen)
+                    {
+                        chosenPokemon = x;
+                        break;
+                    }
+                    i++;
+                }
+                Image pkm1 = new Image();
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri("Pokemon(ToBeUsed)/" + chosenPokemon.Name + ".gif", UriKind.Relative);
+                bitmap.EndInit();
+                pkm1.Source = bitmap;
+                ImageBehavior.SetAnimatedSource(pkm1, bitmap);
+                ImageBehavior.SetRepeatBehavior(pkm1, System.Windows.Media.Animation.RepeatBehavior.Forever);
+                MyCanvas.Children.Add(pkm1);
+                pkm1.Width = 28;
+                int top = rand.Next(0, 360);
+                int left = rand.Next(0, 740);
+                while ((top >= 0 && top <= 45 && left >= 80 && left <= 190) || (top >= 185 && top <= 235 && left >= 290 && left <= 350))//exclude battle gym and home
+                {
+                    top = rand.Next(0, 360);
+                    left = rand.Next(0, 740);
+                }
+                Canvas.SetTop(pkm1, top);
+                Canvas.SetLeft(pkm1, left);
+                pkm1.Visibility = Visibility.Hidden;
+                PokemonLoc.Add(new location(left, top), new WildPokemon(pkm1, chosenPokemon));
+            }
+
+        }
+
         private void SpawnPokeball()
         {
             balltimer.Tick += balltimer_Tick;
@@ -127,6 +240,16 @@ namespace PokemonGo
             }
         
         }
+        private class WildPokemon
+        {
+            public Image pokemonImage;
+            public PokemonType pokemonStat;
+            public WildPokemon(Image x, PokemonType y)
+            {
+               pokemonImage = x;
+               pokemonStat = y;
+            }
 
+        }
     }
 }
