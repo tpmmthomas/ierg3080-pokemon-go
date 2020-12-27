@@ -14,6 +14,7 @@ namespace PokemonGo
 {
     public class Program
     {
+        public static int Status;
         public static void Init(string file, HashSet<PokemonType> common, HashSet<PokemonType> rare, HashSet<PokemonType> ultrarare)
         {
             using (var reader = new StreamReader(file))
