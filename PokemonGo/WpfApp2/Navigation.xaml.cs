@@ -25,7 +25,6 @@ namespace PokemonGo
         private Random rand;
         private Dictionary<location, Image> PokeballLoc;
         private Dictionary<location, WildPokemon> PokemonLoc;
-        private bool isCapture;
         private int CaptureCountdown;
         HashSet<PokemonType> common;
         HashSet<PokemonType> rare;
@@ -43,7 +42,7 @@ namespace PokemonGo
             common = new HashSet<PokemonType>();
             rare = new HashSet<PokemonType>();
             ultrarare = new HashSet<PokemonType>();
-            isCapture = false;
+            Program.Status = 0;
             Program.Init("pokemon.csv", common, rare, ultrarare);
             SpawnPokeball();
             SpawnPokemon();
@@ -69,8 +68,7 @@ namespace PokemonGo
             }
             foreach (var pkmLoc in PokemonLoc)
             {
-                if (Math.Abs(Canvas.GetLeft(player1) - pkmLoc.Key.left) < 75 && Math.Abs(Canvas.GetTop(player1) - pkmLoc.Key.top) < 75
-                    ) //pokemon only appear when near player
+                if (Math.Abs(Canvas.GetLeft(player1) - pkmLoc.Key.left) < 75 && Math.Abs(Canvas.GetTop(player1) - pkmLoc.Key.top) < 75) //pokemon only appear when near player
                 {
                     pkmLoc.Value.pokemonImage.Visibility = Visibility.Visible;
                 }
@@ -81,19 +79,25 @@ namespace PokemonGo
             }
             foreach (var pkmLoc in PokemonLoc)
             {
-                if (Math.Abs(Canvas.GetLeft(player1) - pkmLoc.Key.left) < 30 && Math.Abs(Canvas.GetTop(player1) - pkmLoc.Key.top) < 30)
+                if (Math.Abs(Canvas.GetLeft(player1) - pkmLoc.Key.left) < 30 && Math.Abs(Canvas.GetTop(player1) - pkmLoc.Key.top) < 30 && Program.Status == 0)
                 {
                     pkmLoc.Value.pokemonImage.Visibility = Visibility.Collapsed;
                     PokemonLoc.Remove(pkmLoc.Key);
+                    Program.Status = 1;
                     WindowNavigation.NavigateTo(new Capture(p1, pkmLoc.Value.pokemonStat));
-                    isCapture = true;
                     CaptureCountdown = 2;
                     break;
                 }
             }
+            if (Math.Abs(Canvas.GetLeft(player1) - 140) < 20 && Math.Abs(Canvas.GetTop(player1) - 55) < 20 && Program.Status == 0)
+            {
+                Canvas.SetTop(player1, 335);
+                Canvas.SetLeft(player1, 229);
+                Program.Status = 1;
+                WindowNavigation.NavigateTo(new Battle());
+            }
             debug1.Text = p1.PokemonCount().ToString();
-            debug2.Text = p1.Stardust
-                .ToString();
+            debug2.Text = Canvas.GetTop(player1).ToString() + "," + Canvas.GetLeft(player1).ToString();
         }
         private void SpawnPokemon()
         {
@@ -103,12 +107,8 @@ namespace PokemonGo
         }
         private void pokemontimer_Tick(object sender, EventArgs e)
         {
-            if (isCapture)
+            if (Program.Status == 1)
             {
-                if (CaptureCountdown > 0)
-                    CaptureCountdown--;
-                else
-                    isCapture = false;
                 return;
             }
             int decideRarity = rand.Next(0, 100);
@@ -203,6 +203,10 @@ namespace PokemonGo
         }
         private void balltimer_Tick(object sender, EventArgs e)
         {
+            if(Program.Status == 1)
+            {
+                return;
+            }
             if(PokeballLoc.Count <= 5)
             {
                 Image ball1 = new Image();
@@ -224,7 +228,6 @@ namespace PokemonGo
 
         private void Canvas_KeyDown(object sender, KeyEventArgs e)
         {
-
             if (e.Key == Key.Down)
             {
                 if (Canvas.GetTop(player1) >= 350)

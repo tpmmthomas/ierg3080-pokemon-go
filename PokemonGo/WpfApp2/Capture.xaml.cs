@@ -157,6 +157,7 @@ namespace PokemonGo
             }
             if (e.Key == Key.B && status == 3)
             {
+                Program.Status = 0;
                 WindowNavigation.NavigateBack();
             }
 
@@ -196,7 +197,7 @@ namespace PokemonGo
                     wintext.Visibility = Visibility.Visible;
                     var endtimer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(2.5) };
                     endtimer.Start();
-                    endtimer.Tick += (sender2, args2) => { endtimer.Stop();  WindowNavigation.NavigateBack(); };
+                    endtimer.Tick += (sender2, args2) => { endtimer.Stop(); Program.Status = 0; WindowNavigation.NavigateBack(); };
                 };
             }
             else
@@ -233,6 +234,7 @@ namespace PokemonGo
             quicktimer.Start();
             quicktimer.Tick += (sender, args) => {
                 quicktimer.Stop();
+                Program.Status = 0;
                 WindowNavigation.NavigateBack();
             };
         }
@@ -261,6 +263,7 @@ namespace PokemonGo
             quicktimer.Start();
             quicktimer.Tick += (sender, args) => {
                 quicktimer.Stop();
+                Program.Status = 0;
                 WindowNavigation.NavigateBack();
             };
         }
