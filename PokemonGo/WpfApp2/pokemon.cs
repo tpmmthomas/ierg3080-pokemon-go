@@ -247,7 +247,7 @@ namespace PokemonGo
             HP = maxHP;
         }
 
-        public int evolve()
+        public int Evolve()
         {
             if (evolvestate == 3)
                 return 1;
@@ -278,7 +278,7 @@ namespace PokemonGo
             return 0;
         }
 
-        public void rename(string x)
+        public void Rename(string x)
         {
             if (evolvestate >= 2)
                 x = x + '+';

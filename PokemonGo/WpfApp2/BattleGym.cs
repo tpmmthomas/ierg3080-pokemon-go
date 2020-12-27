@@ -32,11 +32,11 @@ namespace PokemonGo
         private WinMethod win;
         private LoseMethod lose;
 
-        public BattleGym(Pokemon x, WinMethod a, LoseMethod b)
+        public BattleGym(Pokemon x,Pokemon y, WinMethod a, LoseMethod b)
         { //Winmethod and Losemethod passed in from presenter module (Define the change in view?)
             rand = new Random();
             PlayerPokemon = x;
-            OpponentPokemon = x; //change it later
+            OpponentPokemon = y; //change it later
             win = a;
             lose = b;
             CurrentTurn = 1;
@@ -67,7 +67,6 @@ namespace PokemonGo
         }
         public bool PlayerMove(int move)
         { //pass in index of next attack move
-          //to be implemented. 
             bool critical = rand.Next(0, 100) / (float)100 < PlayerCriticalRate ? true : false;
             if (critical)
             {
