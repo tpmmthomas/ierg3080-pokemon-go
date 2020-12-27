@@ -1,16 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System.Windows.Threading;
 using WpfAnimatedGif;
 
 
@@ -29,9 +23,9 @@ namespace PokemonGo
         HashSet<PokemonType> common;
         HashSet<PokemonType> rare;
         HashSet<PokemonType> ultrarare;
-        System.Windows.Threading.DispatcherTimer balltimer = new System.Windows.Threading.DispatcherTimer();
-        System.Windows.Threading.DispatcherTimer regulartimer = new System.Windows.Threading.DispatcherTimer();
-        System.Windows.Threading.DispatcherTimer pokemontimer = new System.Windows.Threading.DispatcherTimer();
+        DispatcherTimer balltimer = new DispatcherTimer();
+        DispatcherTimer regulartimer = new DispatcherTimer();
+        DispatcherTimer pokemontimer = new DispatcherTimer();
         public Navigation(string name)
         {
             InitializeComponent();
@@ -94,7 +88,7 @@ namespace PokemonGo
                 Canvas.SetTop(player1, 335);
                 Canvas.SetLeft(player1, 229);
                 Program.Status = 1;
-                WindowNavigation.NavigateTo(new Battle());
+                WindowNavigation.NavigateTo(new Battle(p1));
             }
             debug1.Text = p1.PokemonCount().ToString();
             debug2.Text = Canvas.GetTop(player1).ToString() + "," + Canvas.GetLeft(player1).ToString();

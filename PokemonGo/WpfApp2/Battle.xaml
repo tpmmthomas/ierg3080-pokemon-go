@@ -8,72 +8,92 @@
         Title="Battle" Height="450" Width="800">
     <Grid>
         <Image Margin="0,0,0,0" Source="battle_background.png" Stretch="UniformToFill"/>
-        <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="31,17,0,0" TextWrapping="Wrap" Text="Vaporeon" VerticalAlignment="Top" Height="33" Width="288" FontSize="20" FontWeight="Bold"/>
+        <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="341,43,0,0" TextWrapping="Wrap" Text="120" VerticalAlignment="Top" Height="44" Width="99" FontSize="30" FontWeight="Medium" TextAlignment="Center" RenderTransformOrigin="0.487,0.75"/>
+        <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="326,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="26" Width="133" FontSize="20" FontWeight="Medium" TextAlignment="Center" RenderTransformOrigin="0.487,0.75"><Run Text="Level 1/"/><Run Text="3"/></TextBlock>
+
+        <!--my pokemon-->
+        <TextBlock x:Name="BattlePokemonName" Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="31,17,0,0" TextWrapping="Wrap" Text="Vaporeon" VerticalAlignment="Top" Height="33" Width="288" FontSize="20" FontWeight="Bold"/>
         <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="31,68,0,0" TextWrapping="Wrap" Text="CP" VerticalAlignment="Top" Height="19" Width="21" FontSize="12" FontWeight="Light"/>
         <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="49,64,0,0" TextWrapping="Wrap" Text="5842" VerticalAlignment="Top" Height="23" Width="99" FontSize="16" FontWeight="Medium"/>
         <Rectangle Fill="Black" HorizontalAlignment="Left" Height="9" Margin="31,50,0,0" VerticalAlignment="Top" Width="279" RadiusX="5" RadiusY="5" Opacity="0.5"/>
         <Rectangle Fill="Orange" HorizontalAlignment="Left" Height="9" Margin="75,50,0,0" VerticalAlignment="Top" Width="235" RadiusX="5" RadiusY="5"/>
-        <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="341,43,0,0" TextWrapping="Wrap" Text="120" VerticalAlignment="Top" Height="44" Width="99" FontSize="30" FontWeight="Medium" TextAlignment="Center" RenderTransformOrigin="0.487,0.75"/>
         <Rectangle Fill="LightGreen" HorizontalAlignment="Left" Height="9" Margin="162,50,0,0" VerticalAlignment="Top" Width="149" RadiusX="5" RadiusY="5"/>
+        <Image Margin="124,255,511.6,35" gif:ImageBehavior.AnimatedSource="Images/battle/back.gif"/>
 
-        <Image Margin="124,255,511.6,35" gif:ImageBehavior.AnimatedSource="battle_back.gif"/>
-        <Image Margin="561,195,172.6,165" gif:ImageBehavior.AnimatedSource="battle_front.gif"/>
-
+        <!--Gyms' pokemon-->
+        <Image Margin="531,123,119.6,154" gif:ImageBehavior.AnimatedSource="Images/battle/front.gif" Stretch="None" VerticalAlignment="Bottom"/>
         <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="479,17,0,0" TextWrapping="Wrap" Text="Vaporeon" VerticalAlignment="Top" Height="33" Width="288" FontSize="20" FontWeight="Bold" TextAlignment="Right"/>
         <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="668,64,0,0" TextWrapping="Wrap" Text="5842" VerticalAlignment="Top" Height="23" Width="99" FontSize="16" FontWeight="Medium" TextAlignment="Right"/>
         <Rectangle Fill="Black" HorizontalAlignment="Left" Height="9" Margin="488,50,0,0" VerticalAlignment="Top" Width="279" RadiusX="5" RadiusY="5" Opacity="0.5"/>
         <Rectangle Fill="Orange" HorizontalAlignment="Left" Height="9" Margin="488,50,0,0" VerticalAlignment="Top" Width="63" RadiusX="5" RadiusY="5"/>
         <Rectangle Fill="Red" HorizontalAlignment="Left" Height="9" Margin="488,50,0,0" VerticalAlignment="Top" Width="24" RadiusX="5" RadiusY="5"/>
-        
-        
-        
+
         <!--Image button to change battle pokemon-->
-        <Button BorderThickness="0" Background="{x:Null}" Width="55" Height="55" Margin="0,0,90,20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="Button_Click_1">
+        <Button BorderThickness="0" Background="{x:Null}" Width="55" Height="55" Margin="0,0,90,20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="ButtonSwitchPokemon">
             <StackPanel>
                 <Image Source="button_change.png" Width="48" Height="48" />
             </StackPanel>
         </Button>
+
         <!--Image button to run away-->
-        <Button BorderThickness="0" Background="{x:Null}" Width="55" Height="55" Margin="0,0,30,20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="Button_Click">
+        <Button BorderThickness="0" Background="{x:Null}" Width="55" Height="55" Margin="0,0,30,20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="ButtonRunAway">
             <StackPanel>
                 <Image Source="button_run.png" Width="48" Height="48" />
             </StackPanel>
         </Button>
 
-        <Grid x:Name="GridChangePokemon" Margin="49,0,232.6,0">
-            <!--Add Visibility="Hidden" above to hide-->
-            <Rectangle Fill="#7F000000" HorizontalAlignment="Left" Height="278" Margin="260,168,-2,-26" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="254"/>
-            <Rectangle Fill="#7F000000" Stroke="#FF16E7DA" HorizontalAlignment="Left" Height="50" Margin="287,233,0,0" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="50"/>
-            <Rectangle Fill="#7F000000" Stroke="#FF16E7DA" HorizontalAlignment="Left" Height="50" Margin="362,233,0,0" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="50"/>
-            <Rectangle Fill="#7F000000" Stroke="#FF16E7DA" HorizontalAlignment="Left" Height="50" Margin="437,233,0,0" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="50"/>
-            <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="288,214,0,0" TextWrapping="Wrap" Text="CP" VerticalAlignment="Top" Height="19" Width="21" FontSize="10
-                   " FontWeight="Light"/>
-            <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="302,211,0,0" TextWrapping="Wrap" Text="1485" VerticalAlignment="Top" Height="19" Width="38" FontSize="14" FontWeight="Medium"/>
-            <Image Margin="300,248,186,146" Source="battle_poke_1.gif" Stretch="Fill" Width="26" Height="26"/>
-            <Rectangle Fill="#7F000000" Stroke="#FF16E7DA" HorizontalAlignment="Left" Height="50" Margin="287,321,0,0" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="50"/>
-            <Rectangle Fill="#7F000000" Stroke="#FF16E7DA" HorizontalAlignment="Left" Height="50" Margin="362,321,0,0" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="50"/>
-            <Rectangle Fill="#7F000000" Stroke="#FF16E7DA" HorizontalAlignment="Left" Height="50" Margin="437,320,0,0" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="50"/>
-            <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="362,214,0,0" TextWrapping="Wrap" Text="CP" VerticalAlignment="Top" Height="19" Width="21" FontSize="10                    " FontWeight="Light"/>
-            <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="437,214,0,0" TextWrapping="Wrap" Text="CP" VerticalAlignment="Top" Height="19" Width="21" FontSize="10                    " FontWeight="Light"/>
-            <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="375,211,0,0" TextWrapping="Wrap" Text="1485" VerticalAlignment="Top" Height="19" Width="38" FontSize="14" FontWeight="Medium"/>
-            <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="451,211,0,0" TextWrapping="Wrap" Text="1485" VerticalAlignment="Top" Height="19" Width="38" FontSize="14" FontWeight="Medium"/>
+        <!--Interface of change pokemon-->
+        <Grid x:Name="GridChangePokemon" Margin="0,0,0,-300" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="252">
+            <Rectangle Fill="#7F000000" HorizontalAlignment="Left" Height="278" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="254"/>
+            <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Center" Margin="0,22,0,0" TextWrapping="Wrap" Text="Switch in a new Pokemon?" VerticalAlignment="Top" Height="18" FontSize="10" FontWeight="Light"/>
 
-            <Button BorderThickness="0" Background="{x:Null}" Width="40" Height="40" Margin="0,0,106,3" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="ButtonCloseSwitchPokemon">
+            <Button BorderThickness="0" Background="{x:Null}" Margin="0,0,172,116.4" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="ButtonConfirmSwitchPokemon">
+                <StackPanel>
+                    <DockPanel Margin="5,0,0,5">
+                        <TextBlock Foreground="#FFFFFF" VerticalAlignment="Bottom" TextWrapping="Wrap" Text="CP" Width="16" FontSize="10" FontWeight="Light"/>
+                        <TextBlock Foreground="#FFFFFF" VerticalAlignment="Bottom" TextWrapping="Wrap" Text="1485" FontSize="14" FontWeight="Medium"/>
+                    </DockPanel>
+                    <Rectangle Stroke="#FF16E7DA" HorizontalAlignment="Center" Height="60" RadiusY="5" RadiusX="5" Width="60">
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="battle_poke_1.gif" Stretch="None">
+                                <ImageBrush.RelativeTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.8" ScaleY="0.8"/>
+                                    </TransformGroup>
+                                </ImageBrush.RelativeTransform>
+                            </ImageBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <TextBlock Foreground="#FFFFFF" VerticalAlignment="Bottom" TextWrapping="Wrap" Text="Vaporeon" FontSize="10" FontWeight="Light" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                </StackPanel>
+            </Button>
+            <Button BorderThickness="0" Background="{x:Null}" Margin="0,0,0,116.4" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="ButtonConfirmSwitchPokemon">
+                <StackPanel>
+                    <DockPanel Margin="5,0,0,5">
+                        <TextBlock Foreground="#FFFFFF" VerticalAlignment="Bottom" TextWrapping="Wrap" Text="CP" Width="16" FontSize="10" FontWeight="Light"/>
+                        <TextBlock Foreground="#FFFFFF" VerticalAlignment="Bottom" TextWrapping="Wrap" Text="1485" FontSize="14" FontWeight="Medium"/>
+                    </DockPanel>
+                    <Rectangle Stroke="#FF16E7DA" HorizontalAlignment="Center" Height="60" RadiusY="5" RadiusX="5" Width="60">
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="Pokemon(ToBeUsed)/Charmanderee.gif">
+                                <ImageBrush.RelativeTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.8" ScaleY="0.8"/>
+                                    </TransformGroup>
+                                </ImageBrush.RelativeTransform>
+                            </ImageBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <TextBlock Foreground="#FFFFFF" VerticalAlignment="Bottom" TextWrapping="Wrap" Text="Vaporeon" FontSize="10" FontWeight="Light" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                </StackPanel>
+            </Button>
+
+            <Button BorderThickness="0" Background="{x:Null}" Width="40" Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="ButtonCloseSwitchPokemon" Margin="106,0,106,15">
                 <StackPanel>
                     <Image Source="button_close.png" Width="30" Height="30" />
                 </StackPanel>
             </Button>
-            
-            <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="302,301,0,0" TextWrapping="Wrap" Text="1485" VerticalAlignment="Top" Height="19" Width="38" FontSize="14" FontWeight="Medium"/>
-            <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="375,300,0,0" TextWrapping="Wrap" Text="1485" VerticalAlignment="Top" Height="19" Width="38" FontSize="14" FontWeight="Medium"/>
-            <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="451,300,0,0" TextWrapping="Wrap" Text="1485" VerticalAlignment="Top" Height="19" Width="38" FontSize="14" FontWeight="Medium"/>
-            <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="288,305,0,0" TextWrapping="Wrap" Text="CP" VerticalAlignment="Top" Height="19" Width="21" FontSize="10                    " FontWeight="Light"/>
-            <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="362,304,0,0" TextWrapping="Wrap" Text="CP" VerticalAlignment="Top" Height="19" Width="21" FontSize="10                    " FontWeight="Light"/>
-            <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="437,304,0,0" TextWrapping="Wrap" Text="CP" VerticalAlignment="Top" Height="19" Width="21" FontSize="10                    " FontWeight="Light"/>
-            <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="328,185,0,0" TextWrapping="Wrap" Text="Switch in a new Pokemon?" VerticalAlignment="Top" Height="13" Width="139" FontSize="10                    " FontWeight="Light"/>
         </Grid>
-        <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="326,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="26" Width="133" FontSize="20" FontWeight="Medium" TextAlignment="Center" RenderTransformOrigin="0.487,0.75"><Run Text="Level 1/"/><Run Text="3"/></TextBlock>
-
 
     </Grid>
 </Window>
