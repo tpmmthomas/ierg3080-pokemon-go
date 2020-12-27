@@ -46,3 +46,6 @@ C:\Users\User\Desktop\koss\project-part-ii-wong-wan-ki-wong-keng-lam\PokemonGo\W
 C:\Users\User\Desktop\koss\project-part-ii-wong-wan-ki-wong-keng-lam\PokemonGo\WpfApp2\obj\Debug\PokemonGo.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\koss\project-part-ii-wong-wan-ki-wong-keng-lam\PokemonGo\WpfApp2\obj\Debug\PokemonGo.csproj.CopyComplete
 C:\Users\User\Desktop\koss\project-part-ii-wong-wan-ki-wong-keng-lam\PokemonGo\WpfApp2\obj\Debug\PokemonGo.exe
+C:\Users\good6\Documents\GitHub\project-part-ii-wong-wan-ki-wong-keng-lam\PokemonGo\WpfApp2\obj\Debug\Battle.baml
+C:\Users\good6\Documents\GitHub\project-part-ii-wong-wan-ki-wong-keng-lam\PokemonGo\WpfApp2\obj\Debug\App.baml
+C:\Users\good6\Documents\GitHub\project-part-ii-wong-wan-ki-wong-keng-lam\PokemonGo\WpfApp2\obj\Debug\Battle.g.cs

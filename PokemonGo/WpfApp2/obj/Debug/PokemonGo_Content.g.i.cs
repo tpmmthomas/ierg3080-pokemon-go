@@ -8,6 +8,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("mfjw.gif")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("battle_back.gif")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("battle_background.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("battle_front.gif")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("battle_poke_1.gif")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("button_change.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("button_close.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("button_pokemon.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("button_run.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("button_tick.png")]
 
 
