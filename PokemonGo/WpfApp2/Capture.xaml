@@ -1,0 +1,41 @@
+﻿<Window x:Class="PokemonGo.Capture"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        xmlns:local="clr-namespace:PokemonGo"
+        mc:Ignorable="d"
+        Title="Capture" Height="450" Width="800" FocusManager.FocusedElement="{Binding ElementName=MyCanvas}">
+    <Canvas Name="MyCanvas" KeyDown="Canvas_KeyDown" Focusable="True" >
+        <Canvas.Background>
+            <ImageBrush ImageSource="capture_background.png" Stretch="UniformToFill"/>
+        </Canvas.Background>
+        <Image x:Name="Bulbasaur" gif:ImageBehavior.AnimatedSource="Pokemon(ToBeUsed)/Bulbasaur.gif" Visibility="Hidden" Height="89" Canvas.Left="327" Canvas.Top="181" Width="112"  />
+        <Image x:Name="Squirtle" gif:ImageBehavior.AnimatedSource="Pokemon(ToBeUsed)/Squirtle.gif" Visibility="Hidden" Height="95" Canvas.Left="320" Canvas.Top="176" Width="115"  />
+        <Image x:Name="Charmander" gif:ImageBehavior.AnimatedSource="Pokemon(ToBeUsed)/Charmander.gif" Visibility="Hidden" Height="86" Canvas.Left="332" Canvas.Top="183" Width="104"  />
+        <Image x:Name="Pikachu" gif:ImageBehavior.AnimatedSource="Pokemon(ToBeUsed)/Pikachu.gif" Visibility="Hidden" Height="91" Canvas.Left="341" Canvas.Top="181" Width="113"  />
+        <Image x:Name="Snorlax" gif:ImageBehavior.AnimatedSource="Pokemon(ToBeUsed)/Snorlax.gif" Visibility="Hidden" Canvas.Left="329" Canvas.Top="169" Height="101" Width="112"  />
+        <Image x:Name="Lapras" gif:ImageBehavior.AnimatedSource="Pokemon(ToBeUsed)/Lapras.gif" Visibility="Hidden" Canvas.Left="324" Canvas.Top="162" Height="111" Width="127"  />
+        <Image Source="pokeball.png" HorizontalAlignment="Left" Height="49" VerticalAlignment="Top" Width="38" Margin="678,2,0,0" RenderTransformOrigin="-0.009,0.394"/>
+        <TextBlock x:Name="ballcount" FontSize="32" HorizontalAlignment="Left" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Margin="727,-2,0,0" Width="54"/>
+        <Ellipse x:Name="objective"
+            Width="179"
+            Height="179"
+            Stroke="ForestGreen"
+            StrokeThickness="5" Canvas.Left="299" Canvas.Top="136" MouseEnter="objective_MouseEnter"
+            />
+        <TextBlock x:Name="instruction" FontSize="28" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="720" Canvas.Left="39" Canvas.Top="316"><Run Text="Press enter when the gray circle matches the green circle!"/><LineBreak/><Run Text="(The closer you are, the higher chance of capturing)"/></TextBlock>
+        <Ellipse x:Name="moving"
+            Width="471"
+            Height="471"
+            Stroke="Gray"
+            Visibility="Hidden"
+            StrokeThickness="5" Canvas.Left="174" Canvas.Top="-34"
+            />
+        <Image x:Name="one" Source="1.png"  Visibility="Hidden" HorizontalAlignment="Left" Height="130" VerticalAlignment="Top" Width="74" RenderTransformOrigin="-0.009,0.394" Canvas.Left="348" Canvas.Top="155"/>
+        <Image x:Name="two" Source="2.png"  Visibility="Hidden" HorizontalAlignment="Left" Height="161" VerticalAlignment="Top" Width="100" RenderTransformOrigin="-0.009,0.394" Canvas.Left="341" Canvas.Top="156">
+        </Image>
+        <Image x:Name="three" Source="3.png" Visibility="Hidden" HorizontalAlignment="Left" Height="139" VerticalAlignment="Top" Width="134" RenderTransformOrigin="-0.009,0.394" Canvas.Left="325" Canvas.Top="155"/>
+    </Canvas>
+</Window>

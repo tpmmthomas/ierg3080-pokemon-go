@@ -25,6 +25,8 @@ namespace PokemonGo
         private Random rand;
         private Dictionary<location, Image> PokeballLoc;
         private Dictionary<location, WildPokemon> PokemonLoc;
+        private bool isCapture;
+        private int CaptureCountdown;
         HashSet<PokemonType> common;
         HashSet<PokemonType> rare;
         HashSet<PokemonType> ultrarare;
@@ -41,6 +43,7 @@ namespace PokemonGo
             common = new HashSet<PokemonType>();
             rare = new HashSet<PokemonType>();
             ultrarare = new HashSet<PokemonType>();
+            isCapture = false;
             Program.Init("pokemon.csv", common, rare, ultrarare);
             SpawnPokeball();
             SpawnPokemon();
@@ -80,7 +83,12 @@ namespace PokemonGo
             {
                 if (Math.Abs(Canvas.GetLeft(player1) - pkmLoc.Key.left) < 30 && Math.Abs(Canvas.GetTop(player1) - pkmLoc.Key.top) < 30)
                 {
-                    //go to catch view
+                    pkmLoc.Value.pokemonImage.Visibility = Visibility.Collapsed;
+                    PokemonLoc.Remove(pkmLoc.Key);
+                    WindowNavigation.NavigateTo(new Capture(p1, pkmLoc.Value.pokemonStat));
+                    isCapture = true;
+                    CaptureCountdown = 30;
+                    break;
                 }
             }
             debug1.Text = Canvas.GetLeft(player1).ToString() + "," + Canvas.GetTop(player1).ToString();
@@ -89,11 +97,19 @@ namespace PokemonGo
         private void SpawnPokemon()
         {
             pokemontimer.Tick += pokemontimer_Tick;
-            pokemontimer.Interval = TimeSpan.FromSeconds(25);//for testing, change later
+            pokemontimer.Interval = TimeSpan.FromSeconds(1);//for testing, change later
             pokemontimer.Start();
         }
         private void pokemontimer_Tick(object sender, EventArgs e)
         {
+            if (isCapture)
+            {
+                if (CaptureCountdown > 0)
+                    CaptureCountdown--;
+                else
+                    isCapture = false;
+                return;
+            }
             int decideRarity = rand.Next(0, 100);
             if (decideRarity<97 && PokemonLoc.Count <= 5)
             {
@@ -121,7 +137,7 @@ namespace PokemonGo
                 pkm1.Width = 32;
                 int top = rand.Next(0, 360);
                 int left = rand.Next(0, 740);
-                while((top>=0&&top<=45&&left>=80&&left<=190)||(top >= 185 && top <= 235 && left >= 290 && left <= 350))//exclude battle gym and home
+                while((top>=0&&top<=45&&left>=80&&left<=190)||(top >= 185 && top <= 235 && left >= 290 && left <= 350)||exists(top,left))//exclude battle gym and home
                 {
                     top = rand.Next(0, 360);
                     left = rand.Next(0, 740);
@@ -157,7 +173,7 @@ namespace PokemonGo
                 pkm1.Width = 32;
                 int top = rand.Next(0, 360);
                 int left = rand.Next(0, 740);
-                while ((top >= 0 && top <= 45 && left >= 80 && left <= 190) || (top >= 185 && top <= 235 && left >= 290 && left <= 350))//exclude battle gym and home
+                while ((top >= 0 && top <= 45 && left >= 80 && left <= 190) || (top >= 185 && top <= 235 && left >= 290 && left <= 350) || exists(top, left))//exclude battle gym and home
                 {
                     top = rand.Next(0, 360);
                     left = rand.Next(0, 740);
@@ -169,7 +185,15 @@ namespace PokemonGo
             }
 
         }
-
+        private bool exists(int top, int left)
+        {
+            foreach(var x in PokemonLoc)
+            {
+                if(Math.Abs(x.Key.top - top) < 40 && Math.Abs(x.Key.left - left) < 40)
+                    return true;
+            }
+            return false;
+        }
         private void SpawnPokeball()
         {
             balltimer.Tick += balltimer_Tick;
@@ -199,6 +223,7 @@ namespace PokemonGo
 
         private void Canvas_KeyDown(object sender, KeyEventArgs e)
         {
+
             if (e.Key == Key.Down)
             {
                 if (Canvas.GetTop(player1) >= 350)
