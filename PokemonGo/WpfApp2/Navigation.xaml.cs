@@ -118,7 +118,7 @@ namespace PokemonGo
                 ImageBehavior.SetAnimatedSource(pkm1, bitmap);
                 ImageBehavior.SetRepeatBehavior(pkm1,System.Windows.Media.Animation.RepeatBehavior.Forever);
                 MyCanvas.Children.Add(pkm1);
-                pkm1.Width = 28;
+                pkm1.Width = 32;
                 int top = rand.Next(0, 360);
                 int left = rand.Next(0, 740);
                 while((top>=0&&top<=45&&left>=80&&left<=190)||(top >= 185 && top <= 235 && left >= 290 && left <= 350))//exclude battle gym and home
@@ -154,7 +154,7 @@ namespace PokemonGo
                 ImageBehavior.SetAnimatedSource(pkm1, bitmap);
                 ImageBehavior.SetRepeatBehavior(pkm1, System.Windows.Media.Animation.RepeatBehavior.Forever);
                 MyCanvas.Children.Add(pkm1);
-                pkm1.Width = 28;
+                pkm1.Width = 32;
                 int top = rand.Next(0, 360);
                 int left = rand.Next(0, 740);
                 while ((top >= 0 && top <= 45 && left >= 80 && left <= 190) || (top >= 185 && top <= 235 && left >= 290 && left <= 350))//exclude battle gym and home
