@@ -22,6 +22,20 @@ namespace PokemonGo
         public Battle()
         {
             InitializeComponent();
+            GridChangePokemon.Visibility = Visibility.Collapsed;
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            WindowNavigation.NavigateBack();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            GridChangePokemon.Visibility = Visibility.Visible;
+        }
+        private void ButtonCloseSwitchPokemon(object sender, RoutedEventArgs e)
+        {
+            GridChangePokemon.Visibility = Visibility.Collapsed;
         }
     }
 }
