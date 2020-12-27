@@ -60,7 +60,7 @@ namespace PokemonGo
         private void SpawnPokeball()
         {
             balltimer.Tick += balltimer_Tick;
-            balltimer.Interval = TimeSpan.FromSeconds(5);
+            balltimer.Interval = TimeSpan.FromSeconds(10);
             balltimer.Start();
         }
         private void balltimer_Tick(object sender, EventArgs e)
@@ -90,7 +90,7 @@ namespace PokemonGo
             {
                 if (Canvas.GetTop(player1) >= 350)
                     return;
-                Canvas.SetTop(player1, Canvas.GetTop(player1) + 10);
+                 Canvas.SetTop(player1, Canvas.GetTop(player1) + 10);
             }
             else if (e.Key == Key.Up)
             {

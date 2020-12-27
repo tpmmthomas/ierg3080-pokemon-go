@@ -67,9 +67,7 @@ namespace PokemonGo
         {
             if(e.Key == System.Windows.Input.Key.Return)
             {
-                Navigation p = new Navigation(yourname.Text);
-                p.Show();
-                Hide();
+                WindowNavigation.NavigateTo(new Navigation(yourname.Text));
             }
         }
     }
