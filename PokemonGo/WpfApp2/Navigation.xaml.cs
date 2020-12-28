@@ -76,7 +76,6 @@ namespace PokemonGo
                     pkmLoc.Value.pokemonImage.Visibility = Visibility.Collapsed;
                     PokemonLoc.Remove(pkmLoc.Key);
                     this.NavigationService.Navigate(new Capture(p1, pkmLoc.Value.pokemonStat));
-                    //WindowNavigation.NavigateTo(new Capture(p1, pkmLoc.Value.pokemonStat));
                     break;
                 }
             }
@@ -84,7 +83,6 @@ namespace PokemonGo
             {
                 Canvas.SetTop(player1, 335);
                 Canvas.SetLeft(player1, 229);
-                //WindowNavigation.NavigateTo(new Battle(p1));
                 this.NavigationService.Navigate(new Battle(p1));
             }
            
@@ -92,7 +90,6 @@ namespace PokemonGo
             {
                 Canvas.SetTop(player1, 335);
                 Canvas.SetLeft(player1, 229);
-                //WindowNavigation.NavigateTo(new Manage(p1));
                 this.NavigationService.Navigate(new Manage(p1));
             }
             debug1.Text = p1.PokemonCount().ToString();
@@ -101,7 +98,7 @@ namespace PokemonGo
         private void SpawnPokemon()
         {
             pokemontimer.Tick += pokemontimer_Tick;
-            pokemontimer.Interval = TimeSpan.FromSeconds(2);//testing
+            pokemontimer.Interval = TimeSpan.FromSeconds(20);//testing
             pokemontimer.Start();
         }
         private void pokemontimer_Tick(object sender, EventArgs e)

@@ -23,7 +23,7 @@ namespace PokemonGo
                 while (!reader.EndOfStream)
                 {
                     var line = reader.ReadLine();
-                    var values = line.Split(',', (char)StringSplitOptions.None); //don't know why this method is missing using local mono compiler? Must test again in WPF.
+                    var values = line.Split(',', (char)StringSplitOptions.None);
                     PokemonType p1 = new PokemonType(int.Parse(values[1]), values[0], float.Parse(values[2]), float.Parse(values[3]), float.Parse(values[4]), float.Parse(values[5]), int.Parse(values[6]), int.Parse(values[7]), values[8], int.Parse(values[9]), values[10], int.Parse(values[11]), values[12], int.Parse(values[13]));
                     if (p1.Rarity == 1)
                         common.Add(p1);

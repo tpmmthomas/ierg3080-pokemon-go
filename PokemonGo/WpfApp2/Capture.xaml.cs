@@ -26,9 +26,9 @@ namespace PokemonGo
         private Player p1;
         private PokemonType pkm;
         private CaptureGame game;
-        DispatcherTimer starttimer = new System.Windows.Threading.DispatcherTimer();
-        DispatcherTimer gametimer = new System.Windows.Threading.DispatcherTimer();
-        DispatcherTimer balltimer = new System.Windows.Threading.DispatcherTimer();
+        DispatcherTimer starttimer = new DispatcherTimer();
+        DispatcherTimer gametimer = new DispatcherTimer();
+        DispatcherTimer balltimer = new DispatcherTimer();
         private int timercounter;
         private int ballfalltime;
         private int status; //1: playing, 2: win, 3: lose
@@ -160,7 +160,6 @@ namespace PokemonGo
             if (e.Key == Key.B && status == 3)
             {
                 this.NavigationService.GoBack();
-                //WindowNavigation.NavigateBack();
             }
 
         }
@@ -203,7 +202,6 @@ namespace PokemonGo
                         endtimer.Stop(); 
                         Program.Status = 0;
                         this.NavigationService.GoBack();
-                        //WindowNavigation.NavigateBack();
                     };
                 };
             }
@@ -242,7 +240,6 @@ namespace PokemonGo
             quicktimer.Tick += (sender, args) => {
                 quicktimer.Stop();
                 this.NavigationService.GoBack();
-                //WindowNavigation.NavigateBack();
             };
         }
         private void ballfall()
@@ -271,7 +268,6 @@ namespace PokemonGo
             quicktimer.Tick += (sender, args) => {
                 quicktimer.Stop(); 
                 this.NavigationService.GoBack();
-                //WindowNavigation.NavigateBack();
             };
         }
         private void Window_Closed(object sender, EventArgs e)
