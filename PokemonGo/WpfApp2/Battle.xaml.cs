@@ -72,16 +72,5 @@ namespace PokemonGo
 
             //GridChangePokemon.Visibility = Visibility.Collapsed;
         }
-        private void OnKeyDownHandler(object sender, KeyEventArgs e)
-        {
-            switch (e.Key)
-            {
-                case Key.Right:
-                    MessageBox.Show("test!");
-                    break;
-                default:
-                    break;
-            }
-        }
     }
 }

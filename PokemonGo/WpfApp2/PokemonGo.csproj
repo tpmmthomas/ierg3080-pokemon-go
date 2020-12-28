@@ -754,5 +754,8 @@
   <ItemGroup>
     <Resource Include="Images\manage\arch.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\battle\front_test.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
