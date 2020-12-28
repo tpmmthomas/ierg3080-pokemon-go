@@ -22,7 +22,7 @@ namespace PokemonGo
             }
             else{
                 MessageBox.Show("You don't have any pokemon!");
-                WindowNavigation.NavigateBack();
+                //WindowNavigation.NavigateBack(); //will have error, think how to debug after you finish other (cos going back immediately after initialize, the show and hide function have conflict)
             }
             GridChangePokemon.Visibility = Visibility.Collapsed;
         }

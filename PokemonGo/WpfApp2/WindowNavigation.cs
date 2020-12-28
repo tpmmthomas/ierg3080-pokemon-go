@@ -20,10 +20,12 @@ namespace PokemonGo
             if(! (win is Navigation))
             {
                 Program.Status = 1;
+                Console.WriteLine(1);
             }
             else
             {
                 Program.Status = 0;
+                Console.WriteLine(0);
             }
             if (NavigationStack.Count > 0)
                 NavigationStack.Peek().Hide();
@@ -35,15 +37,17 @@ namespace PokemonGo
             if (NavigationStack.Count <= 1)
                 return false;
             NavigationStack.Pop().Hide();
-            NavigationStack.Peek().Show();
             if (!(NavigationStack.Peek() is Navigation))
             {
                 Program.Status = 1;
+                Console.WriteLine(1);
             }
             else
             {
                 Program.Status = 0;
+                Console.WriteLine(0);
             }
+            NavigationStack.Peek().Show();
             return true;
         }
         public static bool CanNavigateBack()

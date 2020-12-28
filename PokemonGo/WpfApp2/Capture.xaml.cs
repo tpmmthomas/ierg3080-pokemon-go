@@ -234,7 +234,6 @@ namespace PokemonGo
             quicktimer.Start();
             quicktimer.Tick += (sender, args) => {
                 quicktimer.Stop();
-                Program.Status = 0;
                 WindowNavigation.NavigateBack();
             };
         }

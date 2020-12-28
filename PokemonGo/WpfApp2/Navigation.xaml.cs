@@ -36,7 +36,6 @@ namespace PokemonGo
             common = new HashSet<PokemonType>();
             rare = new HashSet<PokemonType>();
             ultrarare = new HashSet<PokemonType>();
-            Program.Status = 0;
             Program.Init("pokemon.csv", common, rare, ultrarare);
             SpawnPokeball();
             SpawnPokemon();
@@ -77,7 +76,6 @@ namespace PokemonGo
                 {
                     pkmLoc.Value.pokemonImage.Visibility = Visibility.Collapsed;
                     PokemonLoc.Remove(pkmLoc.Key);
-                    Program.Status = 1;
                     WindowNavigation.NavigateTo(new Capture(p1, pkmLoc.Value.pokemonStat));
                     CaptureCountdown = 2;
                     break;
@@ -87,7 +85,6 @@ namespace PokemonGo
             {
                 Canvas.SetTop(player1, 335);
                 Canvas.SetLeft(player1, 229);
-                Program.Status = 1;
                 WindowNavigation.NavigateTo(new Battle(p1));
             }
             debug1.Text = p1.PokemonCount().ToString();
