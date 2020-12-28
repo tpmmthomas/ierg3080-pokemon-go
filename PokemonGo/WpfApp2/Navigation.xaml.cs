@@ -87,8 +87,8 @@ namespace PokemonGo
                 Canvas.SetLeft(player1, 229);
                 WindowNavigation.NavigateTo(new Battle(p1));
             }
-            // Temperory used fo my pokemon
-            if (Canvas.GetTop(player1) == 235 && Canvas.GetLeft(player1) == 319 && Program.Status == 0)
+           
+            if (Math.Abs(Canvas.GetLeft(player1) - 319) < 20 && Math.Abs(Canvas.GetTop(player1) - 225) < 20 && Program.Status == 0)
             {
                 Canvas.SetTop(player1, 335);
                 Canvas.SetLeft(player1, 229);

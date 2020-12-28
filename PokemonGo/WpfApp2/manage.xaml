@@ -53,7 +53,7 @@
         <Image Margin="307,197,372.6,184" Source="Images/manage/evolve.png"/>
         <Image Margin="634,153,45.6,228" Source="Images/manage/rename.png"/>
         <Image Margin="634,197,45.6,184" Source="Images/manage/sell.png"/>
-        <Image Margin="419,16,167.6,297" HorizontalAlignment="Center" Source="Images/manage/arch.png" Width="207"/>
+        <Image Margin="415,14,172,299" HorizontalAlignment="Center" Source="Images/manage/arch.png" Width="207"/>
         <Ellipse Width="10" Height="10" Fill="White" Margin="0,227,368.6,183" RenderTransformOrigin="11.191,0.211" HorizontalAlignment="Right">
             <Ellipse.RenderTransform>
                 <TransformGroup>

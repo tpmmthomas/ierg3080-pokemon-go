@@ -55,3 +55,8 @@ C:\Users\User\Desktop\koss\project-part-ii-wong-wan-ki-wong-keng-lam\PokemonGo\W
 C:\Users\User\Desktop\koss\project-part-ii-wong-wan-ki-wong-keng-lam\PokemonGo\WpfApp2\obj\Debug\PokemonSingleViewTiny.g.cs
 C:\Users\User\Desktop\koss\project-part-ii-wong-wan-ki-wong-keng-lam\PokemonGo\WpfApp2\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\User\Desktop\koss\project-part-ii-wong-wan-ki-wong-keng-lam\PokemonGo\WpfApp2\obj\Debug\manage.baml
+C:\Users\good6\Documents\GitHub\project-part-ii-wong-wan-ki-wong-keng-lam\PokemonGo\WpfApp2\obj\Debug\PokemonSingleViewTiny.baml
+C:\Users\good6\Documents\GitHub\project-part-ii-wong-wan-ki-wong-keng-lam\PokemonGo\WpfApp2\obj\Debug\Manage.g.cs
+C:\Users\good6\Documents\GitHub\project-part-ii-wong-wan-ki-wong-keng-lam\PokemonGo\WpfApp2\obj\Debug\PokemonSingleViewTiny.g.cs
+C:\Users\good6\Documents\GitHub\project-part-ii-wong-wan-ki-wong-keng-lam\PokemonGo\WpfApp2\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\good6\Documents\GitHub\project-part-ii-wong-wan-ki-wong-keng-lam\PokemonGo\WpfApp2\obj\Debug\Manage.baml
