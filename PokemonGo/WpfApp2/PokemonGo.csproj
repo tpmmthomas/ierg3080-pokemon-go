@@ -145,15 +145,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="fake_map.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="3a-b__003__xy.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="3ani__025_f_xy.gif" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\back\3a-b__001__xy.gif" />
     <Resource Include="Images\back\3a-b__002__xy.gif" />
     <Resource Include="Images\back\3a-b__003-mega__xy.gif" />
@@ -670,74 +661,9 @@
     <Resource Include="Images\mini\ico-a_old_151.gif" />
     <Resource Include="Images\mini\ico-a_old_egg-manaphy.gif" />
     <Resource Include="Images\mini\ico-a_old_egg.gif" />
-    <Resource Include="playericon.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="pokeball.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Pokemon%28ToBeUsed%29\Bulbasaur.gif" />
-    <Resource Include="Pokemon%28ToBeUsed%29\Bulbasaure.gif" />
-    <Resource Include="Pokemon%28ToBeUsed%29\Bulbasauree.gif" />
-    <Resource Include="Pokemon%28ToBeUsed%29\Charmander.gif" />
-    <Resource Include="Pokemon%28ToBeUsed%29\Charmandere.gif" />
-    <Resource Include="Pokemon%28ToBeUsed%29\Charmanderee.gif" />
-    <Resource Include="Pokemon%28ToBeUsed%29\Lapras.gif" />
-    <Resource Include="Pokemon%28ToBeUsed%29\Laprase.gif" />
-    <Resource Include="Pokemon%28ToBeUsed%29\Laprasee.gif" />
-    <Resource Include="Pokemon%28ToBeUsed%29\Pikachu.gif" />
-    <Resource Include="Pokemon%28ToBeUsed%29\Pikachue.gif" />
-    <Resource Include="Pokemon%28ToBeUsed%29\Pikachuee.gif" />
-    <Resource Include="Pokemon%28ToBeUsed%29\Snorlax.gif" />
-    <Resource Include="Pokemon%28ToBeUsed%29\Snorlaxe.gif" />
-    <Resource Include="Pokemon%28ToBeUsed%29\Snorlaxee.gif" />
-    <Resource Include="Pokemon%28ToBeUsed%29\Squirtle.gif" />
-    <Resource Include="Pokemon%28ToBeUsed%29\Squirtlee.gif" />
-    <Resource Include="Pokemon%28ToBeUsed%29\Squirtleee.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Pokemon%28ToBeUsed%29\Mewtwo.gif" />
-    <Resource Include="Pokemon%28ToBeUsed%29\Mewtwoe.gif" />
-    <Resource Include="Pokemon%28ToBeUsed%29\Mewtwoee.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="gymtext.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="shoptext.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="hometext.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="capture_background.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="1.png" />
-    <Resource Include="2.png" />
-    <Resource Include="3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="excellent.png" />
-    <Resource Include="good.png" />
-    <Resource Include="poor.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="MfJw.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="battle_poke_1.gif" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\battle\back.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\battle\front.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="PgXHOnv.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\manage\powerup.png" />
@@ -766,6 +692,52 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\battle\background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\manage\background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\capture\background.png" />
+    <Resource Include="Images\capture\excellent.png" />
+    <Resource Include="Images\capture\good.png" />
+    <Resource Include="Images\capture\MfJw.gif" />
+    <Resource Include="Images\capture\poor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\navigation\fake_map.png" />
+    <Resource Include="Images\navigation\gymtext.png" />
+    <Resource Include="Images\navigation\hometext.png" />
+    <Resource Include="Images\navigation\playericon.png" />
+    <Resource Include="Images\navigation\shoptext.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pokemon\Bulbasaur.gif" />
+    <Resource Include="Images\pokemon\Bulbasaure.gif" />
+    <Resource Include="Images\pokemon\Bulbasauree.gif" />
+    <Resource Include="Images\pokemon\Charmander.gif" />
+    <Resource Include="Images\pokemon\Charmandere.gif" />
+    <Resource Include="Images\pokemon\Charmanderee.gif" />
+    <Resource Include="Images\pokemon\Lapras.gif" />
+    <Resource Include="Images\pokemon\Laprase.gif" />
+    <Resource Include="Images\pokemon\Laprasee.gif" />
+    <Resource Include="Images\pokemon\Mewtwo.gif" />
+    <Resource Include="Images\pokemon\Mewtwoe.gif" />
+    <Resource Include="Images\pokemon\Mewtwoee.gif" />
+    <Resource Include="Images\pokemon\Pikachu.gif" />
+    <Resource Include="Images\pokemon\Pikachue.gif" />
+    <Resource Include="Images\pokemon\Pikachuee.gif" />
+    <Resource Include="Images\pokemon\Snorlax.gif" />
+    <Resource Include="Images\pokemon\Snorlaxe.gif" />
+    <Resource Include="Images\pokemon\Snorlaxee.gif" />
+    <Resource Include="Images\pokemon\Squirtle.gif" />
+    <Resource Include="Images\pokemon\Squirtlee.gif" />
+    <Resource Include="Images\pokemon\Squirtleee.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\egg.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pokeball.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

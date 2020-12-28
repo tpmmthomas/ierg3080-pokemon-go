@@ -45,7 +45,7 @@ namespace PokemonGo
             // Update pokemon Image
             var image = new BitmapImage();
             image.BeginInit();
-            image.UriSource = new Uri(@"Pokemon(ToBeUsed)/" + selectedPokemon.Name + ".gif", UriKind.Relative); // TODO, still has bug
+            image.UriSource = new Uri(@"Images/pokemon/" + selectedPokemon.Name + ".gif", UriKind.Relative); // TODO, still has bug
             image.EndInit();
             ImageBehavior.SetAnimatedSource(SelectedPokemonImage, image);
 

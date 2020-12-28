@@ -3,16 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
         Title="Navigation" Height="450" Width="800" FocusManager.FocusedElement="{Binding ElementName=NavigationCanvas}">
     <Canvas Name="NavigationCanvas" KeyDown="Nav_KeyDown" Focusable="True">
         <Canvas.Background>
-            <ImageBrush ImageSource="fake_map.png" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="Images/navigation/fake_map.png" Stretch="UniformToFill"/>
         </Canvas.Background>
-        <Image x:Name="player1" Source="playericon.png" HorizontalAlignment="Left" Canvas.Left="229" Canvas.Top="335" Height="61" VerticalAlignment="Top" Width="72"/>
-        <Image x:Name="gym" Source="gymtext.png" HorizontalAlignment="Left" Canvas.Left="90" Canvas.Top="11" Height="54" VerticalAlignment="Top" Width="150"/>
-        <Image x:Name="home" Source="hometext.png" HorizontalAlignment="Left" Canvas.Left="317" Canvas.Top="216" Height="39" VerticalAlignment="Top" Width="68"/>
+        <Image x:Name="player1" Source="Images/navigation/playericon.png" HorizontalAlignment="Left" Canvas.Left="229" Canvas.Top="335" Height="61" VerticalAlignment="Top" Width="72"/>
+        <Image x:Name="gym" Source="Images/navigation/gymtext.png" HorizontalAlignment="Left" Canvas.Left="90" Canvas.Top="11" Height="54" VerticalAlignment="Top" Width="150"/>
+        <Image x:Name="home" Source="Images/navigation/hometext.png" HorizontalAlignment="Left" Canvas.Left="317" Canvas.Top="216" Height="39" VerticalAlignment="Top" Width="68"/>
         <TextBlock x:Name="debug1" TextWrapping="Wrap" Text="TextBlock" Canvas.Left="317" Canvas.Top="168" RenderTransformOrigin="-2,-5.562"/>
         <TextBlock x:Name="debug2" TextWrapping="Wrap" Text="TextBlock" Canvas.Left="316" Canvas.Top="190"/>
     </Canvas>

@@ -128,7 +128,7 @@ namespace PokemonGo
                 Image pkm1 = new Image();
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
-                bitmap.UriSource = new Uri("Pokemon(ToBeUsed)/"+chosenPokemon.Name+".gif", UriKind.Relative);
+                bitmap.UriSource = new Uri("Images/pokemon/" + chosenPokemon.Name+".gif", UriKind.Relative);
                 bitmap.EndInit();
                 pkm1.Source = bitmap;
                 ImageBehavior.SetAnimatedSource(pkm1, bitmap);
@@ -164,7 +164,7 @@ namespace PokemonGo
                 Image pkm1 = new Image();
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
-                bitmap.UriSource = new Uri("Pokemon(ToBeUsed)/" + chosenPokemon.Name + ".gif", UriKind.Relative);
+                bitmap.UriSource = new Uri("Images/pokemon/" + chosenPokemon.Name + ".gif", UriKind.Relative);
                 bitmap.EndInit();
                 pkm1.Source = bitmap;
                 ImageBehavior.SetAnimatedSource(pkm1, bitmap);

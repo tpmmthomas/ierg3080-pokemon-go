@@ -9,16 +9,16 @@
         Title="Capture" Height="450" Width="800" FocusManager.FocusedElement="{Binding ElementName=MyCanvas}">
     <Canvas Name="MyCanvas" KeyDown="Canvas_KeyDown" Focusable="True" >
         <Canvas.Background>
-            <ImageBrush ImageSource="capture_background.png" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="Images/capture/background.png" Stretch="UniformToFill"/>
         </Canvas.Background>
-        <Image x:Name="Bulbasaur" gif:ImageBehavior.AnimatedSource="Pokemon(ToBeUsed)/Bulbasaur.gif" Visibility="Hidden" Height="89" Canvas.Left="327" Canvas.Top="181" Width="112"  />
-        <Image x:Name="Squirtle" gif:ImageBehavior.AnimatedSource="Pokemon(ToBeUsed)/Squirtle.gif" Visibility="Hidden" Height="95" Canvas.Left="320" Canvas.Top="176" Width="115"  />
-        <Image x:Name="Charmander" gif:ImageBehavior.AnimatedSource="Pokemon(ToBeUsed)/Charmander.gif" Visibility="Hidden" Height="86" Canvas.Left="332" Canvas.Top="183" Width="104"  />
-        <Image x:Name="Pikachu" gif:ImageBehavior.AnimatedSource="Pokemon(ToBeUsed)/Pikachu.gif" Visibility="Hidden" Height="91" Canvas.Left="341" Canvas.Top="181" Width="113"  />
-        <Image x:Name="Snorlax" gif:ImageBehavior.AnimatedSource="Pokemon(ToBeUsed)/Snorlax.gif" Visibility="Hidden" Canvas.Left="329" Canvas.Top="169" Height="101" Width="112"  />
-        <Image x:Name="Lapras" gif:ImageBehavior.AnimatedSource="Pokemon(ToBeUsed)/Lapras.gif" Visibility="Hidden" Canvas.Left="324" Canvas.Top="162" Height="111" Width="127"  />
-        <Image x:Name="WinAnim" gif:ImageBehavior.AnimatedSource="Mfjw.gif" Visibility="Hidden" Canvas.Left="232" Canvas.Top="83" Height="268" Width="306"  />
-        <Image Source="pokeball.png" HorizontalAlignment="Left" Height="49" VerticalAlignment="Top" Width="38" Margin="678,2,0,0" RenderTransformOrigin="-0.009,0.394"/>
+        <Image x:Name="Bulbasaur" gif:ImageBehavior.AnimatedSource="Images/pokemon/Bulbasaur.gif" Visibility="Hidden" Height="89" Canvas.Left="327" Canvas.Top="181" Width="112"  />
+        <Image x:Name="Squirtle" gif:ImageBehavior.AnimatedSource="Images/pokemon/Squirtle.gif" Visibility="Hidden" Height="95" Canvas.Left="320" Canvas.Top="176" Width="115"  />
+        <Image x:Name="Charmander" gif:ImageBehavior.AnimatedSource="Images/pokemon/Charmander.gif" Visibility="Hidden" Height="86" Canvas.Left="332" Canvas.Top="183" Width="104"  />
+        <Image x:Name="Pikachu" gif:ImageBehavior.AnimatedSource="Images/pokemon/Pikachu.gif" Visibility="Hidden" Height="91" Canvas.Left="341" Canvas.Top="181" Width="113"  />
+        <Image x:Name="Snorlax" gif:ImageBehavior.AnimatedSource="Images/pokemon/Snorlax.gif" Visibility="Hidden" Canvas.Left="329" Canvas.Top="169" Height="101" Width="112"  />
+        <Image x:Name="Lapras" gif:ImageBehavior.AnimatedSource="Images/pokemon/Lapras.gif" Visibility="Hidden" Canvas.Left="324" Canvas.Top="162" Height="111" Width="127"  />
+        <Image x:Name="WinAnim" gif:ImageBehavior.AnimatedSource="Images/capture/Mfjw.gif" Visibility="Hidden" Canvas.Left="232" Canvas.Top="83" Height="268" Width="306"  />
+        <Image Source="Images/pokeball.png" HorizontalAlignment="Left" Height="49" VerticalAlignment="Top" Width="38" Margin="678,2,0,0" RenderTransformOrigin="-0.009,0.394"/>
         <TextBlock x:Name="ballcount" FontSize="32" HorizontalAlignment="Left" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Margin="727,-2,0,0" Width="54"/>
         <Ellipse x:Name="objective"
             Width="180"
@@ -34,17 +34,16 @@
             Visibility="Hidden"
             StrokeThickness="5" Canvas.Left="174" Canvas.Top="-34"
             />
-        <Image x:Name="one" Source="1.png"  Visibility="Hidden" HorizontalAlignment="Left" Height="130" VerticalAlignment="Top" Width="74" RenderTransformOrigin="-0.009,0.394" Canvas.Left="348" Canvas.Top="155"/>
-        <Image x:Name="two" Source="2.png"  Visibility="Hidden" HorizontalAlignment="Left" Height="161" VerticalAlignment="Top" Width="100" RenderTransformOrigin="-0.009,0.394" Canvas.Left="341" Canvas.Top="156">
-        </Image>
-        <Image x:Name="three" Source="3.png" Visibility="Hidden" HorizontalAlignment="Left" Height="139" VerticalAlignment="Top" Width="134" RenderTransformOrigin="-0.009,0.394" Canvas.Left="325" Canvas.Top="155"/>
-        <Image x:Name="excellent" Visibility="Hidden" Source="excellent.png" HorizontalAlignment="Left" Height="106" VerticalAlignment="Top" Width="443" RenderTransformOrigin="-0.009,0.394" Canvas.Left="217" Canvas.Top="8"/>
-        <Image x:Name="good" Visibility="Hidden" Source="good.png" HorizontalAlignment="Left" Height="139" VerticalAlignment="Top" Width="265" RenderTransformOrigin="-0.009,0.394" Canvas.Left="256" Canvas.Top="-1"/>
-        <Image x:Name="poor" Visibility="Hidden" Source="poor.png" HorizontalAlignment="Left" Height="106" VerticalAlignment="Top" Width="443" RenderTransformOrigin="-0.009,0.394" Canvas.Left="232" Canvas.Top="18"/>
+        <Image x:Name="one" Source="Images/capture/1.png"  Visibility="Hidden" HorizontalAlignment="Left" Height="130" VerticalAlignment="Top" Width="74" RenderTransformOrigin="-0.009,0.394" Canvas.Left="348" Canvas.Top="155"/>
+        <Image x:Name="two" Source="Images/capture/2.png"  Visibility="Hidden" HorizontalAlignment="Left" Height="161" VerticalAlignment="Top" Width="100" RenderTransformOrigin="-0.009,0.394" Canvas.Left="341" Canvas.Top="156"/>
+        <Image x:Name="three" Source="Images/capture/3.png" Visibility="Hidden" HorizontalAlignment="Left" Height="139" VerticalAlignment="Top" Width="134" RenderTransformOrigin="-0.009,0.394" Canvas.Left="325" Canvas.Top="155"/>
+        <Image x:Name="excellent" Visibility="Hidden" Source="Images/capture/excellent.png" HorizontalAlignment="Left" Height="106" VerticalAlignment="Top" Width="443" RenderTransformOrigin="-0.009,0.394" Canvas.Left="217" Canvas.Top="8"/>
+        <Image x:Name="good" Visibility="Hidden" Source="Images/capture/good.png" HorizontalAlignment="Left" Height="139" VerticalAlignment="Top" Width="265" RenderTransformOrigin="-0.009,0.394" Canvas.Left="256" Canvas.Top="-1"/>
+        <Image x:Name="poor" Visibility="Hidden" Source="Images/capture/poor.png" HorizontalAlignment="Left" Height="106" VerticalAlignment="Top" Width="443" RenderTransformOrigin="-0.009,0.394" Canvas.Left="232" Canvas.Top="18"/>
         <TextBlock x:Name="wintext" Visibility="Hidden" FontSize="26" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="742" Canvas.Left="36" Canvas.Top="312" Text="Gotcha! The captured pokemon has been added to your home and 500 stardust has been added to your backpack. "/>
         <TextBlock x:Name="losetext"  Visibility="Hidden" FontSize="26" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="742" Canvas.Left="46" Canvas.Top="337" Text="Unsuccessful! Press B to go back, A to try again."/>
         <TextBlock x:Name="notenough"  Visibility="Hidden" FontSize="26" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="742" Canvas.Left="46" Canvas.Top="337" Text="Not enough Pokeballs! Collect some and hunt again."/>
         <TextBlock x:Name="escapetext"  Visibility="Hidden" FontSize="26" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="742" Canvas.Left="46" Canvas.Top="337" Text="Not enough Pokeballs! Collect some and hunt again."/>
-        <Image x:Name="Moveball" Visibility="Hidden" Source="pokeball.png"  HorizontalAlignment="Left" Height="49" VerticalAlignment="Top" Width="38" RenderTransformOrigin="-0.009,0.394" Canvas.Left="354" Canvas.Top="6"/>
+        <Image x:Name="Moveball" Visibility="Hidden" Source="Images/pokeball.png"  HorizontalAlignment="Left" Height="49" VerticalAlignment="Top" Width="38" RenderTransformOrigin="-0.009,0.394" Canvas.Left="354" Canvas.Top="6"/>
     </Canvas>
 </Page>
