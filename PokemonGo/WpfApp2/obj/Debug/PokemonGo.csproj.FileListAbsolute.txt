@@ -60,3 +60,5 @@ C:\Users\good6\Documents\GitHub\project-part-ii-wong-wan-ki-wong-keng-lam\Pokemo
 C:\Users\good6\Documents\GitHub\project-part-ii-wong-wan-ki-wong-keng-lam\PokemonGo\WpfApp2\obj\Debug\PokemonSingleViewTiny.g.cs
 C:\Users\good6\Documents\GitHub\project-part-ii-wong-wan-ki-wong-keng-lam\PokemonGo\WpfApp2\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\good6\Documents\GitHub\project-part-ii-wong-wan-ki-wong-keng-lam\PokemonGo\WpfApp2\obj\Debug\Manage.baml
+C:\Users\User\Desktop\koss\project-part-ii-wong-wan-ki-wong-keng-lam\PokemonGo\WpfApp2\obj\Debug\Welcome.baml
+C:\Users\User\Desktop\koss\project-part-ii-wong-wan-ki-wong-keng-lam\PokemonGo\WpfApp2\obj\Debug\Welcome.g.cs
