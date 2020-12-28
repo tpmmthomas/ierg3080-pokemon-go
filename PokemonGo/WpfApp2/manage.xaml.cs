@@ -45,15 +45,15 @@ namespace PokemonGo
         }
         private Pokemon selectPokemon(Pokemon selectedPokemon)
         {
-            SelectedPokemonName.Text = selectedPokemon.Name;
-            SelectedPokemonCP.Text = selectedPokemon.GetCP.ToString();
+            //selectedPokemonName.Text = selectedPokemon.Name; //Sorry since have error I temporarily comment out first.
+            //selectedPokemonCP.Text = selectedPokemon.GetCP.ToString();
 
             // Update pokemon Image
             var image = new BitmapImage();
             image.BeginInit();
             image.UriSource = new Uri(@"Pokemon(ToBeUsed)/" + selectedPokemon.Name + ".gif", UriKind.Relative); // TODO, still has bug
             image.EndInit();
-            ImageBehavior.SetAnimatedSource(SelectedPokemonImage, image);
+            //ImageBehavior.SetAnimatedSource(SelectedPokemonImage, image);
 
             return selectedPokemon;
         }
@@ -91,7 +91,7 @@ namespace PokemonGo
             if (selectedPokemon != null)
             {
                 p1.GetPokemons().Find(x => x.Id == selectedPokemon.Id).Rename(newName);
-                SelectedPokemonName.Text = newName;
+                //SelectedPokemonName.Text = newName; 
             }
             MessageBox.Show("Rename Developing!");
         }

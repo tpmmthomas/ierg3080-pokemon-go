@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -158,7 +159,6 @@ namespace PokemonGo
             }
             if (e.Key == Key.B && status == 3)
             {
-                Program.Status = 0;
                 this.NavigationService.GoBack();
                 //WindowNavigation.NavigateBack();
             }
@@ -231,12 +231,12 @@ namespace PokemonGo
             losetext.Visibility = Visibility.Hidden;
             escapetext.Text = pkm.Name + " has escaped!";
             escapetext.Visibility = Visibility.Visible;
-            Program.MoveTo(Bulbasaur, -100, Canvas.GetTop(Bulbasaur), 1);
-            Program.MoveTo(Charmander, -100, Canvas.GetTop(Charmander), 1);
-            Program.MoveTo(Pikachu, -100, Canvas.GetTop(Pikachu), 1);
-            Program.MoveTo(Squirtle, -100, Canvas.GetTop(Squirtle), 1);
-            Program.MoveTo(Lapras, -100, Canvas.GetTop(Lapras), 1);
-            Program.MoveTo(Snorlax, -100, Canvas.GetTop(Snorlax), 1);
+            Program.MoveToX(Bulbasaur, -500, 1);
+            Program.MoveToX(Charmander, -500, 1);
+            Program.MoveToX(Pikachu, -500, 1);
+            Program.MoveToX(Squirtle, -500, 1);
+            Program.MoveToX(Lapras, -500, 1);
+            Program.MoveToX(Snorlax, -500, 1);
             var quicktimer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(2) };
             quicktimer.Start();
             quicktimer.Tick += (sender, args) => {
@@ -269,8 +269,7 @@ namespace PokemonGo
             var quicktimer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(2) };
             quicktimer.Start();
             quicktimer.Tick += (sender, args) => {
-                quicktimer.Stop();
-                Program.Status = 0;
+                quicktimer.Stop(); 
                 this.NavigationService.GoBack();
                 //WindowNavigation.NavigateBack();
             };

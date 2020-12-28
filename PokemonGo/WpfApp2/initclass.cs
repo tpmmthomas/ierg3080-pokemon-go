@@ -34,15 +34,10 @@ namespace PokemonGo
                 }
             }
         }
-        public static void MoveTo(Image target, double newX, double newY, double time)
-        {
-            var top = Canvas.GetTop(target);
-            var left = Canvas.GetLeft(target);
-            TranslateTransform trans = new TranslateTransform();
+        public static void MoveToX(Image target, double newX, double time) { 
+            TranslateTransform trans = new TranslateTransform(0,0);
             target.RenderTransform = trans;
-            DoubleAnimation anim1 = new DoubleAnimation(top, newY - top, TimeSpan.FromSeconds(time));
-            DoubleAnimation anim2 = new DoubleAnimation(left, newX - left, TimeSpan.FromSeconds(time));
-            trans.BeginAnimation(TranslateTransform.YProperty, anim1);
+            DoubleAnimation anim2 = new DoubleAnimation(0, newX, TimeSpan.FromSeconds(time));
             trans.BeginAnimation(TranslateTransform.XProperty, anim2);
         }
     }

@@ -19,7 +19,6 @@ namespace PokemonGo
         private Random rand;
         private Dictionary<location, Image> PokeballLoc;
         private Dictionary<location, WildPokemon> PokemonLoc;
-        private int CaptureCountdown;
         HashSet<PokemonType> common;
         HashSet<PokemonType> rare;
         HashSet<PokemonType> ultrarare;
@@ -78,7 +77,6 @@ namespace PokemonGo
                     PokemonLoc.Remove(pkmLoc.Key);
                     this.NavigationService.Navigate(new Capture(p1, pkmLoc.Value.pokemonStat));
                     //WindowNavigation.NavigateTo(new Capture(p1, pkmLoc.Value.pokemonStat));
-                    CaptureCountdown = 2;
                     break;
                 }
             }
@@ -89,8 +87,8 @@ namespace PokemonGo
                 //WindowNavigation.NavigateTo(new Battle(p1));
                 this.NavigationService.Navigate(new Battle(p1));
             }
-            // Temperory used fo my pokemon
-            if (Canvas.GetTop(player1) == 235 && Canvas.GetLeft(player1) == 319 && Program.Status == 0)
+           
+            if (Math.Abs(Canvas.GetLeft(player1) - 319) < 20 && Math.Abs(Canvas.GetTop(player1) - 225) < 20 && Program.Status == 0)
             {
                 Canvas.SetTop(player1, 335);
                 Canvas.SetLeft(player1, 229);
