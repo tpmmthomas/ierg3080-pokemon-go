@@ -19,7 +19,6 @@ namespace PokemonGo
         private Random rand;
         private Dictionary<location, Image> PokeballLoc;
         private Dictionary<location, WildPokemon> PokemonLoc;
-        private int CaptureCountdown;
         HashSet<PokemonType> common;
         HashSet<PokemonType> rare;
         HashSet<PokemonType> ultrarare;
@@ -77,7 +76,6 @@ namespace PokemonGo
                     pkmLoc.Value.pokemonImage.Visibility = Visibility.Collapsed;
                     PokemonLoc.Remove(pkmLoc.Key);
                     WindowNavigation.NavigateTo(new Capture(p1, pkmLoc.Value.pokemonStat));
-                    CaptureCountdown = 2;
                     break;
                 }
             }
