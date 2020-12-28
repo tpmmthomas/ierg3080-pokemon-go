@@ -17,11 +17,15 @@ namespace PokemonGo
     /// <summary>
     /// Interaction logic for manage.xaml
     /// </summary>
-    public partial class manage : Window
+    public partial class Manage : Window
     {
-        public manage()
+        public Manage(Player p1)
         {
             InitializeComponent();
+        }
+        private void PokemonSingleViewTiny_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -65,6 +65,12 @@
       <DependentUpon>Capture.xaml</DependentUpon>
     </Compile>
     <Compile Include="CaptureGame.cs" />
+    <Compile Include="Manage.xaml.cs">
+      <DependentUpon>Manage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PokemonSingleViewTiny.xaml.cs">
+      <DependentUpon>PokemonSingleViewTiny.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowNavigation.cs" />
     <Page Include="Battle.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -92,7 +98,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Manage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Navigation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PokemonSingleViewTiny.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -721,6 +735,24 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\battle\front.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="PgXHOnv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\manage\powerup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\manage\evolve.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\manage\rename.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\manage\sell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\manage\arch.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
