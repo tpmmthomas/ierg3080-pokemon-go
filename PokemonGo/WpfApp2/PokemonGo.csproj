@@ -94,7 +94,7 @@
     <Compile Include="Navigation.xaml.cs">
       <DependentUpon>Navigation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pokemon.cs" />
+    <Compile Include="Pokemon.cs" />
     <Compile Include="initclass.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
