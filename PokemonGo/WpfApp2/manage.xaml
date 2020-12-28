@@ -5,14 +5,7 @@
         xmlns:pokemongo="clr-namespace:PokemonGo" xmlns:controls="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
         Title="Manage Pokemon/Collection" Height="450" Width="800">
     <Grid>
-        <Image Margin="188,-187,187.6,-185" Source="PgXHOnv.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <RotateTransform Angle="90"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-
+        <Image Margin="0,0,0,0" Source="PgXHOnv.png" Stretch="Fill" />
         <ScrollViewer HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Left" Width="250">
             <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Width="231" Height="410">
                 <TextBlock TextWrapping="Wrap" Margin="0,0,0,20">Scrolling is enabled when it is necessary. 
@@ -24,48 +17,79 @@
                 </controls:UniformGrid>
             </StackPanel>
         </ScrollViewer>
-
-        <Grid x:Name="GridChangePokemon" Margin="0,0,20,30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="500">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="153*"/>
-                <ColumnDefinition Width="347*"/>
-            </Grid.ColumnDefinitions>
-            <Rectangle Fill="#FFFFFF" HorizontalAlignment="Left" Height="256" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="500" Margin="0,22,0,0" Grid.ColumnSpan="2"/>
-            <Image gif:ImageBehavior.AnimatedSource="Images/battle/front.gif" VerticalAlignment="Top" Stretch="None" Margin="0,-44,0,0" Grid.ColumnSpan="2"/>
-            <TextBlock Foreground="#45686e" HorizontalAlignment="Center" Margin="69.6,43,223,0" TextWrapping="Wrap" Text="Pikichu" VerticalAlignment="Top" Height="18" FontSize="16" Grid.Column="1"/>
-
-            <Rectangle Fill="Black" HorizontalAlignment="Center" Height="9" VerticalAlignment="Top" Width="168" RadiusX="5" RadiusY="5" Opacity="0.5" Margin="18.6,73,160,0" Grid.Column="1"/>
-            <Rectangle Fill="LightGreen" HorizontalAlignment="Center" Height="9" VerticalAlignment="Top" Width="87" RadiusX="5" RadiusY="5" Margin="18.6,73,241,0" Grid.Column="1"/>
-
-            <Button BorderThickness="0" Background="{x:Null}" Width="40" Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="76.6,0,230,15.4" Grid.Column="1">
+        <Grid x:Name="GridChangePokemon" Margin="0,0,30,30" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+            <DockPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-135,0,0">
+                <TextBlock Foreground="#FFFFFF" Text="CP" FontSize="16" VerticalAlignment="Bottom" Margin="0,0,5,2"/>
+                <TextBlock x:Name="SelectedPokemonCP" Foreground="#FFFFFF" Text="8888" FontSize="22" VerticalAlignment="Bottom"/>
+            </DockPanel>
+            <Canvas HorizontalAlignment="Center" Width="220" Height="115" VerticalAlignment="Top" Margin="0,-100,0,0">
+                <Image Source="Images/manage/arch.png" Width="207" Canvas.Left="5"/>
+                <Ellipse Width="10" Height="10" Fill="White" RenderTransformOrigin="11.191,0.211" Canvas.Top="211" Canvas.Left="1">
+                    <Ellipse.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="0"/>
+                            <TranslateTransform Y="-110"/>
+                        </TransformGroup>
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+            </Canvas>
+            <Button BorderThickness="0" Background="{x:Null}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,15.4" Grid.Column="1" Click="Button_Click">
                 <StackPanel>
                     <Image Source="button_tick.png" Width="30" Height="30" />
                 </StackPanel>
             </Button>
+            <Rectangle Fill="#FFFFFF" HorizontalAlignment="Left" Height="222" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="500" Margin="0,22,0,0"/>
+            <TextBlock x:Name="SelectedPokemonName" Foreground="#45686e" HorizontalAlignment="Center" Margin="200,55,200,0" TextWrapping="Wrap" Text="### N/A ###" VerticalAlignment="Top" Height="27" FontSize="16"/>
+            <Grid HorizontalAlignment="Center" Margin="0,80,0,0" Height="14" VerticalAlignment="Top">
+                <Rectangle x:Name="SelectedPokemonHPFull" Fill="Black" HorizontalAlignment="Center" Height="9" Width="168" RadiusX="5" RadiusY="5" Opacity="0.5" Grid.Column="1"/>
+                <Rectangle x:Name="SelectedPokemonHPCurrent" Fill="LightGreen" HorizontalAlignment="Left" Height="9" Width="87" RadiusX="5" RadiusY="5" Grid.Column="1"/>
+                <TextBlock Foreground="#45686e" Text="HP 101/176" Margin="0,17,0,-18"/>
+            </Grid>
+            <Button BorderThickness="0" Background="{x:Null}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,15.4" Grid.Column="1" Click="Button_Click">
+                <StackPanel>
+                    <Image Source="button_tick.png" Width="30" Height="30" />
+                </StackPanel>
+            </Button>
+            <Button BorderThickness="0" Background="{x:Null}" Margin="24,88,24,0" VerticalAlignment="Top" HorizontalAlignment="Left" Click="ButtonClickEvolve">
+                <StackPanel>
+                    <Image Source="Images/manage/evolve.png" Width="120" Height="32"/>
+                </StackPanel>
+            </Button>
+            <Button BorderThickness="0" Background="{x:Null}" Margin="24,48,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Click="ButtonClickPowerUp">
+                <StackPanel>
+                    <Image Source="Images/manage/powerup.png" Width="120" Height="32"/>
+                </StackPanel>
+            </Button>
+            <Button BorderThickness="0" Background="{x:Null}" Margin="0,48,24,0" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonClickRename">
+                <StackPanel>
+                    <Image Source="Images/manage/rename.png" Width="120" Height="32"/>
+                </StackPanel>
+            </Button>
+            <Button BorderThickness="0" Background="{x:Null}" Margin="0,88,24,0" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonClickSell">
+                <StackPanel>
+                    <Image Source="Images/manage/sell.png" Width="120" Height="32"/>
+                </StackPanel>
+            </Button>
+            <Button BorderThickness="0" Background="{x:Null}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,15.4" Grid.Column="1" Click="Button_Click">
+                <StackPanel>
+                    <Image Source="Images/button/tick.png" Width="30" Height="30" />
+                </StackPanel>
+            </Button>
+            <Grid HorizontalAlignment="Center" Width="150" Height="150" Margin="0,-110,0,0" VerticalAlignment="Top">
+                <Image x:Name="SelectedPokemonImage" gif:ImageBehavior.AnimatedSource="Images/battle/front.gif" HorizontalAlignment="Center" VerticalAlignment="Bottom" Stretch="None" Width="140" Height="140"/>
+            </Grid>
         </Grid>
-        <TextBlock Foreground="#45686e" HorizontalAlignment="Center" Margin="307,257,396.6,0" TextWrapping="Wrap" Text="STARDUST" VerticalAlignment="Top" Height="18" FontSize="16" Width="90"/>
-        <TextBlock Foreground="#45686e" HorizontalAlignment="Center" Margin="307,282,396.6,0" TextWrapping="Wrap" Text="CANDY" VerticalAlignment="Top" Height="18" FontSize="16" Width="90"/>
-        <TextBlock Foreground="#45686e" HorizontalAlignment="Center" Margin="550,257,153.6,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="90" Text="Ember"/>
-        <TextBlock Foreground="#45686e" HorizontalAlignment="Center" Margin="706,257,45.6,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="42" Text="10"/>
-        <TextBlock Foreground="#45686e" HorizontalAlignment="Center" Margin="550,282,125.6,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="118" Text="Flamethrower"/>
+        <TextBlock Foreground="#45686e" HorizontalAlignment="Center" Margin="307,306,372.6,0" TextWrapping="Wrap" Text="STARDUST" VerticalAlignment="Top" Height="18" FontSize="16" Width="114"/>
+        <TextBlock Foreground="#45686e" HorizontalAlignment="Center" Margin="307,282,372.6,0" TextWrapping="Wrap" Text="CANDY" VerticalAlignment="Top" Height="18" FontSize="16" Width="114"/>
+        <TextBlock Foreground="#45686e" HorizontalAlignment="Center" Margin="550,305,104.6,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="139" Text="Ember"/>
+        <TextBlock Foreground="#45686e" HorizontalAlignment="Center" Margin="706,307,45.6,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="42" Text="10"/>
+        <TextBlock Foreground="#45686e" HorizontalAlignment="Center" Margin="550,282,104.6,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="139" Text="Flamethrower"/>
         <TextBlock Foreground="#45686e" HorizontalAlignment="Center" Margin="706,282,45.6,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="42" Text="50"/>
-        <Image Margin="307,153,372.6,228" Source="Images/manage/powerup.png"/>
-        <Image Margin="307,197,372.6,184" Source="Images/manage/evolve.png"/>
-        <Image Margin="634,153,45.6,228" Source="Images/manage/rename.png"/>
-        <Image Margin="634,197,45.6,184" Source="Images/manage/sell.png"/>
-        <Image Margin="415,14,172,299" HorizontalAlignment="Center" Source="Images/manage/arch.png" Width="207"/>
-        <Ellipse Width="10" Height="10" Fill="White" Margin="0,227,368.6,183" RenderTransformOrigin="11.191,0.211" HorizontalAlignment="Right">
-            <Ellipse.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0"/>
-                    <TranslateTransform Y="-110"/>
-                </TransformGroup>
-            </Ellipse.RenderTransform>
-        </Ellipse>
-        <TextBlock Foreground="#45686e" HorizontalAlignment="Center" Margin="456,257,295.6,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="42" Text="5000"/>
 
 
+
+        <TextBlock Foreground="#45686e" HorizontalAlignment="Center" Margin="426,306,273.6,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="94" Text="5000"/>
     </Grid>
 </Page>

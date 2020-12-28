@@ -731,11 +731,6 @@
   <ItemGroup>
     <Resource Include="battle_background.png" />
     <Resource Include="battle_poke_1.gif" />
-    <Resource Include="button_change.png" />
-    <Resource Include="button_close.png" />
-    <Resource Include="button_pokemon.png" />
-    <Resource Include="button_run.png" />
-    <Resource Include="button_tick.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\battle\back.gif" />
@@ -763,6 +758,13 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\battle\front_test.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\button\change.png" />
+    <Resource Include="Images\button\close.png" />
+    <Resource Include="Images\button\pokemon.png" />
+    <Resource Include="Images\button\run.png" />
+    <Resource Include="Images\button\tick.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
