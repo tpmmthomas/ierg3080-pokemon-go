@@ -17,6 +17,14 @@ namespace PokemonGo
         }
         public static void NavigateTo(Window win)
         {
+            if(! (win is Navigation))
+            {
+                Program.Status = 1;
+            }
+            else
+            {
+                Program.Status = 0;
+            }
             if (NavigationStack.Count > 0)
                 NavigationStack.Peek().Hide();
             NavigationStack.Push(win);
@@ -28,6 +36,14 @@ namespace PokemonGo
                 return false;
             NavigationStack.Pop().Hide();
             NavigationStack.Peek().Show();
+            if (!(NavigationStack.Peek() is Navigation))
+            {
+                Program.Status = 1;
+            }
+            else
+            {
+                Program.Status = 0;
+            }
             return true;
         }
         public static bool CanNavigateBack()
