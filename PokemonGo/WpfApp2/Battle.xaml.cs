@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
 
@@ -38,7 +39,7 @@ namespace PokemonGo
         {
             GridChangePokemon.Visibility = Visibility.Visible;
 
-            // Animation to display the pokemon list
+            // Animation to show the pokemon list
             var sb = new Storyboard();
             var ta = new ThicknessAnimation();
             ta.BeginTime = new TimeSpan(0);
@@ -70,6 +71,17 @@ namespace PokemonGo
             sb.Begin(this);
 
             //GridChangePokemon.Visibility = Visibility.Collapsed;
+        }
+        private void OnKeyDownHandler(object sender, KeyEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Key.Right:
+                    MessageBox.Show("test!");
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
