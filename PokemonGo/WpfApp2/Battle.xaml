@@ -7,7 +7,9 @@
         mc:Ignorable="d"
         Title="Battle" Height="450" Width="800">
     <Grid>
-        <Image Margin="0,0,0,0" Source="battle_background.png" Stretch="UniformToFill"/>
+        <Grid.Background>
+            <ImageBrush Stretch="UniformToFill" ImageSource="Images/battle/background.png"/>
+        </Grid.Background>
         <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="341,43,0,0" TextWrapping="Wrap" Text="120" VerticalAlignment="Top" Height="44" Width="99" FontSize="30" FontWeight="Medium" TextAlignment="Center" RenderTransformOrigin="0.487,0.75"/>
         <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="326,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="26" Width="133" FontSize="20" FontWeight="Medium" TextAlignment="Center" RenderTransformOrigin="0.487,0.75"><Run Text="Level 1/"/><Run Text="3"/></TextBlock>
 

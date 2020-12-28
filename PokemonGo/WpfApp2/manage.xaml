@@ -12,7 +12,7 @@
       Resize the window, making it larger and smaller.</TextBlock>
                 <controls:UniformGrid Columns="3">
                     <Button BorderThickness="0" Background="{x:Null}" VerticalAlignment="Bottom" HorizontalAlignment="Left">
-                        <pokemongo:PokemonSingleViewTiny PokemonName="Pokemon Name" PokemonCP="1234" Loaded="PokemonSingleViewTiny_Loaded"/>
+                        <pokemongo:PokemonSingleViewTiny PokemonName="Pokemon Name" PokemonCP="1234"/>
                     </Button>
                 </controls:UniformGrid>
             </StackPanel>
@@ -35,11 +35,6 @@
                     </Ellipse.RenderTransform>
                 </Ellipse>
             </Canvas>
-            <Button BorderThickness="0" Background="{x:Null}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,15.4" Grid.Column="1" Click="Button_Click">
-                <StackPanel>
-                    <Image Source="button_tick.png" Width="30" Height="30" />
-                </StackPanel>
-            </Button>
             <Rectangle Fill="#FFFFFF" HorizontalAlignment="Left" Height="222" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="500" Margin="0,22,0,0"/>
             <TextBlock x:Name="SelectedPokemonName" Foreground="#45686e" HorizontalAlignment="Center" Margin="200,55,200,0" TextWrapping="Wrap" Text="### N/A ###" VerticalAlignment="Top" Height="27" FontSize="16"/>
             <Grid HorizontalAlignment="Center" Margin="0,80,0,0" Height="14" VerticalAlignment="Top">
@@ -47,11 +42,6 @@
                 <Rectangle x:Name="SelectedPokemonHPCurrent" Fill="LightGreen" HorizontalAlignment="Left" Height="9" Width="87" RadiusX="5" RadiusY="5" Grid.Column="1"/>
                 <TextBlock Foreground="#45686e" Text="HP 101/176" Margin="0,17,0,-18"/>
             </Grid>
-            <Button BorderThickness="0" Background="{x:Null}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,15.4" Grid.Column="1" Click="Button_Click">
-                <StackPanel>
-                    <Image Source="button_tick.png" Width="30" Height="30" />
-                </StackPanel>
-            </Button>
             <Button BorderThickness="0" Background="{x:Null}" Margin="24,88,24,0" VerticalAlignment="Top" HorizontalAlignment="Left" Click="ButtonClickEvolve">
                 <StackPanel>
                     <Image Source="Images/manage/evolve.png" Width="120" Height="32"/>

@@ -37,30 +37,23 @@ namespace PokemonGo
                 MessageBox.Show("You don't have any pokemon!");
             }
         }
-        public string[] Files
-        { get; set; }
-        private void PokemonSingleViewTiny_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
         private Pokemon selectPokemon(Pokemon selectedPokemon)
         {
-            //selectedPokemonName.Text = selectedPokemon.Name; //Sorry since have error I temporarily comment out first.
-            //selectedPokemonCP.Text = selectedPokemon.GetCP.ToString();
+            SelectedPokemonName.Text = selectedPokemon.Name;
+            SelectedPokemonCP.Text = selectedPokemon.GetCP.ToString();
 
             // Update pokemon Image
             var image = new BitmapImage();
             image.BeginInit();
             image.UriSource = new Uri(@"Pokemon(ToBeUsed)/" + selectedPokemon.Name + ".gif", UriKind.Relative); // TODO, still has bug
             image.EndInit();
-            //ImageBehavior.SetAnimatedSource(SelectedPokemonImage, image);
+            ImageBehavior.SetAnimatedSource(SelectedPokemonImage, image);
 
             return selectedPokemon;
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.GoBack();
-            //WindowNavigation.NavigateBack();
         }
         private void ButtonClickEvolve(object sender, RoutedEventArgs e)
         {
@@ -91,7 +84,7 @@ namespace PokemonGo
             if (selectedPokemon != null)
             {
                 p1.GetPokemons().Find(x => x.Id == selectedPokemon.Id).Rename(newName);
-                //SelectedPokemonName.Text = newName; 
+                SelectedPokemonName.Text = newName;
             }
             MessageBox.Show("Rename Developing!");
         }
