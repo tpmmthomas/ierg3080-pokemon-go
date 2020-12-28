@@ -71,6 +71,9 @@
     <Compile Include="PokemonSingleViewTiny.xaml.cs">
       <DependentUpon>PokemonSingleViewTiny.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Welcome.xaml.cs">
+      <DependentUpon>Welcome.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowNavigation.cs" />
     <Page Include="Battle.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -107,6 +110,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PokemonSingleViewTiny.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Welcome.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

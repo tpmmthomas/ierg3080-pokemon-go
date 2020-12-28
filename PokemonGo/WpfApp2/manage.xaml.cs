@@ -19,7 +19,7 @@ namespace PokemonGo
     /// <summary>
     /// Interaction logic for manage.xaml
     /// </summary>
-    public partial class Manage : Window
+    public partial class Manage : Page
     {
         private Player p1;
         private Pokemon selectedPokemon = null;
@@ -59,7 +59,8 @@ namespace PokemonGo
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            WindowNavigation.NavigateBack();
+            this.NavigationService.GoBack();
+            //WindowNavigation.NavigateBack();
         }
         private void ButtonClickEvolve(object sender, RoutedEventArgs e)
         {

@@ -8,7 +8,7 @@ namespace PokemonGo
 {
     public class Player
     {
-        private string name;
+        public static string name;
         public string Name
         {
             get { return name; }

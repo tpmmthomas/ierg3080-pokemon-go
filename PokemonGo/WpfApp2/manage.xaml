@@ -1,4 +1,4 @@
-﻿<Window x:Class="PokemonGo.Manage"
+﻿<Page x:Class="PokemonGo.Manage"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
@@ -93,4 +93,4 @@
 
         <TextBlock Foreground="#45686e" HorizontalAlignment="Center" Margin="426,306,273.6,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="94" Text="5000"/>
     </Grid>
-</Window>
+</Page>

@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
 
 namespace PokemonGo
 {
-    public partial class Battle : Window
+    public partial class Battle : Page
     {
         DispatcherTimer battleTimer = new DispatcherTimer();
         DispatcherTimer playerTimer = new DispatcherTimer();
@@ -29,7 +30,8 @@ namespace PokemonGo
         }
         private void ButtonRunAway(object sender, RoutedEventArgs e)
         {
-            WindowNavigation.NavigateBack();
+            this.NavigationService.GoBack();
+            //WindowNavigation.NavigateBack();
         }
         private void ButtonConfirmSwitchPokemon(object sender, RoutedEventArgs e)
         {

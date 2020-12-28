@@ -13,7 +13,7 @@ namespace PokemonGo
     /// <summary>
     /// Interaction logic for Navigation.xaml
     /// </summary>
-    public partial class Navigation : Window
+    public partial class Navigation : Page
     {
         private Player p1;
         private Random rand;
@@ -76,7 +76,8 @@ namespace PokemonGo
                 {
                     pkmLoc.Value.pokemonImage.Visibility = Visibility.Collapsed;
                     PokemonLoc.Remove(pkmLoc.Key);
-                    WindowNavigation.NavigateTo(new Capture(p1, pkmLoc.Value.pokemonStat));
+                    this.NavigationService.Navigate(new Capture(p1, pkmLoc.Value.pokemonStat));
+                    //WindowNavigation.NavigateTo(new Capture(p1, pkmLoc.Value.pokemonStat));
                     CaptureCountdown = 2;
                     break;
                 }
@@ -85,14 +86,16 @@ namespace PokemonGo
             {
                 Canvas.SetTop(player1, 335);
                 Canvas.SetLeft(player1, 229);
-                WindowNavigation.NavigateTo(new Battle(p1));
+                //WindowNavigation.NavigateTo(new Battle(p1));
+                this.NavigationService.Navigate(new Battle(p1));
             }
             // Temperory used fo my pokemon
             if (Canvas.GetTop(player1) == 235 && Canvas.GetLeft(player1) == 319 && Program.Status == 0)
             {
                 Canvas.SetTop(player1, 335);
                 Canvas.SetLeft(player1, 229);
-                WindowNavigation.NavigateTo(new Manage(p1));
+                //WindowNavigation.NavigateTo(new Manage(p1));
+                this.NavigationService.Navigate(new Manage(p1));
             }
             debug1.Text = p1.PokemonCount().ToString();
             debug2.Text = Canvas.GetTop(player1).ToString() + "," + Canvas.GetLeft(player1).ToString();
@@ -132,7 +135,7 @@ namespace PokemonGo
                 pkm1.Source = bitmap;
                 ImageBehavior.SetAnimatedSource(pkm1, bitmap);
                 ImageBehavior.SetRepeatBehavior(pkm1,System.Windows.Media.Animation.RepeatBehavior.Forever);
-                MyCanvas.Children.Add(pkm1);
+                NavigationCanvas.Children.Add(pkm1);
                 pkm1.Width = 32;
                 int top = rand.Next(0, 360);
                 int left = rand.Next(0, 740);
@@ -168,7 +171,7 @@ namespace PokemonGo
                 pkm1.Source = bitmap;
                 ImageBehavior.SetAnimatedSource(pkm1, bitmap);
                 ImageBehavior.SetRepeatBehavior(pkm1, System.Windows.Media.Animation.RepeatBehavior.Forever);
-                MyCanvas.Children.Add(pkm1);
+                NavigationCanvas.Children.Add(pkm1);
                 pkm1.Width = 32;
                 int top = rand.Next(0, 360);
                 int left = rand.Next(0, 740);
@@ -213,7 +216,7 @@ namespace PokemonGo
                 bitmap.UriSource = new Uri("pokeball.png", UriKind.Relative);
                 bitmap.EndInit();
                 ball1.Source = bitmap;
-                MyCanvas.Children.Add(ball1);
+                NavigationCanvas.Children.Add(ball1);
                 ball1.Width = 28;
                 int top = rand.Next(0, 360);
                 int left = rand.Next(0, 740);
@@ -224,8 +227,9 @@ namespace PokemonGo
             
         }
 
-        private void Canvas_KeyDown(object sender, KeyEventArgs e)
+        private void Nav_KeyDown(object sender, KeyEventArgs e)
         {
+            e.Handled = true;
             if (e.Key == Key.Down)
             {
                 if (Canvas.GetTop(player1) >= 350)

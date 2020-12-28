@@ -20,7 +20,7 @@ namespace PokemonGo
     /// <summary>
     /// Interaction logic for Capture.xaml
     /// </summary>
-    public partial class Capture : Window
+    public partial class Capture : Page
     {
         private Player p1;
         private PokemonType pkm;
@@ -128,7 +128,8 @@ namespace PokemonGo
         }
         private void Canvas_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.Key == Key.Return && gametimer.IsEnabled)
+            e.Handled = true;
+            if (e.Key == Key.Return && gametimer.IsEnabled)
             {
                 gametimer.Stop();
                 p1.RemovePokeball(1);
@@ -158,7 +159,8 @@ namespace PokemonGo
             if (e.Key == Key.B && status == 3)
             {
                 Program.Status = 0;
-                WindowNavigation.NavigateBack();
+                this.NavigationService.GoBack();
+                //WindowNavigation.NavigateBack();
             }
 
         }
@@ -197,7 +199,12 @@ namespace PokemonGo
                     wintext.Visibility = Visibility.Visible;
                     var endtimer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(2.5) };
                     endtimer.Start();
-                    endtimer.Tick += (sender2, args2) => { endtimer.Stop(); Program.Status = 0; WindowNavigation.NavigateBack(); };
+                    endtimer.Tick += (sender2, args2) => { 
+                        endtimer.Stop(); 
+                        Program.Status = 0;
+                        this.NavigationService.GoBack();
+                        //WindowNavigation.NavigateBack();
+                    };
                 };
             }
             else
@@ -234,7 +241,8 @@ namespace PokemonGo
             quicktimer.Start();
             quicktimer.Tick += (sender, args) => {
                 quicktimer.Stop();
-                WindowNavigation.NavigateBack();
+                this.NavigationService.GoBack();
+                //WindowNavigation.NavigateBack();
             };
         }
         private void ballfall()
@@ -263,7 +271,8 @@ namespace PokemonGo
             quicktimer.Tick += (sender, args) => {
                 quicktimer.Stop();
                 Program.Status = 0;
-                WindowNavigation.NavigateBack();
+                this.NavigationService.GoBack();
+                //WindowNavigation.NavigateBack();
             };
         }
         private void Window_Closed(object sender, EventArgs e)
