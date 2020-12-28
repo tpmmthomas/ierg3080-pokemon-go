@@ -96,5 +96,11 @@ namespace PokemonGo
         {
             MessageBox.Show("Sell Developing!");
         }
+        private void ButtonClickSelectPokemon(object sender, RoutedEventArgs e)
+        {
+            var button = (Button) sender;
+
+            MessageBox.Show("Developing!");
+        }
     }
 }
