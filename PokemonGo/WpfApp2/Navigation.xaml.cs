@@ -39,6 +39,7 @@ namespace PokemonGo
             SpawnPokeball();
             SpawnPokemon();
             RegularTimer();
+            PlayerPokemonList.ItemsSource = p1.GetPokemons();
         }
         private void RegularTimer()
         {
@@ -208,7 +209,7 @@ namespace PokemonGo
                 Image ball1 = new Image();
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
-                bitmap.UriSource = new Uri("pokeball.png", UriKind.Relative);
+                bitmap.UriSource = new Uri("Images/pokeball.png", UriKind.Relative);
                 bitmap.EndInit();
                 ball1.Source = bitmap;
                 NavigationCanvas.Children.Add(ball1);

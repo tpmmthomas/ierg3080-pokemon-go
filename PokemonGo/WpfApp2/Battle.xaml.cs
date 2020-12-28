@@ -4,7 +4,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
+using System.Windows.Media.Imaging;
 using System.Windows.Threading;
+using WpfAnimatedGif;
 
 namespace PokemonGo
 {
@@ -21,6 +23,13 @@ namespace PokemonGo
             {
                 MessageBox.Show(playerPokemon[0].Name);
                 BattlePokemonName.Text = playerPokemon[0].Name;
+
+                // Update pokemon Image
+                var image = new BitmapImage();
+                image.BeginInit();
+                image.UriSource = new Uri(@"Images/pokemon/back/" + playerPokemon[0].Name + ".gif", UriKind.Relative); // TODO, still has bug
+                image.EndInit();
+                ImageBehavior.SetAnimatedSource(BattlePokemonImage, image);
             }
             else{
                 MessageBox.Show("You don't have any pokemon!");

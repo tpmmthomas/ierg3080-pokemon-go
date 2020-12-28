@@ -20,7 +20,7 @@
         <Rectangle Fill="Black" HorizontalAlignment="Left" Height="9" Margin="31,50,0,0" VerticalAlignment="Top" Width="279" RadiusX="5" RadiusY="5" Opacity="0.5"/>
         <Rectangle Fill="Orange" HorizontalAlignment="Left" Height="9" Margin="75,50,0,0" VerticalAlignment="Top" Width="235" RadiusX="5" RadiusY="5"/>
         <Rectangle Fill="LightGreen" HorizontalAlignment="Left" Height="9" Margin="162,50,0,0" VerticalAlignment="Top" Width="149" RadiusX="5" RadiusY="5"/>
-        <Image Margin="124,255,511.6,35" gif:ImageBehavior.AnimatedSource="Images/egg.gif"/>
+        <Image x:Name="BattlePokemonImage" Margin="124,255,511.6,35" gif:ImageBehavior.AnimatedSource="Images/egg.gif"/>
 
         <!--Gyms' pokemon-->
         <Image Margin="531,123,119.6,154" gif:ImageBehavior.AnimatedSource="Images/egg.gif" Stretch="None" VerticalAlignment="Bottom"/>

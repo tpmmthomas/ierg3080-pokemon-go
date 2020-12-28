@@ -214,6 +214,10 @@ namespace PokemonGo
         {
             get { return HP; }
         }
+        public String GetImageLocation
+        {
+            get { return "Images/pokemon/"+name+".gif"; }
+        }
         public Pokemon(int pId, PokemonType x)
         {
             id = pId;
@@ -252,7 +256,7 @@ namespace PokemonGo
             if (evolvestate == 3)
                 return 1;
             evolvestate++;
-            name = name + "+";
+            name = name + "e";
             weight += rand.Next(1, 10);
             height += rand.Next(1, 10) / 10;
             foreach (AttackMoves x in moveslist)
@@ -281,9 +285,9 @@ namespace PokemonGo
         public void Rename(string x)
         {
             if (evolvestate >= 2)
-                x = x + '+';
+                x = x + 'e';
             if (evolvestate == 3)
-                x = x + '+';
+                x = x + 'e';
             name = x;
         }
 

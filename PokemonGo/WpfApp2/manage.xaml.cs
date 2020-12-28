@@ -16,9 +16,6 @@ using WpfAnimatedGif;
 
 namespace PokemonGo
 {
-    /// <summary>
-    /// Interaction logic for manage.xaml
-    /// </summary>
     public partial class Manage : Page
     {
         private Player p1;
@@ -26,7 +23,6 @@ namespace PokemonGo
         public Manage(Player p1)
         {
             InitializeComponent();
-            this.DataContext = this;
             this.p1 = p1;
             PlayerPokemonAmount.Text = p1.GetPokemons().Count.ToString();
             PlayerStardustAmount.Text = p1.Stardust.ToString();
@@ -38,6 +34,8 @@ namespace PokemonGo
             {
                 MessageBox.Show("You don't have any pokemon!");
             }
+
+            PlayerPokemonList.ItemsSource = p1.GetPokemons();
         }
         private Pokemon selectPokemon(Pokemon selectedPokemon)
         {
@@ -53,10 +51,12 @@ namespace PokemonGo
 
             return selectedPokemon;
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        private void ButtonClickLeave(object sender, RoutedEventArgs e)
         {
             this.NavigationService.GoBack();
         }
+
         private void ButtonClickEvolve(object sender, RoutedEventArgs e)
         {
             if (selectedPokemon != null)
@@ -72,6 +72,7 @@ namespace PokemonGo
                 }
             }
         }
+
         private void ButtonClickPowerUp(object sender, RoutedEventArgs e)
         {
             if (selectedPokemon != null)
@@ -80,6 +81,7 @@ namespace PokemonGo
                 MessageBox.Show("Power uped!");
             }
         }
+
         private void ButtonClickRename(object sender, RoutedEventArgs e)
         {
             String newName = "test";
