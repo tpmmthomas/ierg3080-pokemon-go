@@ -28,6 +28,8 @@ namespace PokemonGo
             InitializeComponent();
             this.DataContext = this;
             this.p1 = p1;
+            PlayerPokemonAmount.Text = p1.GetPokemons().Count.ToString();
+            PlayerStardustAmount.Text = p1.Stardust.ToString();
             if (p1.GetPokemons().Count > 0)
             {
                 selectedPokemon = selectPokemon(p1.GetPokemons().First());   // Default select the first pokemon to display the detail
@@ -60,7 +62,7 @@ namespace PokemonGo
             if (selectedPokemon != null)
             {
                 int envoleResult = p1.GetPokemons().Find(x => x.Id == selectedPokemon.Id).Evolve();
-                if(envoleResult == 1)
+                if (envoleResult == 1)
                 {
                     MessageBox.Show("The pokemon cannot be evolve anymore!");
                 }

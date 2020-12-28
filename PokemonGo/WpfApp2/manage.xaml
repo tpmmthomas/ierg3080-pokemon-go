@@ -10,12 +10,19 @@
         </Grid.Background>
         <ScrollViewer HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Left" Width="250">
             <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Width="231" Height="410">
-                <TextBlock TextWrapping="Wrap" Margin="0,0,0,20">Scrolling is enabled when it is necessary. 
-      Resize the window, making it larger and smaller.</TextBlock>
+                <TextBlock Foreground="#FFFFFF" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="16" Margin="0,20,0,0" Text="POKÉMON"/>
+                <TextBlock x:Name="PlayerPokemonAmount" Foreground="#FFFFFF" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="12" Margin="0,5,0,20" Text="9999"/>
                 <controls:UniformGrid Columns="3">
+
+
                     <Button BorderThickness="0" Background="{x:Null}" VerticalAlignment="Bottom" HorizontalAlignment="Left">
                         <pokemongo:PokemonSingleViewTiny PokemonName="Pokemon Name" PokemonCP="1234"/>
                     </Button>
+                    <Button BorderThickness="0" Background="{x:Null}" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+                        <pokemongo:PokemonSingleViewTiny PokemonName="Pokemon Name" PokemonCP="1234"/>
+                    </Button>
+
+
                 </controls:UniformGrid>
             </StackPanel>
         </ScrollViewer>
@@ -79,6 +86,6 @@
         <TextBlock Foreground="#45686e" HorizontalAlignment="Center" Margin="700,343,58,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="42" Text="10"/>
         <TextBlock Foreground="#45686e" HorizontalAlignment="Center" Margin="544,318,117,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="139" Text="Flamethrower"/>
         <TextBlock Foreground="#45686e" HorizontalAlignment="Center" Margin="700,318,58,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="42" Text="50"/>
-        <TextBlock Foreground="#45686e" HorizontalAlignment="Center" Margin="420,342,286,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="94" Text="5000"/>
+        <TextBlock x:Name="PlayerStardustAmount" Foreground="#45686e" HorizontalAlignment="Center" Margin="420,342,286,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="94" Text="8888"/>
     </Grid>
 </Page>
