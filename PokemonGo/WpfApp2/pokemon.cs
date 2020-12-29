@@ -183,6 +183,9 @@ namespace PokemonGo
         {
             get { return name; }
         }
+        private string typeName;
+        public string TypeName { get { return typeName; } }
+
         private AttackMoves[] moveslist;
         public AttackMoves[] Moveslist
         {
@@ -223,6 +226,7 @@ namespace PokemonGo
             id = pId;
             rand = new Random();
             name = x.Name;
+            typeName = x.Name;
             moveslist = x.AtkMovesList;
             weight = rand.Next((int)(x.LowerWeight * 10), (int)(x.UpperWeight * 10 + 1)) / (float)10;
             height = rand.Next((int)(x.LowerHeight * 10), (int)(x.UpperHeight * 10 + 1)) / (float)10;
@@ -256,7 +260,8 @@ namespace PokemonGo
             if (evolvestate == 3)
                 return 1;
             evolvestate++;
-            name = name + "e";
+            name = name + "+";
+            typeName = typeName + "e";
             weight += rand.Next(1, 10);
             height += rand.Next(1, 10) / 10;
             foreach (AttackMoves x in moveslist)
@@ -285,9 +290,9 @@ namespace PokemonGo
         public void Rename(string x)
         {
             if (evolvestate >= 2)
-                x = x + 'e';
+                x = x + '+';
             if (evolvestate == 3)
-                x = x + 'e';
+                x = x + '+';
             name = x;
         }
 

@@ -25,7 +25,7 @@ namespace PokemonGo
             InitializeComponent();
             this.p1 = p1;
             PlayerPokemonAmount.Text = p1.PokemonCount().ToString();
-            PlayerStardustAmount.Text = p1.Stardust.ToString();
+            stardustAmount.Text = p1.Stardust.ToString();
             if (p1.PokemonCount() > 0)
             {
                 selectedPokemon = selectPokemon(p1.GetPokemons().First());   // Default select the first pokemon to display the detail
@@ -41,11 +41,12 @@ namespace PokemonGo
         {
             SelectedPokemonName.Text = selectedPokemon.Name;
             SelectedPokemonCP.Text = selectedPokemon.GetCP.ToString();
+            pokemonHP.Text = 
 
             // Update pokemon Image
             var image = new BitmapImage();
             image.BeginInit();
-            image.UriSource = new Uri(@"Images/pokemon/" + selectedPokemon.Name + ".gif", UriKind.Relative); // TODO, still has bug
+            image.UriSource = new Uri(@"Images/pokemon/" + selectedPokemon.TypeName + ".gif", UriKind.Relative); // TODO, still has bug
             image.EndInit();
             ImageBehavior.SetAnimatedSource(SelectedPokemonImage, image);
 
