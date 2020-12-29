@@ -76,17 +76,20 @@ namespace PokemonGo
         {
             if (selectedPokemon != null)
             {
-                int envoleResult = p1.GetPokemons().Find(x => x.Id == selectedPokemon.Id).Evolve();
-                if (envoleResult == 1)
+                if (p1.Stardust >= evloveRequestedStardust)
                 {
-                    MessageBox.Show("The pokemon cannot be evolve anymore!");
-                }
-                else if (p1.Stardust >= evloveRequestedStardust)
-                {
-                    p1.AddStardust(-evloveRequestedStardust);
-                    selectPokemon(p1.GetPokemons().Find(x => x.Id == selectedPokemon.Id));
-                    this.NavigationService.Refresh();
-                    MessageBox.Show("The pokemon evolve successfully!");
+                    int envoleResult = p1.GetPokemons().Find(x => x.Id == selectedPokemon.Id).Evolve();
+                    if (envoleResult == 1)
+                    {
+                        MessageBox.Show("The pokemon cannot be evolve anymore!");
+                    }
+                    else 
+                    {
+                        p1.AddStardust(-evloveRequestedStardust);
+                        selectPokemon(p1.GetPokemons().Find(x => x.Id == selectedPokemon.Id));
+                        this.NavigationService.Refresh();
+                        MessageBox.Show("The pokemon evolve successfully!");
+                    }
                 }
                 else
                 {
