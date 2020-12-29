@@ -131,7 +131,7 @@ namespace PokemonGo
                 p1.AddStardust(sellObtainStardust);
                 if (p1.GetPokemons().Count > 0)
                 {
-                    MessageBox.Show("Sold out successfully!");
+                    MessageBox.Show("Sold out successfully!, obtain " + sellObtainStardust + "Stardust!");
                     selectPokemon(p1.GetPokemons().First());
                 }
                 else
