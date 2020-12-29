@@ -102,18 +102,18 @@
                 <Image x:Name="SelectedPokemonImage" gif:ImageBehavior.AnimatedSource="Images/egg.gif" HorizontalAlignment="Center" VerticalAlignment="Bottom" Stretch="None" Width="140" Height="140"/>
             </Grid>
         </Grid>
-        <TextBlock x:Name="weightText" Foreground="#45686e" HorizontalAlignment="Center" Margin="301,342,385,0" TextWrapping="Wrap" Text="WEIGHT" VerticalAlignment="Top" Height="18" FontSize="16" Width="114"/>
-        <TextBlock x:Name="heightText" Foreground="#45686e" HorizontalAlignment="Center" Margin="301,318,385,0" TextWrapping="Wrap" Text="HEIGHT" VerticalAlignment="Top" Height="18" FontSize="16" Width="114"/>
-        <TextBlock x:Name="atkmv2" Foreground="#45686e" HorizontalAlignment="Center" Margin="544,341,117,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="139" Text="Ember"/>
+        <TextBlock x:Name="weightText" Foreground="#45686e" HorizontalAlignment="Center" Margin="301,342,385,0" TextWrapping="Wrap" Text="WEIGHT" VerticalAlignment="Top" Height="29" FontSize="16" Width="114"/>
+        <TextBlock x:Name="heightText" Foreground="#45686e" HorizontalAlignment="Center" Margin="301,318,385,0" TextWrapping="Wrap" Text="HEIGHT" VerticalAlignment="Top" Height="26" FontSize="16" Width="114"/>
+        <TextBlock x:Name="atkmv2" Foreground="#45686e" HorizontalAlignment="Center" Margin="544,341,117,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="31" FontSize="16" Width="139" Text="Ember"/>
         <TextBlock x:Name="atkdmg2" Foreground="#45686e" HorizontalAlignment="Center" Margin="700,341,58,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="42" Text="10"/>
-        <TextBlock x:Name="atkmv1" Foreground="#45686e" HorizontalAlignment="Center" Margin="544,318,117,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="139" Text="Flamethrower"/>
+        <TextBlock x:Name="atkmv1" Foreground="#45686e" HorizontalAlignment="Center" Margin="544,318,117,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" FontSize="16" Width="139" Text="Flamethrower"/>
         <TextBlock x:Name="atkdmg1" Foreground="#45686e" HorizontalAlignment="Center" Margin="700,318,58,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="42" Text="50"/>
-        <TextBlock x:Name="pokemonWeight" Foreground="#45686e" HorizontalAlignment="Center" Margin="420,342,286,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="94" Text="8888"/>
+        <TextBlock x:Name="pokemonWeight" Foreground="#45686e" HorizontalAlignment="Center" Margin="420,342,286,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" FontSize="16" Width="94" Text="8888"/>
         <TextBlock x:Name="stardust" Foreground="white" HorizontalAlignment="Center" Margin="654,9,61,0" TextWrapping="Wrap" Text="STARDUST" VerticalAlignment="Top" Height="18" FontSize="16" Width="85"/>
         <TextBlock x:Name="stardustAmount" Foreground="white" HorizontalAlignment="Center" Margin="735,9,-29,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="94" Text="8888"/>
-        <TextBlock x:Name="atkmv3" Foreground="#45686e" HorizontalAlignment="Center" Margin="544,364,117,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="139" Text="Flamethrower"/>
+        <TextBlock x:Name="atkmv3" Foreground="#45686e" HorizontalAlignment="Center" Margin="544,364,117,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" FontSize="16" Width="139" Text="Flamethrower"/>
         <TextBlock x:Name="atkdmg3" Foreground="#45686e" HorizontalAlignment="Center" Margin="700,364,58,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="42" Text="50"/>
         <Image x:Name="exitButton" Source="Images/button/tick.png" RenderTransformOrigin="-2.833,0.333" Margin="104,411,666,9" MouseDown="exitButton_MouseDown" />
-        <TextBlock x:Name="pokemonHeight" Foreground="#45686e" HorizontalAlignment="Center" Margin="421,318,285,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="94" Text="8888"/>
+        <TextBlock x:Name="pokemonHeight" Foreground="#45686e" HorizontalAlignment="Center" Margin="421,318,285,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" FontSize="16" Width="94" Text="8888"/>
     </Grid>
 </Page>

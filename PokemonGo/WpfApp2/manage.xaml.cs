@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Navigation;
 using WpfAnimatedGif;
 
 namespace PokemonGo
@@ -49,6 +50,8 @@ namespace PokemonGo
             atkmv3.Text = selectedPokemon.Moveslist[2].name;
             atkdmg3.Text = selectedPokemon.Moveslist[2].attackPoints.ToString();
             SelectedPokemonHPCurrent.Width = SelectedPokemonHPFull.Width * (selectedPokemon.GetHP / (double)selectedPokemon.MaxHP);
+            pokemonWeight.Text = selectedPokemon.Weight.ToString()+"kg";
+            pokemonHeight.Text = selectedPokemon.Height.ToString()+"m";
 
 
             // Update pokemon Image
@@ -70,16 +73,18 @@ namespace PokemonGo
         {
             if (selectedPokemon != null)
             {
-                int envoleResult = p1.GetPokemons().Find(x => x.Id == selectedPokemon.Id).Evolve();
-                if (envoleResult == 1)
+                int evolveResult = p1.GetPokemons().Find(x => x.Id == selectedPokemon.Id).Evolve();
+                if (evolveResult == 1)
                 {
-                    MessageBox.Show("The pokemon cannot be evolve anymore!");
+                    MessageBox.Show("The pokemon cannot be evolved anymore!");
                 }
                 else
                 {
-                    MessageBox.Show("The pokemon evolve successfully!");
+                    MessageBox.Show("The pokemon evolved successfully!");
                 }
             }
+            this.NavigationService.Refresh();
+
         }
 
         private void ButtonClickPowerUp(object sender, RoutedEventArgs e)
