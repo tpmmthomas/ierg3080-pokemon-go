@@ -10,25 +10,62 @@
         <Grid.Background>
             <ImageBrush Stretch="UniformToFill" ImageSource="Images/battle/background.png"/>
         </Grid.Background>
-        <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="341,43,0,0" TextWrapping="Wrap" Text="120" VerticalAlignment="Top" Height="44" Width="99" FontSize="30" FontWeight="Medium" TextAlignment="Center" RenderTransformOrigin="0.487,0.75"/>
-        <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="326,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="26" Width="133" FontSize="20" FontWeight="Medium" TextAlignment="Center" RenderTransformOrigin="0.487,0.75"><Run Text="Level 1/"/><Run Text="3"/></TextBlock>
 
         <!--my pokemon-->
-        <TextBlock x:Name="BattlePokemonName" Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="31,17,0,0" TextWrapping="Wrap" Text="Vaporeon" VerticalAlignment="Top" Height="33" Width="288" FontSize="20" FontWeight="Bold"/>
-        <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="31,68,0,0" TextWrapping="Wrap" Text="CP" VerticalAlignment="Top" Height="19" Width="21" FontSize="12" FontWeight="Light"/>
-        <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="49,64,0,0" TextWrapping="Wrap" Text="5842" VerticalAlignment="Top" Height="23" Width="99" FontSize="16" FontWeight="Medium"/>
-        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="9" Margin="31,50,0,0" VerticalAlignment="Top" Width="279" RadiusX="5" RadiusY="5" Opacity="0.5"/>
-        <Rectangle Fill="Orange" HorizontalAlignment="Left" Height="9" Margin="75,50,0,0" VerticalAlignment="Top" Width="235" RadiusX="5" RadiusY="5"/>
-        <Rectangle Fill="LightGreen" HorizontalAlignment="Left" Height="9" Margin="162,50,0,0" VerticalAlignment="Top" Width="149" RadiusX="5" RadiusY="5"/>
-        <Image x:Name="BattlePokemonImage" Margin="124,255,511.6,35" gif:ImageBehavior.AnimatedSource="Images/egg.gif"/>
+        <Grid HorizontalAlignment="Left" Width="280" VerticalAlignment="Top" Margin="30,30,0,0">
+            <TextBlock x:Name="playerPokemonName" Foreground="#FFFFFF" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Vaporeon" VerticalAlignment="Top" Height="33" FontSize="20" FontWeight="Bold"/>
+            <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="0,54,0,0" TextWrapping="Wrap" Text="CP" VerticalAlignment="Top" Height="19" Width="21" FontSize="12" FontWeight="Light"/>
+            <TextBlock x:Name="playerPokemonCP" Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="20,50,0,0" TextWrapping="Wrap" Text="5842" VerticalAlignment="Top" Height="23" Width="99" FontSize="16" FontWeight="Medium"/>
+            <Rectangle x:Name="playerPokemonHPBackground" Fill="Black" HorizontalAlignment="Right" Height="9" Margin="0,35,0,0" VerticalAlignment="Top" Width="280" RadiusX="5" RadiusY="5" Opacity="0.5"/>
+            <Rectangle x:Name="playerPokemonHP" Fill="Orange" HorizontalAlignment="Right" Height="9" Margin="0,35,0,0" VerticalAlignment="Top" Width="265" RadiusX="5" RadiusY="5"/>
+            <Rectangle x:Name="playerPokemonHPAfterAttack" Fill="LightGreen" HorizontalAlignment="Right" Height="9" Margin="0,35,0,0" VerticalAlignment="Top" Width="250" RadiusX="5" RadiusY="5"/>
+        </Grid>
+        <Image x:Name="playerPokemonImage" Margin="47,0,490,107.6" gif:ImageBehavior.AnimatedSource="Images/egg.gif" Stretch="None" Height="233" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5"/>
 
         <!--Gyms' pokemon-->
-        <Image Margin="531,123,119.6,154" gif:ImageBehavior.AnimatedSource="Images/egg.gif" Stretch="None" VerticalAlignment="Bottom"/>
-        <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="479,17,0,0" TextWrapping="Wrap" Text="Vaporeon" VerticalAlignment="Top" Height="33" Width="288" FontSize="20" FontWeight="Bold" TextAlignment="Right"/>
-        <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="668,64,0,0" TextWrapping="Wrap" Text="5842" VerticalAlignment="Top" Height="23" Width="99" FontSize="16" FontWeight="Medium" TextAlignment="Right"/>
-        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="9" Margin="488,50,0,0" VerticalAlignment="Top" Width="279" RadiusX="5" RadiusY="5" Opacity="0.5"/>
-        <Rectangle Fill="Orange" HorizontalAlignment="Left" Height="9" Margin="488,50,0,0" VerticalAlignment="Top" Width="63" RadiusX="5" RadiusY="5"/>
-        <Rectangle Fill="Red" HorizontalAlignment="Left" Height="9" Margin="488,50,0,0" VerticalAlignment="Top" Width="24" RadiusX="5" RadiusY="5"/>
+        <Image x:Name="opponentPokemonImage" Margin="533,0,117,191.6" gif:ImageBehavior.AnimatedSource="Images/egg.gif" Stretch="None" VerticalAlignment="Bottom" Height="149" RenderTransformOrigin="0.5,0.5"/>
+        <Grid HorizontalAlignment="Right" Width="280" VerticalAlignment="Top" Margin="0,30,30,0">
+            <TextBlock x:Name="opponentPokemonName" Foreground="#FFFFFF" HorizontalAlignment="Right" TextWrapping="Wrap" Text="Vaporeon" VerticalAlignment="Top" Height="33" FontSize="20" FontWeight="Bold" TextAlignment="Right"/>
+            <TextBlock x:Name="opponentPokemonCP" Foreground="#FFFFFF" HorizontalAlignment="Right" Margin="0,50,0,0" TextWrapping="Wrap" Text="5842" VerticalAlignment="Top" Height="23" Width="99" FontSize="16" FontWeight="Medium" TextAlignment="Right"/>
+            <Rectangle x:Name="opponentPokemonHPBackground" Fill="Black" HorizontalAlignment="Left" Height="9" Margin="0,35,0,0" VerticalAlignment="Top" Width="280" RadiusX="5" RadiusY="5" Opacity="0.5"/>
+            <Rectangle x:Name="opponentPokemonHP" Fill="Orange" HorizontalAlignment="Left" Height="9" Margin="0,35,0,0" VerticalAlignment="Top" Width="63" RadiusX="5" RadiusY="5"/>
+            <Rectangle x:Name="opponentPokemonHPAfterAttack" Fill="Red" HorizontalAlignment="Left" Height="9" Margin="0,35,0,0" VerticalAlignment="Top" Width="24" RadiusX="5" RadiusY="5"/>
+        </Grid>
+
+        <!--Image button to attack-->
+        <Button x:Name="playerPokemonSkill1" BorderThickness="0" Background="{x:Null}" Width="150" Height="55" Margin="30,0,0,20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="ClickAttack1" Opacity="0.5">
+            <Grid>
+                <Image Source="Images/button/empty.png" Width="128" Height="48" />
+                <TextBlock x:Name="playerPokemonSkill1Name" Foreground="#FFFFFF" Text="SKILL 1" FontSize="11" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock.Effect>
+                        <DropShadowEffect ShadowDepth="0" Color="#FFFFFF" BlurRadius="10" />
+                    </TextBlock.Effect>
+                </TextBlock>
+                <TextBlock x:Name="timerBlock1" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="Timer of skill 1" VerticalAlignment="Top" RenderTransformOrigin="0.259,-0.084" Margin="0,48,0,-23"/>
+            </Grid>
+        </Button>
+        <Button x:Name="playerPokemonSkill2" BorderThickness="0" Background="{x:Null}" Width="150" Height="55" Margin="180,0,0,20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="ClickAttack2" Opacity="0.5">
+            <Grid>
+                <Image Source="Images/button/empty.png" Width="128" Height="48" />
+                <TextBlock x:Name="playerPokemonSkill2Name" Foreground="#FFFFFF" Text="SKILL 2" FontSize="11" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock.Effect>
+                        <DropShadowEffect ShadowDepth="0" Color="#FFFFFF" BlurRadius="10" />
+                    </TextBlock.Effect>
+                </TextBlock>
+                <TextBlock x:Name="timerBlock2" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="Timer of skill 2" VerticalAlignment="Top" Margin="0,48,0,-23"/>
+            </Grid>
+        </Button>
+        <Button x:Name="playerPokemonSkill3" BorderThickness="0" Background="{x:Null}" Width="150" Height="55" Margin="330,0,0,19.6" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="ClickAttack3" Opacity="0.5">
+            <Grid>
+                <Image Source="Images/button/empty.png" Width="128" Height="48" />
+                <TextBlock x:Name="playerPokemonSkill3Name" Foreground="#FFFFFF" Text="SKILL 3" Height="31" FontSize="11" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="14,17,14,0">
+                    <TextBlock.Effect>
+                        <DropShadowEffect ShadowDepth="0" Color="#FFFFFF" BlurRadius="10" />
+                    </TextBlock.Effect>
+                </TextBlock>
+                <TextBlock x:Name="timerBlock3" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="Timer of skill 3" VerticalAlignment="Top" Margin="0,48,0,-23"/>
+            </Grid>
+        </Button>
 
         <!--Image button to change battle pokemon-->
         <Button BorderThickness="0" Background="{x:Null}" Width="55" Height="55" Margin="0,0,90,20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="ButtonSwitchPokemon">
@@ -45,7 +82,7 @@
         </Button>
 
         <!--Interface of change pokemon-->
-        <Grid x:Name="GridChangePokemon" Margin="0,0,0,-300" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="252">
+        <Grid x:Name="GridChangePokemon" Margin="0,0,0,-300" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="260">
             <Rectangle Fill="#7F000000" HorizontalAlignment="Left" Height="278" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="254"/>
             <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Center" Margin="0,22,0,0" TextWrapping="Wrap" Text="Switch in a new Pokemon?" VerticalAlignment="Top" Height="18" FontSize="10" FontWeight="Light"/>
 

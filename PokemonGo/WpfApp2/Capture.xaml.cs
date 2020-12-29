@@ -241,7 +241,8 @@ namespace PokemonGo
             quicktimer.Tick += (sender, args) => {
                 quicktimer.Stop();
                 Program.status = 0;
-                this.NavigationService.GoBack();
+                if(NavigationService != null)
+                    this.NavigationService.GoBack();
             };
         }
         private void ballfall()
