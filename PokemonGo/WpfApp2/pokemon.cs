@@ -219,7 +219,7 @@ namespace PokemonGo
         }
         public String GetImageLocation
         {
-            get { return "Images/pokemon/"+name+".gif"; }
+            get { return "Images/pokemon/"+ typeName + ".gif"; }
         }
         public Pokemon(int pId, PokemonType x)
         {

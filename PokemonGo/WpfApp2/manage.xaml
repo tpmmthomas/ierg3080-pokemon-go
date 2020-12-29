@@ -117,7 +117,7 @@
         <TextBlock x:Name="stardustAmount" Foreground="white" HorizontalAlignment="Center" Margin="735,9,-29,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="94" Text="8888"/>
         <TextBlock x:Name="atkmv3" Foreground="#45686e" HorizontalAlignment="Center" Margin="544,364,117,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="139" Text="Flamethrower"/>
         <TextBlock x:Name="atkdmg3" Foreground="#45686e" HorizontalAlignment="Center" Margin="700,364,58,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="42" Text="50"/>
-        <Image x:Name="exitButton" Source="Images/button/tick.png" RenderTransformOrigin="-2.833,0.333" Margin="104,411,666,9" MouseDown="exitButton_MouseDown" />
+        <Image x:Name="exitButton" Source="Images/button/tick.png" RenderTransformOrigin="-2.833,0.333" Margin="104,396,666,23.6" MouseDown="exitButton_MouseDown" />
         <TextBlock x:Name="pokemonHeight" Foreground="#45686e" HorizontalAlignment="Center" Margin="421,318,285,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="94" Text="8888"/>
     </Grid>
 </Page>

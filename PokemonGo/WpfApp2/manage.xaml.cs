@@ -51,7 +51,7 @@ namespace PokemonGo
             // Update pokemon Image
             var image = new BitmapImage();
             image.BeginInit();
-            image.UriSource = new Uri(@"Images/pokemon/" + selectedPokemon.TypeName + ".gif", UriKind.Relative); // TODO, still has bug
+            image.UriSource = new Uri(@"Images/pokemon/" + selectedPokemon.TypeName + ".gif", UriKind.Relative);
             image.EndInit();
             ImageBehavior.SetAnimatedSource(SelectedPokemonImage, image);
 
@@ -61,8 +61,9 @@ namespace PokemonGo
             ButtonSell.Opacity = 1;
             ButtonRename.Opacity = 1;
 
-            // Refresh my pokemon list
-            CollectionViewSource.GetDefaultView(PlayerPokemonList.ItemsSource).Refresh(); // Refresh the current pokemon view
+            // Refresh my pokemon list & my info
+            stardustAmount.Text = p1.Stardust.ToString();
+            CollectionViewSource.GetDefaultView(PlayerPokemonList.ItemsSource).Refresh();
 
             return selectedPokemon;
         }
@@ -84,7 +85,6 @@ namespace PokemonGo
                 else if (p1.Stardust >= evloveRequestedStardust)
                 {
                     p1.AddStardust(-evloveRequestedStardust);
-                    CollectionViewSource.GetDefaultView(PlayerPokemonList.ItemsSource).Refresh(); // Refresh the current pokemon view
                     selectPokemon(p1.GetPokemons().Find(x => x.Id == currentDisplayPokemon.Id));
                     MessageBox.Show("The pokemon evolve successfully!");
                 }
@@ -144,7 +144,6 @@ namespace PokemonGo
             Pokemon selectedPkm = button.DataContext as Pokemon;
             selectPokemon(selectedPkm);
         }
-
         private void exitButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Program.status = 0;
