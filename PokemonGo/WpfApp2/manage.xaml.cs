@@ -38,6 +38,7 @@ namespace PokemonGo
         }
         private Pokemon selectPokemon(Pokemon selectedPokemon)
         {
+            this.selectedPokemon = selectedPokemon;
             SelectedPokemonName.Text = selectedPokemon.Name;
             SelectedPokemonCP.Text = selectedPokemon.GetCP.ToString();
             pokemonHP.Text = "HP " + selectedPokemon.GetHP.ToString() + "/" + selectedPokemon.MaxHP.ToString();
