@@ -28,7 +28,7 @@ namespace PokemonGo
             InitializeComponent();
             this.p1 = p1;
             PlayerPokemonAmount.Text = p1.PokemonCount().ToString();
-            PlayerStardustAmount.Text = p1.Stardust.ToString();
+            //PlayerStardustAmount.Text = p1.Stardust.ToString();
             if (p1.PokemonCount() > 0) {
                 PlayerPokemonList.ItemsSource = p1.GetPokemons();
                 currentDisplayPokemon = selectPokemon(p1.GetPokemons().First());   // Default select the first pokemon to display the detail
