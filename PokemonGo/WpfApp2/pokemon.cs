@@ -282,7 +282,7 @@ namespace PokemonGo
             if (CP > 2500) CP = 2500;
             foreach (AttackMoves x in moveslist)
             {
-                x.attackPoints += rand.Next(0, 2);
+                x.attackPoints += rand.Next(0, 4);
             }
             return 0;
         }

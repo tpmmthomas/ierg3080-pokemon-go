@@ -92,6 +92,7 @@ namespace PokemonGo
             if (selectedPokemon != null)
             {
                 p1.GetPokemons().Find(x => x.Id == selectedPokemon.Id).PowerUP();
+                selectPokemon(selectedPokemon);
                 MessageBox.Show("Power uped!");
             }
         }
@@ -108,7 +109,7 @@ namespace PokemonGo
         }
         private void ButtonClickSell(object sender, RoutedEventArgs e)
         {
-            if (currentDisplayPokemon != null)
+            /*if (currentDisplayPokemon != null)
             {
                 p1.GetPokemons().RemoveAll(x => x.Id == currentDisplayPokemon.Id);
                 p1.AddStardust(sellObtainStardust);
@@ -122,7 +123,7 @@ namespace PokemonGo
                     MessageBox.Show("All of your pokemons has been sold out! Let go to catach some :D");
                     this.NavigationService.GoBack();
                 }
-            }
+            }*/
         }
         private void ButtonClickSelectPokemon(object sender, RoutedEventArgs e)
         {
