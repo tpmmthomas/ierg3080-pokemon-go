@@ -153,13 +153,8 @@ namespace PokemonGo
 
         private void ButtonClickRename(object sender, RoutedEventArgs e)
         {
-            String newName = "test";
-            if (selectedPokemon != null)
-            {
-                p1.GetPokemons().Find(x => x.Id == selectedPokemon.Id).Rename(newName);
-                SelectedPokemonName.Text = newName;
-            }
-            MessageBox.Show("Rename Developing!");
+            RenamePrompt.Visibility = Visibility.Visible;
+            renamebox.Text = "";
         }
         private void ButtonClickSell(object sender, RoutedEventArgs e)
         {
@@ -191,6 +186,16 @@ namespace PokemonGo
         {
             Program.status = 0;
             NavigationService.GoBack();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (selectedPokemon != null)
+            {
+                p1.GetPokemons().Find(x => x.Id == selectedPokemon.Id).Rename(renamebox.Text);
+            }
+            RenamePrompt.Visibility = Visibility.Hidden;
+            selectPokemon(selectedPokemon);
         }
     }
 }

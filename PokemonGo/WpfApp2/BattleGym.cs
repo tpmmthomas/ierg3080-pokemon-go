@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PokemonGo
 {
-    public delegate void WinMethod(Pokemon a, Pokemon b);
+    public delegate void WinMethod(Pokemon a, Pokemon b);//if this is too difficult to do can delete, ask OpponentMOve and Playermove to return status instead.
     public delegate void LoseMethod(Pokemon a, Pokemon b);
 
     class BattleGym
@@ -84,8 +84,9 @@ namespace PokemonGo
             return critical;
         }
 
-        public bool OpponentMove(int move)
-        { //return the attack move chosen.
+        public bool OpponentMove()
+        {
+            int move = rand.Next(0, 3);
             bool critical = rand.Next(0, 100) / (float)100 < OpponentCriticalRate ? true : false;
             if (critical)
             {

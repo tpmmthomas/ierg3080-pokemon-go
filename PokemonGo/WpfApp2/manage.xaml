@@ -99,7 +99,8 @@
             </Grid>
             <Image Source="Images/manage/Stardust.png" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="21" Margin="48,66,0,0"/>
             <Image Source="Stardust.png" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="22" Margin="48,123,0,0" RenderTransformOrigin="-0.143,1.25"/>
-            <Image x:Name="sellicon" Source="Stardust.png" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="22" Margin="374,122,0,0" RenderTransformOrigin="-0.143,1.25"/>
+            <Image x:Name="sellicon" Source="Stardust.png" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="22" Margin="385,123,0,0" RenderTransformOrigin="-0.143,1.25"/>
+            <Image x:Name="sellicon_Copy" Source="Stardust.png" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="22" Margin="481,-166,-3,0" RenderTransformOrigin="-0.143,1.25"/>
         </Grid>
         <TextBlock x:Name="weightText" Foreground="#45686e" HorizontalAlignment="Center" Margin="297,368,389,0" TextWrapping="Wrap" Text="WEIGHT" VerticalAlignment="Top" Height="29" FontSize="16" Width="114"/>
         <TextBlock x:Name="heightText" Foreground="#45686e" HorizontalAlignment="Center" Margin="297,344,389,0" TextWrapping="Wrap" Text="HEIGHT" VerticalAlignment="Top" Height="26" FontSize="16" Width="114"/>
@@ -108,15 +109,21 @@
         <TextBlock x:Name="atkmv1" Foreground="#45686e" HorizontalAlignment="Center" Margin="545,329,116,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" FontSize="16" Width="139" Text="Flamethrower"/>
         <TextBlock x:Name="atkdmg1" Foreground="#45686e" HorizontalAlignment="Center" Margin="701,329,57,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="42" Text="50"/>
         <TextBlock x:Name="pokemonWeight" Foreground="#45686e" HorizontalAlignment="Center" Margin="416,368,290,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" FontSize="16" Width="94" Text="8888"/>
-        <TextBlock x:Name="stardust" Foreground="white" HorizontalAlignment="Center" Margin="597,9,118,0" TextWrapping="Wrap" Text="STARDUST" VerticalAlignment="Top" Height="18" FontSize="16" Width="85"/>
-        <TextBlock x:Name="stardustAmount" Foreground="white" HorizontalAlignment="Right" Margin="0,9,40,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Text="8888"/>
+        <TextBlock x:Name="stardust" Foreground="white" HorizontalAlignment="Center" Margin="635,9,80,0" TextWrapping="Wrap" Text="STARDUST" VerticalAlignment="Top" Height="18" FontSize="16" Width="85"/>
+        <TextBlock x:Name="stardustAmount" Foreground="white" HorizontalAlignment="Right" Margin="0,9,45,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Text="8888"/>
         <TextBlock x:Name="atkmv3" Foreground="#45686e" HorizontalAlignment="Center" Margin="545,375,116,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" FontSize="16" Width="139" Text="Flamethrower"/>
         <TextBlock x:Name="atkdmg3" Foreground="#45686e" HorizontalAlignment="Center" Margin="701,375,57,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="42" Text="50"/>
         <Image x:Name="exitButton" Source="Images/button/tick.png" RenderTransformOrigin="-2.833,0.333" Margin="116,396,654,23.6" MouseDown="exitButton_MouseDown" />
         <TextBlock x:Name="pokemonHeight" Foreground="#45686e" HorizontalAlignment="Center" Margin="417,344,289,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="94" Text="8888"/>
         <TextBlock x:Name="powerUpCost" Foreground="#45686e" HorizontalAlignment="Center" Margin="340,241,417,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="43" Text="8888"/>
         <TextBlock x:Name="evolveCost" Foreground="#45686e" HorizontalAlignment="Center" Margin="340,298,368,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="94" Text="8888"/>
-        <TextBlock x:Name="SellValue" Foreground="#45686e" HorizontalAlignment="Center" Margin="668,297,38,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="94" Text="8888"/>
-        <TextBlock x:Name="welcomeText" Foreground="white" HorizontalAlignment="Center" Margin="279,8,307,0" TextWrapping="Wrap" Text="WELCOME," VerticalAlignment="Top" Height="18" FontSize="16" Width="214"/>
+        <TextBlock x:Name="SellValue" Foreground="#45686e" HorizontalAlignment="Center" Margin="677,296,29,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="94" Text="8888"/>
+        <TextBlock x:Name="welcomeText" Foreground="white" HorizontalAlignment="Center" Margin="279,8,307,0" TextWrapping="Wrap" Text="WELCOME," VerticalAlignment="Top" Height="30" FontSize="16" Width="214"/>
+        <Grid x:Name="RenamePrompt" Margin="238,139,209,187" Visibility="Hidden">
+            <Rectangle Fill="#07f7c3" HorizontalAlignment="Left" Height="124" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="353"/>
+            <TextBlock x:Name="heightText_Copy" Foreground="#000000" HorizontalAlignment="Center" Margin="35,8,37,0" TextWrapping="Wrap" Text="Type in the name for your pokemon:" VerticalAlignment="Top" Height="26" FontSize="16" Width="281"/>
+            <TextBox x:Name="renamebox" HorizontalAlignment="Left" FontSize="20" Height="41" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="173" RenderTransformOrigin="0.8,2.391" Margin="22,49,0,0"/>
+            <Button Content="Confirm" Background="Aqua" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Margin="215,55,0,0" Height="32" Click="Button_Click"/>
+        </Grid>
     </Grid>
 </Page>
