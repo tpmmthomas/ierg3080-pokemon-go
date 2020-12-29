@@ -134,7 +134,8 @@ namespace PokemonGo
                 else
                 {
                     MessageBox.Show("All of your pokemons has been sold out! Let go to catach some :D");
-                    this.NavigationService.GoBack();
+                    Program.status = 0;
+                    NavigationService.GoBack();
                 }
             }
         }
