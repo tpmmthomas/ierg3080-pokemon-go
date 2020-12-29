@@ -34,6 +34,7 @@ namespace PokemonGo
         }
         private void ButtonRunAway(object sender, RoutedEventArgs e)
         {
+            Program.status = 0;
             this.NavigationService.GoBack();
             //WindowNavigation.NavigateBack();
         }

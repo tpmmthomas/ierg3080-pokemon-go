@@ -729,5 +729,9 @@
   <ItemGroup>
     <Resource Include="Stardust.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\background.jpg" />
+    <Resource Include="Images\manage\Stardust.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
