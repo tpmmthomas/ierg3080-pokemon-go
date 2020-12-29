@@ -9,8 +9,8 @@
             <ImageBrush Stretch="UniformToFill" ImageSource="Images/manage/background.png"/>
         </Grid.Background>
 
-        <ScrollViewer HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Left" Width="260" Margin="0,0,0,0">
-            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Width="240" Height="370">
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Left" VerticalAlignment="Top" Width="260" Height="380" Margin="10,0,0,0">
+            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Width="240">
                 <TextBlock Foreground="#FFFFFF" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="16" Margin="0,20,0,0" Text="POKÉMON"/>
                 <TextBlock x:Name="PlayerPokemonAmount" Foreground="#FFFFFF" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="12" Margin="0,5,0,20" Text="9999"/>
                 <ItemsControl Name="PlayerPokemonList" Margin="10">
