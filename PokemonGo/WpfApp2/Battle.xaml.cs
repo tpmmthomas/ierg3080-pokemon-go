@@ -14,181 +14,108 @@ namespace PokemonGo
 {
     public partial class Battle : Page
     {
-        private Pokemon playerCurrentPokemon;
-        private Pokemon opponentCurrentPokemon;
-
         private Player p1;
-        private int[] skillcount;
-        private int[] skilltime = new int[3] { 1, 20, 50 };     // Time(s) to active the Skill 0
-        private int restcount;
-        private int bossRestcount;
-        private int restTime = 5;       // Time to rest after an attack has been made
-        private DispatcherTimer skill0Timer = new DispatcherTimer();
-        private DispatcherTimer skill1Timer = new DispatcherTimer();
-        private DispatcherTimer skill2Timer = new DispatcherTimer();
-        private DispatcherTimer restTimer = new DispatcherTimer();
-        private DispatcherTimer bossRestTimer = new DispatcherTimer();
+        private BattleGym battleGym;
+        private int restTime = 3;       // Time to rest after an attack has been made
         private bool switchingPokemon;
+
+        private int restcount;
+        private DispatcherTimer restTimer = new DispatcherTimer();
 
         public Battle(Player p)
         {
             InitializeComponent();
+
             switchingPokemon = false;
             p1 = p;
             List<Pokemon> playerPokemon = p1.GetPokemons();
-            //generateOneRandomBoss(); --todo
-            setBoss(playerPokemon[1]);    // Generate and show the boss detail -- todo
-            //selectThreePokemonToAttend(); -- todo
-            setPlayerCurrentPokemon(playerPokemon[0]);      // Generate and show my battle pokemon detail
-        }
-        private void setPlayerCurrentPokemon(Pokemon pokemon)
-        {
-            playerCurrentPokemon = pokemon;
-            playerPokemonName.Text = playerCurrentPokemon.Name;
-            playerPokemonCP.Text = playerCurrentPokemon.GetCP.ToString();
-            playerPokemonHP.Width = ((double)playerCurrentPokemon.GetHP / (double)playerCurrentPokemon.MaxHP) * 280;
-            playerPokemonHPAfterAttack.Width = ((double)playerCurrentPokemon.GetHP / (double)playerCurrentPokemon.MaxHP) * 280;
-            if (playerPokemonHPAfterAttack.Width > 60)
-            {
-                playerPokemonHPAfterAttack.Fill = new SolidColorBrush(Colors.LightGreen);
-            }
-            else if (playerPokemonHPAfterAttack.Width > 30)
-            {
-                playerPokemonHPAfterAttack.Fill = new SolidColorBrush(Colors.Yellow);
-            }
-            else
-            {
-                playerPokemonHPAfterAttack.Fill = new SolidColorBrush(Colors.Red);
-            }
-            var image = new BitmapImage();
-            image.BeginInit();
-            image.UriSource = new Uri(@"Images/pokemon/back/" + playerCurrentPokemon.TypeName + ".gif", UriKind.Relative);
-            image.EndInit();
-            ImageBehavior.SetAnimatedSource(playerPokemonImage, image);
+            battleGym = new BattleGym(playerPokemon[0], playerPokemon[1], Win, Lose); //generateOneRandomBoss(); --TODO
 
-            playerPokemonSkill0Name.Text = playerCurrentPokemon.Moveslist[0].name + " (" + playerCurrentPokemon.Moveslist[0].attackPoints.ToString() + ")";
-            playerPokemonSkill1Name.Text = playerCurrentPokemon.Moveslist[1].name + " (" + playerCurrentPokemon.Moveslist[1].attackPoints.ToString() + ")";
-            playerPokemonSkill2Name.Text = playerCurrentPokemon.Moveslist[2].name + " (" + playerCurrentPokemon.Moveslist[2].attackPoints.ToString() + ")";
-
-            skillcount = skilltime;
-            skill0Timer.Tick += skill0Timer_Tick;
-            skill0Timer.Interval = TimeSpan.FromSeconds(1);
-            skill0Timer.Start();
-
-            skill1Timer.Tick += skill1Timer_Tick;
-            skill1Timer.Interval = TimeSpan.FromSeconds(1);
-            skill1Timer.Start();
-
-            skill2Timer.Tick += skill2Timer_Tick;
-            skill2Timer.Interval = TimeSpan.FromSeconds(1);
-            skill2Timer.Start();
+            setBoss();
+            usePokemon();
 
             restcount = 0;
             restTimer.Tick += restTimer_Tick;
             restTimer.Interval = TimeSpan.FromSeconds(1);
             restTimer.Start();
         }
-        private void setBoss(Pokemon pokemon)
+        private void setBoss()
         {
-            opponentCurrentPokemon = pokemon;
-            opponentPokemonName.Text = opponentCurrentPokemon.Name;
-            opponentPokemonCP.Text = opponentCurrentPokemon.GetCP.ToString();
-            opponentPokemonHP.Width = ((double)opponentCurrentPokemon.GetHP / (double)opponentCurrentPokemon.MaxHP) * 280;
-            opponentPokemonHPAfterAttack.Width = ((double)opponentCurrentPokemon.GetHP / (double)opponentCurrentPokemon.MaxHP) * 280;
-            // Has bug, color the HP　bar currently not work
-            if (opponentPokemonHPAfterAttack.Width > 60)
-            {
-                opponentPokemonHPAfterAttack.Fill = new SolidColorBrush(Colors.LightGreen);
-            }
-            else if (opponentPokemonHPAfterAttack.Width > 30)
-            {
-                opponentPokemonHPAfterAttack.Fill = new SolidColorBrush(Colors.Yellow);
-            }
-            else
-            {
-                opponentPokemonHPAfterAttack.Fill = new SolidColorBrush(Colors.Red);
-            }
-            var bossImage = new BitmapImage();
-            bossImage.BeginInit();
-            bossImage.UriSource = new Uri(@"Images/pokemon/" + opponentCurrentPokemon.TypeName + ".gif", UriKind.Relative);
-            bossImage.EndInit();
-            ImageBehavior.SetAnimatedSource(opponentPokemonImage, bossImage);
+            Pokemon op = battleGym.GetOpponentPokemon;
+            opName.Text = op.Name;
+            opCP.Text = op.GetCP.ToString();
+            opHP.Width = ((double)op.GetHP / (double)op.MaxHP) * 280;
+            opHPAfterAttack.Width = ((double)op.GetHP / (double)op.MaxHP) * 280;
 
-            bossRestcount = 0;
+            var opBitImage = new BitmapImage();
+            opBitImage.BeginInit();
+            opBitImage.UriSource = new Uri(@"Images/pokemon/" + op.TypeName + ".gif", UriKind.Relative);
+            opBitImage.EndInit();
+            ImageBehavior.SetAnimatedSource(opImage, opBitImage);
+        }
+        private void usePokemon()
+        {
+            Pokemon pp = battleGym.GetPlayerPokemon;
+            ppName.Text = pp.Name;
+            ppCP.Text = pp.GetCP.ToString();
+            ppHP.Width = ((double)pp.GetHP / (double)pp.MaxHP) * 280;
+            ppHPAfterAttack.Width = ((double)pp.GetHP / (double)pp.MaxHP) * 280;
+
+            var ppBitimage = new BitmapImage();
+            ppBitimage.BeginInit();
+            ppBitimage.UriSource = new Uri(@"Images/pokemon/back/" + pp.TypeName + ".gif", UriKind.Relative);
+            ppBitimage.EndInit();
+            ImageBehavior.SetAnimatedSource(ppImage, ppBitimage);
+
+            InitializeAttackButton(0, ppSkill0Name, ppSkill0, timerBlock0);
+            InitializeAttackButton(1, ppSkill1Name, ppSkill1, timerBlock1);
+            InitializeAttackButton(2, ppSkill2Name, ppSkill2, timerBlock2);
         }
         private void restTimer_Tick(object sender, EventArgs e)
         {
             restcount++;
             restBlock.Text = restcount + "s";
-            if (restcount >= 2)
+            if (restcount >= restTime)
             {
                 opponentPokemonImageAttack.Visibility = Visibility.Collapsed;
                 skillButtonGroup.Visibility = Visibility.Visible;
             }
         }
-        private void skill0Timer_Tick(object sender, EventArgs e)
+        private void InitializeAttackButton(int MoveID, TextBlock skillNameBlock, Button skillButton, TextBlock skillCapicityBlock)
         {
-            if (skillcount[0] > 0)
-            {
-                skillcount[0]--;
-                timerBlock0.Text = skillcount[0] + "s";
-                playerPokemonSkill0.Opacity = (skillcount[0] > skilltime[0]) ? 1 : 0.5;
-            }
-        }
-        private void skill1Timer_Tick(object sender, EventArgs e)
-        {
-            if (skillcount[1] > 0)
-            {
-                skillcount[1]--;
-                timerBlock1.Text = skillcount[1] + "s";
-                playerPokemonSkill1.Opacity = (skillcount[1] > skilltime[1]) ? 1 : 0.5;
-            }
-        }
-        private void skill2Timer_Tick(object sender, EventArgs e)
-        {
-            if(skillcount[2] > 0)
-            {
-                skillcount[2]--;
-                timerBlock2.Text = skillcount[2] + "s";
-                playerPokemonSkill2.Opacity = (skillcount[2] > skilltime[2]) ? 1 : 0.5;
-            }
+            Pokemon pp = battleGym.GetPlayerPokemon;
+            skillNameBlock.Text = pp.Moveslist[MoveID].name + " (" + pp.Moveslist[MoveID].attackPoints.ToString() + ")";
+            skillButton.Opacity = battleGym.GetSkillTime[MoveID] > 0 ? 1 : 0.5;
+            skillCapicityBlock.Text = battleGym.GetSkillTime[MoveID] + " left";
         }
         private void Attack0(object sender, RoutedEventArgs e)
         {
-            ConfirmAttack(0);
+            ConfirmAttack(0, timerBlock0, ppSkill0);
         }
         private void Attack1(object sender, RoutedEventArgs e)
         {
-            ConfirmAttack(1);
+            ConfirmAttack(1, timerBlock1, ppSkill1);
         }
         private void Attack2(object sender, RoutedEventArgs e)
         {
-            ConfirmAttack(2);
+            ConfirmAttack(2, timerBlock2, ppSkill2);
         }
-        private void ConfirmAttack(int moveID)
+        private void ConfirmAttack(int moveID, TextBlock skillTextBlock, Button skillButton)
         {
-            if (skillcount[moveID] == 0)
+            if (battleGym.GetSkillTime[moveID] > 0)
             {
                 skillButtonGroup.Visibility = Visibility.Collapsed;
                 opponentPokemonImageAttack.Visibility = Visibility.Visible;
                 restcount = 0;
-
-                opponentCurrentPokemon.Hit(playerCurrentPokemon.Moveslist[moveID].attackPoints);
-                opponentPokemonCP.Text = opponentCurrentPokemon.GetCP.ToString();
-                opponentPokemonHP.Width = ((double)opponentCurrentPokemon.GetHP / (double)opponentCurrentPokemon.MaxHP) * 280;
-                opponentPokemonHPAfterAttack.Width = ((double)opponentCurrentPokemon.GetHP / (double)opponentCurrentPokemon.MaxHP) * 280;
-
-                skillcount[moveID] = skilltime[moveID];
-                //MessageBox.Show("Used" + opponentCurrentPokemon.Moveslist[moveID].name + " to attack with power "+ opponentCurrentPokemon.Moveslist[moveID].attackPoints.ToString()+ " !");
-
-                if (opponentCurrentPokemon.GetHP <= 0)
+                if (battleGym.PlayerMove(moveID))
                 {
-                    MessageBox.Show("End Game! Obtained 1000 Stardust as reward.");
-                    p1.AddStardust(1000);
-                    opponentCurrentPokemon.Heal();
-                    Program.status = 0;
-                    this.NavigationService.GoBack();
+                    MessageBox.Show("Critical attack!");
                 }
+                opCP.Text = battleGym.GetOpponentPokemon.GetCP.ToString();
+                opHP.Width = 280 * (double) battleGym.GetOpponentPokemon.GetHP / battleGym.GetOpponentPokemon.MaxHP;
+                opHPAfterAttack.Width = 280 * (double) battleGym.GetOpponentPokemon.GetHP / battleGym.GetOpponentPokemon.MaxHP;
+                skillTextBlock.Text = battleGym.GetSkillTime[moveID] + " left";
+                skillButton.Opacity = (battleGym.GetSkillTime[moveID] > 0) ? 1 : 0.5;
             }
         }
         private void SwitchPokemon(object sender, RoutedEventArgs e)
@@ -205,14 +132,13 @@ namespace PokemonGo
             {
                 ta.From = new Thickness(0, 0, 0, -300);
                 ta.To = new Thickness(0, 0, 0, -10);
-                ta.Duration = new Duration(TimeSpan.FromSeconds(0.3));
             }
             else
             {
                 ta.From = new Thickness(0, 0, 0, -10);
                 ta.To = new Thickness(0, 0, 0, -300);
-                ta.Duration = new Duration(TimeSpan.FromSeconds(0.3));
             }
+            ta.Duration = new Duration(TimeSpan.FromSeconds(0.3));
             switchingPokemon = !switchingPokemon;
             sb.Children.Add(ta);
             sb.Begin(this);
@@ -220,6 +146,20 @@ namespace PokemonGo
         private void ConfirmSwitchPokemon(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Developing!");
+        }
+        public void Win(Pokemon _PlayerPokemon, Pokemon _OpponentPokemon)
+        {
+            MessageBox.Show("End Game! Obtained 1000 Stardust as reward.");
+            p1.AddStardust(1000);
+            battleGym.GetOpponentPokemon.Heal();
+            Program.status = 0;
+            this.NavigationService.GoBack();
+        }
+        public void Lose(Pokemon _PlayerPokemon, Pokemon _OpponentPokemon)
+        {
+            MessageBox.Show("You lose the game, try to train your pokemon.");
+            Program.status = 0;
+            this.NavigationService.GoBack();
         }
         private void RunAway(object sender, RoutedEventArgs e)
         {

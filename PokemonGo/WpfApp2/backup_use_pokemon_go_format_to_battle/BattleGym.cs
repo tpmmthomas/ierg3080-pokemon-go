@@ -26,17 +26,13 @@ namespace PokemonGo
         {
             get { return CurrentTurn; }
         }
-        public int[] GetSkillTime
-        {
-            get { return skilltime; }
-        }
         private double PlayerCriticalRate;
         private double OpponentCriticalRate;
         private Random rand;
         private WinMethod win;
         private LoseMethod lose;
-        private int[] skilltime;
-        private int[] opponentSkilltime;
+        private int[] ppSkilltime;
+        private int[] opSkilltime;
 
         public BattleGym(Pokemon _PlayerPokemon,Pokemon _OpponentPokemon, WinMethod _Win, LoseMethod _Lose)
         { //Winmethod and Losemethod passed in from presenter module (Define the change in view?)
@@ -45,8 +41,8 @@ namespace PokemonGo
             OpponentPokemon = _OpponentPokemon;
             win = _Win;
             lose = _Lose;
-            skilltime = new int[3] { 20, 5, 1 }; // How many time can be use for coresponding skills
-            opponentSkilltime = new int[3] { 20, 5, 1 };
+            ppSkilltime = new int[3] { 1, 20, 50 };
+            opSkilltime = new int[3] { 2, 25, 55 };
             CurrentTurn = 1;
             if (PlayerPokemon.GetCP > 2000)
             {
@@ -76,7 +72,6 @@ namespace PokemonGo
         public bool PlayerMove(int move)
         { //pass in index of next attack move
             bool critical = rand.Next(0, 100) / (float)100 < PlayerCriticalRate ? true : false;
-            skilltime[move]--;
             if (critical)
             {
                 if (OpponentPokemon.Hit(PlayerPokemon.Moveslist[move].attackPoints * 2))
@@ -96,7 +91,6 @@ namespace PokemonGo
         public bool OpponentMove(int move)
         {
             bool critical = rand.Next(0, 100) / (float)100 < OpponentCriticalRate ? true : false;
-            opponentSkilltime[move]--;
             if (critical)
             {
                 if (PlayerPokemon.Hit(OpponentPokemon.Moveslist[move].attackPoints * 2))
