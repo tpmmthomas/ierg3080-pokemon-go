@@ -24,9 +24,9 @@ namespace PokemonGo
         {
             InitializeComponent();
             this.p1 = p1;
-            PlayerPokemonAmount.Text = p1.GetPokemons().Count.ToString();
+            PlayerPokemonAmount.Text = p1.PokemonCount().ToString();
             PlayerStardustAmount.Text = p1.Stardust.ToString();
-            if (p1.GetPokemons().Count > 0)
+            if (p1.PokemonCount() > 0)
             {
                 selectedPokemon = selectPokemon(p1.GetPokemons().First());   // Default select the first pokemon to display the detail
             }
@@ -99,8 +99,8 @@ namespace PokemonGo
         private void ButtonClickSelectPokemon(object sender, RoutedEventArgs e)
         {
             var button = (Button) sender;
-
-            MessageBox.Show("Developing!");
+            Pokemon selectedPkm = button.DataContext as Pokemon;
+            selectPokemon(selectedPkm);
         }
     }
 }

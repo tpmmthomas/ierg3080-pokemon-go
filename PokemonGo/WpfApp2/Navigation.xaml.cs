@@ -72,7 +72,7 @@ namespace PokemonGo
             }
             foreach (var pkmLoc in PokemonLoc)
             {
-                if (Math.Abs(Canvas.GetLeft(player1) - pkmLoc.Key.left) < 30 && Math.Abs(Canvas.GetTop(player1) - pkmLoc.Key.top) < 30 && Program.Status == 0)
+                if (Math.Abs(Canvas.GetLeft(player1) - pkmLoc.Key.left) < 30 && Math.Abs(Canvas.GetTop(player1) - pkmLoc.Key.top) < 30)
                 {
                     pkmLoc.Value.pokemonImage.Visibility = Visibility.Collapsed;
                     PokemonLoc.Remove(pkmLoc.Key);
@@ -80,14 +80,14 @@ namespace PokemonGo
                     break;
                 }
             }
-            if (Math.Abs(Canvas.GetLeft(player1) - 140) < 20 && Math.Abs(Canvas.GetTop(player1) - 55) < 20 && Program.Status == 0)
+            if (Math.Abs(Canvas.GetLeft(player1) - 140) < 20 && Math.Abs(Canvas.GetTop(player1) - 55) < 20)
             {
                 Canvas.SetTop(player1, 335);
                 Canvas.SetLeft(player1, 229);
                 this.NavigationService.Navigate(new Battle(p1));
             }
            
-            if (Math.Abs(Canvas.GetLeft(player1) - 319) < 20 && Math.Abs(Canvas.GetTop(player1) - 225) < 20 && Program.Status == 0)
+            if (Math.Abs(Canvas.GetLeft(player1) - 319) < 20 && Math.Abs(Canvas.GetTop(player1) - 225) < 20)
             {
                 Canvas.SetTop(player1, 335);
                 Canvas.SetLeft(player1, 229);
@@ -99,15 +99,11 @@ namespace PokemonGo
         private void SpawnPokemon()
         {
             pokemontimer.Tick += pokemontimer_Tick;
-            pokemontimer.Interval = TimeSpan.FromSeconds(20);//testing
+            pokemontimer.Interval = TimeSpan.FromSeconds(2);//testing
             pokemontimer.Start();
         }
         private void pokemontimer_Tick(object sender, EventArgs e)
         {
-            if (Program.Status == 1)
-            {
-                return;
-            }
             int decideRarity = rand.Next(0, 100);
             if (decideRarity<97 && PokemonLoc.Count <= 5)
             {
@@ -200,10 +196,6 @@ namespace PokemonGo
         }
         private void balltimer_Tick(object sender, EventArgs e)
         {
-            if(Program.Status == 1)
-            {
-                return;
-            }
             if(PokeballLoc.Count <= 5)
             {
                 Image ball1 = new Image();
