@@ -12,7 +12,7 @@
         </Grid.Background>
         <TextBlock HorizontalAlignment="Left" FontSize ="30" Margin="21,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="388"><Run Text="Welcome! To start the game, "/><LineBreak/><Run Text="Name your character below and press enter:"/><LineBreak/></TextBlock>
         <TextBlock x:Name="exitbutton" HorizontalAlignment="Left" FontSize ="30" Margin="769,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MouseLeftButtonDown="exitbutton_MouseLeftButtonDown"><Run Text="X"/><LineBreak/><Run/></TextBlock>
-        <TextBox x:Name="yourname" HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Margin="149,306,0,0" KeyDown="TextBox_KeyDown"/>
+        <TextBox x:Name="yourname" FontSize="24" HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Margin="149,306,0,0" KeyDown="TextBox_KeyDown"/>
         <Image Source="Images/navigation/playericon.png" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="33,269,0,0"/>
     </Grid>
 </Page>
