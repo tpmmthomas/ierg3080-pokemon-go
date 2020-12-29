@@ -74,28 +74,25 @@
                 <Rectangle x:Name="SelectedPokemonHPCurrent" Fill="LightGreen" HorizontalAlignment="Left" Height="9" Width="87" RadiusX="5" RadiusY="5" Grid.Column="1"/>
                 <TextBlock x:Name="pokemonHP" Foreground="#45686e" Text="HP 101/176" Margin="0,17,0,-18"/>
             </Grid>
-            <Button BorderThickness="0" Background="{x:Null}" Margin="24,88,24,0" VerticalAlignment="Top" HorizontalAlignment="Left" Click="ButtonClickEvolve">
+            <Button x:Name="ButtonEvolve" BorderThickness="0" Background="{x:Null}" Margin="24,88,24,0" VerticalAlignment="Top" HorizontalAlignment="Left" Click="ButtonClickEvolve" Opacity="0.5">
                 <StackPanel>
                     <Image Source="Images/manage/evolve.png" Width="120" Height="32"/>
                 </StackPanel>
             </Button>
-            <Button BorderThickness="0" Background="{x:Null}" Margin="24,48,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Click="ButtonClickPowerUp">
+            <Button x:Name="ButtonPowerup" BorderThickness="0" Background="{x:Null}" Margin="24,48,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Click="ButtonClickPowerUp" Opacity="0.5">
                 <StackPanel>
                     <Image Source="Images/manage/powerup.png" Width="120" Height="32"/>
                 </StackPanel>
             </Button>
-            <Button BorderThickness="0" Background="{x:Null}" Margin="0,48,24,0" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonClickRename">
+            <Button x:Name="ButtonRename" BorderThickness="0" Background="{x:Null}" Margin="0,48,24,0" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonClickRename" Opacity="0.5">
                 <StackPanel>
                     <Image Source="Images/manage/rename.png" Width="120" Height="32"/>
                 </StackPanel>
             </Button>
-            <Button BorderThickness="0" Background="{x:Null}" Margin="0,88,24,0" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonClickSell">
+            <Button x:Name="ButtonSell" BorderThickness="0" Background="{x:Null}" Margin="0,88,24,0" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonClickSell" Opacity="0.5">
                 <StackPanel>
                     <Image Source="Images/manage/sell.png" Width="120" Height="32"/>
                 </StackPanel>
-            </Button>
-            <Button BorderThickness="0" Background="{x:Null}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,15.4" Grid.Column="1" Click="ButtonClickLeave">
-                <StackPanel/>
             </Button>
             <Grid HorizontalAlignment="Center" Width="150" Height="150" Margin="0,-110,0,0" VerticalAlignment="Top">
                 <Image x:Name="SelectedPokemonImage" gif:ImageBehavior.AnimatedSource="Images/egg.gif" HorizontalAlignment="Center" VerticalAlignment="Bottom" Stretch="None" Width="140" Height="140"/>

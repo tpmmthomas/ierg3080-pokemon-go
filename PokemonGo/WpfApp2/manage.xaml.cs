@@ -21,6 +21,9 @@ namespace PokemonGo
     {
         private Player p1;
         private Pokemon selectedPokemon = null;
+        private int powerUpRequestedStardust = 200;
+        private int evloveRequestedStardust = 1000;
+        private int sellObtainStardust = 100;
         public Manage(Player p1)
         {
             InitializeComponent();
@@ -29,14 +32,9 @@ namespace PokemonGo
             stardustAmount.Text = p1.Stardust.ToString();
             if (p1.PokemonCount() > 0)
             {
+                PlayerPokemonList.ItemsSource = p1.GetPokemons();
                 selectedPokemon = selectPokemon(p1.GetPokemons().First());   // Default select the first pokemon to display the detail
             }
-            else
-            {
-                MessageBox.Show("You don't have any pokemon!");
-            }
-
-            PlayerPokemonList.ItemsSource = p1.GetPokemons();
         }
         private Pokemon selectPokemon(Pokemon selectedPokemon)
         {
@@ -53,7 +51,6 @@ namespace PokemonGo
             pokemonWeight.Text = selectedPokemon.Weight.ToString()+"kg";
             pokemonHeight.Text = selectedPokemon.Height.ToString()+"m";
 
-
             // Update pokemon Image
             var image = new BitmapImage();
             image.BeginInit();
@@ -61,38 +58,57 @@ namespace PokemonGo
             image.EndInit();
             ImageBehavior.SetAnimatedSource(SelectedPokemonImage, image);
 
-            return selectedPokemon;
-        }
+            // Update button
+            ButtonPowerup.Opacity = (p1.Stardust >= powerUpRequestedStardust) ? 1 : 0.5;
+            ButtonEvolve.Opacity = (p1.Stardust >= evloveRequestedStardust) ? 1 : 0.5;
+            ButtonSell.Opacity = 1;
+            ButtonRename.Opacity = 1;
 
-        private void ButtonClickLeave(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.GoBack();
+            // Refresh my pokemon list & my info
+            stardustAmount.Text = p1.Stardust.ToString();
+            CollectionViewSource.GetDefaultView(PlayerPokemonList.ItemsSource).Refresh();
+
+            return selectedPokemon;
         }
 
         private void ButtonClickEvolve(object sender, RoutedEventArgs e)
         {
             if (selectedPokemon != null)
             {
-                int evolveResult = p1.GetPokemons().Find(x => x.Id == selectedPokemon.Id).Evolve();
-                if (evolveResult == 1)
+                int envoleResult = p1.GetPokemons().Find(x => x.Id == selectedPokemon.Id).Evolve();
+                if (envoleResult == 1)
                 {
-                    MessageBox.Show("The pokemon cannot be evolved anymore!");
+                    MessageBox.Show("The pokemon cannot be evolve anymore!");
+                }
+                else if (p1.Stardust >= evloveRequestedStardust)
+                {
+                    p1.AddStardust(-evloveRequestedStardust);
+                    selectPokemon(p1.GetPokemons().Find(x => x.Id == selectedPokemon.Id));
+                    this.NavigationService.Refresh();
+                    MessageBox.Show("The pokemon evolve successfully!");
                 }
                 else
                 {
-                    MessageBox.Show("The pokemon evolved successfully!");
+                    MessageBox.Show("You need 1000 Stardust to power up the pokemon!");
                 }
             }
-            selectPokemon(selectedPokemon);
-            this.NavigationService.Refresh();
         }
 
         private void ButtonClickPowerUp(object sender, RoutedEventArgs e)
         {
             if (selectedPokemon != null)
             {
-                p1.GetPokemons().Find(x => x.Id == selectedPokemon.Id).PowerUP();
-                MessageBox.Show("Power uped!");
+                if (p1.Stardust >= powerUpRequestedStardust)
+                {
+                    p1.AddStardust(-powerUpRequestedStardust);
+                    p1.GetPokemons().Find(x => x.Id == selectedPokemon.Id).PowerUP();
+                    selectPokemon(p1.GetPokemons().Find(x => x.Id == selectedPokemon.Id));
+                    MessageBox.Show("Power uped!");
+                }
+                else
+                {
+                    MessageBox.Show("You need 200 Stardust to power up the pokemon!");
+                }
             }
         }
 
@@ -108,9 +124,9 @@ namespace PokemonGo
         }
         private void ButtonClickSell(object sender, RoutedEventArgs e)
         {
-            if (currentDisplayPokemon != null)
+            if (selectedPokemon != null)
             {
-                p1.GetPokemons().RemoveAll(x => x.Id == currentDisplayPokemon.Id);
+                p1.GetPokemons().RemoveAll(x => x.Id == selectedPokemon.Id);
                 p1.AddStardust(sellObtainStardust);
                 if (p1.GetPokemons().Count > 0)
                 {
@@ -120,7 +136,8 @@ namespace PokemonGo
                 else
                 {
                     MessageBox.Show("All of your pokemons has been sold out! Let go to catach some :D");
-                    this.NavigationService.GoBack();
+                    Program.status = 0;
+                    NavigationService.GoBack();
                 }
             }
         }
