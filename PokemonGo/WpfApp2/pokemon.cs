@@ -212,6 +212,10 @@ namespace PokemonGo
             get { return maxHP; }
         }
         private int evolvestate; //1,2,3, 1 lowest, 3 highest
+        public int EvolveState
+        {
+            get { return evolvestate; }
+        }
         private int HP;
         public int GetHP
         {

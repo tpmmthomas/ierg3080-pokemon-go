@@ -21,9 +21,9 @@ namespace PokemonGo
     {
         private Player p1;
         private Pokemon selectedPokemon = null;
-        private int powerUpRequestedStardust = 300;
-        private int evolveRequestedStardust = 1000;
-        private int sellObtainStardust = 100;
+        private int powerUpRequestedStardust = 8888;
+        private int evolveRequestedStardust = 8888;
+        private int sellObtainStardust = 8888;
         public Manage(Player p1)
         {
             InitializeComponent();
@@ -51,6 +51,29 @@ namespace PokemonGo
             SelectedPokemonHPCurrent.Width = SelectedPokemonHPFull.Width * (selectedPokemon.GetHP / (double)selectedPokemon.MaxHP);
             pokemonWeight.Text = selectedPokemon.Weight.ToString()+"kg";
             pokemonHeight.Text = selectedPokemon.Height.ToString()+"m";
+            switch (selectedPokemon.EvolveState) {
+                case 1:
+                    powerUpRequestedStardust = 200;
+                    evolveRequestedStardust = 1000;
+                    break;
+                case 2:
+                    powerUpRequestedStardust = 300;
+                    evolveRequestedStardust = 1500;
+                    break;
+                case 3:
+                    powerUpRequestedStardust = 400;
+                    evolveRequestedStardust = 8888;
+                    break;
+            }
+            if (selectedPokemon.GetCP < 1000)
+                sellObtainStardust = 400;
+            else if (selectedPokemon.GetCP < 2000)
+                sellObtainStardust = 700;
+            else
+                sellObtainStardust = 1000;
+            powerUpCost.Text = powerUpRequestedStardust.ToString();
+
+
 
             // Update pokemon Image
             var image = new BitmapImage();
@@ -61,7 +84,7 @@ namespace PokemonGo
 
             // Update button
             ButtonPowerup.Opacity = (p1.Stardust >= powerUpRequestedStardust) ? 1 : 0.5;
-            ButtonEvolve.Opacity = (p1.Stardust >= evolveRequestedStardust) ? 1 : 0.5;
+            ButtonEvolve.Opacity = (p1.Stardust >= evolveRequestedStardust && selectedPokemon.EvolveState<3) ? 1 : 0.5;
             ButtonSell.Opacity = 1;
             ButtonRename.Opacity = 1;
 
