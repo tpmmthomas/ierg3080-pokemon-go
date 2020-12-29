@@ -72,8 +72,19 @@ namespace PokemonGo
             else
                 sellObtainStardust = 1000;
             powerUpCost.Text = powerUpRequestedStardust.ToString();
+            evolveCost.Text = evolveRequestedStardust.ToString();
+            SellValue.Text = sellObtainStardust.ToString();
 
-
+            if(selectedPokemon.EvolveState == 3)
+            {
+                sellicon.Visibility = Visibility.Hidden;
+                SellValue.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                sellicon.Visibility = Visibility.Visible;
+                SellValue.Visibility = Visibility.Visible;
+            }
 
             // Update pokemon Image
             var image = new BitmapImage();
@@ -101,22 +112,22 @@ namespace PokemonGo
             {
                 if (p1.Stardust >= evolveRequestedStardust)
                 {
-                    int envoleResult = p1.GetPokemons().Find(x => x.Id == selectedPokemon.Id).Evolve();
-                    if (envoleResult == 1)
+                    int evolveResult = p1.GetPokemons().Find(x => x.Id == selectedPokemon.Id).Evolve();
+                    if (evolveResult == 1)
                     {
-                        MessageBox.Show("The pokemon cannot be evolve anymore!");
+                        MessageBox.Show("The pokemon cannot be evolved anymore!");
                     }
                     else 
                     {
                         p1.ConsumeStardust(evolveRequestedStardust);
                         selectPokemon(p1.GetPokemons().Find(x => x.Id == selectedPokemon.Id));
                         this.NavigationService.Refresh();
-                        MessageBox.Show("The pokemon evolve successfully!");
+                        MessageBox.Show("The pokemon evolved successfully!");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("You need 1000 Stardust to power up the pokemon!");
+                    MessageBox.Show("You need "+evolveRequestedStardust.ToString()+" Stardust to power up the pokemon!");
                 }
             }
         }
@@ -130,11 +141,11 @@ namespace PokemonGo
                     p1.AddStardust(-powerUpRequestedStardust);
                     p1.GetPokemons().Find(x => x.Id == selectedPokemon.Id).PowerUP();
                     selectPokemon(p1.GetPokemons().Find(x => x.Id == selectedPokemon.Id));
-                    MessageBox.Show("Power uped!");
+                    MessageBox.Show("Your pokemon increased in strength!");
                 }
                 else
                 {
-                    MessageBox.Show("You need 200 Stardust to power up the pokemon!");
+                    MessageBox.Show("You need " + powerUpRequestedStardust.ToString() + " Stardust to power up the pokemon!");
                 }
             }
         }
