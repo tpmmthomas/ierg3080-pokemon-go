@@ -46,7 +46,7 @@ namespace PokemonGo
             win = _Win;
             lose = _Lose;
             skilltime = new int[3] { 20, 5, 1 }; // How many time can be use for coresponding skills
-            opponentSkilltime = new int[3] { 20, 5, 1 };
+            opponentSkilltime = new int[3] { 20, 5, 1 }; // How many time can be use for coresponding skills for opponentPokemon
             CurrentTurn = 1;
             if (PlayerPokemon.GetCP > 2000)
             {
@@ -93,8 +93,9 @@ namespace PokemonGo
             return critical;
         }
 
-        public bool OpponentMove(int move)
+        public bool OpponentMove()
         {
+            int move = rand.Next(0, 3);
             bool critical = rand.Next(0, 100) / (float)100 < OpponentCriticalRate ? true : false;
             opponentSkilltime[move]--;
             if (critical)

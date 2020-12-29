@@ -18,6 +18,7 @@ namespace PokemonGo
         private BattleGym battleGym;
         private int restTime = 3;       // Time to rest after an attack has been made
         private bool switchingPokemon;
+        private bool bossTrunFinish;
 
         private int restcount;
         private DispatcherTimer restTimer = new DispatcherTimer();
@@ -27,6 +28,7 @@ namespace PokemonGo
             InitializeComponent();
 
             switchingPokemon = false;
+            bossTrunFinish = false;
             p1 = p;
             List<Pokemon> playerPokemon = p1.GetPokemons();
             battleGym = new BattleGym(playerPokemon[0], playerPokemon[1], Win, Lose); //generateOneRandomBoss(); --TODO
@@ -77,8 +79,16 @@ namespace PokemonGo
             restBlock.Text = restcount + "s";
             if (restcount >= restTime)
             {
-                opponentPokemonImageAttack.Visibility = Visibility.Collapsed;
-                skillButtonGroup.Visibility = Visibility.Visible;
+                if (bossTrunFinish == true)
+                {
+                    opImageAttack.Visibility = Visibility.Collapsed;
+                    skillButtonGroup.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    bossTrunFinish = true;
+                    ConfirmBossAttack();
+                }
             }
         }
         private void InitializeAttackButton(int MoveID, TextBlock skillNameBlock, Button skillButton, TextBlock skillCapicityBlock)
@@ -104,19 +114,34 @@ namespace PokemonGo
         {
             if (battleGym.GetSkillTime[moveID] > 0)
             {
+                // My turn
                 skillButtonGroup.Visibility = Visibility.Collapsed;
-                opponentPokemonImageAttack.Visibility = Visibility.Visible;
+                opImageAttack.Visibility = Visibility.Visible;
                 restcount = 0;
                 if (battleGym.PlayerMove(moveID))
                 {
                     MessageBox.Show("Critical attack!");
                 }
-                opCP.Text = battleGym.GetOpponentPokemon.GetCP.ToString();
                 opHP.Width = 280 * (double) battleGym.GetOpponentPokemon.GetHP / battleGym.GetOpponentPokemon.MaxHP;
                 opHPAfterAttack.Width = 280 * (double) battleGym.GetOpponentPokemon.GetHP / battleGym.GetOpponentPokemon.MaxHP;
                 skillTextBlock.Text = battleGym.GetSkillTime[moveID] + " left";
                 skillButton.Opacity = (battleGym.GetSkillTime[moveID] > 0) ? 1 : 0.5;
+
+                bossTrunFinish = false;
             }
+        }
+        private void ConfirmBossAttack()
+        {
+            // My turn
+            skillButtonGroup.Visibility = Visibility.Collapsed;
+            ppImageAttack.Visibility = Visibility.Visible;
+            restcount = 0;
+            if (battleGym.OpponentMove())
+            {
+                MessageBox.Show("Critical attack!");
+            }
+            ppHP.Width = 280 * (double)battleGym.GetOpponentPokemon.GetHP / battleGym.GetOpponentPokemon.MaxHP;
+            ppHPAfterAttack.Width = 280 * (double)battleGym.GetOpponentPokemon.GetHP / battleGym.GetOpponentPokemon.MaxHP;
         }
         private void SwitchPokemon(object sender, RoutedEventArgs e)
         {
