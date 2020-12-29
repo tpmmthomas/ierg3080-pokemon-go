@@ -12,7 +12,5 @@
         <Image x:Name="player1" Source="Images/navigation/playericon.png" HorizontalAlignment="Left" Canvas.Left="229" Canvas.Top="335" Height="61" VerticalAlignment="Top" Width="72"/>
         <Image x:Name="gym" Source="Images/navigation/gymtext.png" HorizontalAlignment="Left" Canvas.Left="90" Canvas.Top="11" Height="54" VerticalAlignment="Top" Width="150"/>
         <Image x:Name="home" Source="Images/navigation/hometext.png" HorizontalAlignment="Left" Canvas.Left="317" Canvas.Top="216" Height="39" VerticalAlignment="Top" Width="68"/>
-        <TextBlock x:Name="debug1" TextWrapping="Wrap" Text="TextBlock" Canvas.Left="317" Canvas.Top="168" RenderTransformOrigin="-2,-5.562"/>
-        <TextBlock x:Name="debug2" TextWrapping="Wrap" Text="TextBlock" Canvas.Left="316" Canvas.Top="190"/>
     </Canvas>
 </Page>

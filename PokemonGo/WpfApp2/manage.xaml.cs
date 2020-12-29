@@ -78,13 +78,13 @@ namespace PokemonGo
 
             if(selectedPokemon.EvolveState == 3)
             {
-                sellicon.Visibility = Visibility.Hidden;
-                SellValue.Visibility = Visibility.Hidden;
+                evolveCost.Visibility = Visibility.Hidden;
+                evolvesd.Visibility = Visibility.Hidden;
             }
             else
             {
-                sellicon.Visibility = Visibility.Visible;
-                SellValue.Visibility = Visibility.Visible;
+                evolveCost.Visibility = Visibility.Visible;
+                evolvesd.Visibility = Visibility.Visible;
             }
 
             // Update pokemon Image
@@ -164,7 +164,7 @@ namespace PokemonGo
                 p1.AddStardust(sellObtainStardust);
                 if (p1.GetPokemons().Count > 0)
                 {
-                    MessageBox.Show("Sold out successfully!, obtain " + sellObtainStardust + "Stardust!");
+                    MessageBox.Show("Sold successfully!, obtain " + sellObtainStardust + " Stardust!");
                     selectPokemon(p1.GetPokemons().First());
                 }
                 else

@@ -102,8 +102,6 @@ namespace PokemonGo
                 Program.status = 1;
                 this.NavigationService.Navigate(new Manage(p1));
             }
-            debug1.Text = p1.PokemonCount().ToString();
-            debug2.Text = Canvas.GetTop(player1).ToString() + "," + Canvas.GetLeft(player1).ToString();
         }
         private void SpawnPokemon()
         {
