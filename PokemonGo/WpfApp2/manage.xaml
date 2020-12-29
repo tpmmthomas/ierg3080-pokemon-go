@@ -118,5 +118,7 @@
         <TextBlock Foreground="#45686e" HorizontalAlignment="Center" Margin="544,318,117,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="139" Text="Flamethrower"/>
         <TextBlock Foreground="#45686e" HorizontalAlignment="Center" Margin="700,318,58,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="42" Text="50"/>
         <TextBlock x:Name="PlayerStardustAmount" Foreground="#45686e" HorizontalAlignment="Center" Margin="420,342,286,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="94" Text="8888"/>
+        <TextBlock x:Name="stardust" Foreground="white" HorizontalAlignment="Center" Margin="654,9,61,0" TextWrapping="Wrap" Text="STARDUST" VerticalAlignment="Top" Height="18" FontSize="16" Width="85"/>
+        <TextBlock x:Name="stardustAmount" Foreground="white" HorizontalAlignment="Center" Margin="735,9,-29,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="94" Text="8888"/>
     </Grid>
 </Page>

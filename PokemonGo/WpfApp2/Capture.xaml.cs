@@ -200,7 +200,6 @@ namespace PokemonGo
                     endtimer.Start();
                     endtimer.Tick += (sender2, args2) => { 
                         endtimer.Stop(); 
-                        Program.Status = 0;
                         this.NavigationService.GoBack();
                     };
                 };

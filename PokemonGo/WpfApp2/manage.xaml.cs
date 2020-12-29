@@ -27,22 +27,22 @@ namespace PokemonGo
         {
             InitializeComponent();
             this.p1 = p1;
-            PlayerPokemonAmount.Text = p1.GetPokemons().Count.ToString();
+            PlayerPokemonAmount.Text = p1.PokemonCount().ToString();
             PlayerStardustAmount.Text = p1.Stardust.ToString();
-            if (p1.GetPokemons().Count > 0) {
+            if (p1.PokemonCount() > 0)
                 PlayerPokemonList.ItemsSource = p1.GetPokemons();
-                currentDisplayPokemon = updateCurrentDisplayPokemon(p1.GetPokemons().First());   // Default select the first pokemon to display the detail
+                currentDisplayPokemon = selectPokemon(p1.GetPokemons().First());   // Default select the first pokemon to display the detail
             }
         }
-        private Pokemon updateCurrentDisplayPokemon(Pokemon selectPokemon)
+        private Pokemon updateCurrentDisplayPokemon(Pokemon selectedPokemon)
         {
-            SelectedPokemonName.Text = selectPokemon.Name;
-            SelectedPokemonCP.Text = selectPokemon.GetCP.ToString();
+            SelectedPokemonName.Text = selectedPokemon.Name;
+            SelectedPokemonCP.Text = selectedPokemon.GetCP.ToString();
 
             // Update pokemon Image
             var image = new BitmapImage();
             image.BeginInit();
-            image.UriSource = new Uri(@"Images/pokemon/" + selectPokemon.Name + ".gif", UriKind.Relative); // TODO, still has bug
+            image.UriSource = new Uri(@"Images/pokemon/" + selectedPokemon.TypeName + ".gif", UriKind.Relative); // TODO, still has bug
             image.EndInit();
             ImageBehavior.SetAnimatedSource(SelectedPokemonImage, image);
 
@@ -132,7 +132,8 @@ namespace PokemonGo
         private void ButtonClickSelectPokemon(object sender, RoutedEventArgs e)
         {
             var button = (Button) sender;
-            MessageBox.Show("Developing!");
+            Pokemon selectedPkm = button.DataContext as Pokemon;
+            selectPokemon(selectedPkm);
         }
     }
 }
