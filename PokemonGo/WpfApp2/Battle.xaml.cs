@@ -26,7 +26,7 @@ namespace PokemonGo
                 // Update pokemon Image
                 var image = new BitmapImage();
                 image.BeginInit();
-                image.UriSource = new Uri(@"Images/pokemon/back/" + playerPokemon[0].Name + ".gif", UriKind.Relative); // TODO, still has bug
+                image.UriSource = new Uri(@"Images/pokemon/back/" + playerPokemon[0].TypeName + ".gif", UriKind.Relative); // TODO, still has bug
                 image.EndInit();
                 ImageBehavior.SetAnimatedSource(BattlePokemonImage, image);
                 GridChangePokemon.Visibility = Visibility.Collapsed;
