@@ -28,6 +28,7 @@ namespace PokemonGo
         public Navigation(string name)
         {
             InitializeComponent();
+            Program.status = 0;
             p1 = new Player(name);
             rand = new Random();
             PokeballLoc = new Dictionary<location, Image>();
@@ -71,20 +72,22 @@ namespace PokemonGo
             }
             foreach (var pkmLoc in PokemonLoc)
             {
-                if (Math.Abs(Canvas.GetLeft(player1) - pkmLoc.Key.left) < 30 && Math.Abs(Canvas.GetTop(player1) - pkmLoc.Key.top) < 30)
+                if (Math.Abs(Canvas.GetLeft(player1) - pkmLoc.Key.left) < 30 && Math.Abs(Canvas.GetTop(player1) - pkmLoc.Key.top) < 30 && Program.status == 0)
                 {
                     pkmLoc.Value.pokemonImage.Visibility = Visibility.Collapsed;
                     PokemonLoc.Remove(pkmLoc.Key);
+                    Program.status = 1;
                     this.NavigationService.Navigate(new Capture(p1, pkmLoc.Value.pokemonStat));
                     break;
                 }
             }
-            if (Math.Abs(Canvas.GetLeft(player1) - 140) < 20 && Math.Abs(Canvas.GetTop(player1) - 55) < 20)
+            if (Math.Abs(Canvas.GetLeft(player1) - 140) < 20 && Math.Abs(Canvas.GetTop(player1) - 55) < 20 && Program.status == 0)
             {
                 Canvas.SetTop(player1, 335);
                 Canvas.SetLeft(player1, 229);
                 if (p1.GetPokemons().Count > 0) {
-                    this.NavigationService.Navigate(new Battle(p1));
+					Program.status = 1;
+					this.NavigationService.Navigate(new Battle(p1));
                 }
                 else
                 {
@@ -92,10 +95,11 @@ namespace PokemonGo
                 }
             }
            
-            if (Math.Abs(Canvas.GetLeft(player1) - 319) < 20 && Math.Abs(Canvas.GetTop(player1) - 225) < 20)
+            if (Math.Abs(Canvas.GetLeft(player1) - 319) < 20 && Math.Abs(Canvas.GetTop(player1) - 225) < 20 && Program.status == 0)
             {
                 Canvas.SetTop(player1, 335);
                 Canvas.SetLeft(player1, 229);
+                Program.status = 1;
                 this.NavigationService.Navigate(new Manage(p1));
             }
             debug1.Text = p1.PokemonCount().ToString();
@@ -109,6 +113,8 @@ namespace PokemonGo
         }
         private void pokemontimer_Tick(object sender, EventArgs e)
         {
+            if (Program.status == 1)
+                return;
             int decideRarity = rand.Next(0, 100);
             if (decideRarity<97 && PokemonLoc.Count <= 5)
             {
@@ -201,7 +207,9 @@ namespace PokemonGo
         }
         private void balltimer_Tick(object sender, EventArgs e)
         {
-            if(PokeballLoc.Count <= 5)
+            if (Program.status == 1)
+                return;
+            if (PokeballLoc.Count <= 5)
             {
                 Image ball1 = new Image();
                 BitmapImage bitmap = new BitmapImage();

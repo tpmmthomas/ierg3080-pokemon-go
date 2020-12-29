@@ -159,6 +159,7 @@ namespace PokemonGo
             }
             if (e.Key == Key.B && status == 3)
             {
+                Program.status = 0;
                 this.NavigationService.GoBack();
             }
 
@@ -199,7 +200,8 @@ namespace PokemonGo
                     var endtimer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(2.5) };
                     endtimer.Start();
                     endtimer.Tick += (sender2, args2) => { 
-                        endtimer.Stop(); 
+                        endtimer.Stop();
+                        Program.status = 0;
                         this.NavigationService.GoBack();
                     };
                 };
@@ -238,6 +240,7 @@ namespace PokemonGo
             quicktimer.Start();
             quicktimer.Tick += (sender, args) => {
                 quicktimer.Stop();
+                Program.status = 0;
                 this.NavigationService.GoBack();
             };
         }
@@ -265,7 +268,8 @@ namespace PokemonGo
             var quicktimer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(2) };
             quicktimer.Start();
             quicktimer.Tick += (sender, args) => {
-                quicktimer.Stop(); 
+                quicktimer.Stop();
+                Program.status = 0;
                 this.NavigationService.GoBack();
             };
         }

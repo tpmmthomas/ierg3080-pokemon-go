@@ -38,6 +38,15 @@ namespace PokemonGo
         {
             SelectedPokemonName.Text = selectedPokemon.Name;
             SelectedPokemonCP.Text = selectedPokemon.GetCP.ToString();
+			
+            pokemonHP.Text = "HP " + selectedPokemon.GetHP.ToString() + "/" + selectedPokemon.MaxHP.ToString();
+            atkmv1.Text = selectedPokemon.Moveslist[0].name;
+            atkdmg1.Text = selectedPokemon.Moveslist[0].attackPoints.ToString();
+            atkmv2.Text = selectedPokemon.Moveslist[1].name;
+            atkdmg2.Text = selectedPokemon.Moveslist[1].attackPoints.ToString();
+            atkmv3.Text = selectedPokemon.Moveslist[2].name;
+            atkdmg3.Text = selectedPokemon.Moveslist[2].attackPoints.ToString();
+            SelectedPokemonHPCurrent.Width = SelectedPokemonHPFull.Width * (selectedPokemon.GetHP / (double)selectedPokemon.MaxHP);
 
             // Update pokemon Image
             var image = new BitmapImage();
@@ -134,6 +143,12 @@ namespace PokemonGo
             var button = (Button) sender;
             Pokemon selectedPkm = button.DataContext as Pokemon;
             selectPokemon(selectedPkm);
+        }
+
+        private void exitButton_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Program.status = 0;
+            NavigationService.GoBack();
         }
     }
 }
