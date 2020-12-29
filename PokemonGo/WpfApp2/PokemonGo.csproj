@@ -305,6 +305,7 @@
     <Resource Include="Images\back\3a-b__150-mega-y__xy.gif" />
     <Resource Include="Images\back\3a-b__150__xy.gif" />
     <Resource Include="Images\back\3a-b__151__xy.gif" />
+    <Resource Include="Images\battle\source.gif" />
     <Resource Include="Images\front\3ani__001__xy.gif" />
     <Resource Include="Images\front\3ani__002__xy.gif" />
     <Resource Include="Images\front\3ani__003-mega__xy.gif" />
@@ -732,6 +733,12 @@
   <ItemGroup>
     <Resource Include="Images\background.jpg" />
     <Resource Include="Images\manage\Stardust.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\button\empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="source.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

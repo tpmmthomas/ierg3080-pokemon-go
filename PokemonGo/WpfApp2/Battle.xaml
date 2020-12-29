@@ -21,9 +21,14 @@
             <Rectangle x:Name="playerPokemonHPAfterAttack" Fill="LightGreen" HorizontalAlignment="Right" Height="9" Margin="0,35,0,0" VerticalAlignment="Top" Width="250" RadiusX="5" RadiusY="5"/>
         </Grid>
         <Image x:Name="playerPokemonImage" Margin="47,0,490,107.6" gif:ImageBehavior.AnimatedSource="Images/egg.gif" Stretch="None" Height="233" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5"/>
+        <Image x:Name="playerPokemonImageAttack" Margin="47,0,490,107.6" gif:ImageBehavior.AnimatedSource="Images/battle/source.gif" Stretch="Fill" Height="233" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" Opacity="0"/>
+
+        <TextBlock x:Name="restBlock" Foreground="#FFFFFF" HorizontalAlignment="Right" Margin="0,54,360,0" TextWrapping="Wrap" Text="5842" VerticalAlignment="Top" Height="23" Width="99" FontSize="16" FontWeight="Medium" TextAlignment="Right"/>
+        <TextBlock x:Name="bossRestBlock" Foreground="#FFFFFF" HorizontalAlignment="Right" Margin="0,93,360,0" TextWrapping="Wrap" Text="5842" VerticalAlignment="Top" Height="23" Width="99" FontSize="16" FontWeight="Medium" TextAlignment="Right"/>
 
         <!--Gyms' pokemon-->
         <Image x:Name="opponentPokemonImage" Margin="533,0,117,191.6" gif:ImageBehavior.AnimatedSource="Images/egg.gif" Stretch="None" VerticalAlignment="Bottom" Height="149" RenderTransformOrigin="0.5,0.5"/>
+        <Image x:Name="opponentPokemonImageAttack" Margin="533,0,117,191.6" gif:ImageBehavior.AnimatedSource="Images/battle/source.gif" Stretch="Fill" Height="233" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed"/>
         <Grid HorizontalAlignment="Right" Width="280" VerticalAlignment="Top" Margin="0,30,30,0">
             <TextBlock x:Name="opponentPokemonName" Foreground="#FFFFFF" HorizontalAlignment="Right" TextWrapping="Wrap" Text="Vaporeon" VerticalAlignment="Top" Height="33" FontSize="20" FontWeight="Bold" TextAlignment="Right"/>
             <TextBlock x:Name="opponentPokemonCP" Foreground="#FFFFFF" HorizontalAlignment="Right" Margin="0,50,0,0" TextWrapping="Wrap" Text="5842" VerticalAlignment="Top" Height="23" Width="99" FontSize="16" FontWeight="Medium" TextAlignment="Right"/>
@@ -32,50 +37,39 @@
             <Rectangle x:Name="opponentPokemonHPAfterAttack" Fill="Red" HorizontalAlignment="Left" Height="9" Margin="0,35,0,0" VerticalAlignment="Top" Width="24" RadiusX="5" RadiusY="5"/>
         </Grid>
 
-        <!--Image button to attack-->
-        <Button x:Name="playerPokemonSkill1" BorderThickness="0" Background="{x:Null}" Width="150" Height="55" Margin="30,0,0,20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="ClickAttack1" Opacity="0.5">
-            <Grid>
-                <Image Source="Images/button/empty.png" Width="128" Height="48" />
-                <TextBlock x:Name="playerPokemonSkill1Name" Foreground="#FFFFFF" Text="SKILL 1" FontSize="11" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock.Effect>
-                        <DropShadowEffect ShadowDepth="0" Color="#FFFFFF" BlurRadius="10" />
-                    </TextBlock.Effect>
-                </TextBlock>
-                <TextBlock x:Name="timerBlock1" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="Timer of skill 1" VerticalAlignment="Top" RenderTransformOrigin="0.259,-0.084" Margin="0,48,0,-23"/>
-            </Grid>
-        </Button>
-        <Button x:Name="playerPokemonSkill2" BorderThickness="0" Background="{x:Null}" Width="150" Height="55" Margin="180,0,0,20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="ClickAttack2" Opacity="0.5">
-            <Grid>
-                <Image Source="Images/button/empty.png" Width="128" Height="48" />
-                <TextBlock x:Name="playerPokemonSkill2Name" Foreground="#FFFFFF" Text="SKILL 2" FontSize="11" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock.Effect>
-                        <DropShadowEffect ShadowDepth="0" Color="#FFFFFF" BlurRadius="10" />
-                    </TextBlock.Effect>
-                </TextBlock>
-                <TextBlock x:Name="timerBlock2" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="Timer of skill 2" VerticalAlignment="Top" Margin="0,48,0,-23"/>
-            </Grid>
-        </Button>
-        <Button x:Name="playerPokemonSkill3" BorderThickness="0" Background="{x:Null}" Width="150" Height="55" Margin="330,0,0,19.6" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="ClickAttack3" Opacity="0.5">
-            <Grid>
-                <Image Source="Images/button/empty.png" Width="128" Height="48" />
-                <TextBlock x:Name="playerPokemonSkill3Name" Foreground="#FFFFFF" Text="SKILL 3" Height="31" FontSize="11" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="14,17,14,0">
-                    <TextBlock.Effect>
-                        <DropShadowEffect ShadowDepth="0" Color="#FFFFFF" BlurRadius="10" />
-                    </TextBlock.Effect>
-                </TextBlock>
-                <TextBlock x:Name="timerBlock3" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="Timer of skill 3" VerticalAlignment="Top" Margin="0,48,0,-23"/>
-            </Grid>
-        </Button>
+        <Grid x:Name="skillButtonGroup" Visibility="Visible">
+            <Button x:Name="playerPokemonSkill0" BorderThickness="0" Background="{x:Null}" Width="150" Height="55" Margin="30,0,0,20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Attack0" Opacity="0.5">
+                <Grid>
+                    <Image Source="Images/button/empty.png" Width="128" Height="48" />
+                    <TextBlock x:Name="playerPokemonSkill0Name" Foreground="#FFFFFF" Text="SKILL 0" FontSize="11" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock x:Name="timerBlock0" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="Timer of skill 0" VerticalAlignment="Top" RenderTransformOrigin="0.259,-0.084" Margin="0,48,0,-23"/>
+                </Grid>
+            </Button>
+            <Button x:Name="playerPokemonSkill1" BorderThickness="0" Background="{x:Null}" Width="150" Height="55" Margin="180,0,0,20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Attack1" Opacity="0.5">
+                <Grid>
+                    <Image Source="Images/button/empty.png" Width="128" Height="48" />
+                    <TextBlock x:Name="playerPokemonSkill1Name" Foreground="#FFFFFF" Text="SKILL 1" FontSize="11" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock x:Name="timerBlock1" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="Timer of skill 1" VerticalAlignment="Top" Margin="0,48,0,-23"/>
+                </Grid>
+            </Button>
+            <Button x:Name="playerPokemonSkill2" BorderThickness="0" Background="{x:Null}" Width="150" Height="55" Margin="330,0,0,19.6" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Attack2" Opacity="0.5">
+                <Grid>
+                    <Image Source="Images/button/empty.png" Width="128" Height="48" />
+                    <TextBlock x:Name="playerPokemonSkill2Name" Foreground="#FFFFFF" Text="SKILL 2" Height="31" FontSize="11" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="14,17,14,0"/>
+                    <TextBlock x:Name="timerBlock2" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="Timer of skill 2" VerticalAlignment="Top" Margin="0,48,0,-23"/>
+                </Grid>
+            </Button>
+        </Grid>
 
         <!--Image button to change battle pokemon-->
-        <Button BorderThickness="0" Background="{x:Null}" Width="55" Height="55" Margin="0,0,90,20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="ButtonSwitchPokemon">
+        <Button BorderThickness="0" Background="{x:Null}" Width="55" Height="55" Margin="0,0,90,20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="SwitchPokemon">
             <StackPanel>
                 <Image Source="Images/button/change.png" Width="48" Height="48" />
             </StackPanel>
         </Button>
 
         <!--Image button to run away-->
-        <Button BorderThickness="0" Background="{x:Null}" Width="55" Height="55" Margin="0,0,30,20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="ButtonRunAway">
+        <Button BorderThickness="0" Background="{x:Null}" Width="55" Height="55" Margin="0,0,30,20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="RunAway">
             <StackPanel>
                 <Image Source="Images/button/run.png" Width="48" Height="48" />
             </StackPanel>
@@ -86,7 +80,7 @@
             <Rectangle Fill="#7F000000" HorizontalAlignment="Left" Height="278" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="254"/>
             <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Center" Margin="0,22,0,0" TextWrapping="Wrap" Text="Switch in a new Pokemon?" VerticalAlignment="Top" Height="18" FontSize="10" FontWeight="Light"/>
 
-            <Button BorderThickness="0" Background="{x:Null}" Margin="0,0,172,116.4" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="ButtonConfirmSwitchPokemon">
+            <Button BorderThickness="0" Background="{x:Null}" Margin="0,0,172,116.4" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="ConfirmSwitchPokemon">
                 <StackPanel>
                     <DockPanel Margin="5,0,0,5">
                         <TextBlock Foreground="#FFFFFF" VerticalAlignment="Bottom" TextWrapping="Wrap" Text="CP" Width="16" FontSize="10" FontWeight="Light"/>
@@ -106,7 +100,7 @@
                     <TextBlock Foreground="#FFFFFF" VerticalAlignment="Bottom" TextWrapping="Wrap" Text="Vaporeon" FontSize="10" FontWeight="Light" HorizontalAlignment="Center" Margin="0,5,0,0"/>
                 </StackPanel>
             </Button>
-            <Button BorderThickness="0" Background="{x:Null}" Margin="0,0,0,116.4" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="ButtonConfirmSwitchPokemon">
+            <Button BorderThickness="0" Background="{x:Null}" Margin="0,0,0,116.4" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="ConfirmSwitchPokemon">
                 <StackPanel>
                     <DockPanel Margin="5,0,0,5">
                         <TextBlock Foreground="#FFFFFF" VerticalAlignment="Bottom" TextWrapping="Wrap" Text="CP" Width="16" FontSize="10" FontWeight="Light"/>
@@ -127,7 +121,7 @@
                 </StackPanel>
             </Button>
 
-            <Button BorderThickness="0" Background="{x:Null}" Width="40" Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="ButtonCloseSwitchPokemon" Margin="106,0,106,15">
+            <Button BorderThickness="0" Background="{x:Null}" Width="40" Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="SwitchPokemon" Margin="106,0,106,15">
                 <StackPanel>
                     <Image Source="Images/button/close.png" Width="30" Height="30" />
                 </StackPanel>
