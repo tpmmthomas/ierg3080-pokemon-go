@@ -106,7 +106,7 @@ namespace PokemonGo
         private void SpawnPokemon()
         {
             pokemontimer.Tick += pokemontimer_Tick;
-            pokemontimer.Interval = TimeSpan.FromSeconds(2);//testing
+            pokemontimer.Interval = TimeSpan.FromSeconds(15);
             pokemontimer.Start();
         }
         private void pokemontimer_Tick(object sender, EventArgs e)
