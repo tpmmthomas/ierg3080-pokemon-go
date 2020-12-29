@@ -21,8 +21,8 @@ namespace PokemonGo
     {
         private Player p1;
         private Pokemon selectedPokemon = null;
-        private int powerUpRequestedStardust = 200;
-        private int evloveRequestedStardust = 1000;
+        private int powerUpRequestedStardust = 300;
+        private int evolveRequestedStardust = 1000;
         private int sellObtainStardust = 100;
         public Manage(Player p1)
         {
@@ -61,7 +61,7 @@ namespace PokemonGo
 
             // Update button
             ButtonPowerup.Opacity = (p1.Stardust >= powerUpRequestedStardust) ? 1 : 0.5;
-            ButtonEvolve.Opacity = (p1.Stardust >= evloveRequestedStardust) ? 1 : 0.5;
+            ButtonEvolve.Opacity = (p1.Stardust >= evolveRequestedStardust) ? 1 : 0.5;
             ButtonSell.Opacity = 1;
             ButtonRename.Opacity = 1;
 
@@ -76,7 +76,7 @@ namespace PokemonGo
         {
             if (selectedPokemon != null)
             {
-                if (p1.Stardust >= evloveRequestedStardust)
+                if (p1.Stardust >= evolveRequestedStardust)
                 {
                     int envoleResult = p1.GetPokemons().Find(x => x.Id == selectedPokemon.Id).Evolve();
                     if (envoleResult == 1)
@@ -85,7 +85,7 @@ namespace PokemonGo
                     }
                     else 
                     {
-                        p1.AddStardust(-evloveRequestedStardust);
+                        p1.ConsumeStardust(evolveRequestedStardust);
                         selectPokemon(p1.GetPokemons().Find(x => x.Id == selectedPokemon.Id));
                         this.NavigationService.Refresh();
                         MessageBox.Show("The pokemon evolve successfully!");
