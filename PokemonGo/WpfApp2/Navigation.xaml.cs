@@ -40,7 +40,6 @@ namespace PokemonGo
             SpawnPokeball();
             SpawnPokemon();
             RegularTimer();
-            PlayerPokemonList.ItemsSource = p1.GetPokemons();
         }
         private void RegularTimer()
         {
@@ -86,8 +85,14 @@ namespace PokemonGo
             {
                 Canvas.SetTop(player1, 335);
                 Canvas.SetLeft(player1, 229);
-                Program.status = 1;
-                this.NavigationService.Navigate(new Battle(p1));
+                if (p1.GetPokemons().Count > 0) {
+					Program.status = 1;
+					this.NavigationService.Navigate(new Battle(p1));
+                }
+                else
+                {
+                    MessageBox.Show("You don't have any pokemon!");
+                }
             }
            
             if (Math.Abs(Canvas.GetLeft(player1) - 319) < 20 && Math.Abs(Canvas.GetTop(player1) - 225) < 20 && Program.status == 0)

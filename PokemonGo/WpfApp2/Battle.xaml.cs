@@ -21,7 +21,6 @@ namespace PokemonGo
             List<Pokemon> playerPokemon = p1.GetPokemons();
             if(playerPokemon.Count > 0)
             {
-                MessageBox.Show(playerPokemon[0].Name);
                 BattlePokemonName.Text = playerPokemon[0].Name;
 
                 // Update pokemon Image
@@ -30,12 +29,8 @@ namespace PokemonGo
                 image.UriSource = new Uri(@"Images/pokemon/back/" + playerPokemon[0].Name + ".gif", UriKind.Relative); // TODO, still has bug
                 image.EndInit();
                 ImageBehavior.SetAnimatedSource(BattlePokemonImage, image);
+                GridChangePokemon.Visibility = Visibility.Collapsed;
             }
-            else{
-                MessageBox.Show("You don't have any pokemon!");
-                //WindowNavigation.NavigateBack(); //will have error, think how to debug after you finish other (cos going back immediately after initialize, the show and hide function have conflict)
-            }
-            GridChangePokemon.Visibility = Visibility.Collapsed;
         }
         private void ButtonRunAway(object sender, RoutedEventArgs e)
         {
