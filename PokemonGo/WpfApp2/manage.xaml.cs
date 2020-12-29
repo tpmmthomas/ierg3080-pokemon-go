@@ -19,37 +19,43 @@ namespace PokemonGo
     public partial class Manage : Page
     {
         private Player p1;
-        private Pokemon selectedPokemon = null;
+        private Pokemon currentDisplayPokemon = null;
+        private int powerUpRequestedStardust = 200;
+        private int evloveRequestedStardust = 1000;
+        private int sellObtainStardust = 100;
         public Manage(Player p1)
         {
             InitializeComponent();
             this.p1 = p1;
             PlayerPokemonAmount.Text = p1.GetPokemons().Count.ToString();
             PlayerStardustAmount.Text = p1.Stardust.ToString();
-            if (p1.GetPokemons().Count > 0)
-            {
-                selectedPokemon = selectPokemon(p1.GetPokemons().First());   // Default select the first pokemon to display the detail
+            if (p1.GetPokemons().Count > 0) {
+                PlayerPokemonList.ItemsSource = p1.GetPokemons();
+                currentDisplayPokemon = updateCurrentDisplayPokemon(p1.GetPokemons().First());   // Default select the first pokemon to display the detail
             }
-            else
-            {
-                MessageBox.Show("You don't have any pokemon!");
-            }
-
-            PlayerPokemonList.ItemsSource = p1.GetPokemons();
         }
-        private Pokemon selectPokemon(Pokemon selectedPokemon)
+        private Pokemon updateCurrentDisplayPokemon(Pokemon selectPokemon)
         {
-            SelectedPokemonName.Text = selectedPokemon.Name;
-            SelectedPokemonCP.Text = selectedPokemon.GetCP.ToString();
+            SelectedPokemonName.Text = selectPokemon.Name;
+            SelectedPokemonCP.Text = selectPokemon.GetCP.ToString();
 
             // Update pokemon Image
             var image = new BitmapImage();
             image.BeginInit();
-            image.UriSource = new Uri(@"Images/pokemon/" + selectedPokemon.Name + ".gif", UriKind.Relative); // TODO, still has bug
+            image.UriSource = new Uri(@"Images/pokemon/" + selectPokemon.Name + ".gif", UriKind.Relative); // TODO, still has bug
             image.EndInit();
             ImageBehavior.SetAnimatedSource(SelectedPokemonImage, image);
 
-            return selectedPokemon;
+            // Update button
+            ButtonPowerup.Opacity = (p1.Stardust >= powerUpRequestedStardust) ? 1 : 0.5;
+            ButtonEvolve.Opacity = (p1.Stardust >= evloveRequestedStardust) ? 1 : 0.5;
+            ButtonSell.Opacity = 1;
+            ButtonRename.Opacity = 1;
+
+            // Refresh my pokemon list
+            CollectionViewSource.GetDefaultView(PlayerPokemonList.ItemsSource).Refresh(); // Refresh the current pokemon view
+
+            return selectPokemon;
         }
 
         private void ButtonClickLeave(object sender, RoutedEventArgs e)
@@ -59,47 +65,73 @@ namespace PokemonGo
 
         private void ButtonClickEvolve(object sender, RoutedEventArgs e)
         {
-            if (selectedPokemon != null)
+            if (currentDisplayPokemon != null)
             {
-                int envoleResult = p1.GetPokemons().Find(x => x.Id == selectedPokemon.Id).Evolve();
+                int envoleResult = p1.GetPokemons().Find(x => x.Id == currentDisplayPokemon.Id).Evolve();
                 if (envoleResult == 1)
                 {
                     MessageBox.Show("The pokemon cannot be evolve anymore!");
                 }
+                else if (p1.Stardust >= evloveRequestedStardust)
+                {
+                    p1.AddStardust(-evloveRequestedStardust);
+                    CollectionViewSource.GetDefaultView(PlayerPokemonList.ItemsSource).Refresh(); // Refresh the current pokemon view
+                    updateCurrentDisplayPokemon(p1.GetPokemons().Find(x => x.Id == currentDisplayPokemon.Id));
+                    MessageBox.Show("The pokemon evolve successfully!");
+                }
                 else
                 {
-                    MessageBox.Show("The pokemon evolve successfully!");
+                    MessageBox.Show("You need 1000 Stardust to power up the pokemon!");
                 }
             }
         }
-
         private void ButtonClickPowerUp(object sender, RoutedEventArgs e)
         {
-            if (selectedPokemon != null)
+            if (currentDisplayPokemon != null)
             {
-                p1.GetPokemons().Find(x => x.Id == selectedPokemon.Id).PowerUP();
-                MessageBox.Show("Power uped!");
+                if(p1.Stardust >= powerUpRequestedStardust) { 
+                    p1.AddStardust(-powerUpRequestedStardust);
+                    p1.GetPokemons().Find(x => x.Id == currentDisplayPokemon.Id).PowerUP();
+                    updateCurrentDisplayPokemon(p1.GetPokemons().Find(x => x.Id == currentDisplayPokemon.Id));
+                    MessageBox.Show("Power uped!");
+                }
+                else
+                {
+                    MessageBox.Show("You need 200 Stardust to power up the pokemon!");
+                }
             }
         }
-
         private void ButtonClickRename(object sender, RoutedEventArgs e)
         {
             String newName = "test";
-            if (selectedPokemon != null)
+            if (currentDisplayPokemon != null)
             {
-                p1.GetPokemons().Find(x => x.Id == selectedPokemon.Id).Rename(newName);
+                p1.GetPokemons().Find(x => x.Id == currentDisplayPokemon.Id).Rename(newName);
                 SelectedPokemonName.Text = newName;
             }
             MessageBox.Show("Rename Developing!");
         }
         private void ButtonClickSell(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Sell Developing!");
+            if (currentDisplayPokemon != null)
+            {
+                p1.GetPokemons().RemoveAll(x => x.Id == currentDisplayPokemon.Id);
+                p1.AddStardust(sellObtainStardust);
+                if (p1.GetPokemons().Count > 0)
+                {
+                    MessageBox.Show("Sold out successfully!");
+                    updateCurrentDisplayPokemon(p1.GetPokemons().First());
+                }
+                else
+                {
+                    MessageBox.Show("All of your pokemons has been sold out! Let go to catach some :D");
+                    this.NavigationService.GoBack();
+                }
+            }
         }
         private void ButtonClickSelectPokemon(object sender, RoutedEventArgs e)
         {
             var button = (Button) sender;
-
             MessageBox.Show("Developing!");
         }
     }

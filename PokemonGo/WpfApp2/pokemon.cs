@@ -279,7 +279,7 @@ namespace PokemonGo
             {
                 x.attackPoints += rand.Next(0, 2);
             }
-            return 0;
+            return CP;
         }
 
         public void Rename(string x)
@@ -290,6 +290,5 @@ namespace PokemonGo
                 x = x + 'e';
             name = x;
         }
-
     }
 }

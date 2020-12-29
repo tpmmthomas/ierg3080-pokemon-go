@@ -2,24 +2,27 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
-        xmlns:pokemongo="clr-namespace:PokemonGo" xmlns:controls="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
+        xmlns:controls="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
         Title="Manage Pokemon/Collection" Height="450" Width="800">
     <Grid>
         <Grid.Background>
             <ImageBrush Stretch="UniformToFill" ImageSource="Images/manage/background.png"/>
         </Grid.Background>
-        
-        
+
         <ScrollViewer HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Left" Width="250">
             <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Width="231" Height="410">
+
                 <TextBlock Foreground="#FFFFFF" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="16" Margin="0,20,0,0" Text="POKÉMON"/>
                 <TextBlock x:Name="PlayerPokemonAmount" Foreground="#FFFFFF" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="12" Margin="0,5,0,20" Text="9999"/>
+
                 <ItemsControl Name="PlayerPokemonList" Margin="10">
+                    <!--Make the panel 3 by n-->
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <controls:UniformGrid Columns="3"/>
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
+                    <!--Template of Pokemon list-->
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Button BorderThickness="0" Background="{x:Null}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="ButtonClickSelectPokemon">
@@ -41,15 +44,14 @@
                                     </Rectangle>
                                     <TextBlock Foreground="#FFFFFF" VerticalAlignment="Bottom" TextWrapping="Wrap" Text="{Binding Path=Name}" FontSize="10" FontWeight="Light" HorizontalAlignment="Center" Margin="0,5,0,0"/>
                                 </StackPanel>
-                                <!--<pokemongo:PokemonSingleViewTiny PokemonName="Name" PokemonCP="1234"/>-->
                             </Button>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
+                
             </StackPanel>
         </ScrollViewer>
-        
-        
+
         <Grid x:Name="GridChangePokemon" Margin="0,0,30,30" VerticalAlignment="Bottom" HorizontalAlignment="Right">
             <DockPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-135,0,0">
                 <TextBlock Foreground="#FFFFFF" Text="CP" FontSize="16" VerticalAlignment="Bottom" Margin="0,0,5,2"/>
@@ -69,32 +71,36 @@
                 </Ellipse>
             </Canvas>
             <Rectangle Fill="#FFFFFF" HorizontalAlignment="Left" Height="222" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="500" Margin="0,22,0,0"/>
+
+            <Button x:Name="ButtonEvolve" BorderThickness="0" Background="{x:Null}" Margin="24,88,24,0" VerticalAlignment="Top" HorizontalAlignment="Left" Click="ButtonClickEvolve" Opacity="0.5">
+                <StackPanel>
+                    <Image Source="Images/manage/evolve.png" Width="120" Height="32"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="ButtonPowerup" BorderThickness="0" Background="{x:Null}" Margin="24,48,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Click="ButtonClickPowerUp" Opacity="0.5">
+                <StackPanel>
+                    <Image Source="Images/manage/powerup.png" Width="120" Height="32"/>
+                </StackPanel>
+            </Button>
+
             <TextBlock x:Name="SelectedPokemonName" Foreground="#45686e" HorizontalAlignment="Center" Margin="200,55,200,0" TextWrapping="Wrap" Text="### N/A ###" VerticalAlignment="Top" Height="27" FontSize="16"/>
             <Grid HorizontalAlignment="Center" Margin="0,80,0,0" Height="14" VerticalAlignment="Top">
                 <Rectangle x:Name="SelectedPokemonHPFull" Fill="Black" HorizontalAlignment="Center" Height="9" Width="168" RadiusX="5" RadiusY="5" Opacity="0.5" Grid.Column="1"/>
                 <Rectangle x:Name="SelectedPokemonHPCurrent" Fill="LightGreen" HorizontalAlignment="Left" Height="9" Width="87" RadiusX="5" RadiusY="5" Grid.Column="1"/>
                 <TextBlock Foreground="#45686e" Text="HP 101/176" Margin="0,17,0,-18"/>
             </Grid>
-            <Button BorderThickness="0" Background="{x:Null}" Margin="24,88,24,0" VerticalAlignment="Top" HorizontalAlignment="Left" Click="ButtonClickEvolve">
-                <StackPanel>
-                    <Image Source="Images/manage/evolve.png" Width="120" Height="32"/>
-                </StackPanel>
-            </Button>
-            <Button BorderThickness="0" Background="{x:Null}" Margin="24,48,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Click="ButtonClickPowerUp">
-                <StackPanel>
-                    <Image Source="Images/manage/powerup.png" Width="120" Height="32"/>
-                </StackPanel>
-            </Button>
-            <Button BorderThickness="0" Background="{x:Null}" Margin="0,48,24,0" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonClickRename">
+
+            <Button x:Name="ButtonRename" BorderThickness="0" Background="{x:Null}" Margin="0,48,24,0" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonClickRename" Opacity="0.5">
                 <StackPanel>
                     <Image Source="Images/manage/rename.png" Width="120" Height="32"/>
                 </StackPanel>
             </Button>
-            <Button BorderThickness="0" Background="{x:Null}" Margin="0,88,24,0" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonClickSell">
+            <Button x:Name="ButtonSell" BorderThickness="0" Background="{x:Null}" Margin="0,88,24,0" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonClickSell" Opacity="0.5">
                 <StackPanel>
                     <Image Source="Images/manage/sell.png" Width="120" Height="32"/>
                 </StackPanel>
             </Button>
+            
             <Button BorderThickness="0" Background="{x:Null}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,15.4" Grid.Column="1" Click="ButtonClickLeave">
                 <StackPanel>
                     <Image Source="Images/button/tick.png" Width="30" Height="30" />
@@ -104,6 +110,7 @@
                 <Image x:Name="SelectedPokemonImage" gif:ImageBehavior.AnimatedSource="Images/egg.gif" HorizontalAlignment="Center" VerticalAlignment="Bottom" Stretch="None" Width="140" Height="140"/>
             </Grid>
         </Grid>
+        
         <TextBlock Foreground="#45686e" HorizontalAlignment="Center" Margin="301,342,385,0" TextWrapping="Wrap" Text="STARDUST" VerticalAlignment="Top" Height="18" FontSize="16" Width="114"/>
         <TextBlock Foreground="#45686e" HorizontalAlignment="Center" Margin="301,318,385,0" TextWrapping="Wrap" Text="CANDY" VerticalAlignment="Top" Height="18" FontSize="16" Width="114"/>
         <TextBlock Foreground="#45686e" HorizontalAlignment="Center" Margin="544,341,117,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="139" Text="Ember"/>
