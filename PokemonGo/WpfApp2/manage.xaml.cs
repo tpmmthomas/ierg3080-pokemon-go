@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Navigation;
 using WpfAnimatedGif;
 
 namespace PokemonGo
@@ -19,26 +20,28 @@ namespace PokemonGo
     public partial class Manage : Page
     {
         private Player p1;
-        private Pokemon currentDisplayPokemon = null;
-        private int powerUpRequestedStardust = 200;
-        private int evloveRequestedStardust = 1000;
-        private int sellObtainStardust = 100;
+        private Pokemon selectedPokemon = null;
         public Manage(Player p1)
         {
             InitializeComponent();
             this.p1 = p1;
             PlayerPokemonAmount.Text = p1.PokemonCount().ToString();
             stardustAmount.Text = p1.Stardust.ToString();
-            if (p1.PokemonCount() > 0) {
-                PlayerPokemonList.ItemsSource = p1.GetPokemons();
-                currentDisplayPokemon = selectPokemon(p1.GetPokemons().First());   // Default select the first pokemon to display the detail
+            if (p1.PokemonCount() > 0)
+            {
+                selectedPokemon = selectPokemon(p1.GetPokemons().First());   // Default select the first pokemon to display the detail
             }
+            else
+            {
+                MessageBox.Show("You don't have any pokemon!");
+            }
+
+            PlayerPokemonList.ItemsSource = p1.GetPokemons();
         }
         private Pokemon selectPokemon(Pokemon selectedPokemon)
         {
             SelectedPokemonName.Text = selectedPokemon.Name;
             SelectedPokemonCP.Text = selectedPokemon.GetCP.ToString();
-			
             pokemonHP.Text = "HP " + selectedPokemon.GetHP.ToString() + "/" + selectedPokemon.MaxHP.ToString();
             atkmv1.Text = selectedPokemon.Moveslist[0].name;
             atkdmg1.Text = selectedPokemon.Moveslist[0].attackPoints.ToString();
@@ -47,23 +50,16 @@ namespace PokemonGo
             atkmv3.Text = selectedPokemon.Moveslist[2].name;
             atkdmg3.Text = selectedPokemon.Moveslist[2].attackPoints.ToString();
             SelectedPokemonHPCurrent.Width = SelectedPokemonHPFull.Width * (selectedPokemon.GetHP / (double)selectedPokemon.MaxHP);
+            pokemonWeight.Text = selectedPokemon.Weight.ToString()+"kg";
+            pokemonHeight.Text = selectedPokemon.Height.ToString()+"m";
+
 
             // Update pokemon Image
             var image = new BitmapImage();
             image.BeginInit();
-            image.UriSource = new Uri(@"Images/pokemon/" + selectedPokemon.TypeName + ".gif", UriKind.Relative);
+            image.UriSource = new Uri(@"Images/pokemon/" + selectedPokemon.TypeName + ".gif", UriKind.Relative); // TODO, still has bug
             image.EndInit();
             ImageBehavior.SetAnimatedSource(SelectedPokemonImage, image);
-
-            // Update button
-            ButtonPowerup.Opacity = (p1.Stardust >= powerUpRequestedStardust) ? 1 : 0.5;
-            ButtonEvolve.Opacity = (p1.Stardust >= evloveRequestedStardust) ? 1 : 0.5;
-            ButtonSell.Opacity = 1;
-            ButtonRename.Opacity = 1;
-
-            // Refresh my pokemon list & my info
-            stardustAmount.Text = p1.Stardust.ToString();
-            CollectionViewSource.GetDefaultView(PlayerPokemonList.ItemsSource).Refresh();
 
             return selectedPokemon;
         }
@@ -75,47 +71,37 @@ namespace PokemonGo
 
         private void ButtonClickEvolve(object sender, RoutedEventArgs e)
         {
-            if (currentDisplayPokemon != null)
+            if (selectedPokemon != null)
             {
-                int envoleResult = p1.GetPokemons().Find(x => x.Id == currentDisplayPokemon.Id).Evolve();
-                if (envoleResult == 1)
+                int evolveResult = p1.GetPokemons().Find(x => x.Id == selectedPokemon.Id).Evolve();
+                if (evolveResult == 1)
                 {
-                    MessageBox.Show("The pokemon cannot be evolve anymore!");
-                }
-                else if (p1.Stardust >= evloveRequestedStardust)
-                {
-                    p1.AddStardust(-evloveRequestedStardust);
-                    selectPokemon(p1.GetPokemons().Find(x => x.Id == currentDisplayPokemon.Id));
-                    MessageBox.Show("The pokemon evolve successfully!");
+                    MessageBox.Show("The pokemon cannot be evolved anymore!");
                 }
                 else
                 {
-                    MessageBox.Show("You need 1000 Stardust to power up the pokemon!");
+                    MessageBox.Show("The pokemon evolved successfully!");
                 }
             }
+            selectPokemon(selectedPokemon);
+            this.NavigationService.Refresh();
         }
+
         private void ButtonClickPowerUp(object sender, RoutedEventArgs e)
         {
-            if (currentDisplayPokemon != null)
+            if (selectedPokemon != null)
             {
-                if(p1.Stardust >= powerUpRequestedStardust) { 
-                    p1.AddStardust(-powerUpRequestedStardust);
-                    p1.GetPokemons().Find(x => x.Id == currentDisplayPokemon.Id).PowerUP();
-                    selectPokemon(p1.GetPokemons().Find(x => x.Id == currentDisplayPokemon.Id));
-                    MessageBox.Show("Power uped!");
-                }
-                else
-                {
-                    MessageBox.Show("You need 200 Stardust to power up the pokemon!");
-                }
+                p1.GetPokemons().Find(x => x.Id == selectedPokemon.Id).PowerUP();
+                MessageBox.Show("Power uped!");
             }
         }
+
         private void ButtonClickRename(object sender, RoutedEventArgs e)
         {
             String newName = "test";
-            if (currentDisplayPokemon != null)
+            if (selectedPokemon != null)
             {
-                p1.GetPokemons().Find(x => x.Id == currentDisplayPokemon.Id).Rename(newName);
+                p1.GetPokemons().Find(x => x.Id == selectedPokemon.Id).Rename(newName);
                 SelectedPokemonName.Text = newName;
             }
             MessageBox.Show("Rename Developing!");
@@ -134,8 +120,7 @@ namespace PokemonGo
                 else
                 {
                     MessageBox.Show("All of your pokemons has been sold out! Let go to catach some :D");
-                    Program.status = 0;
-                    NavigationService.GoBack();
+                    this.NavigationService.GoBack();
                 }
             }
         }
@@ -145,6 +130,7 @@ namespace PokemonGo
             Pokemon selectedPkm = button.DataContext as Pokemon;
             selectPokemon(selectedPkm);
         }
+
         private void exitButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Program.status = 0;

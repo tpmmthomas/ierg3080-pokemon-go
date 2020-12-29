@@ -219,7 +219,7 @@ namespace PokemonGo
         }
         public String GetImageLocation
         {
-            get { return "Images/pokemon/"+ typeName + ".gif"; }
+            get { return "Images/pokemon/"+typeName+".gif"; }
         }
         public Pokemon(int pId, PokemonType x)
         {
@@ -284,7 +284,7 @@ namespace PokemonGo
             {
                 x.attackPoints += rand.Next(0, 2);
             }
-            return CP;
+            return 0;
         }
 
         public void Rename(string x)
@@ -295,5 +295,6 @@ namespace PokemonGo
                 x = x + '+';
             name = x;
         }
+
     }
 }
