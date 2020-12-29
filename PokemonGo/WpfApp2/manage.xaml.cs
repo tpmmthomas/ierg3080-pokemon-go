@@ -29,12 +29,12 @@ namespace PokemonGo
             this.p1 = p1;
             PlayerPokemonAmount.Text = p1.PokemonCount().ToString();
             PlayerStardustAmount.Text = p1.Stardust.ToString();
-            if (p1.PokemonCount() > 0)
+            if (p1.PokemonCount() > 0) {
                 PlayerPokemonList.ItemsSource = p1.GetPokemons();
                 currentDisplayPokemon = selectPokemon(p1.GetPokemons().First());   // Default select the first pokemon to display the detail
             }
         }
-        private Pokemon updateCurrentDisplayPokemon(Pokemon selectedPokemon)
+        private Pokemon selectPokemon(Pokemon selectedPokemon)
         {
             SelectedPokemonName.Text = selectedPokemon.Name;
             SelectedPokemonCP.Text = selectedPokemon.GetCP.ToString();
@@ -55,7 +55,7 @@ namespace PokemonGo
             // Refresh my pokemon list
             CollectionViewSource.GetDefaultView(PlayerPokemonList.ItemsSource).Refresh(); // Refresh the current pokemon view
 
-            return selectPokemon;
+            return selectedPokemon;
         }
 
         private void ButtonClickLeave(object sender, RoutedEventArgs e)
@@ -76,7 +76,7 @@ namespace PokemonGo
                 {
                     p1.AddStardust(-evloveRequestedStardust);
                     CollectionViewSource.GetDefaultView(PlayerPokemonList.ItemsSource).Refresh(); // Refresh the current pokemon view
-                    updateCurrentDisplayPokemon(p1.GetPokemons().Find(x => x.Id == currentDisplayPokemon.Id));
+                    selectPokemon(p1.GetPokemons().Find(x => x.Id == currentDisplayPokemon.Id));
                     MessageBox.Show("The pokemon evolve successfully!");
                 }
                 else
@@ -92,7 +92,7 @@ namespace PokemonGo
                 if(p1.Stardust >= powerUpRequestedStardust) { 
                     p1.AddStardust(-powerUpRequestedStardust);
                     p1.GetPokemons().Find(x => x.Id == currentDisplayPokemon.Id).PowerUP();
-                    updateCurrentDisplayPokemon(p1.GetPokemons().Find(x => x.Id == currentDisplayPokemon.Id));
+                    selectPokemon(p1.GetPokemons().Find(x => x.Id == currentDisplayPokemon.Id));
                     MessageBox.Show("Power uped!");
                 }
                 else
@@ -120,7 +120,7 @@ namespace PokemonGo
                 if (p1.GetPokemons().Count > 0)
                 {
                     MessageBox.Show("Sold out successfully!");
-                    updateCurrentDisplayPokemon(p1.GetPokemons().First());
+                    selectPokemon(p1.GetPokemons().First());
                 }
                 else
                 {
