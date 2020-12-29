@@ -191,13 +191,13 @@ namespace PokemonGo
         {
             get { return moveslist; }
         }
-        private float weight;
-        public float Weight
+        private double weight;
+        public double Weight
         {
             get { return weight; }
         }
-        private float height;
-        public float Height
+        private double height;
+        public double Height
         {
             get { return height; }
         }
@@ -262,15 +262,15 @@ namespace PokemonGo
             evolvestate++;
             name = name + "+";
             typeName = typeName + "e";
-            weight += rand.Next(1, 10);
-            height += rand.Next(1, 10) / 10;
+            weight += rand.Next(1, 20);
+            height += rand.Next(5, 50) / (double) 10;
             foreach (AttackMoves x in moveslist)
             {
-                x.attackPoints += rand.Next(5, 20);
+                x.attackPoints += rand.Next(5, 25);
             }
-            CP += rand.Next(60, 200);
+            CP += rand.Next(100, 350);
             if (CP > 2500) CP = 2500;
-            maxHP += rand.Next(40, 100);
+            maxHP += rand.Next(30, 90);
             if (maxHP > 300) maxHP = 300;
             HP = maxHP;
             return 0;
@@ -282,7 +282,7 @@ namespace PokemonGo
             if (CP > 2500) CP = 2500;
             foreach (AttackMoves x in moveslist)
             {
-                x.attackPoints += rand.Next(0, 2);
+                x.attackPoints += rand.Next(0, 4);
             }
             return 0;
         }
