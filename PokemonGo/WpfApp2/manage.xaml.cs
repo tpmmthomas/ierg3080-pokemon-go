@@ -30,6 +30,7 @@ namespace PokemonGo
             this.p1 = p1;
             PlayerPokemonAmount.Text = p1.PokemonCount().ToString();
             stardustAmount.Text = p1.Stardust.ToString();
+            welcomeText.Text = "Welcome, "+p1.Name+"!";
             if (p1.PokemonCount() > 0)
             {
                 PlayerPokemonList.ItemsSource = p1.GetPokemons();

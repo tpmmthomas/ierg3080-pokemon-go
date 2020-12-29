@@ -48,7 +48,7 @@ namespace PokemonGo {
         #line hidden
         
         
-        #line 11 "..\..\Welcome.xaml"
+        #line 14 "..\..\Welcome.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock exitbutton;
         
@@ -56,7 +56,7 @@ namespace PokemonGo {
         #line hidden
         
         
-        #line 12 "..\..\Welcome.xaml"
+        #line 15 "..\..\Welcome.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox yourname;
         
@@ -99,7 +99,7 @@ namespace PokemonGo {
             case 2:
             this.exitbutton = ((System.Windows.Controls.TextBlock)(target));
             
-            #line 11 "..\..\Welcome.xaml"
+            #line 14 "..\..\Welcome.xaml"
             this.exitbutton.MouseLeftButtonDown += new System.Windows.Input.MouseButtonEventHandler(this.exitbutton_MouseLeftButtonDown);
             
             #line default
@@ -108,7 +108,7 @@ namespace PokemonGo {
             case 3:
             this.yourname = ((System.Windows.Controls.TextBox)(target));
             
-            #line 12 "..\..\Welcome.xaml"
+            #line 15 "..\..\Welcome.xaml"
             this.yourname.KeyDown += new System.Windows.Input.KeyEventHandler(this.TextBox_KeyDown);
             
             #line default

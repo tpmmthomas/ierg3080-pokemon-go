@@ -117,5 +117,6 @@
         <TextBlock x:Name="powerUpCost" Foreground="#45686e" HorizontalAlignment="Center" Margin="340,241,417,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="43" Text="8888"/>
         <TextBlock x:Name="evolveCost" Foreground="#45686e" HorizontalAlignment="Center" Margin="340,298,368,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="94" Text="8888"/>
         <TextBlock x:Name="SellValue" Foreground="#45686e" HorizontalAlignment="Center" Margin="668,297,38,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="94" Text="8888"/>
+        <TextBlock x:Name="welcomeText" Foreground="white" HorizontalAlignment="Center" Margin="279,8,307,0" TextWrapping="Wrap" Text="WELCOME," VerticalAlignment="Top" Height="18" FontSize="16" Width="214"/>
     </Grid>
 </Page>
