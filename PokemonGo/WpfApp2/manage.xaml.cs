@@ -83,8 +83,8 @@ namespace PokemonGo
                     MessageBox.Show("The pokemon evolved successfully!");
                 }
             }
+            selectPokemon(selectedPokemon);
             this.NavigationService.Refresh();
-
         }
 
         private void ButtonClickPowerUp(object sender, RoutedEventArgs e)
