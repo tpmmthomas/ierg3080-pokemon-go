@@ -108,7 +108,21 @@ namespace PokemonGo
         }
         private void ButtonClickSell(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Sell Developing!");
+            if (currentDisplayPokemon != null)
+            {
+                p1.GetPokemons().RemoveAll(x => x.Id == currentDisplayPokemon.Id);
+                p1.AddStardust(sellObtainStardust);
+                if (p1.GetPokemons().Count > 0)
+                {
+                    MessageBox.Show("Sold out successfully!");
+                    selectPokemon(p1.GetPokemons().First());
+                }
+                else
+                {
+                    MessageBox.Show("All of your pokemons has been sold out! Let go to catach some :D");
+                    this.NavigationService.GoBack();
+                }
+            }
         }
         private void ButtonClickSelectPokemon(object sender, RoutedEventArgs e)
         {
