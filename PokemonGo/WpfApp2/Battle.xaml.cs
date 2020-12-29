@@ -79,9 +79,10 @@ namespace PokemonGo
             restBlock.Text = restcount + "s";
             if (restcount >= restTime)
             {
+                opImageAttack.Visibility = Visibility.Collapsed;
                 if (bossTrunFinish == true)
                 {
-                    opImageAttack.Visibility = Visibility.Collapsed;
+                    ppImageAttack.Visibility = Visibility.Collapsed;
                     skillButtonGroup.Visibility = Visibility.Visible;
                 }
                 else
