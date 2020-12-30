@@ -44,14 +44,97 @@ namespace PokemonGo
         private Pokemon generateRandomBoss()
         {
             int decider = rand.Next(0, 100);
-            PokemonType chosenPokemonType;
+            PokemonType chosenPokemonType = null;
+            int i = 0;
             if(p1.PokemonCount() > 20)
             {
-                if(decider < 95)
+                if(decider < 40)
                 {
-                    int decider2 = 
+                    int decider2 = rand.Next(0, Program.common.Count);
+                    foreach (PokemonType x in Program.common)
+                    {
+                        if (i == decider2)
+                        {
+                            chosenPokemonType = x;
+                            break;
+                        }
+                        i++;
+                    }
+
+                }
+                else if(decider < 97)
+                {
+                    int decider2 = rand.Next(0, Program.rare.Count);
+                    foreach (PokemonType x in Program.rare)
+                    {
+                        if (i == decider2)
+                        {
+                            chosenPokemonType = x;
+                            break;
+                        }
+                        i++;
+                    }
+                }
+                else
+                {
+                    int decider2 = rand.Next(0, Program.ultrarare.Count);
+                    foreach (PokemonType x in Program.ultrarare)
+                    {
+                        if (i == decider2)
+                        {
+                            chosenPokemonType = x;
+                            break;
+                        }
+                        i++;
+                    }
                 }
             }
+            else
+            {
+                if (decider < 40)
+                {
+                    int decider2 = rand.Next(0, Program.common.Count);
+                    foreach (PokemonType x in Program.common)
+                    {
+                        if (i == decider2)
+                        {
+                            chosenPokemonType = x;
+                            break;
+                        }
+                        i++;
+                    }
+
+                }
+                else
+                {
+                    int decider2 = rand.Next(0, Program.rare.Count);
+                    foreach (PokemonType x in Program.rare)
+                    {
+                        if (i == decider2)
+                        {
+                            chosenPokemonType = x;
+                            break;
+                        }
+                        i++;
+                    }
+                }
+            }
+            Pokemon Opponent = new Pokemon(9999, chosenPokemonType);
+            decider = rand.Next(0, 10); // what evolve state the pokemon is in?
+            if(decider >= 5)
+            {
+                Opponent.Evolve();
+            }
+            if(decider == 9)
+            {
+                Opponent.Evolve();
+            }
+            decider = rand.Next(0, 4); // How strong the pokemon is? (Powerup how many times?)
+            for(int j = 0; j < decider; j++)
+            {
+                Opponent.PowerUP();
+            }
+            return Opponent;
         }
         private void setBoss()
         {
