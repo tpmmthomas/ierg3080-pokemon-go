@@ -24,7 +24,7 @@
         <Image x:Name="ppImageAttack" Margin="47,0,490,107.6" gif:ImageBehavior.AnimatedSource="Images/battle/source.gif" Stretch="Fill" Height="233" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed"/>
 
         <TextBlock x:Name="restBlock" Foreground="#FFFFFF" HorizontalAlignment="Right" Margin="0,53,374,0" TextWrapping="Wrap" Text="5842" VerticalAlignment="Top" Height="23" Width="99" FontSize="16" FontWeight="Medium" TextAlignment="Right"/>
-        <TextBlock x:Name="StatusMessage" Foreground="#FFFFFF" HorizontalAlignment="Right" Margin="0,84,213,0" TextWrapping="Wrap" Text="5842" VerticalAlignment="Top" Height="23" Width="355" FontSize="16" FontWeight="Medium" TextAlignment="Center"/>
+        <TextBlock x:Name="StatusMessage" Foreground="#FFFFFF" HorizontalAlignment="Right" Margin="0,82,169,0" TextWrapping="Wrap" Text="5842" VerticalAlignment="Top" Height="23" Width="446" FontSize="16" FontWeight="Medium" TextAlignment="Center"/>
 
         <!--Gyms' pokemon-->
         <Image x:Name="opImage" Margin="533,0,117,191.6" gif:ImageBehavior.AnimatedSource="Images/egg.gif" Stretch="None" VerticalAlignment="Bottom" Height="149" RenderTransformOrigin="0.5,0.5"/>
@@ -59,9 +59,9 @@
                     <TextBlock x:Name="timerBlock2" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="Capacity of skill 2" VerticalAlignment="Top" Margin="0,48,0,-23"/>
                 </Grid>
             </Button>
-            <Image x:Name="criticalText" Source ="Images/battle/criticalText.png" Visibility="Hidden" HorizontalAlignment="Left" Height="235" VerticalAlignment="Top" Width="367" Margin="212,154,0,0"/>
+            
         </Grid>
-
+        <Image x:Name="criticalText" Source ="Images/battle/criticalText.png" Visibility="Hidden" HorizontalAlignment="Left" Height="235" VerticalAlignment="Top" Width="367" Margin="212,154,0,0"/>
         <!--Image button to change battle pokemon-->
         <Button BorderThickness="0" Background="{x:Null}" Width="55" Height="55" Margin="0,0,90,20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="SwitchPokemon">
             <StackPanel>
