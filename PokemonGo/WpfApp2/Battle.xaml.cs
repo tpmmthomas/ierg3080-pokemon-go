@@ -228,7 +228,6 @@ namespace PokemonGo
                 opHPAfterAttack.Width = 280 * (double) battleGym.GetOpponentPokemon.GetHP / battleGym.GetOpponentPokemon.MaxHP;
                 skillTextBlock.Text = battleGym.GetSkillTime[moveID] + " left";
                 skillButton.Opacity = (battleGym.GetSkillTime[moveID] > 0) ? 1 : 0.5;
-
                 bossTurnFinish = false;
             }
         }
@@ -242,8 +241,8 @@ namespace PokemonGo
             {
                 MessageBox.Show("Critical attack!");
             }
-            ppHP.Width = 280 * (double)battleGym.GetOpponentPokemon.GetHP / battleGym.GetOpponentPokemon.MaxHP;
-            ppHPAfterAttack.Width = 280 * (double)battleGym.GetOpponentPokemon.GetHP / battleGym.GetOpponentPokemon.MaxHP;
+            ppHP.Width = 280 * (double)battleGym.GetPlayerPokemon.GetHP / battleGym.GetPlayerPokemon.MaxHP;
+            ppHPAfterAttack.Width = 280 * (double)battleGym.GetPlayerPokemon.GetHP / battleGym.GetPlayerPokemon.MaxHP;
         }
         private void SwitchPokemon(object sender, RoutedEventArgs e)
         {

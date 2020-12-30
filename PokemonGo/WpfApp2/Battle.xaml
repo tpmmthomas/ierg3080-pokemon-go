@@ -59,7 +59,7 @@
                     <TextBlock x:Name="timerBlock2" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="Capacity of skill 2" VerticalAlignment="Top" Margin="0,48,0,-23"/>
                 </Grid>
             </Button>
-            <Image Source ="Images/battle/criticalText.png" Visibility="Hidden" HorizontalAlignment="Left" Height="235" VerticalAlignment="Top" Width="367" Margin="212,154,0,0"/>
+            <Image x:Name="criticalText" Source ="Images/battle/criticalText.png" Visibility="Hidden" HorizontalAlignment="Left" Height="235" VerticalAlignment="Top" Width="367" Margin="212,154,0,0"/>
         </Grid>
 
         <!--Image button to change battle pokemon-->

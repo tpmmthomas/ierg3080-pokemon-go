@@ -740,5 +740,8 @@
   <ItemGroup>
     <Resource Include="source.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\battle\criticalText.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
