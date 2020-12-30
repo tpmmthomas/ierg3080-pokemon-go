@@ -46,7 +46,7 @@ namespace PokemonGo
             win = _Win;
             lose = _Lose;
             skilltime = new int[3] { 20, 5, 1 }; // How many times can be used for each skill
-            opponentSkilltime = new int[3] { 20, 5, 1 }; // How many times can be used for each skill for opponentPokemon
+            opponentSkilltime = new int[3] { 40, 20, 10 }; // How many times can be used for each skill for opponentPokemon
             CurrentTurn = 1;
             if (PlayerPokemon.GetCP > 2000)
             {
@@ -101,6 +101,10 @@ namespace PokemonGo
             if (CurrentTurn != 2)
                 return false;
             int move = rand.Next(0, 3);
+            while(opponentSkilltime[move] == 0)
+            {
+                move = rand.Next(0, 3);
+            }
             moveChosen = OpponentPokemon.Moveslist[move].name;
             bool critical = rand.Next(0, 100) / (float)100 < OpponentCriticalRate ? true : false;
             opponentSkilltime[move]--;
