@@ -194,14 +194,14 @@ namespace PokemonGo
         private void SpawnPokeball()
         {
             balltimer.Tick += balltimer_Tick;
-            balltimer.Interval = TimeSpan.FromSeconds(10);
+            balltimer.Interval = TimeSpan.FromSeconds(12);
             balltimer.Start();
         }
         private void balltimer_Tick(object sender, EventArgs e)
         {
             if (Program.status == 1)
                 return;
-            if (PokeballLoc.Count <= 5)
+            if (PokeballLoc.Count <= 2)
             {
                 Image ball1 = new Image();
                 BitmapImage bitmap = new BitmapImage();
