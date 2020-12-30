@@ -236,7 +236,8 @@ namespace PokemonGo
             rand = new Random();
             name = x.Name;
             typeName = x.Name;
-            moveslist = x.AtkMovesList;
+            moveslist = new AttackMoves[3];
+            Array.Copy(moveslist, x.AtkMovesList,3);
             weight = rand.Next((int)(x.LowerWeight * 10), (int)(x.UpperWeight * 10 + 1)) / (float)10;
             height = rand.Next((int)(x.LowerHeight * 10), (int)(x.UpperHeight * 10 + 1)) / (float)10;
             CP = x.InitialCP;
