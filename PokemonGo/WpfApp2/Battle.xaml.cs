@@ -300,35 +300,6 @@ namespace PokemonGo
             ppHPAfterAttack.Fill = battleGym.GetPlayerPokemon.GetHPColor();
             restcount = 0;
         }
-        /*private void SwitchPokemon(object sender, RoutedEventArgs e)
-        {
-            GridChangePokemon.Visibility = Visibility.Visible;
-
-            // Animation of Switch Box
-            var sb = new Storyboard();
-            var ta = new ThicknessAnimation();
-            ta.BeginTime = new TimeSpan(0);
-            ta.SetValue(Storyboard.TargetNameProperty, "GridChangePokemon");
-            Storyboard.SetTargetProperty(ta, new PropertyPath(MarginProperty));
-            if (!switchingPokemon)
-            {
-                ta.From = new Thickness(0, 0, 0, -300);
-                ta.To = new Thickness(0, 0, 0, 100);
-            }
-            else
-            {
-                ta.From = new Thickness(0, 0, 0, 100);
-                ta.To = new Thickness(0, 0, 0, -300);
-            }
-            ta.Duration = new Duration(TimeSpan.FromSeconds(0.3));
-            switchingPokemon = !switchingPokemon;
-            sb.Children.Add(ta);
-            sb.Begin(this);
-        }*/
-        private void ConfirmSwitchPokemon(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Developing!");
-        }
         public void Win(Pokemon _PlayerPokemon, Pokemon _OpponentPokemon)
         {
             StatusMessage.Text = "You won!";
