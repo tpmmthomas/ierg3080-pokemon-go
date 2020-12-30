@@ -270,6 +270,12 @@ namespace PokemonGo
                 return new SolidColorBrush(Colors.Red);
             }
         }
+        public double GetCPPresentage(int maxRotateDegree = 180)
+        {
+            double precentage = 180 * ((double) CP / 3000);
+            precentage = (precentage > 180) ? 180 : precentage;
+            return precentage;
+        }
         public bool Hit(int atkhp)
         {
             if (HP - atkhp > 0)

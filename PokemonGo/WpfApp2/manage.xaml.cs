@@ -51,6 +51,7 @@ namespace PokemonGo
             atkdmg3.Text = selectedPokemon.Moveslist[2].attackPoints.ToString();
             SelectedPokemonHPCurrent.Width = selectedPokemon.GetHPPercentage((int) SelectedPokemonHPFull.Width);
             SelectedPokemonHPCurrent.Fill = selectedPokemon.GetHPColor();
+            SelectedPokemonCPPrecentage.Angle = selectedPokemon.GetCPPresentage();
             pokemonWeight.Text = selectedPokemon.Weight.ToString()+"kg";
             pokemonHeight.Text = selectedPokemon.Height.ToString()+"m";
             switch (selectedPokemon.EvolveState) {
@@ -155,7 +156,7 @@ namespace PokemonGo
         private void ButtonClickRename(object sender, RoutedEventArgs e)
         {
             RenamePrompt.Visibility = Visibility.Visible;
-            renamebox.Text = "";
+            renamebox.Text = selectedPokemon.Name;
         }
         private void ButtonClickSell(object sender, RoutedEventArgs e)
         {
