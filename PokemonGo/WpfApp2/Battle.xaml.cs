@@ -48,7 +48,11 @@ namespace PokemonGo
         {
             var button = (Button)sender;
             Pokemon selectedPkm = button.DataContext as Pokemon;
-
+            if(selectedPkm.GetHP == 0)
+            {
+                MessageBox.Show("Your Pokemon is Out of Health! Come again some time.");
+                this.NavigationService.GoBack();
+            }
             var sb = new Storyboard();
             var ta = new ThicknessAnimation();
             ta.BeginTime = new TimeSpan(0);
@@ -317,7 +321,9 @@ namespace PokemonGo
         }
         public void Win(Pokemon _PlayerPokemon, Pokemon _OpponentPokemon)
         {
-            MessageBox.Show("End Game! Obtained 1000 Stardust and opponent Pokemon as reward.");
+            StatusMessage.Text = "You won!";
+            opHPAfterAttack.Width = 0;
+            MessageBox.Show("You won! Obtained 1000 Stardust and opponent Pokemon as reward.");
             p1.AddStardust(1000);
             _OpponentPokemon.Heal();
             _OpponentPokemon.ResetId(p1.CurrentSerial);
@@ -327,7 +333,9 @@ namespace PokemonGo
         }
         public void Lose(Pokemon _PlayerPokemon, Pokemon _OpponentPokemon)
         {
-            MessageBox.Show("You lost the game, try to train your pokemon!");
+            ppHPAfterAttack.Width = 0;
+            StatusMessage.Text = "You Lost!";
+            MessageBox.Show("You lost the game, try to train your pokemon! (You can heal by power up your pokemon)");
             Program.status = 0;
             this.NavigationService.GoBack();
         }
