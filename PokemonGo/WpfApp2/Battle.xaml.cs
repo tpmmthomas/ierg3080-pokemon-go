@@ -81,7 +81,7 @@ namespace PokemonGo
             int decider = rand.Next(0, 100);
             PokemonType chosenPokemonType = null;
             int i = 0;
-            if(p1.PokemonCount() > 20)
+            if(p1.PokemonCount() > 1)//testing, remember to change back
             {
                 if(decider < 40)
                 {
@@ -332,23 +332,23 @@ namespace PokemonGo
         public void Win(Pokemon _PlayerPokemon, Pokemon _OpponentPokemon)
         {
             StatusMessage.Text = "You won!";
+            IsEnd = true;
             opHPAfterAttack.Width = 0;
             MessageBox.Show("You won! Obtained 1000 Stardust and opponent Pokemon as reward.");
             p1.AddStardust(1000);
             _OpponentPokemon.Heal();
             _OpponentPokemon.ResetId(p1.CurrentSerial);
             p1.AddPokemon(_OpponentPokemon);
-            IsEnd = true;
             Program.status = 0;
             this.NavigationService.GoBack();
         }
         public void Lose(Pokemon _PlayerPokemon, Pokemon _OpponentPokemon)
         {
             ppHPAfterAttack.Width = 0;
+            IsEnd = true;
             StatusMessage.Text = "You Lost!";
             MessageBox.Show("You lost the game, try to train your pokemon! (You can heal by power up your pokemon)");
             Program.status = 0;
-            IsEnd = true;
             this.NavigationService.GoBack();
         }
         private void RunAway(object sender, RoutedEventArgs e)
