@@ -81,7 +81,7 @@ namespace PokemonGo
             int decider = rand.Next(0, 100);
             PokemonType chosenPokemonType = null;
             int i = 0;
-            if(p1.PokemonCount() > 1)//testing, remember to change back
+            if(p1.PokemonCount() > 20)//testing, remember to change back
             {
                 if(decider < 40)
                 {
