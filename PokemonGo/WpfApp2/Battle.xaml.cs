@@ -18,7 +18,6 @@ namespace PokemonGo
         private BattleGym battleGym;
         private int restTime = 3;       // Time to rest after an attack has been made
         private bool switchingPokemon;
-        private bool bossTurnFinish;
         private int restcount;
         private Random rand;
         private DispatcherTimer restTimer = new DispatcherTimer();
@@ -28,11 +27,10 @@ namespace PokemonGo
             InitializeComponent();
             rand = new Random();
             switchingPokemon = false;
-            bossTurnFinish = false;
             p1 = p;
             List<Pokemon> playerPokemon = p1.GetPokemons();
             battleGym = new BattleGym(playerPokemon[0], generateRandomBoss(), Win, Lose);
-
+            StatusMessage.Text = "Your turn! Pick your move";
             setBoss();
             usePokemon();
 
@@ -168,21 +166,20 @@ namespace PokemonGo
             InitializeAttackButton(1, ppSkill1Name, ppSkill1, timerBlock1);
             InitializeAttackButton(2, ppSkill2Name, ppSkill2, timerBlock2);
         }
-        private void restTimer_Tick(object sender, EventArgs e) //I think we do not need to time the player moves
+        private void restTimer_Tick(object sender, EventArgs e) 
         {
             restcount++;
-            restBlock.Text = restcount + "s";
             if (restcount >= restTime)
             {
                 opImageAttack.Visibility = Visibility.Collapsed;
-                if (bossTurnFinish == true)
+                if (battleGym.GetCurrentTurn == 1)
                 {
+                    StatusMessage.Text = "Your turn! Pick your move";
                     ppImageAttack.Visibility = Visibility.Collapsed;
                     skillButtonGroup.Visibility = Visibility.Visible;
                 }
                 else
                 {
-                    bossTurnFinish = true;
                     ConfirmBossAttack();
                 }
             }
@@ -213,7 +210,7 @@ namespace PokemonGo
                 // My turn
                 skillButtonGroup.Visibility = Visibility.Collapsed;
                 opImageAttack.Visibility = Visibility.Visible;
-                restcount = 0;
+                
                 int prevHP = battleGym.GetOpponentPokemon.GetHP;
                 if (battleGym.PlayerMove(moveID))
                 {
@@ -231,7 +228,7 @@ namespace PokemonGo
                 opHPAfterAttack.Width = 280 * (double) battleGym.GetOpponentPokemon.GetHP / battleGym.GetOpponentPokemon.MaxHP;
                 skillTextBlock.Text = battleGym.GetSkillTime[moveID] + " left";
                 skillButton.Opacity = (battleGym.GetSkillTime[moveID] > 0) ? 1 : 0.5;
-                bossTurnFinish = false;
+                restcount = 0;
             }
         }
         private void ConfirmBossAttack()
@@ -239,7 +236,6 @@ namespace PokemonGo
             // Opponent turn
             skillButtonGroup.Visibility = Visibility.Collapsed;
             ppImageAttack.Visibility = Visibility.Visible;
-            restcount = 0;
             int prevHP = battleGym.GetPlayerPokemon.GetHP;
             string moveChosen = "";
             if (battleGym.OpponentMove(ref moveChosen))
@@ -256,6 +252,7 @@ namespace PokemonGo
             StatusMessage.Text = battleGym.GetOpponentPokemon.Name + " used " + moveChosen + "! Dealt " + (prevHP - afterHP).ToString() + " damage.";
             ppHP.Width = 280 * (double)battleGym.GetPlayerPokemon.GetHP / battleGym.GetPlayerPokemon.MaxHP;
             ppHPAfterAttack.Width = 280 * (double)battleGym.GetPlayerPokemon.GetHP / battleGym.GetPlayerPokemon.MaxHP;
+            restcount = 0;
         }
         private void SwitchPokemon(object sender, RoutedEventArgs e)
         {
