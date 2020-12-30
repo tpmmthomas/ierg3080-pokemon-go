@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PokemonGo
 {
-    public delegate void WinMethod(Pokemon _PlayerPokemon, Pokemon _OpponentPokemon);//if this is too difficult to do can delete, ask OpponentMOve and Playermove to return status instead.
+    public delegate void WinMethod(Pokemon _PlayerPokemon, Pokemon _OpponentPokemon);
     public delegate void LoseMethod(Pokemon _PlayerPokemon, Pokemon _OpponentPokemon);
 
     class BattleGym
