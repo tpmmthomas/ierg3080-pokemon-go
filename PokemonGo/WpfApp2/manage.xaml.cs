@@ -171,7 +171,7 @@ namespace PokemonGo
                 }
                 else
                 {
-                    MessageBox.Show("All of your pokemons has been sold out! Let go to catach some :D");
+                    MessageBox.Show("All of your pokemons have been sold out! Let's go catch some :D");
                     Program.status = 0;
                     NavigationService.GoBack();
                 }
