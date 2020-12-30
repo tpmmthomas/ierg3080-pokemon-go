@@ -17,7 +17,7 @@ namespace PokemonGo
         private Player p1;
         private BattleGym battleGym;
         private int restTime = 3;       // Time to rest after an attack has been made
-        private bool switchingPokemon;
+        //private bool switchingPokemon;
         private int restcount;
         private Random rand;
         private DispatcherTimer restTimer = new DispatcherTimer();
@@ -26,10 +26,41 @@ namespace PokemonGo
         {
             InitializeComponent();
             rand = new Random();
-            switchingPokemon = false;
             p1 = p;
             List<Pokemon> playerPokemon = p1.GetPokemons();
-            battleGym = new BattleGym(playerPokemon[0], generateRandomBoss(), Win, Lose);
+            PlayerPokemonList.ItemsSource = p1.GetPokemons();
+            GridChangePokemon.Visibility = Visibility.Visible;
+
+            // Animation of Switch Box
+            var sb = new Storyboard();
+            var ta = new ThicknessAnimation();
+            ta.BeginTime = new TimeSpan(0);
+            ta.SetValue(Storyboard.TargetNameProperty, "GridChangePokemon");
+            Storyboard.SetTargetProperty(ta, new PropertyPath(MarginProperty));
+            ta.From = new Thickness(0, 0, 0, -300);
+            ta.To = new Thickness(0, 0, 0, 100);
+            ta.Duration = new Duration(TimeSpan.FromSeconds(0.3));
+            sb.Children.Add(ta);
+            sb.Begin(this);
+            bgPic.Opacity = 0.5;
+        }
+        private void ButtonClickSelectPokemon(object sender, RoutedEventArgs e)
+        {
+            var button = (Button)sender;
+            Pokemon selectedPkm = button.DataContext as Pokemon;
+
+            var sb = new Storyboard();
+            var ta = new ThicknessAnimation();
+            ta.BeginTime = new TimeSpan(0);
+            ta.SetValue(Storyboard.TargetNameProperty, "GridChangePokemon");
+            Storyboard.SetTargetProperty(ta, new PropertyPath(MarginProperty));
+            ta.From = new Thickness(0, 0, 0, 100);
+            ta.To = new Thickness(0, 0, 0, -300);
+            ta.Duration = new Duration(TimeSpan.FromSeconds(0.3));
+            sb.Children.Add(ta);
+            sb.Begin(this);
+
+            battleGym = new BattleGym(p1.GetPokemons().Find(x => x.Id == selectedPkm.Id), generateRandomBoss(), Win, Lose);
             StatusMessage.Text = "Your turn! Pick your move";
             setBoss();
             usePokemon();
@@ -38,6 +69,7 @@ namespace PokemonGo
             restTimer.Tick += restTimer_Tick;
             restTimer.Interval = TimeSpan.FromSeconds(1);
             restTimer.Start();
+            bgPic.Opacity = 1;
         }
         private Pokemon generateRandomBoss()
         {
@@ -254,7 +286,7 @@ namespace PokemonGo
             ppHPAfterAttack.Width = 280 * (double)battleGym.GetPlayerPokemon.GetHP / battleGym.GetPlayerPokemon.MaxHP;
             restcount = 0;
         }
-        private void SwitchPokemon(object sender, RoutedEventArgs e)
+        /*private void SwitchPokemon(object sender, RoutedEventArgs e)
         {
             GridChangePokemon.Visibility = Visibility.Visible;
 
@@ -267,18 +299,18 @@ namespace PokemonGo
             if (!switchingPokemon)
             {
                 ta.From = new Thickness(0, 0, 0, -300);
-                ta.To = new Thickness(0, 0, 0, -10);
+                ta.To = new Thickness(0, 0, 0, 100);
             }
             else
             {
-                ta.From = new Thickness(0, 0, 0, -10);
+                ta.From = new Thickness(0, 0, 0, 100);
                 ta.To = new Thickness(0, 0, 0, -300);
             }
             ta.Duration = new Duration(TimeSpan.FromSeconds(0.3));
             switchingPokemon = !switchingPokemon;
             sb.Children.Add(ta);
             sb.Begin(this);
-        }
+        }*/
         private void ConfirmSwitchPokemon(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Developing!");
