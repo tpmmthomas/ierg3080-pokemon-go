@@ -282,7 +282,6 @@ namespace PokemonGo
                 if (WalkableLocation.Any(item => item.left == (Canvas.GetLeft(player1) + 16) && item.top == Canvas.GetTop(player1)))
                     Canvas.SetLeft(player1, Canvas.GetLeft(player1) + 16);
             }
-            debugxy.Text = Canvas.GetLeft(player1) + "," + Canvas.GetTop(player1);
         }
         private void Window_Closed(object sender, EventArgs e)
         {
