@@ -49,7 +49,8 @@ namespace PokemonGo
             atkdmg2.Text = selectedPokemon.Moveslist[1].attackPoints.ToString();
             atkmv3.Text = selectedPokemon.Moveslist[2].name;
             atkdmg3.Text = selectedPokemon.Moveslist[2].attackPoints.ToString();
-            SelectedPokemonHPCurrent.Width = SelectedPokemonHPFull.Width * (selectedPokemon.GetHP / (double)selectedPokemon.MaxHP);
+            SelectedPokemonHPCurrent.Width = selectedPokemon.GetHPPercentage((int) SelectedPokemonHPFull.Width);
+            SelectedPokemonHPCurrent.Fill = selectedPokemon.GetHPColor();
             pokemonWeight.Text = selectedPokemon.Weight.ToString()+"kg";
             pokemonHeight.Text = selectedPokemon.Height.ToString()+"m";
             switch (selectedPokemon.EvolveState) {
