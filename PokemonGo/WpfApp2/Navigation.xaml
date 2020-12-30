@@ -13,5 +13,21 @@
         <Image x:Name="player1" Source="Images/navigation/playericon.png" HorizontalAlignment="Left" Canvas.Left="229" Canvas.Top="335" Height="61" VerticalAlignment="Top" Width="72"/>
         <Image x:Name="gym" Source="Images/navigation/gymtext.png" HorizontalAlignment="Left" Canvas.Left="90" Canvas.Top="11" Height="54" VerticalAlignment="Top" Width="150"/>
         <Image x:Name="home" Source="Images/navigation/hometext.png" HorizontalAlignment="Left" Canvas.Left="317" Canvas.Top="216" Height="39" VerticalAlignment="Top" Width="68"/>
+        <Grid x:Name="Dialog" VerticalAlignment="Bottom" HorizontalAlignment="Center" Visibility="Collapsed" Width="600" Canvas.Left="105" Canvas.Top="287">
+            <Rectangle RadiusY="10" RadiusX="10">
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1.5">
+                        <GradientStop Color="White" Offset="0" />
+                        <GradientStop Color="#e8f0e1" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <TextBlock x:Name="DialogText" Foreground="#45686e" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,20,20,70" TextWrapping="Wrap" Text="Let's Go." FontSize="14"/>
+            <Button x:Name="Confirm" BorderThickness="0" Background="{x:Null}" Margin="20,55,20,20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="CloseDialog">
+                <StackPanel>
+                    <Image Source="Images/button/ok.png" Width="120" Height="32"/>
+                </StackPanel>
+            </Button>
+        </Grid>
     </Canvas>
 </Page>

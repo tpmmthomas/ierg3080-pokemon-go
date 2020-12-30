@@ -85,7 +85,7 @@ namespace PokemonGo
                 }
                 else
                 {
-                    MessageBox.Show("You don't have any pokemon!");
+                    SetDialog("Opps, You don't have any pokemon. Try to catch some pokemon before going to GYM battle!");
                 }
             }
            
@@ -274,6 +274,17 @@ namespace PokemonGo
                pokemonStat = y;
             }
 
+        }
+        public void SetDialog(String content)
+        {
+            Program.status = 1;
+            DialogText.Text = content;
+            Dialog.Visibility = Visibility.Visible;
+        }
+        private void CloseDialog(object sender, RoutedEventArgs e)
+        {
+            Program.status = 0;
+            Dialog.Visibility = Visibility.Collapsed;
         }
     }
 }
