@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace PokemonGo
 {
@@ -221,9 +222,13 @@ namespace PokemonGo
         {
             get { return HP; }
         }
-        public String GetImageLocation
+        public String GetFrontImage
         {
-            get { return "Images/pokemon/"+typeName+".gif"; }
+            get { return "Images/pokemon/" + typeName + ".gif"; }
+        }
+        public String GetBackImage
+        {
+            get { return "Images/pokemon/back/" + typeName + ".gif"; }
         }
         public Pokemon(int pId, PokemonType x)
         {
@@ -239,7 +244,32 @@ namespace PokemonGo
             evolvestate = 1;
             HP = maxHP;
         }
-
+        public double GetHPPercentage(int HPBarWidth = 100, int customizeHP = -1)
+        {
+            if(customizeHP == -1)
+            {
+                return HPBarWidth * (double) HP / maxHP;
+            }
+            else
+            {
+                return HPBarWidth * (double) customizeHP / maxHP;
+            }
+        }
+        public SolidColorBrush GetHPColor()
+        {
+            if(GetHPPercentage() > 0.6)
+            {
+                return new SolidColorBrush(Colors.LightGreen);
+            }
+            else if(GetHPPercentage() > 0.3)
+            {
+                return new SolidColorBrush(Colors.Yellow);
+            }
+            else
+            {
+                return new SolidColorBrush(Colors.Red);
+            }
+        }
         public bool Hit(int atkhp)
         {
             if (HP - atkhp > 0)
@@ -253,12 +283,10 @@ namespace PokemonGo
                 return true;
             }
         }
-
         public void Heal()
         {
             HP = maxHP;
         }
-
         public int Evolve()
         {
             if (evolvestate == 3)
@@ -279,7 +307,6 @@ namespace PokemonGo
             HP = maxHP;
             return 0;
         }
-
         public int PowerUP()
         {
             CP += rand.Next(30, 100);
@@ -291,7 +318,6 @@ namespace PokemonGo
             Heal();
             return 0;
         }
-
         public void Rename(string x)
         {
             if (evolvestate >= 2)
@@ -300,7 +326,6 @@ namespace PokemonGo
                 x = x + '+';
             name = x;
         }
-        
         public void ResetId(int x)
         {
             id = x;
