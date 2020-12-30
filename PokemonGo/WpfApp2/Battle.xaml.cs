@@ -277,8 +277,8 @@ namespace PokemonGo
         {
             MessageBox.Show("End Game! Obtained 1000 Stardust and opponent Pokemon as reward.");
             p1.AddStardust(1000);
-            battleGym.GetOpponentPokemon.Heal();
-            p1.AddPokemon(battleGym.GetOpponentPokemon);
+            _OpponentPokemon.Heal();
+            p1.AddPokemon(_OpponentPokemon);
             Program.status = 0;
             this.NavigationService.GoBack();
         }
