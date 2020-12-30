@@ -299,6 +299,8 @@ namespace PokemonGo
             foreach (AttackMoves x in moveslist)
             {
                 x.attackPoints += rand.Next(5, 25);
+                if (x.attackPoints > 200)
+                    x.attackPoints = 200;
             }
             CP += rand.Next(100, 350);
             if (CP > 2500) CP = 2500;
@@ -314,6 +316,8 @@ namespace PokemonGo
             foreach (AttackMoves x in moveslist)
             {
                 x.attackPoints += rand.Next(0, 4);
+                if (x.attackPoints > 200)
+                    x.attackPoints = 200;
             }
             maxHP += rand.Next(1,10);
             if (maxHP > 300) maxHP = 300;
