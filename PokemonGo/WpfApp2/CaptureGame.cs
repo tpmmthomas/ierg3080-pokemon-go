@@ -42,15 +42,15 @@ namespace PokemonGo
         public int checkresult(int finalwidth)
         {
             if (Math.Abs(finalwidth - targetWidth)<25)
-            { //90% common, 70% rare
+            { 
                 result = 1;
             }
             else if (Math.Abs(finalwidth - targetWidth) < 65)
-            { //50% common, 30% rare
+            { 
                 result = 2;
             }
             else
-            { //30% common, 10% rare, if cannot catch, probability 
+            { 
                 result = 3;
             }
             return result;

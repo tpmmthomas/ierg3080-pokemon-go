@@ -176,7 +176,7 @@ namespace PokemonGo
         private int id; //sort of a "primary key", cos one player may have more than one pokemon of the same name.
         public int Id
         {
-            get { return id; }
+            get { return id; } 
         }
         private string name;
         public string Name
@@ -300,6 +300,10 @@ namespace PokemonGo
                 x = x + '+';
             name = x;
         }
-
+        
+        public void ResetId(int x)
+        {
+            id = x;
+        }
     }
 }

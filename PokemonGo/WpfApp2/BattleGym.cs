@@ -75,7 +75,9 @@ namespace PokemonGo
         }
         public bool PlayerMove(int move)
         { //pass in index of next attack move
-            bool critical = rand.Next(0, 100) / (float)100 < PlayerCriticalRate ? true : false;
+            if (CurrentTurn != 1)
+                return false;
+            bool critical = rand.Next(0, 100) / (double)100 < PlayerCriticalRate ? true : false;
             skilltime[move]--;
             if (critical)
             {
@@ -90,12 +92,16 @@ namespace PokemonGo
                     win(PlayerPokemon, OpponentPokemon);
                 }
             }
+            CurrentTurn = 2;
             return critical;
         }
 
-        public bool OpponentMove()
+        public bool OpponentMove(ref string moveChosen)
         {
+            if (CurrentTurn != 2)
+                return false;
             int move = rand.Next(0, 3);
+            moveChosen = OpponentPokemon.Moveslist[move].name;
             bool critical = rand.Next(0, 100) / (float)100 < OpponentCriticalRate ? true : false;
             opponentSkilltime[move]--;
             if (critical)
@@ -111,6 +117,7 @@ namespace PokemonGo
                     lose(PlayerPokemon, OpponentPokemon);
                 }
             }
+            CurrentTurn = 1;
             return critical;
         }
     }

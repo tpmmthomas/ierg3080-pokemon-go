@@ -168,7 +168,7 @@ namespace PokemonGo
             InitializeAttackButton(1, ppSkill1Name, ppSkill1, timerBlock1);
             InitializeAttackButton(2, ppSkill2Name, ppSkill2, timerBlock2);
         }
-        private void restTimer_Tick(object sender, EventArgs e)
+        private void restTimer_Tick(object sender, EventArgs e) //I think we do not need to time the player moves
         {
             restcount++;
             restBlock.Text = restcount + "s";
@@ -214,6 +214,7 @@ namespace PokemonGo
                 skillButtonGroup.Visibility = Visibility.Collapsed;
                 opImageAttack.Visibility = Visibility.Visible;
                 restcount = 0;
+                int prevHP = battleGym.GetOpponentPokemon.GetHP;
                 if (battleGym.PlayerMove(moveID))
                 {
                     criticalText.Visibility = Visibility.Visible;
@@ -224,6 +225,8 @@ namespace PokemonGo
                         criticalText.Visibility = Visibility.Hidden;
                     };
                 }
+                int afterHP = battleGym.GetOpponentPokemon.GetHP;
+                StatusMessage.Text = battleGym.GetPlayerPokemon.Name + " used " + battleGym.GetPlayerPokemon.Moveslist[moveID].name + "! Dealt " + (prevHP-afterHP).ToString() + " damage.";
                 opHP.Width = 280 * (double) battleGym.GetOpponentPokemon.GetHP / battleGym.GetOpponentPokemon.MaxHP;
                 opHPAfterAttack.Width = 280 * (double) battleGym.GetOpponentPokemon.GetHP / battleGym.GetOpponentPokemon.MaxHP;
                 skillTextBlock.Text = battleGym.GetSkillTime[moveID] + " left";
@@ -233,14 +236,24 @@ namespace PokemonGo
         }
         private void ConfirmBossAttack()
         {
-            // My turn
+            // Opponent turn
             skillButtonGroup.Visibility = Visibility.Collapsed;
             ppImageAttack.Visibility = Visibility.Visible;
             restcount = 0;
-            if (battleGym.OpponentMove())
+            int prevHP = battleGym.GetPlayerPokemon.GetHP;
+            string moveChosen = "";
+            if (battleGym.OpponentMove(ref moveChosen))
             {
-                MessageBox.Show("Critical attack!");
+                criticalText.Visibility = Visibility.Visible;
+                var quicktimer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(1) };
+                quicktimer.Start();
+                quicktimer.Tick += (sender, args) => {
+                    quicktimer.Stop();
+                    criticalText.Visibility = Visibility.Hidden;
+                };
             }
+            int afterHP = battleGym.GetPlayerPokemon.GetHP;
+            StatusMessage.Text = battleGym.GetOpponentPokemon.Name + " used " + moveChosen + "! Dealt " + (prevHP - afterHP).ToString() + " damage.";
             ppHP.Width = 280 * (double)battleGym.GetPlayerPokemon.GetHP / battleGym.GetPlayerPokemon.MaxHP;
             ppHPAfterAttack.Width = 280 * (double)battleGym.GetPlayerPokemon.GetHP / battleGym.GetPlayerPokemon.MaxHP;
         }
@@ -278,6 +291,7 @@ namespace PokemonGo
             MessageBox.Show("End Game! Obtained 1000 Stardust and opponent Pokemon as reward.");
             p1.AddStardust(1000);
             _OpponentPokemon.Heal();
+            _OpponentPokemon.ResetId(p1.CurrentSerial);
             p1.AddPokemon(_OpponentPokemon);
             Program.status = 0;
             this.NavigationService.GoBack();
