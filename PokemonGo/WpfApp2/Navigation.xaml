@@ -4,16 +4,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:gif="http://wpfanimatedgif.codeplex.com" 
-        mc:Ignorable="d"
-        Title="Navigation" Height="450" Width="800" FocusManager.FocusedElement="{Binding ElementName=NavigationCanvas}">
-    <Canvas Name="NavigationCanvas" KeyDown="Nav_KeyDown" Focusable="True">
+        mc:Ignorable="d" 
+        d:DesignHeight="560" d:DesignWidth="830"
+        Title="Navigation" FocusManager.FocusedElement="{Binding ElementName=NavigationCanvas}">
+    <Canvas Name="NavigationCanvas" KeyDown="Nav_KeyDown" Focusable="True" Height="528" Width="816">
         <Canvas.Background>
-            <ImageBrush ImageSource="Images/navigation/fake_map.png" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="Images/navigation/map1_background.png" Stretch="None"/>
         </Canvas.Background>
-        <Image x:Name="player1" Source="Images/navigation/playericon.png" HorizontalAlignment="Left" Canvas.Left="229" Canvas.Top="335" Height="61" VerticalAlignment="Top" Width="72"/>
-        <Image x:Name="gym" Source="Images/navigation/gymtext.png" HorizontalAlignment="Left" Canvas.Left="90" Canvas.Top="11" Height="54" VerticalAlignment="Top" Width="150"/>
-        <Image x:Name="home" Source="Images/navigation/hometext.png" HorizontalAlignment="Left" Canvas.Left="317" Canvas.Top="216" Height="39" VerticalAlignment="Top" Width="68"/>
-        <Grid x:Name="Dialog" VerticalAlignment="Bottom" HorizontalAlignment="Center" Visibility="Collapsed" Width="600" Canvas.Left="105" Canvas.Top="287">
+        <TextBlock x:Name="debugxy" Foreground="#FFFFFF" HorizontalAlignment="Right" VerticalAlignment="Top" Text="Debug" FontSize="14" Canvas.Left="522" Canvas.Top="10" Width="275"/>
+        <Image x:Name="player1" Source="Images/navigation/player_test_16_16.png" HorizontalAlignment="Left" Canvas.Left="256" Canvas.Top="411" Height="21" VerticalAlignment="Top" Width="16"/>
+        <Image Source="Images/navigation/map1_foreground.png" Stretch="None"/>
+        <Image x:Name="gym" Source="Images/navigation/gymtext.png" HorizontalAlignment="Left" Canvas.Left="95" Canvas.Top="35" Height="54" VerticalAlignment="Top" Width="150"/>
+        <Image x:Name="home" Source="Images/navigation/hometext.png" HorizontalAlignment="Left" Canvas.Left="327" Canvas.Top="248" Height="39" VerticalAlignment="Top" Width="68"/>
+        <Grid x:Name="Dialog" VerticalAlignment="Bottom" HorizontalAlignment="Center" Visibility="Collapsed" Width="600" Canvas.Left="105" Canvas.Top="355">
             <Rectangle RadiusY="10" RadiusX="10">
                 <Rectangle.Fill>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1.5">

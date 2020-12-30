@@ -57,3 +57,4 @@ C:\Users\good6\Documents\GitHub\project-part-ii-wong-wan-ki-wong-keng-lam\Pokemo
 C:\Users\good6\Documents\GitHub\project-part-ii-wong-wan-ki-wong-keng-lam\PokemonGo\WpfApp2\obj\Debug\PokemonGo.csproj.CoreCompileInputs.cache
 C:\Users\good6\Documents\GitHub\project-part-ii-wong-wan-ki-wong-keng-lam\PokemonGo\WpfApp2\obj\Debug\PokemonGo.csproj.CopyComplete
 C:\Users\good6\Documents\GitHub\project-part-ii-wong-wan-ki-wong-keng-lam\PokemonGo\WpfApp2\obj\Debug\PokemonGo.exe
+C:\Users\User\Desktop\koss\project-part-ii-wong-wan-ki-wong-keng-lam\PokemonGo\WpfApp2\obj\Debug\PokemonGo.csprojAssemblyReference.cache

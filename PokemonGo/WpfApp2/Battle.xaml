@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:gif="http://wpfanimatedgif.codeplex.com" 
         xmlns:controls="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
-        mc:Ignorable="d"
-        Title="Battle" Height="450" Width="800">
+        mc:Ignorable="d" 
+        d:DesignHeight="560" d:DesignWidth="830"
+        Title="Battle">
     <Grid>
         <Grid.Background>
             <ImageBrush x:Name="bgPic" Stretch="UniformToFill" ImageSource="Images/battle/background.png"/>

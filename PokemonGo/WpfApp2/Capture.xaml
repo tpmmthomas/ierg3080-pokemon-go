@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
         xmlns:local="clr-namespace:PokemonGo"
-        mc:Ignorable="d"
-        Title="Capture" Height="450" Width="800" FocusManager.FocusedElement="{Binding ElementName=MyCanvas}">
+        mc:Ignorable="d" 
+        d:DesignHeight="560" d:DesignWidth="830"
+        Title="Capture" FocusManager.FocusedElement="{Binding ElementName=MyCanvas}">
     <Canvas Name="MyCanvas" KeyDown="Canvas_KeyDown" Focusable="True" >
         <Canvas.Background>
             <ImageBrush ImageSource="Images/capture/background.png" Stretch="UniformToFill"/>
@@ -26,7 +27,7 @@
             Stroke="ForestGreen"
             StrokeThickness="6" Canvas.Left="368" Canvas.Top="181"
             />
-        <TextBlock x:Name="instruction" FontSize="28" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="720" Canvas.Left="39" Canvas.Top="316"><Run Text="Press enter when the gray circle matches the green circle!"/><LineBreak/><Run Text="(The closer you are, the higher chance of capturing)"/></TextBlock>
+        <TextBlock x:Name="instruction" FontSize="28" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="720" Canvas.Left="36" Canvas.Top="409"><Run Text="Press enter when the gray circle matches the green circle!"/><LineBreak/><Run Text="(The closer you are, the higher chance of capturing)"/></TextBlock>
         <Ellipse x:Name="moving"
             Width="471"
             Height="471"

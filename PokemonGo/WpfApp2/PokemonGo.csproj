@@ -728,9 +728,6 @@
     <Resource Include="Images\pokemon\back\Squirtleee.gif" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Stardust.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\background.jpg" />
     <Resource Include="Images\manage\Stardust.png" />
   </ItemGroup>
@@ -738,13 +735,20 @@
     <Resource Include="Images\button\empty.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="source.gif" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\battle\criticalText.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\button\ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\navigation\player_test_16_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\navigation\ball_16_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\navigation\map1_background.png" />
+    <Resource Include="Images\navigation\map1_foreground.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

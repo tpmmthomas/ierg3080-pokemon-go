@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -19,6 +21,7 @@ namespace PokemonGo
         private Random rand;
         private Dictionary<location, Image> PokeballLoc;
         private Dictionary<location, WildPokemon> PokemonLoc;
+        private List<location> WalkableLocation;
         DispatcherTimer balltimer = new DispatcherTimer();
         DispatcherTimer regulartimer = new DispatcherTimer();
         DispatcherTimer pokemontimer = new DispatcherTimer();
@@ -30,10 +33,31 @@ namespace PokemonGo
             rand = new Random();
             PokeballLoc = new Dictionary<location, Image>();
             PokemonLoc = new Dictionary<location, WildPokemon>();
+            WalkableLocation = new List<location>();
             Program.Init("pokemon.csv");
+            InitMap("map1.txt");
             SpawnPokeball();
             SpawnPokemon();
             RegularTimer();
+        }
+        private void InitMap(string file)
+        {
+            using (var reader = new StreamReader(file))
+            {
+                var firstline = reader.ReadLine();
+                while (!reader.EndOfStream)
+                {
+                    var line = reader.ReadLine();
+                    string[] tempWords = line.Split(',');
+                    string[] leftRange = tempWords[0].Split('-');
+                    if (leftRange.Count() > 1) {
+                        for (int leftRangeFrom = short.Parse(leftRange[0]); leftRangeFrom <= short.Parse(leftRange[1]); leftRangeFrom++)
+                            WalkableLocation.Add(new location(leftRangeFrom * 16, (short.Parse(tempWords[1]) * 16) - 5));
+                    } else {
+                        WalkableLocation.Add(new location(short.Parse(tempWords[0]) * 16, (short.Parse(tempWords[1]) * 16) - 5));
+                    }
+                }
+            }
         }
         private void RegularTimer()
         {
@@ -45,7 +69,7 @@ namespace PokemonGo
         {
             foreach (var ballLoc in PokeballLoc)
             {
-                if (Math.Abs(Canvas.GetLeft(player1) - ballLoc.Key.left) < 30 && Math.Abs(Canvas.GetTop(player1) - ballLoc.Key.top) < 30)
+                if (Math.Abs(Canvas.GetLeft(player1) - ballLoc.Key.left) < 8 && Math.Abs(Canvas.GetTop(player1) - ballLoc.Key.top) < 8)
                 {
                     ballLoc.Value.Visibility = Visibility.Collapsed;
                     PokeballLoc.Remove(ballLoc.Key);
@@ -75,10 +99,10 @@ namespace PokemonGo
                     break;
                 }
             }
-            if (Math.Abs(Canvas.GetLeft(player1) - 140) < 20 && Math.Abs(Canvas.GetTop(player1) - 55) < 20 && Program.status == 0)
+            if (Canvas.GetLeft(player1) == 160 && Canvas.GetTop(player1) == 123 && Program.status == 0)
             {
-                Canvas.SetTop(player1, 335);
-                Canvas.SetLeft(player1, 229);
+                Canvas.SetLeft(player1, 160);
+                Canvas.SetTop(player1, 139);
                 if (p1.GetPokemons().Count > 0) {
 					Program.status = 1;
 					this.NavigationService.Navigate(new Battle(p1));
@@ -89,10 +113,10 @@ namespace PokemonGo
                 }
             }
            
-            if (Math.Abs(Canvas.GetLeft(player1) - 319) < 20 && Math.Abs(Canvas.GetTop(player1) - 225) < 20 && Program.status == 0)
+            if (Canvas.GetLeft(player1) == 352 && Canvas.GetTop(player1) == 315 && Program.status == 0)
             {
-                Canvas.SetTop(player1, 335);
-                Canvas.SetLeft(player1, 229);
+                Canvas.SetLeft(player1, 352);
+                Canvas.SetTop(player1, 331);
                 Program.status = 1;
                 this.NavigationService.Navigate(new Manage(p1));
             }
@@ -132,12 +156,16 @@ namespace PokemonGo
                 ImageBehavior.SetRepeatBehavior(pkm1,System.Windows.Media.Animation.RepeatBehavior.Forever);
                 NavigationCanvas.Children.Add(pkm1);
                 pkm1.Width = 32;
-                int top = rand.Next(0, 360);
-                int left = rand.Next(0, 740);
-                while((top>=0&&top<=45&&left>=80&&left<=190)||(top >= 185 && top <= 235 && left >= 290 && left <= 350)||exists(top,left))//exclude battle gym and home
+
+                int index = rand.Next(WalkableLocation.Count);
+                int top = (int)WalkableLocation[index].top;
+                int left = (int)WalkableLocation[index].left;
+
+                while ((top >= 0 && top <= 139 && left >= 80 && left <= 240) || (top >= 235 && top <= 304 && left >= 288 && left <= 400) || exists(top, left))//exclude battle gym and home
                 {
-                    top = rand.Next(0, 360);
-                    left = rand.Next(0, 740);
+                    index = rand.Next(WalkableLocation.Count);
+                    top = (int)WalkableLocation[index].top;
+                    left = (int)WalkableLocation[index].left;
                 }
                 Canvas.SetTop(pkm1, top);
                 Canvas.SetLeft(pkm1, left);
@@ -168,12 +196,16 @@ namespace PokemonGo
                 ImageBehavior.SetRepeatBehavior(pkm1, System.Windows.Media.Animation.RepeatBehavior.Forever);
                 NavigationCanvas.Children.Add(pkm1);
                 pkm1.Width = 32;
-                int top = rand.Next(0, 360);
-                int left = rand.Next(0, 740);
-                while ((top >= 0 && top <= 45 && left >= 80 && left <= 190) || (top >= 185 && top <= 235 && left >= 290 && left <= 350) || exists(top, left))//exclude battle gym and home
+
+                int index = rand.Next(WalkableLocation.Count);
+                int top = (int)WalkableLocation[index].top;
+                int left = (int)WalkableLocation[index].left;
+
+                while ((top >= 0 && top <= 139 && left >= 80 && left <= 240) || (top >= 235 && top <= 304 && left >= 288 && left <= 400) || exists(top, left))//exclude battle gym and home
                 {
-                    top = rand.Next(0, 360);
-                    left = rand.Next(0, 740);
+                    index = rand.Next(WalkableLocation.Count);
+                    top = (int)WalkableLocation[index].top;
+                    left = (int)WalkableLocation[index].left;
                 }
                 Canvas.SetTop(pkm1, top);
                 Canvas.SetLeft(pkm1, left);
@@ -206,48 +238,51 @@ namespace PokemonGo
                 Image ball1 = new Image();
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
-                bitmap.UriSource = new Uri("Images/pokeball.png", UriKind.Relative);
+                bitmap.UriSource = new Uri("Images/navigation/ball_16_16.png", UriKind.Relative);
                 bitmap.EndInit();
                 ball1.Source = bitmap;
                 NavigationCanvas.Children.Add(ball1);
-                ball1.Width = 28;
-                int top = rand.Next(0, 360);
-                int left = rand.Next(0, 740);
-                Canvas.SetTop(ball1, top);
-                Canvas.SetLeft(ball1, left);
-                PokeballLoc.Add(new location(left, top), ball1);
+                ball1.Width = 16;
+                int index = rand.Next(WalkableLocation.Count);
+                Canvas.SetTop(ball1, WalkableLocation[index].top + 5);
+                Canvas.SetLeft(ball1, WalkableLocation[index].left);
+                PokeballLoc.Add(new location(WalkableLocation[index].left, WalkableLocation[index].top + 5), ball1);
             }
-            
         }
 
         private void Nav_KeyDown(object sender, KeyEventArgs e)
         {
+            // Map size 816x528, each component size 16x16, player size 16x21
             e.Handled = true;
             if (e.Key == Key.Down)
             {
-                if (Canvas.GetTop(player1) >= 350)
+                if (Canvas.GetTop(player1) >= (528-16))
                     return;
-                 Canvas.SetTop(player1, Canvas.GetTop(player1) + 10);
+                if(WalkableLocation.Any(item => item.left == Canvas.GetLeft(player1) && item.top == (Canvas.GetTop(player1) + 16)))
+                    Canvas.SetTop(player1, Canvas.GetTop(player1) + 16);
             }
             else if (e.Key == Key.Up)
             {
-                if (Canvas.GetTop(player1) <= -5)
+                if (Canvas.GetTop(player1) <= 0)
                     return;
-                Canvas.SetTop(player1, Canvas.GetTop(player1) - 10);
+                if (WalkableLocation.Any(item => item.left == Canvas.GetLeft(player1) && item.top == (Canvas.GetTop(player1) - 16)))
+                    Canvas.SetTop(player1, Canvas.GetTop(player1) - 16);
             }
             else if (e.Key == Key.Left)
             {
-                if (Canvas.GetLeft(player1) <= -5)
+                if (Canvas.GetLeft(player1) <= 0)
                     return;
-                Canvas.SetLeft(player1, Canvas.GetLeft(player1) - 10);
+                if (WalkableLocation.Any(item => item.left == (Canvas.GetLeft(player1) - 16) && item.top == Canvas.GetTop(player1)))
+                    Canvas.SetLeft(player1, Canvas.GetLeft(player1) - 16);
             }
             else if (e.Key == Key.Right)
             {
-                if (Canvas.GetLeft(player1) >= 730)
+                if (Canvas.GetLeft(player1) >= (816-16))
                     return;
-                Canvas.SetLeft(player1, Canvas.GetLeft(player1) + 10);
+                if (WalkableLocation.Any(item => item.left == (Canvas.GetLeft(player1) + 16) && item.top == Canvas.GetTop(player1)))
+                    Canvas.SetLeft(player1, Canvas.GetLeft(player1) + 16);
             }
-
+            debugxy.Text = Canvas.GetLeft(player1) + "," + Canvas.GetTop(player1);
         }
         private void Window_Closed(object sender, EventArgs e)
         {
