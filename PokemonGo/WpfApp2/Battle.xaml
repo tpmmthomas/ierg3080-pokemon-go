@@ -14,23 +14,24 @@
 
         <!--my pokemon-->
         <Grid HorizontalAlignment="Left" Width="280" VerticalAlignment="Top" Margin="30,30,0,0">
-            <TextBlock x:Name="ppName" Foreground="#FFFFFF" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Vaporeon" VerticalAlignment="Top" Height="33" FontSize="20" FontWeight="Bold"/>
+            <TextBlock x:Name="ppName" Foreground="#FFFFFF" HorizontalAlignment="Left" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Height="33" FontSize="20" FontWeight="Bold"/>
             <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="0,54,0,0" TextWrapping="Wrap" Text="CP" VerticalAlignment="Top" Height="19" Width="21" FontSize="12" FontWeight="Light"/>
-            <TextBlock x:Name="ppCP" Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="20,50,0,0" TextWrapping="Wrap" Text="5842" VerticalAlignment="Top" Height="23" Width="99" FontSize="16" FontWeight="Medium"/>
+            <TextBlock x:Name="ppCP" Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="20,50,0,0" TextWrapping="Wrap" Text="8888" VerticalAlignment="Top" Height="23" Width="99" FontSize="16" FontWeight="Medium"/>
             <Rectangle x:Name="ppHPBackground" Fill="Black" HorizontalAlignment="Right" Height="9" Margin="0,35,0,0" VerticalAlignment="Top" Width="280" RadiusX="5" RadiusY="5" Opacity="0.5"/>
             <Rectangle x:Name="ppHP" Fill="Orange" HorizontalAlignment="Right" Height="9" Margin="0,35,0,0" VerticalAlignment="Top" Width="265" RadiusX="5" RadiusY="5"/>
             <Rectangle x:Name="ppHPAfterAttack" Fill="LightGreen" HorizontalAlignment="Right" Height="9" Margin="0,35,0,0" VerticalAlignment="Top" Width="250" RadiusX="5" RadiusY="5"/>
+            <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="686,53,-427,0" TextWrapping="Wrap" Text="CP" VerticalAlignment="Top" Height="19" Width="21" FontSize="12" FontWeight="Light"/>
         </Grid>
         <Image x:Name="ppImage" Margin="47,0,490,107.6" gif:ImageBehavior.AnimatedSource="Images/egg.gif" Stretch="None" Height="233" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5"/>
         <Image x:Name="ppImageAttack" Margin="47,0,490,107.6" gif:ImageBehavior.AnimatedSource="Images/battle/source.gif" Stretch="Fill" Height="233" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed"/>
-        <TextBlock x:Name="StatusMessage" Foreground="#FFFFFF" HorizontalAlignment="Right" Margin="0,82,169,0" TextWrapping="Wrap" Text="5842" VerticalAlignment="Top" Height="23" Width="446" FontSize="16" FontWeight="Medium" TextAlignment="Center"/>
+        <TextBlock x:Name="StatusMessage" Foreground="#FFFFFF" HorizontalAlignment="Right" Margin="0,82,169,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Height="23" Width="446" FontSize="16" FontWeight="Medium" TextAlignment="Center"/>
 
         <!--Gyms' pokemon-->
         <Image x:Name="opImage" Margin="533,0,117,191.6" gif:ImageBehavior.AnimatedSource="Images/egg.gif" Stretch="None" VerticalAlignment="Bottom" Height="149" RenderTransformOrigin="0.5,0.5"/>
         <Image x:Name="opImageAttack" Margin="533,0,117,191.6" gif:ImageBehavior.AnimatedSource="Images/battle/source.gif" Stretch="Fill" Height="233" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed"/>
         <Grid HorizontalAlignment="Right" Width="280" VerticalAlignment="Top" Margin="0,30,30,0">
-            <TextBlock x:Name="opName" Foreground="#FFFFFF" HorizontalAlignment="Right" TextWrapping="Wrap" Text="Vaporeon" VerticalAlignment="Top" Height="33" FontSize="20" FontWeight="Bold" TextAlignment="Right"/>
-            <TextBlock x:Name="opCP" Foreground="#FFFFFF" HorizontalAlignment="Right" Margin="0,50,0,0" TextWrapping="Wrap" Text="5842" VerticalAlignment="Top" Height="23" Width="99" FontSize="16" FontWeight="Medium" TextAlignment="Right"/>
+            <TextBlock x:Name="opName" Foreground="#FFFFFF" HorizontalAlignment="Right" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Height="33" FontSize="20" FontWeight="Bold" TextAlignment="Right"/>
+            <TextBlock x:Name="opCP" Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="181,50,0,0" TextWrapping="Wrap" Text="8888" VerticalAlignment="Top" Height="23" Width="99" FontSize="16" FontWeight="Medium" TextAlignment="Right"/>
             <Rectangle x:Name="opHPBackground" Fill="Black" HorizontalAlignment="Left" Height="9" Margin="0,35,0,0" VerticalAlignment="Top" Width="280" RadiusX="5" RadiusY="5" Opacity="0.5"/>
             <Rectangle x:Name="opHP" Fill="Orange" HorizontalAlignment="Left" Height="9" Margin="0,35,0,0" VerticalAlignment="Top" Width="63" RadiusX="5" RadiusY="5"/>
             <Rectangle x:Name="opHPAfterAttack" Fill="Red" HorizontalAlignment="Left" Height="9" Margin="0,35,0,0" VerticalAlignment="Top" Width="24" RadiusX="5" RadiusY="5"/>
@@ -58,15 +59,9 @@
                     <TextBlock x:Name="timerBlock2" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="Capacity of skill 2" VerticalAlignment="Top" Margin="0,48,0,-23"/>
                 </Grid>
             </Button>
-            
+
         </Grid>
-        
-        <!--Image button to change battle pokemon-->
-        <Button BorderThickness="0" Background="{x:Null}" Width="55" Height="55" Margin="0,0,90,20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="SwitchPokemon">
-            <StackPanel>
-                <Image Source="Images/button/change.png" Width="48" Height="48" />
-            </StackPanel>
-        </Button>
+
 
         <!--Image button to run away-->
         <Button BorderThickness="0" Background="{x:Null}" Width="55" Height="55" Margin="0,0,30,20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="RunAway">
@@ -77,7 +72,7 @@
 
         <!--Interface of change pokemon-->
         <Grid x:Name="GridChangePokemon" Margin="0,0,0,-300" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="260">
-            <Rectangle Fill="#7F000000" HorizontalAlignment="Left" Height="278" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="254"/>
+            <Rectangle Fill="#7F000000" HorizontalAlignment="Left" Height="376" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="254" Margin="0,0,0,-98"/>
             <ScrollViewer HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Left" VerticalAlignment="Top" Width="258">
                 <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Width="230">
                     <TextBlock Foreground="#FFFFFF" HorizontalAlignment="Center"  Margin="52,22,10,0" TextWrapping="Wrap" Text="Choose a pokemon for battle!" VerticalAlignment="Top" Height="18" FontSize="12" FontWeight="DemiBold"/>

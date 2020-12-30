@@ -37,7 +37,7 @@ namespace PokemonGo
             ta.BeginTime = new TimeSpan(0);
             ta.SetValue(Storyboard.TargetNameProperty, "GridChangePokemon");
             Storyboard.SetTargetProperty(ta, new PropertyPath(MarginProperty));
-            ta.From = new Thickness(0, 0, 0, -300);
+            ta.From = new Thickness(0, 0, 0, -1000);
             ta.To = new Thickness(0, 0, 0, 100);
             ta.Duration = new Duration(TimeSpan.FromSeconds(0.3));
             sb.Children.Add(ta);
@@ -55,11 +55,11 @@ namespace PokemonGo
             ta.SetValue(Storyboard.TargetNameProperty, "GridChangePokemon");
             Storyboard.SetTargetProperty(ta, new PropertyPath(MarginProperty));
             ta.From = new Thickness(0, 0, 0, 100);
-            ta.To = new Thickness(0, 0, 0, -300);
+            ta.To = new Thickness(0, 0, 0, -1000);
             ta.Duration = new Duration(TimeSpan.FromSeconds(0.3));
             sb.Children.Add(ta);
             sb.Begin(this);
-
+            GridChangePokemon.Visibility = Visibility.Hidden;
             battleGym = new BattleGym(p1.GetPokemons().Find(x => x.Id == selectedPkm.Id), generateRandomBoss(), Win, Lose);
             StatusMessage.Text = "Your turn! Pick your move";
             setBoss();
