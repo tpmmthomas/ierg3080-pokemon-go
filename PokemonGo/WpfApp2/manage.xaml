@@ -67,13 +67,13 @@
                 </Ellipse>
             </Canvas>
             <Rectangle Fill="#FFFFFF" HorizontalAlignment="Left" Height="222" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="500" Margin="0,22,0,0"/>
-            <TextBlock x:Name="SelectedPokemonName" Foreground="#45686e" HorizontalAlignment="Center" Margin="200,55,200,0" TextWrapping="Wrap" Text="### N/A ###" VerticalAlignment="Top" Height="27" FontSize="16"/>
+            <TextBlock x:Name="SelectedPokemonName" Foreground="#45686e" HorizontalAlignment="Center" Margin="0,55,0,0" TextWrapping="Wrap" Text="### N/A ###" VerticalAlignment="Top" Height="27" FontSize="16"/>
             <Grid HorizontalAlignment="Center" Margin="0,80,0,0" Height="14" VerticalAlignment="Top">
                 <Rectangle x:Name="SelectedPokemonHPFull" Fill="Black" HorizontalAlignment="Center" Height="9" Width="168" RadiusX="5" RadiusY="5" Opacity="0.5" Grid.Column="1"/>
                 <Rectangle x:Name="SelectedPokemonHPCurrent" Fill="LightGreen" HorizontalAlignment="Left" Height="9" Width="87" RadiusX="5" RadiusY="5" Grid.Column="1"/>
                 <TextBlock x:Name="pokemonHP" Foreground="#45686e" Text="HP 101/176" Margin="0,17,0,-18"/>
             </Grid>
-            <Button x:Name="ButtonEvolve" BorderThickness="0" Background="{x:Null}" Margin="24,88,24,0" VerticalAlignment="Top" HorizontalAlignment="Left" Click="ButtonClickEvolve" Opacity="0.5">
+            <Button x:Name="ButtonEvolve" BorderThickness="0" Background="{x:Null}" Margin="24,88,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Click="ButtonClickEvolve" Opacity="0.5">
                 <StackPanel>
                     <Image Source="Images/manage/evolve.png" Width="120" Height="32"/>
                 </StackPanel>
@@ -119,11 +119,28 @@
         <TextBlock x:Name="evolveCost" Foreground="#45686e" HorizontalAlignment="Center" Margin="340,298,368,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="94" Text="8888"/>
         <TextBlock x:Name="SellValue" Foreground="#45686e" HorizontalAlignment="Center" Margin="677,296,29,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="16" Width="94" Text="8888"/>
         <TextBlock x:Name="welcomeText" Foreground="white" HorizontalAlignment="Center" Margin="279,8,307,0" TextWrapping="Wrap" Text="WELCOME," VerticalAlignment="Top" Height="30" FontSize="16" Width="214"/>
-        <Grid x:Name="RenamePrompt" Margin="238,139,209,187" Visibility="Hidden">
-            <Rectangle Fill="#07f7c3" HorizontalAlignment="Left" Height="124" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="353"/>
-            <TextBlock x:Name="heightText_Copy" Foreground="#000000" HorizontalAlignment="Center" Margin="35,8,37,0" TextWrapping="Wrap" Text="Type in the name for your pokemon:" VerticalAlignment="Top" Height="26" FontSize="16" Width="281"/>
-            <TextBox x:Name="renamebox" HorizontalAlignment="Left" FontSize="20" Height="41" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="173" RenderTransformOrigin="0.8,2.391" Margin="22,49,0,0"/>
-            <Button Content="Confirm" Background="Aqua" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Margin="215,55,0,0" Height="32" Click="Button_Click"/>
+        <Grid x:Name="RenamePrompt" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Visible" Width="353">
+            <Rectangle RadiusY="10" RadiusX="10">
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1.5">
+                        <GradientStop Color="White" Offset="0" />
+                        <GradientStop Color="#e8f0e1" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <TextBlock x:Name="heightText_Copy" Foreground="#45686e" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="56,20,58,0" TextWrapping="Wrap" Text="Set Nickname" FontSize="14"/>
+            <TextBox x:Name="renamebox" HorizontalAlignment="Left" FontSize="20" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="173" Margin="20,60,0,28">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <Button x:Name="Confirm" BorderThickness="0" Background="{x:Null}" Margin="0,55,20,0" VerticalAlignment="Top" HorizontalAlignment="Right" Click="Button_Click">
+                <StackPanel>
+                    <Image Source="Images/button/ok.png" Width="120" Height="32"/>
+                </StackPanel>
+            </Button>
         </Grid>
     </Grid>
 </Page>

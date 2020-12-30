@@ -129,7 +129,7 @@ namespace PokemonGo
                 }
                 else
                 {
-                    MessageBox.Show("You need "+evolveRequestedStardust.ToString()+" Stardust to power up the pokemon!");
+                    MessageBox.Show("You need "+evolveRequestedStardust.ToString()+" Stardust to evolve the pokemon!");
                 }
             }
         }
