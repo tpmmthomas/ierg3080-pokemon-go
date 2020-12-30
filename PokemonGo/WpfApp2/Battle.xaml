@@ -34,7 +34,7 @@
             <TextBlock x:Name="opCP" Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="181,50,0,0" TextWrapping="Wrap" Text="8888" VerticalAlignment="Top" Height="23" Width="99" FontSize="16" FontWeight="Medium" TextAlignment="Right"/>
             <Rectangle x:Name="opHPBackground" Fill="Black" HorizontalAlignment="Left" Height="9" Margin="0,35,0,0" VerticalAlignment="Top" Width="280" RadiusX="5" RadiusY="5" Opacity="0.5"/>
             <Rectangle x:Name="opHP" Fill="Orange" HorizontalAlignment="Left" Height="9" Margin="0,35,0,0" VerticalAlignment="Top" Width="63" RadiusX="5" RadiusY="5"/>
-            <Rectangle x:Name="opHPAfterAttack" Fill="Red" HorizontalAlignment="Left" Height="9" Margin="0,35,0,0" VerticalAlignment="Top" Width="24" RadiusX="5" RadiusY="5"/>
+            <Rectangle x:Name="opHPAfterAttack" Fill="LightGreen" HorizontalAlignment="Left" Height="9" Margin="0,35,0,0" VerticalAlignment="Top" Width="24" RadiusX="5" RadiusY="5"/>
         </Grid>
 
         <Grid x:Name="skillButtonGroup" Visibility="Visible">
