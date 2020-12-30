@@ -210,12 +210,14 @@ namespace PokemonGo
                 opImageAttack.Visibility = Visibility.Collapsed;
                 if (battleGym.GetCurrentTurn == 1)
                 {
+                    ppHP.Width = battleGym.GetPlayerPokemon.GetHPPercentage(280); // Reset the Orange bar (previous HP bar) for player
                     StatusMessage.Text = "Your turn! Pick your move";
                     ppImageAttack.Visibility = Visibility.Collapsed;
                     skillButtonGroup.Visibility = Visibility.Visible;
                 }
                 else
                 {
+                    opHP.Width = battleGym.GetOpponentPokemon.GetHPPercentage(280); // Reset the Orange bar (previous HP bar) for opponenet
                     ConfirmBossAttack();
                 }
             }
@@ -260,8 +262,9 @@ namespace PokemonGo
                 }
                 int afterHP = battleGym.GetOpponentPokemon.GetHP;
                 StatusMessage.Text = battleGym.GetPlayerPokemon.Name + " used " + battleGym.GetPlayerPokemon.Moveslist[moveID].name + "! Dealt " + (prevHP-afterHP).ToString() + " damage.";
-                opHP.Width = 280 * (double) battleGym.GetOpponentPokemon.GetHP / battleGym.GetOpponentPokemon.MaxHP;
-                opHPAfterAttack.Width = 280 * (double) battleGym.GetOpponentPokemon.GetHP / battleGym.GetOpponentPokemon.MaxHP;
+                opHP.Width = battleGym.GetOpponentPokemon.GetHPPercentage(280, prevHP);
+                opHPAfterAttack.Width = battleGym.GetOpponentPokemon.GetHPPercentage(280);
+                opHPAfterAttack.Fill = battleGym.GetOpponentPokemon.GetHPColor();
                 skillTextBlock.Text = battleGym.GetSkillTime[moveID] + " left";
                 skillButton.Opacity = (battleGym.GetSkillTime[moveID] > 0) ? 1 : 0.5;
                 restcount = 0;
@@ -286,8 +289,9 @@ namespace PokemonGo
             }
             int afterHP = battleGym.GetPlayerPokemon.GetHP;
             StatusMessage.Text = battleGym.GetOpponentPokemon.Name + " used " + moveChosen + "! Dealt " + (prevHP - afterHP).ToString() + " damage.";
-            ppHP.Width = 280 * (double)battleGym.GetPlayerPokemon.GetHP / battleGym.GetPlayerPokemon.MaxHP;
-            ppHPAfterAttack.Width = 280 * (double)battleGym.GetPlayerPokemon.GetHP / battleGym.GetPlayerPokemon.MaxHP;
+            ppHP.Width = battleGym.GetPlayerPokemon.GetHPPercentage(280, prevHP);
+            ppHPAfterAttack.Width = battleGym.GetPlayerPokemon.GetHPPercentage(280, afterHP);
+            ppHPAfterAttack.Fill = battleGym.GetPlayerPokemon.GetHPColor();
             restcount = 0;
         }
         /*private void SwitchPokemon(object sender, RoutedEventArgs e)
