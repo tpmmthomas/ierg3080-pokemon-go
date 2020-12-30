@@ -62,13 +62,8 @@
 
         </Grid>
 
-
         <!--Image button to run away-->
-        <Button BorderThickness="0" Background="{x:Null}" Width="55" Height="55" Margin="0,0,30,20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="RunAway">
-            <StackPanel>
-                <Image Source="Images/button/run.png" Width="48" Height="48" />
-            </StackPanel>
-        </Button>
+        <Image MouseDown="RunAway" Source="Images/button/run.png" Width="48" Height="48" Margin="0,0,35,25" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
 
         <!--Interface of select pokemon-->
         <Grid x:Name="GridChangePokemon" Margin="0,0,0,-300" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="260">
@@ -110,6 +105,7 @@
                 </StackPanel>
             </ScrollViewer>
         </Grid>
-        <Image x:Name="criticalText" Source ="Images/battle/criticalText.png" Visibility="Hidden" HorizontalAlignment="Left" Height="235" VerticalAlignment="Top" Width="367" Margin="212,154,0,0"/>
+
+        <Image x:Name="criticalText" Source ="Images/battle/criticalText.png" Visibility="Collapsed" VerticalAlignment="Center" HorizontalAlignment="Center" Height="100"/>
     </Grid>
 </Page>

@@ -257,11 +257,11 @@ namespace PokemonGo
         }
         public SolidColorBrush GetHPColor()
         {
-            if(GetHPPercentage() > 0.6)
+            if(GetHPPercentage() > 60)
             {
                 return new SolidColorBrush(Colors.LightGreen);
             }
-            else if(GetHPPercentage() > 0.3)
+            else if(GetHPPercentage() > 20)
             {
                 return new SolidColorBrush(Colors.Yellow);
             }
