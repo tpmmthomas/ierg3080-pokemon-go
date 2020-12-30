@@ -19,9 +19,6 @@ namespace PokemonGo
         private Random rand;
         private Dictionary<location, Image> PokeballLoc;
         private Dictionary<location, WildPokemon> PokemonLoc;
-        HashSet<PokemonType> common;
-        HashSet<PokemonType> rare;
-        HashSet<PokemonType> ultrarare;
         DispatcherTimer balltimer = new DispatcherTimer();
         DispatcherTimer regulartimer = new DispatcherTimer();
         DispatcherTimer pokemontimer = new DispatcherTimer();
@@ -33,10 +30,7 @@ namespace PokemonGo
             rand = new Random();
             PokeballLoc = new Dictionary<location, Image>();
             PokemonLoc = new Dictionary<location, WildPokemon>();
-            common = new HashSet<PokemonType>();
-            rare = new HashSet<PokemonType>();
-            ultrarare = new HashSet<PokemonType>();
-            Program.Init("pokemon.csv", common, rare, ultrarare);
+            Program.Init("pokemon.csv");
             SpawnPokeball();
             SpawnPokemon();
             RegularTimer();
@@ -116,10 +110,10 @@ namespace PokemonGo
             int decideRarity = rand.Next(0, 100);
             if (decideRarity<97 && PokemonLoc.Count <= 5)
             {
-                int chosen = rand.Next(0, common.Count);
+                int chosen = rand.Next(0, Program.common.Count);
                 int i = 0;
                 PokemonType chosenPokemon = null;
-                foreach(PokemonType x in common)
+                foreach(PokemonType x in Program.common)
                 {
                     if (i == chosen)
                     {
@@ -152,10 +146,10 @@ namespace PokemonGo
             }
             else if(PokemonLoc.Count <= 5)
             {
-                int chosen = rand.Next(0, rare.Count);
+                int chosen = rand.Next(0, Program.rare.Count);
                 int i = 0;
                 PokemonType chosenPokemon = null;
-                foreach (PokemonType x in rare)
+                foreach (PokemonType x in Program.rare)
                 {
                     if (i == chosen)
                     {

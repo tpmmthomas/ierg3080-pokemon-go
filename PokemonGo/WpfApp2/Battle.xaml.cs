@@ -19,19 +19,19 @@ namespace PokemonGo
         private int restTime = 3;       // Time to rest after an attack has been made
         private bool switchingPokemon;
         private bool bossTrunFinish;
-
         private int restcount;
+        private Random rand;
         private DispatcherTimer restTimer = new DispatcherTimer();
 
         public Battle(Player p)
         {
             InitializeComponent();
-
+            rand = new Random();
             switchingPokemon = false;
             bossTrunFinish = false;
             p1 = p;
             List<Pokemon> playerPokemon = p1.GetPokemons();
-            battleGym = new BattleGym(playerPokemon[0], playerPokemon[1], Win, Lose); //generateOneRandomBoss(); --TODO
+            battleGym = new BattleGym(playerPokemon[0], generateRandomBoss(), Win, Lose);
 
             setBoss();
             usePokemon();
@@ -40,6 +40,18 @@ namespace PokemonGo
             restTimer.Tick += restTimer_Tick;
             restTimer.Interval = TimeSpan.FromSeconds(1);
             restTimer.Start();
+        }
+        private Pokemon generateRandomBoss()
+        {
+            int decider = rand.Next(0, 100);
+            PokemonType chosenPokemonType;
+            if(p1.PokemonCount() > 20)
+            {
+                if(decider < 95)
+                {
+                    int decider2 = 
+                }
+            }
         }
         private void setBoss()
         {
