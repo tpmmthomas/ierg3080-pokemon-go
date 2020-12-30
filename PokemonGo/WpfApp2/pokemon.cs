@@ -288,6 +288,7 @@ namespace PokemonGo
             {
                 x.attackPoints += rand.Next(0, 4);
             }
+            Heal();
             return 0;
         }
 

@@ -175,15 +175,16 @@ namespace PokemonGo
         }
         public void Win(Pokemon _PlayerPokemon, Pokemon _OpponentPokemon)
         {
-            MessageBox.Show("End Game! Obtained 1000 Stardust as reward.");
+            MessageBox.Show("End Game! Obtained 1000 Stardust and opponent Pokemon as reward.");
             p1.AddStardust(1000);
             battleGym.GetOpponentPokemon.Heal();
+            p1.AddPokemon(battleGym.GetOpponentPokemon);
             Program.status = 0;
             this.NavigationService.GoBack();
         }
         public void Lose(Pokemon _PlayerPokemon, Pokemon _OpponentPokemon)
         {
-            MessageBox.Show("You lose the game, try to train your pokemon.");
+            MessageBox.Show("You lost the game, try to train your pokemon!");
             Program.status = 0;
             this.NavigationService.GoBack();
         }
