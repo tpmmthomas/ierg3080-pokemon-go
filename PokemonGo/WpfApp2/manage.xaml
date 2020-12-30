@@ -96,9 +96,9 @@
                 <Image x:Name="SelectedPokemonImage" gif:ImageBehavior.AnimatedSource="Images/egg.gif" HorizontalAlignment="Center" VerticalAlignment="Bottom" Stretch="None" Width="140" Height="140"/>
             </Grid>
             <Image Source="Images/manage/Stardust.png" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="21" Margin="48,66,0,0"/>
-            <Image x:Name="evolvesd" Source="Stardust.png" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="22" Margin="48,123,0,0" RenderTransformOrigin="-0.143,1.25"/>
-            <Image x:Name="sellicon" Source="Stardust.png" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="22" Margin="385,123,0,0" RenderTransformOrigin="-0.143,1.25"/>
-            <Image x:Name="sellicon_Copy" Source="Stardust.png" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="22" Margin="481,-166,-3,0" RenderTransformOrigin="-0.143,1.25"/>
+            <Image x:Name="evolvesd" Source="Images/manage/Stardust.png" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="22" Margin="48,123,0,0" RenderTransformOrigin="-0.143,1.25"/>
+            <Image x:Name="sellicon" Source="Images/manage/Stardust.png" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="22" Margin="385,123,0,0" RenderTransformOrigin="-0.143,1.25"/>
+            <Image x:Name="sellicon_Copy" Source="Images/manage/Stardust.png" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="22" Margin="481,-166,-3,0" RenderTransformOrigin="-0.143,1.25"/>
         </Grid>
         <TextBlock x:Name="weightText" Foreground="#45686e" HorizontalAlignment="Center" Margin="297,368,389,0" TextWrapping="Wrap" Text="WEIGHT" VerticalAlignment="Top" Height="29" FontSize="16" Width="114"/>
         <TextBlock x:Name="heightText" Foreground="#45686e" HorizontalAlignment="Center" Margin="297,344,389,0" TextWrapping="Wrap" Text="HEIGHT" VerticalAlignment="Top" Height="26" FontSize="16" Width="114"/>
