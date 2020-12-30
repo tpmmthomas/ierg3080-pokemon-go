@@ -315,6 +315,8 @@ namespace PokemonGo
             {
                 x.attackPoints += rand.Next(0, 4);
             }
+            maxHP += rand.Next(1,10);
+            if (maxHP > 300) maxHP = 300;
             Heal();
             return 0;
         }

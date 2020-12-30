@@ -17,7 +17,7 @@ namespace PokemonGo
         private Player p1;
         private BattleGym battleGym;
         private int restTime = 3;       // Time to rest after an attack has been made
-        //private bool switchingPokemon;
+        private bool IsEnd;
         private int restcount;
         private Random rand;
         private DispatcherTimer restTimer = new DispatcherTimer();
@@ -27,6 +27,7 @@ namespace PokemonGo
             InitializeComponent();
             rand = new Random();
             p1 = p;
+            IsEnd = false;
             List<Pokemon> playerPokemon = p1.GetPokemons();
             PlayerPokemonList.ItemsSource = p1.GetPokemons();
             GridChangePokemon.Visibility = Visibility.Visible;
@@ -204,6 +205,11 @@ namespace PokemonGo
         }
         private void restTimer_Tick(object sender, EventArgs e) 
         {
+            if (IsEnd)
+            {
+                restTimer.Stop();
+                return;
+            }
             restcount++;
             if (restcount >= restTime)
             {
@@ -332,6 +338,7 @@ namespace PokemonGo
             _OpponentPokemon.Heal();
             _OpponentPokemon.ResetId(p1.CurrentSerial);
             p1.AddPokemon(_OpponentPokemon);
+            IsEnd = true;
             Program.status = 0;
             this.NavigationService.GoBack();
         }
@@ -341,6 +348,7 @@ namespace PokemonGo
             StatusMessage.Text = "You Lost!";
             MessageBox.Show("You lost the game, try to train your pokemon! (You can heal by power up your pokemon)");
             Program.status = 0;
+            IsEnd = true;
             this.NavigationService.GoBack();
         }
         private void RunAway(object sender, RoutedEventArgs e)
