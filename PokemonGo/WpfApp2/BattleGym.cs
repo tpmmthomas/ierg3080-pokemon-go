@@ -45,8 +45,8 @@ namespace PokemonGo
             OpponentPokemon = _OpponentPokemon;
             win = _Win;
             lose = _Lose;
-            skilltime = new int[3] { 20, 5, 1 }; // How many time can be use for coresponding skills
-            opponentSkilltime = new int[3] { 20, 5, 1 }; // How many time can be use for coresponding skills for opponentPokemon
+            skilltime = new int[3] { 20, 5, 1 }; // How many times can be used for each skill
+            opponentSkilltime = new int[3] { 20, 5, 1 }; // How many times can be used for each skill for opponentPokemon
             CurrentTurn = 1;
             if (PlayerPokemon.GetCP > 2000)
             {

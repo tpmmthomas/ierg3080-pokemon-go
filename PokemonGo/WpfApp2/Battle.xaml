@@ -70,7 +70,7 @@
             </StackPanel>
         </Button>
 
-        <!--Interface of change pokemon-->
+        <!--Interface of select pokemon-->
         <Grid x:Name="GridChangePokemon" Margin="0,0,0,-300" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="260">
             <Rectangle Fill="#7F000000" HorizontalAlignment="Left" Height="376" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="254" Margin="0,0,0,-98"/>
             <ScrollViewer HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Left" VerticalAlignment="Top" Width="258">
