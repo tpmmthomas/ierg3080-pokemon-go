@@ -9,19 +9,15 @@ using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using WpfAnimatedGif;
 
-
 namespace PokemonGo
 {
-    /// <summary>
-    /// Interaction logic for Navigation.xaml
-    /// </summary>
     public partial class Navigation : Page
     {
         private Player p1;
         private Random rand;
-        private Dictionary<location, Image> PokeballLoc;
-        private Dictionary<location, WildPokemon> PokemonLoc;
-        private List<location> WalkableLocation;
+        private Dictionary<Location, Image> PokeballLoc;
+        private Dictionary<Location, WildPokemon> PokemonLoc;
+        private List<Location> WalkableLocation;
         DispatcherTimer balltimer = new DispatcherTimer();
         DispatcherTimer regulartimer = new DispatcherTimer();
         DispatcherTimer pokemontimer = new DispatcherTimer();
@@ -31,9 +27,9 @@ namespace PokemonGo
             Program.status = 0;
             p1 = new Player(name);
             rand = new Random();
-            PokeballLoc = new Dictionary<location, Image>();
-            PokemonLoc = new Dictionary<location, WildPokemon>();
-            WalkableLocation = new List<location>();
+            PokeballLoc = new Dictionary<Location, Image>();
+            PokemonLoc = new Dictionary<Location, WildPokemon>();
+            WalkableLocation = new List<Location>();
             Program.Init("pokemon.csv");
             InitMap("map1.txt");
             SpawnPokeball();
@@ -52,9 +48,9 @@ namespace PokemonGo
                     string[] leftRange = tempWords[0].Split('-');
                     if (leftRange.Count() > 1) {
                         for (int leftRangeFrom = short.Parse(leftRange[0]); leftRangeFrom <= short.Parse(leftRange[1]); leftRangeFrom++)
-                            WalkableLocation.Add(new location(leftRangeFrom * 16, (short.Parse(tempWords[1]) * 16) - 5));
+                            WalkableLocation.Add(new Location(leftRangeFrom * 16, (short.Parse(tempWords[1]) * 16) - 5));
                     } else {
-                        WalkableLocation.Add(new location(short.Parse(tempWords[0]) * 16, (short.Parse(tempWords[1]) * 16) - 5));
+                        WalkableLocation.Add(new Location(short.Parse(tempWords[0]) * 16, (short.Parse(tempWords[1]) * 16) - 5));
                     }
                 }
             }
@@ -170,7 +166,7 @@ namespace PokemonGo
                 Canvas.SetTop(pkm1, top);
                 Canvas.SetLeft(pkm1, left);
                 pkm1.Visibility = Visibility.Hidden;
-                PokemonLoc.Add(new location(left, top), new WildPokemon(pkm1,chosenPokemon));
+                PokemonLoc.Add(new Location(left, top), new WildPokemon(pkm1,chosenPokemon));
             }
             else if(PokemonLoc.Count <= 5)
             {
@@ -210,7 +206,7 @@ namespace PokemonGo
                 Canvas.SetTop(pkm1, top);
                 Canvas.SetLeft(pkm1, left);
                 pkm1.Visibility = Visibility.Hidden;
-                PokemonLoc.Add(new location(left, top), new WildPokemon(pkm1, chosenPokemon));
+                PokemonLoc.Add(new Location(left, top), new WildPokemon(pkm1, chosenPokemon));
             }
 
         }
@@ -246,10 +242,9 @@ namespace PokemonGo
                 int index = rand.Next(WalkableLocation.Count);
                 Canvas.SetTop(ball1, WalkableLocation[index].top + 5);
                 Canvas.SetLeft(ball1, WalkableLocation[index].left);
-                PokeballLoc.Add(new location(WalkableLocation[index].left, WalkableLocation[index].top + 5), ball1);
+                PokeballLoc.Add(new Location(WalkableLocation[index].left, WalkableLocation[index].top + 5), ball1);
             }
         }
-
         private void Nav_KeyDown(object sender, KeyEventArgs e)
         {
             // Map size 816x528, each component size 16x16, player size 16x21
@@ -286,28 +281,6 @@ namespace PokemonGo
         private void Window_Closed(object sender, EventArgs e)
         {
             Application.Current.Shutdown();
-        }
-        private class location 
-        {
-            public double left;
-            public double top;
-            public location(double x, double y)
-            {
-                left = x;
-                top = y;
-            }
-        
-        }
-        private class WildPokemon
-        {
-            public Image pokemonImage;
-            public PokemonType pokemonStat;
-            public WildPokemon(Image x, PokemonType y)
-            {
-               pokemonImage = x;
-               pokemonStat = y;
-            }
-
         }
         public void SetDialog(String content)
         {

@@ -10,10 +10,6 @@ namespace PokemonGo
         {
             InitializeComponent();
         }
-        private void exitbutton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
         private void TextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Return)
