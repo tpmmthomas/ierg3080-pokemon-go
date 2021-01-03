@@ -52,6 +52,7 @@ namespace PokemonGo
             if(selectedPkm.GetHP == 0)
             {
                 MessageBox.Show("Your Pokemon is Out of Health! Come again some time.");
+                Program.status = 0;
                 this.NavigationService.GoBack();
             }
             var sb = new Storyboard();
@@ -269,7 +270,7 @@ namespace PokemonGo
                 int afterHP = battleGym.GetOpponentPokemon.GetHP;
                 StatusMessage.Text = battleGym.GetPlayerPokemon.Name + " used " + battleGym.GetPlayerPokemon.Moveslist[moveID].name + "! Dealt " + (prevHP-afterHP).ToString() + " damage.";
                 opHP.Width = battleGym.GetOpponentPokemon.GetHPPercentage(280, prevHP);
-                opHPAfterAttack.Width = battleGym.GetOpponentPokemon.GetHPPercentage(280);
+                opHPAfterAttack.Width = battleGym.GetOpponentPokemon.GetHPPercentage(280, afterHP);
                 opHPAfterAttack.Fill = battleGym.GetOpponentPokemon.GetHPColor();
                 skillTextBlock.Text = battleGym.GetSkillTime[moveID] + " left";
                 skillButton.Opacity = (battleGym.GetSkillTime[moveID] > 0) ? 1 : 0.5;
